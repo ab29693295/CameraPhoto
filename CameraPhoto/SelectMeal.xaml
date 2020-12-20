@@ -1,0 +1,62 @@
+﻿<Window x:Class="CameraPhoto.SelectMeal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CameraPhoto"
+        mc:Ignorable="d"
+        Title="SelectMeal" WindowStyle="None" WindowStartupLocation="CenterScreen"  AllowsTransparency="True" Height="600" Width="1200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140" ></RowDefinition>
+            <RowDefinition Height="380"></RowDefinition>
+            <RowDefinition Height="140"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" >
+            <Image Source="/CameraPhoto;component/Resources/LOGO.png" Margin="30,0,0,0"  VerticalAlignment="Center" Width="140" Height="100"></Image>
+            <Label Width="200"  Height="40" Content="请选择套餐" FontWeight="Bold" FontSize="23" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+        </StackPanel>
+
+        <StackPanel  Grid.Row="1" Margin="0,-50,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" >
+            <StackPanel Margin="250,0,0,0" x:Name="select_Panel1" Height="380" Width="280"  Orientation="Vertical">
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <Label Width="150"  Height="40" Content="标准套餐" FontWeight="Bold" FontSize="23" Foreground="#FFFFFF"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                    <Label Width="100"  Height="40" Content="19.9元" FontWeight="Bold" FontSize="23" Foreground="#FFD500"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                </StackPanel>
+                <Label Width="200"  Height="24" Content="1次拍照 + 2 条自拍照" FontWeight="Bold" FontSize="12" Foreground="#FFFFFF"  HorizontalContentAlignment="Left" VerticalContentAlignment="Center"></Label>
+                <Image Source="/CameraPhoto;component/Resources/firstMeal.png" Width="250" Height="240"  VerticalAlignment="Center" ></Image>
+                <Button Margin="0,10,0,0"  Content="选择此套餐" FontWeight="Bold" FontSize="20" Foreground="#FFFFFF" Width="180" Height="45">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/CameraPhoto;component/Resources/selectBtnback.png" Stretch="Fill"/>
+                        </Button.Background>
+                        <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="24"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+            <StackPanel Margin="150,0,0,0" x:Name="select_Panel2" Height="380" Width="280"  Orientation="Vertical">
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <Label Width="150"  Height="40" Content="标准套餐" FontWeight="Bold" FontSize="23" Foreground="#FFFFFF"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                    <Label Width="100"  Height="40" Content="39.9元" FontWeight="Bold" FontSize="23" Foreground="#FFD500"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                </StackPanel>
+                <Label Width="200"  Height="24" Content="2次拍照 + 4 条自拍照" FontWeight="Bold" FontSize="12" Foreground="#FFFFFF"  HorizontalContentAlignment="Left" VerticalContentAlignment="Center"></Label>
+                <Image Source="/CameraPhoto;component/Resources/secondMeal.png" Width="250" Height="240"  VerticalAlignment="Center" ></Image>
+                <Button Margin="0,10,0,0"  Content="选择此套餐" FontWeight="Bold" FontSize="20" Foreground="#FFFFFF" Width="180" Height="45">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/CameraPhoto;component/Resources/selectBtnback.png" Stretch="Fill"/>
+                    </Button.Background>
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="24"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+          
+        </StackPanel>
+        
+    </Grid>
+</Window>

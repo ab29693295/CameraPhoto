@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="SelectMeal.xaml.cs">
+      <DependentUpon>SelectMeal.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,6 +70,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SelectMeal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -93,6 +100,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\bacbkground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\LOGO.png" />
+    <Resource Include="Resources\Start.png" />
+    <Resource Include="Resources\Step1.png" />
+    <Resource Include="Resources\Step2.png" />
+    <Resource Include="Resources\Step3.png" />
+    <Resource Include="Resources\Step4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\firstMeal.png" />
+    <Resource Include="Resources\secondMeal.png" />
+    <Resource Include="Resources\mealbackgrond.png" />
+    <Resource Include="Resources\selectBtnback.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,6 +4,17 @@
              xmlns:local="clr-namespace:CameraPhoto"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <!--开始按钮-->
+        <ControlTemplate x:Key="StartBtn" TargetType="{x:Type Button}">
+            <Grid>
+                <Rectangle HorizontalAlignment="Center" Width="180" Height="60">
+                    <Rectangle.Fill>
+                        <ImageBrush   ImageSource="/CameraPhoto;component/Resources/Start.png" ></ImageBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+
+            </Grid>
+        </ControlTemplate>
+
     </Application.Resources>
 </Application>

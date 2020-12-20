@@ -23,6 +23,40 @@ namespace CameraPhoto
         public MainWindow()
         {
             InitializeComponent();
+
+            // 在此点之下插入创建对象所需的代码。
+            ImageBrush b = new ImageBrush();
+            b.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/bacbkground.png"));
+            b.Stretch = Stretch.Fill;
+            this.Background = b;
+        }
+
+        private void Step1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+        private void Step2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+        private void Step3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+        private void Step4_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+        /// <summary>
+        /// 开始按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void StartButton_Click(object sender, RoutedEventArgs e)
+        {
+            SelectMeal _meal = new SelectMeal();
+            _meal.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            _meal.Show();
         }
     }
 }

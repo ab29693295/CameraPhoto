@@ -5,8 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CameraPhoto"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" WindowStyle="None" WindowStartupLocation="CenterScreen"  AllowsTransparency="True" Height="600" Width="1200">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140" ></RowDefinition>
+            <RowDefinition Height="300"></RowDefinition>
+            <RowDefinition Height="140"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Image Source="/CameraPhoto;component/Resources/LOGO.png" Margin="30,0,0,0"  VerticalAlignment="Center" Width="140" Height="100"></Image>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
+            <!---->
+            <StackPanel MouseLeftButtonDown="Step1_MouseLeftButtonDown" Margin="180,0,0,0" Height="260" Width="180" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image Source="/CameraPhoto;component/Resources/Step1.png" Margin="30,0,0,0"  VerticalAlignment="Center" ></Image>
+            </StackPanel>
+             <StackPanel MouseLeftButtonDown="Step2_MouseLeftButtonDown" Margin="20,0,0,0" Height="260" Width="180" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image Source="/CameraPhoto;component/Resources/Step2.png" Margin="30,0,0,0"  VerticalAlignment="Center" ></Image>
+            </StackPanel>
+            <StackPanel MouseLeftButtonDown="Step3_MouseLeftButtonDown" Margin="20,0,0,0" Height="260" Width="180" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image Source="/CameraPhoto;component/Resources/Step3.png" Margin="30,0,0,0"  VerticalAlignment="Center" ></Image>
+            </StackPanel>
+           <StackPanel MouseLeftButtonDown="Step4_MouseLeftButtonDown" Margin="20,0,0,0" Height="260" Width="180" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image Source="/CameraPhoto;component/Resources/Step4.png" Margin="30,0,0,0"  VerticalAlignment="Center" ></Image>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Template="{StaticResource StartBtn}" Click="StartButton_Click"  ></Button>
+        </StackPanel>
     </Grid>
 </Window>
