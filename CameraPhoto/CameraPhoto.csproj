@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="PayStatus.xaml.cs">
+      <DependentUpon>PayStatus.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SelectMeal.xaml.cs">
       <DependentUpon>SelectMeal.xaml</DependentUpon>
     </Compile>
@@ -70,6 +73,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PayStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SelectMeal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -117,6 +124,17 @@
     <Resource Include="Resources\secondMeal.png" />
     <Resource Include="Resources\mealbackgrond.png" />
     <Resource Include="Resources\selectBtnback.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pay_Loading.png" />
+    <Resource Include="Resources\Paybackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\PayStatusbackground.png" />
+    <Resource Include="Resources\Back_main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\PayIamge.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

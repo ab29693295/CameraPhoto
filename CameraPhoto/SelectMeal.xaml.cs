@@ -43,5 +43,16 @@ namespace CameraPhoto
             
 
         }
+        /// <summary>
+        /// 套餐一点击事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            PayStatus pay = new PayStatus();
+            pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            pay.Show();
+        }
     }
 }
