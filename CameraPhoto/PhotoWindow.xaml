@@ -1,0 +1,84 @@
+﻿<Window x:Class="CameraPhoto.PhotoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CameraPhoto"
+        mc:Ignorable="d"
+        Title="PhotoWindow" WindowStyle="None" WindowStartupLocation="CenterScreen"  AllowsTransparency="True" Height="600" Width="1200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" ></RowDefinition>
+            <RowDefinition Height="420"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" >
+            <Image Source="/CameraPhoto;component/Resources/LOGO.png" Margin="30,0,0,0"  VerticalAlignment="Center" Width="140" Height="80"></Image>
+            <Label Width="200"  Height="40" Content="现在开始拍照" FontWeight="Bold" FontSize="23" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+            <Button Template="{StaticResource Photo_backmain}" Margin="700,0,0,0">
+
+            </Button>
+
+        </StackPanel>
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" >
+            <!--左边选中状态-->
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel Height="100" Width="170" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <StackPanel x:Name="FirstImagePanel" Width="100" Height="80" Margin="-10,0,0,0">
+
+                    </StackPanel>
+                    <Image Source="/CameraPhoto;component/Resources/缩略图选中状态背景块.png" Margin="0,-90,0,0" Width="120" Height="100"></Image>
+                </StackPanel>
+                <StackPanel Height="100" Width="170" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <StackPanel x:Name="SecondImagePanel" Width="100" Height="80" Margin="-10,0,0,0">
+
+                    </StackPanel>
+                    <Image Source="/CameraPhoto;component/Resources/缩略图选中状态背景块.png" Margin="0,-90,0,0" Width="120" Height="100"></Image>
+                </StackPanel>
+                <StackPanel Height="100" Width="170" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <StackPanel x:Name="ThirdImagePanel" Width="100" Height="80" Margin="-10,0,0,0">
+
+                    </StackPanel>
+                    <Image Source="/CameraPhoto;component/Resources/缩略图选中状态背景块.png" Margin="0,-90,0,0" Width="120" Height="100"></Image>
+                </StackPanel>
+                <StackPanel Height="100" Width="170" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <StackPanel x:Name="ForthImagePanel" Width="100" Height="80" Margin="-10,0,0,0">
+
+                    </StackPanel>
+                    <Image Source="/CameraPhoto;component/Resources/缩略图选中状态背景块.png" Margin="0,-90,0,0" Width="120" Height="100"></Image>
+                </StackPanel>
+
+
+
+            </StackPanel>
+            <!--主相机画面-->
+            <StackPanel Width="500" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                <StackPanel  x:Name="MainPhotoPanel" Width="500" Height="400" VerticalAlignment="Center"   HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,120,0,0" >
+                        <Label Width="200"  Height="40" Content="现在开始“超值套餐”中" FontWeight="Bold" FontSize="18" Foreground="#FFFFFF"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                        <Label Width="40"  Height="40" Content="1/2" FontWeight="Bold" FontSize="18" Foreground="#FF8000"   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                        <Label Width="80"  Height="40" Content="的拍摄" FontWeight="Bold" FontSize="18"  Foreground="#FFFFFF"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                    </StackPanel>
+                    <Button Margin="0,10,0,0"   Content="开始拍摄" FontWeight="Bold" FontSize="20" Foreground="#FFFFFF" Width="180" Height="45">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/CameraPhoto;component/Resources/selectBtnback.png" Stretch="Fill"/>
+                        </Button.Background>
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="26"></Setter>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+            <!--提示画面-->
+            <StackPanel x:Name="TipPanel" Width="120" Height="120" Margin="0,270,0,0">
+                <Label Width="120"  Height="30" Content="拍照前,请" FontWeight="Bold" FontSize="14"  Foreground="#FFFFFF"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                <Label Width="120"  Height="30" Content="确认背景布" FontWeight="Bold" FontSize="14" Foreground="#FFFFFF"   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                <Label Width="120"  Height="30" Content="是否调整好" FontWeight="Bold" FontSize="14" Foreground="#FFFFFF"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+          
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

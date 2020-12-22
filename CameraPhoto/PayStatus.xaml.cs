@@ -24,7 +24,7 @@ namespace CameraPhoto
             InitializeComponent();
             // 在此点之下插入创建对象所需的代码。
             ImageBrush b = new ImageBrush();
-            b.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/Paybackground.png"));
+            b.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/bacbkground.png"));
             b.Stretch = Stretch.Fill;
             this.Background = b;
             ImageBrush a = new ImageBrush();

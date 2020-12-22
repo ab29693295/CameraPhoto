@@ -8,13 +8,13 @@
         Title="SelectMeal" WindowStyle="None" WindowStartupLocation="CenterScreen"  AllowsTransparency="True" Height="600" Width="1200">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="140" ></RowDefinition>
+            <RowDefinition Height="100" ></RowDefinition>
             <RowDefinition Height="380"></RowDefinition>
             <RowDefinition Height="140"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" >
-            <Image Source="/CameraPhoto;component/Resources/LOGO.png" Margin="30,0,0,0"  VerticalAlignment="Center" Width="140" Height="100"></Image>
+            <Image Source="/CameraPhoto;component/Resources/LOGO.png" Margin="30,0,0,0"  VerticalAlignment="Center" Width="140" Height="80"></Image>
             <Label Width="200"  Height="40" Content="请选择套餐" FontWeight="Bold" FontSize="23" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
         </StackPanel>
 

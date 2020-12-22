@@ -8,13 +8,13 @@
         Title="MainWindow" WindowStyle="None" WindowStartupLocation="CenterScreen"  AllowsTransparency="True" Height="600" Width="1200">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="140" ></RowDefinition>
+            <RowDefinition Height="100" ></RowDefinition>
             <RowDefinition Height="300"></RowDefinition>
             <RowDefinition Height="140"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" >
-            <Image Source="/CameraPhoto;component/Resources/LOGO.png" Margin="30,0,0,0"  VerticalAlignment="Center" Width="140" Height="100"></Image>
+            <Image Source="/CameraPhoto;component/Resources/LOGO.png" Margin="30,0,0,0"  VerticalAlignment="Center" Width="140" Height="80"></Image>
         </StackPanel>
 
         <StackPanel Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">

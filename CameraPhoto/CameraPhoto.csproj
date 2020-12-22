@@ -58,6 +58,9 @@
     <Compile Include="PayStatus.xaml.cs">
       <DependentUpon>PayStatus.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PhotoWindow.xaml.cs">
+      <DependentUpon>PhotoWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SelectMeal.xaml.cs">
       <DependentUpon>SelectMeal.xaml</DependentUpon>
     </Compile>
@@ -74,6 +77,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="PayStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PhotoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -135,6 +142,28 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\PayIamge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\图标-警示.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Repay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\准备拍照背景块.png" />
+    <Resource Include="Resources\photoImageback.png" />
+    <Resource Include="Resources\缩略图选中状态背景块.png" />
+    <Resource Include="Resources\返回主页.png" />
+    <Resource Include="Resources\黄色提示框背景-A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\照片序列占位图-01.png" />
+    <Resource Include="Resources\照片序列占位图-02.png" />
+    <Resource Include="Resources\照片序列占位图-03.png" />
+    <Resource Include="Resources\照片序列占位图-04.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
