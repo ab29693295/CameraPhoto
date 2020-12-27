@@ -29,6 +29,8 @@ namespace CameraPhoto
             b.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/bacbkground.png"));
             b.Stretch = Stretch.Fill;
             this.Background = b;
+
+         
         }
 
         private void Step1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -57,6 +59,11 @@ namespace CameraPhoto
             SelectMeal _meal = new SelectMeal();
             _meal.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             _meal.Show();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Maximized;
         }
     }
 }

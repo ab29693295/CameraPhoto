@@ -61,6 +61,9 @@
     <Compile Include="PhotoWindow.xaml.cs">
       <DependentUpon>PhotoWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SelectBorder.xaml.cs">
+      <DependentUpon>SelectBorder.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SelectMeal.xaml.cs">
       <DependentUpon>SelectMeal.xaml</DependentUpon>
     </Compile>
@@ -81,6 +84,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PhotoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelectBorder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -164,6 +171,22 @@
     <Resource Include="Resources\照片序列占位图-02.png" />
     <Resource Include="Resources\照片序列占位图-03.png" />
     <Resource Include="Resources\照片序列占位图-04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\操作步骤图示-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\图标按钮-确认.png" />
+    <Resource Include="Resources\图标按钮-重新拍照.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\操作步骤图示-02.png" />
+    <Resource Include="Resources\边框选择图示 1.png" />
+    <Resource Include="Resources\边框选择图示 2.png" />
+    <Resource Include="Resources\边框选择图示.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
