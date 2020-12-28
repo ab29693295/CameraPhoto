@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CameraPhoto"
         mc:Ignorable="d"
-        Title="ElePrint" WindowStyle="None" WindowStartupLocation="CenterScreen"  AllowsTransparency="True" Height="600" Width="1200">
+        Title="ElePrint" WindowStyle="None" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen"  AllowsTransparency="True" Height="600" Width="1200">
     <Viewbox Stretch="Fill" >
         <Canvas Height="600" Width="1200">
             <Grid Width="1200">
@@ -28,7 +28,7 @@
               
             </StackPanel>
 
-            <Button Template="{StaticResource backmain}">
+            <Button Click="Button_Click" Template="{StaticResource backmain}">
 
             </Button>
 

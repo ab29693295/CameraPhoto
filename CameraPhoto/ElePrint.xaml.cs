@@ -33,5 +33,20 @@ namespace CameraPhoto
             a.Stretch = Stretch.Fill;
             MainStack.Background = a;
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            this.WindowState = WindowState.Maximized;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow pay = new MainWindow();
+            pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            pay.Show();
+
+            this.Close();
+        }
     }
 }
