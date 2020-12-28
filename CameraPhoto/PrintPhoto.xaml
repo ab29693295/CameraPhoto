@@ -1,0 +1,74 @@
+﻿<Window x:Class="CameraPhoto.PrintPhoto"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CameraPhoto"
+        mc:Ignorable="d"
+        Title="PrintPhoto" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"  Loaded="Window_Loaded"  AllowsTransparency="True" Height="600" Width="1200">
+    <Viewbox Stretch="Fill" >
+        <Canvas Height="600" Width="1200">
+            <Grid Width="1200">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" ></RowDefinition>
+                    <RowDefinition Height="300"></RowDefinition>
+                    <RowDefinition Height="140"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" >
+                    <Image Source="/CameraPhoto;component/Resources/LOGO.png" Margin="30,0,0,0"  VerticalAlignment="Center" Width="140" Height="80"></Image>
+                    <Button Template="{StaticResource Photo_backmain}" Margin="920,0,0,0">
+
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1"  VerticalAlignment="Center" Orientation="Horizontal">
+                    <StackPanel Margin="480,0,0,0">
+                        <Image Source="/CameraPhoto;component/Resources/打印完成配图.png" Width="240" Height="160"   VerticalAlignment="Center" ></Image>
+                        <Label Width="240"  Height="40" Content="照片打印完成" FontWeight="Bold" FontSize="21" Margin="0,20,0,0" Foreground="#FFFFFF"   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                        <Label Width="240"  Height="40" Content="请在下方出纸口取走您的照片"  FontSize="17" Margin="0,0,0,0" Foreground="#FFFFFF"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                    </StackPanel>
+                    <StackPanel>
+                        <Image Source="/CameraPhoto;component/Resources/操作步骤图示-03.png" Margin="360,120,0,0" Width="60" Height="150"></Image>
+                    </StackPanel>
+
+
+                  
+                </StackPanel>
+                <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                    <Button Margin="0,0,0,0"   Content="获得电子版到手机" FontWeight="Bold" FontSize="18" Foreground="#FFFFFF" Width="240" Height="50">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/CameraPhoto;component/Resources/单色按钮-H108-L.png" Stretch="Fill"/>
+                        </Button.Background>
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="30"></Setter>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Margin="30,0,0,0"   Content="9.9开始第 2 份拍照" FontWeight="Bold" FontSize="18" Foreground="#FFFFFF" Width="240" Height="50">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/CameraPhoto;component/Resources/单色按钮-H108-L.png" Stretch="Fill"/>
+                        </Button.Background>
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="30"></Setter>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Margin="30,0,0,0"   Content="开始第 2 份拍照" FontWeight="Bold" FontSize="18" Foreground="#FFFFFF" Width="240" Height="50">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/CameraPhoto;component/Resources/selectBtnback.png" Stretch="Fill"/>
+                        </Button.Background>
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="30"></Setter>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Canvas>
+    </Viewbox>
+
+</Window>

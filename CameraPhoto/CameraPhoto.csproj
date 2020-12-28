@@ -61,11 +61,20 @@
     <Compile Include="PhotoWindow.xaml.cs">
       <DependentUpon>PhotoWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PrintPhoto.xaml.cs">
+      <DependentUpon>PrintPhoto.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SelectBorder.xaml.cs">
       <DependentUpon>SelectBorder.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SelectFilter.xaml.cs">
+      <DependentUpon>SelectFilter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SelectMeal.xaml.cs">
       <DependentUpon>SelectMeal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -87,11 +96,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PrintPhoto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SelectBorder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SelectFilter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SelectMeal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -187,6 +208,17 @@
     <Resource Include="Resources\边框选择图示 1.png" />
     <Resource Include="Resources\边框选择图示 2.png" />
     <Resource Include="Resources\边框选择图示.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\图标-选择滤镜执行对象.png" />
+    <Resource Include="Resources\操作步骤图示-03.png" />
+    <Resource Include="Resources\滤镜占位图.png" />
+    <Resource Include="Resources\背景块-滤镜选中.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\单色按钮-H108-L.png" />
+    <Resource Include="Resources\打印完成配图.png" />
+    <Resource Include="Resources\操作步骤图示-04.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
