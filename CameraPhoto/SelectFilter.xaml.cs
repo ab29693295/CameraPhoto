@@ -40,5 +40,23 @@ namespace CameraPhoto
         {
             this.WindowState = WindowState.Maximized;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow pay = new MainWindow();
+            pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            pay.Show();
+
+            this.Close();
+        }
+
+        private void NextBtn_Click(object sender, RoutedEventArgs e)
+        {
+            PrintPhoto pay = new PrintPhoto();
+            pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            pay.Show();
+
+            this.Close();
+        }
     }
 }
