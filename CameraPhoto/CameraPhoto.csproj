@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,6 +56,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helper\CombHelper.cs" />
+    <Compile Include="Helper\ConfigHelper.cs" />
+    <Compile Include="Helper\HttpHelper.cs" />
+    <Compile Include="Helper\OrderHelper.cs" />
+    <Compile Include="Model\EnumDescription.cs" />
+    <Compile Include="Model\EnumExtensions.cs" />
+    <Compile Include="Model\Enum\EnumModel.cs" />
+    <Compile Include="Model\ObjectExtensions.cs" />
+    <Compile Include="Model\TypeExtensions.cs" />
     <Compile Include="PayStatus.xaml.cs">
       <DependentUpon>PayStatus.xaml</DependentUpon>
     </Compile>
@@ -220,5 +230,6 @@
     <Resource Include="Resources\打印完成配图.png" />
     <Resource Include="Resources\操作步骤图示-04.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

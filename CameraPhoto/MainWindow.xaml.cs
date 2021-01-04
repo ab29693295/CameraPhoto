@@ -56,6 +56,8 @@ namespace CameraPhoto
         /// <param name="e"></param>
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
+            
+
             SelectMeal _meal = new SelectMeal();
             _meal.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             _meal.Show();
