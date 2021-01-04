@@ -61,6 +61,8 @@ namespace CameraPhoto
             SelectMeal _meal = new SelectMeal();
             _meal.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             _meal.Show();
+
+            this.Close();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

@@ -36,9 +36,9 @@ namespace CameraPhoto
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ElePrint pay = new ElePrint();
-            pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            pay.Show();
+            //ElePrint pay = new ElePrint();
+            //pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            //pay.Show();
 
             this.Close();
         }

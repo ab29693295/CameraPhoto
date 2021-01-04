@@ -50,16 +50,42 @@ namespace CameraPhoto
         /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            PayStatus pay = new PayStatus();
-            pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            pay.Show();
+            double _firstMeal =Convert.ToDouble( ConfigHelper.GetConfigString("FirstMeal"));
+            int OrderID = new OrderHelper().AddOrder(1,"套餐一 19.9元", _firstMeal);
+            if (OrderID != 0)
+            {
+                PayStatus pay = new PayStatus(OrderID);
+                pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                pay.Show();
 
-            this.Close();
+                this.Close();
+            }
+           
+        }
+        /// <summary>
+        /// 第二个套餐
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SecondMeal_Click(object sender, RoutedEventArgs e)
+        {
+            double _SecondMeal = Convert.ToDouble(ConfigHelper.GetConfigString("SecondMeal"));
+            int OrderID = new OrderHelper().AddOrder(2, "套餐一 39.9元", _SecondMeal);
+            if (OrderID != 0)
+            {
+                PayStatus pay = new PayStatus(OrderID);
+                pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                pay.Show();
+
+                this.Close();
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Maximized;
         }
+
+      
     }
 }

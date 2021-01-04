@@ -18,7 +18,7 @@
         <!--返回主页-->
         <ControlTemplate x:Key="backmain" TargetType="{x:Type Button}">
             <Grid>
-                <Rectangle HorizontalAlignment="Center" Width="100" Height="100">
+                <Rectangle HorizontalAlignment="Center" Width="113" Height="100">
                     <Rectangle.Fill>
                         <ImageBrush   ImageSource="/CameraPhoto;component/Resources/Back_main.png" ></ImageBrush>
                     </Rectangle.Fill>

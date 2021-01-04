@@ -19,7 +19,8 @@ namespace CameraPhoto
     /// </summary>
     public partial class PayStatus : Window
     {
-        public PayStatus()
+        public static int _OrderID = 0;
+        public PayStatus(int orderID)
         {
             InitializeComponent();
             // 在此点之下插入创建对象所需的代码。
@@ -31,8 +32,8 @@ namespace CameraPhoto
             a.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/PayStatusbackground.png"));
             a.Stretch = Stretch.Fill;
             MainStack.Background = a;
-         
 
+            _OrderID = orderID;
 
         }
 
