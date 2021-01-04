@@ -53,6 +53,13 @@ namespace CameraPhoto
             PayStatus pay = new PayStatus();
             pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             pay.Show();
+
+            this.Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Maximized;
         }
     }
 }

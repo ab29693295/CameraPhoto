@@ -18,7 +18,7 @@
                 <StackPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" >
                     <Image Source="/CameraPhoto;component/Resources/LOGO.png" Margin="30,0,0,0"  VerticalAlignment="Center" Width="140" Height="80"></Image>
                     <Label Width="240"  Height="40" Content="选择喜欢的边框" FontWeight="Bold" FontSize="22" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
-                    <Button Template="{StaticResource Photo_backmain}" Margin="700,0,0,0">
+                    <Button Click="Button_Click" Template="{StaticResource Photo_backmain}" Margin="700,0,0,0">
 
                     </Button>
 
@@ -309,7 +309,7 @@
 
                 <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"  >
                     <Label Width="200" Margin="100,-0,0,0" Height="40" Content="边框-001" Foreground="#FFFFFF"  FontWeight="Bold" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
-                    <Button Margin="720,0,0,0"   Content="下一步" FontWeight="Bold" FontSize="18" Foreground="#FFFFFF" Width="120" Height="40">
+                    <Button x:Name="Next_Btn" Click="Next_Btn_Click" Margin="720,0,0,0"   Content="下一步" FontWeight="Bold" FontSize="18" Foreground="#FFFFFF" Width="120" Height="40">
                         <Button.Background>
                             <ImageBrush ImageSource="/CameraPhoto;component/Resources/selectBtnback.png" Stretch="Fill"/>
                         </Button.Background>

@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace CameraPhoto
 {
     /// <summary>
-    /// SelectFilter.xaml 的交互逻辑
+    /// ElePrint.xaml 的交互逻辑
     /// </summary>
-    public partial class SelectFilter : Window
+    public partial class ElePrint : Window
     {
-        public SelectFilter()
+        public ElePrint()
         {
             InitializeComponent();
 
@@ -29,30 +29,20 @@ namespace CameraPhoto
             b.Stretch = Stretch.Fill;
             this.Background = b;
             ImageBrush a = new ImageBrush();
-            a.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/背景块-滤镜选中.png"));
+            a.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/PayStatusbackground.png"));
             a.Stretch = Stretch.Fill;
-            filter1.Background = a;
-
-            
+            MainStack.Background = a;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+
             this.WindowState = WindowState.Maximized;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow pay = new MainWindow();
-            pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            pay.Show();
-
-            this.Close();
-        }
-
-        private void NextBtn_Click(object sender, RoutedEventArgs e)
-        {
-            PrintPhoto pay = new PrintPhoto();
             pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             pay.Show();
 
