@@ -54,7 +54,7 @@ namespace CameraPhoto
             int OrderID = new OrderHelper().AddOrder(1,"套餐一 19.9元", _firstMeal);
             if (OrderID != 0)
             {
-                PayStatus pay = new PayStatus(OrderID);
+                PhotoWindow pay = new PhotoWindow(OrderID,1);
                 pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 pay.Show();
 
@@ -73,7 +73,7 @@ namespace CameraPhoto
             int OrderID = new OrderHelper().AddOrder(2, "套餐一 39.9元", _SecondMeal);
             if (OrderID != 0)
             {
-                PayStatus pay = new PayStatus(OrderID);
+                PhotoWindow pay = new PhotoWindow(OrderID,2);
                 pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 pay.Show();
 

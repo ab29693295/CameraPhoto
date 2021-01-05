@@ -1,5 +1,9 @@
-﻿using System;
+﻿using CameraPhoto.Model;
+using EDSDKLib;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +23,53 @@ namespace CameraPhoto
     /// </summary>
     public partial class PhotoWindow : Window
     {
-        public PhotoWindow()
+
+        #region Variables
+
+        SDKHandler CameraHandler;
+        //List<int> AvList;
+        //List<int> TvList;
+        //List<int> ISOList;
+        List<Camera> CamList;
+        bool IsInit = false;
+        int BulbTime = 30;
+        ImageBrush bgbrush = new ImageBrush();
+        Action<BitmapImage> SetImageAction;
+        System.Windows.Forms.FolderBrowserDialog SaveFolderBrowser = new System.Windows.Forms.FolderBrowserDialog();
+
+        int ErrCount;
+        object ErrLock = new object();
+
+        #endregion
+
+        public int OrderID = 0;
+        public int MealType = 1;
+
+        public int _downCOunt = 10;
+
+        public PhotoWindow(int orderID, int mealType)
         {
             InitializeComponent();
+
+            #region
+            try
+            {
+                CameraHandler = new SDKHandler();
+                // CameraHandler.CameraAdded += new SDKHandler.CameraAddedHandler(SDK_CameraAdded);
+                CameraHandler.LiveViewUpdated += new SDKHandler.StreamUpdate(SDK_LiveViewUpdated);
+                CameraHandler.ProgressChanged += new SDKHandler.ProgressHandler(SDK_ProgressChanged);
+                CameraHandler.CameraHasShutdown += SDK_CameraHasShutdown;
+                SetImageAction = (BitmapImage img) => { bgbrush.ImageSource = img; };
+
+            }
+            catch (DllNotFoundException)
+            {
+                MessageBox.Show("相机未连接请检查设备!");
+            }
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
+
+
+            #endregion
 
             // 在此点之下插入创建对象所需的代码。
             ImageBrush b = new ImageBrush();
@@ -37,12 +85,22 @@ namespace CameraPhoto
             _tippanel.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/黄色提示框背景-A.png"));
             _tippanel.Stretch = Stretch.Fill;
             this.TipPanel.Background = _tippanel;
-            
+
+
+            OrderID = orderID;
+            MealType = mealType;
+
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Maximized;
+
+            if (MealType == 2)
+            {
+                this.mealLabel.Content = "现在开始超值套餐中 1/2 的拍摄";
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -56,10 +114,10 @@ namespace CameraPhoto
 
         private void SureBtn_Click(object sender, RoutedEventArgs e)
         {
-           
-            string imagePath =ConfigHelper.GetConfigString("ImageFile") + "\\1\\test.png";
 
-            new OrderPhotoHelper().AddOrdePhoto(imagePath,1);
+            string imagePath = ConfigHelper.GetConfigString("ImageFile") + "\\1\\test.png";
+
+            new OrderPhotoHelper().AddOrdePhoto(imagePath, 1);
 
             SelectBorder pay = new SelectBorder();
             pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
@@ -72,5 +130,123 @@ namespace CameraPhoto
         {
 
         }
+        /// <summary>
+        /// 开始拍摄
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void StartCamera_Click(object sender, RoutedEventArgs e)
+        {
+            openSession();
+            try
+            {
+                if (!CameraHandler.IsLiveViewOn)
+                {
+                    CameraCanvas.Visibility = Visibility.Visible;
+                    MainPhotoPanel.Visibility = Visibility.Collapsed;
+                    CameraCanvas.Background = bgbrush;
+                    CameraHandler.StartLiveView();
+                    //设置第一个照片背景显示
+                    this.ImageBc1.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    CameraHandler.StopLiveView();
+                    //StarLVButton.Content = "Start LV";
+                    //CameraCanvas.Background = System.Windows.Media.Brush.LightGray;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+
+        #region 相机操作
+
+        /// <summary>
+        /// 打开相机
+        /// </summary>
+        public void openSession()
+        {
+            CamList = CameraHandler.GetCameraList();
+            if (CamList.Count() > 0)
+            {
+                CameraHandler.OpenSession(CamList[0]);
+
+                string cameraname = CameraHandler.MainCamera.Info.szDeviceDescription;
+
+                if (CameraHandler.GetSetting(EDSDK.PropID_AEMode) != EDSDK.AEMode_Manual) MessageBox.Show("Camera is not in manual mode. Some features might not work!");
+
+
+
+            }
+
+        }
+
+        private void SDK_LiveViewUpdated(Stream img)
+        {
+            try
+            {
+                if (CameraHandler.IsLiveViewOn)
+                {
+                    using (WrappingStream s = new WrappingStream(img))
+                    {
+                        img.Position = 0;
+                        BitmapImage EvfImage = new BitmapImage();
+                        EvfImage.BeginInit();
+                        EvfImage.StreamSource = s;
+                        EvfImage.CacheOption = BitmapCacheOption.OnLoad;
+                        EvfImage.EndInit();
+                        EvfImage.Freeze();
+                        Application.Current.Dispatcher.Invoke(SetImageAction, EvfImage);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void SDK_ProgressChanged(int Progress)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+        /// <summary>
+        /// 关闭相机
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SDK_CameraHasShutdown(object sender, EventArgs e)
+        {
+            try { CloseSession(); }
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
+        }
+
+
+        private void CloseSession()
+        {
+            CameraHandler.CloseSession();
+
+        }
+        /// <summary>
+        /// 刷新设备
+        /// </summary>
+        private void RefreshCamera()
+        {
+
+            CamList = CameraHandler.GetCameraList();
+
+        }
+        #endregion
     }
 }

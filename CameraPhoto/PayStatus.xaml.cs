@@ -65,9 +65,9 @@ namespace CameraPhoto
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            PhotoWindow pay = new PhotoWindow();
-            pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            pay.Show();
+            //PhotoWindow pay = new PhotoWindow();
+            //pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            //pay.Show();
 
             this.Close();
         }
