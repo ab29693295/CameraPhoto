@@ -28,28 +28,28 @@
                     <!--左边选中状态-->
                     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,20,0,0">
                         <StackPanel Height="100" Width="170" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <StackPanel x:Name="FirstImagePanel" Width="100" Height="80" Margin="-10,0,0,0">
-
+                            <Image Visibility="Hidden" Source="/CameraPhoto;component/Resources/缩略图选中状态背景块.png" Margin="0,0,0,0" Width="120" Height="100"></Image>
+                            <StackPanel x:Name="FirstImagePanel" Width="100" Height="80" Margin="-10,-105,0,0">
+                                <Image Source="/CameraPhoto;component/Resources/照片序列占位图-01.png"  Width="100" Height="80"></Image>
                             </StackPanel>
-                            <Image Source="/CameraPhoto;component/Resources/缩略图选中状态背景块.png" Margin="0,-90,0,0" Width="120" Height="100"></Image>
                         </StackPanel>
                         <StackPanel Height="100" Width="170" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <StackPanel x:Name="SecondImagePanel" Width="100" Height="80" Margin="-10,0,0,0">
-
+                            <Image Visibility="Hidden" Source="/CameraPhoto;component/Resources/缩略图选中状态背景块.png" Margin="0,0,0,0" Width="120" Height="100"></Image>
+                            <StackPanel  Width="100" Height="80" Margin="-10,-105,0,0">
+                                <Image Source="/CameraPhoto;component/Resources/照片序列占位图-02.png"  Width="100" Height="80"></Image>
                             </StackPanel>
-                            <Image Source="/CameraPhoto;component/Resources/缩略图选中状态背景块.png" Margin="0,-90,0,0" Width="120" Height="100"></Image>
                         </StackPanel>
                         <StackPanel Height="100" Width="170" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <StackPanel x:Name="ThirdImagePanel" Width="100" Height="80" Margin="-10,0,0,0">
-
+                            <Image Visibility="Hidden" Source="/CameraPhoto;component/Resources/缩略图选中状态背景块.png" Margin="0,0,0,0" Width="120" Height="100"></Image>
+                            <StackPanel  Width="100" Height="80" Margin="-10,-105,0,0">
+                                <Image Source="/CameraPhoto;component/Resources/照片序列占位图-03.png"  Width="100" Height="80"></Image>
                             </StackPanel>
-                            <Image Source="/CameraPhoto;component/Resources/缩略图选中状态背景块.png" Margin="0,-90,0,0" Width="120" Height="100"></Image>
                         </StackPanel>
                         <StackPanel Height="100" Width="170" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <StackPanel x:Name="ForthImagePanel" Width="100" Height="80" Margin="-10,0,0,0">
-
+                            <Image Visibility="Hidden" Source="/CameraPhoto;component/Resources/缩略图选中状态背景块.png" Margin="0,0,0,0" Width="120" Height="100"></Image>
+                            <StackPanel  Width="100" Height="80" Margin="-10,-105,0,0">
+                                <Image Source="/CameraPhoto;component/Resources/照片序列占位图-04.png"  Width="100" Height="80"></Image>
                             </StackPanel>
-                            <Image Source="/CameraPhoto;component/Resources/缩略图选中状态背景块.png" Margin="0,-90,0,0" Width="120" Height="100"></Image>
                         </StackPanel>
 
 
@@ -93,7 +93,7 @@
                 </StackPanel>
 
                 <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,-90,0,0" >
-                    <Button Template="{StaticResource reTakePhoto}"  Margin="-60,0,0,0" >
+                    <Button Template="{StaticResource reTakePhoto}" Click="ReButton_Click"  Margin="-60,0,0,0" >
 
                     </Button>
                     <Button x:Name="sureBtn" Click="SureBtn_Click" Template="{StaticResource surePhoto}" >

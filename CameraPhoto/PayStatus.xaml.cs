@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace CameraPhoto
 {
@@ -20,6 +21,8 @@ namespace CameraPhoto
     public partial class PayStatus : Window
     {
         public static int _OrderID = 0;
+
+        DispatcherTimer timer;
         public PayStatus(int orderID)
         {
             InitializeComponent();
@@ -40,6 +43,24 @@ namespace CameraPhoto
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Maximized;
+            //支付倒计时定时器
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += timer1_Tick;
+            timer.Start();
+        }
+        /// <summary>
+        /// 定时器执行的方法
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            //定时执行的内容
+            int Seconds = Convert.ToInt32(this.TimeLabel.Content);
+
+            this.TimeLabel.Content = Seconds - 1;
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

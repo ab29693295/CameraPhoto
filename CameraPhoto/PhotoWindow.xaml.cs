@@ -29,24 +29,6 @@ namespace CameraPhoto
             b.Stretch = Stretch.Fill;
             this.Background = b;
 
-            ImageBrush panel1 = new ImageBrush();
-            panel1.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/照片序列占位图-01.png"));
-            panel1.Stretch = Stretch.Fill;
-            this.FirstImagePanel.Background = panel1;
-            ImageBrush panel2 = new ImageBrush();
-            panel2.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/照片序列占位图-02.png"));
-            panel2.Stretch = Stretch.Fill;
-            this.SecondImagePanel.Background = panel2;
-            ImageBrush panel3 = new ImageBrush();
-            panel3.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/照片序列占位图-03.png"));
-            panel3.Stretch = Stretch.Fill;
-            this.ThirdImagePanel.Background = panel3;
-            ImageBrush panel4 = new ImageBrush();
-            panel4.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/照片序列占位图-04.png"));
-            panel4.Stretch = Stretch.Fill;
-            this.ForthImagePanel.Background = panel4;
-
-
             ImageBrush mainpanel = new ImageBrush();
             mainpanel.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/准备拍照背景块.png"));
             mainpanel.Stretch = Stretch.Fill;
@@ -74,11 +56,21 @@ namespace CameraPhoto
 
         private void SureBtn_Click(object sender, RoutedEventArgs e)
         {
+           
+            string imagePath =ConfigHelper.GetConfigString("ImageFile") + "\\1\\test.png";
+
+            new OrderPhotoHelper().AddOrdePhoto(imagePath,1);
+
             SelectBorder pay = new SelectBorder();
             pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             pay.Show();
 
             this.Close();
+        }
+
+        private void ReButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

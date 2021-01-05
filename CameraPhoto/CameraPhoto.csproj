@@ -62,7 +62,9 @@
     <Compile Include="Helper\CombHelper.cs" />
     <Compile Include="Helper\ConfigHelper.cs" />
     <Compile Include="Helper\HttpHelper.cs" />
+    <Compile Include="Helper\ImageHelper.cs" />
     <Compile Include="Helper\OrderHelper.cs" />
+    <Compile Include="Helper\OrderPhotoHelper.cs" />
     <Compile Include="Model\EnumDescription.cs" />
     <Compile Include="Model\EnumExtensions.cs" />
     <Compile Include="Model\Enum\EnumModel.cs" />
@@ -234,6 +236,8 @@
     <Resource Include="Resources\打印完成配图.png" />
     <Resource Include="Resources\操作步骤图示-04.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="File\1\test.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

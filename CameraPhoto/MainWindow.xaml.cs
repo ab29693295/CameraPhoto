@@ -29,8 +29,7 @@ namespace CameraPhoto
             b.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/bacbkground.png"));
             b.Stretch = Stretch.Fill;
             this.Background = b;
-
-         
+            
         }
 
         private void Step1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

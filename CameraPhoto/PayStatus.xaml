@@ -27,7 +27,7 @@
                 <!--<Image Source="/CameraPhoto;component/Resources/Refresh.png" Width="150" Height="150"   ></Image>-->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
                     <Label Width="60"  Height="40" Content="请在" FontWeight="Bold" FontSize="22" Foreground="#FFFFFF"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
-                    <Label Width="40"  Height="40" Content="90" FontWeight="Bold" FontSize="22" Foreground="#FF8000"   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                    <Label Width="40" x:Name="TimeLabel" Height="40" Content="90" FontWeight="Bold" FontSize="22" Foreground="#FF8000"   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                     <Label Width="140"  Height="40" Content="秒内完成付款" FontWeight="Bold" FontSize="22" Foreground="#FFFFFF"   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                 </StackPanel>
                 <StackPanel >
