@@ -26,7 +26,17 @@
 
             </Grid>
         </ControlTemplate>
+        <!--请看向镜头-->
+        <ControlTemplate x:Key="PleasLook" TargetType="{x:Type Button}">
+            <Grid>
+                <Rectangle HorizontalAlignment="Center" Width="90" Height="80">
+                    <Rectangle.Fill>
+                        <ImageBrush   ImageSource="/CameraPhoto;component/Resources/图标-请看向镜头.png" ></ImageBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
 
+            </Grid>
+        </ControlTemplate>
         <!--拍照页面返回主页-->
         <ControlTemplate x:Key="Photo_backmain" TargetType="{x:Type Button}">
             <Grid>

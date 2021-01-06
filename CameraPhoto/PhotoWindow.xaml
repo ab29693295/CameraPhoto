@@ -18,8 +18,13 @@
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" >
                     <Image Source="/CameraPhoto;component/Resources/LOGO.png" Margin="30,0,0,0"  VerticalAlignment="Center" Width="140" Height="80"></Image>
+                    
                     <Label Width="200"  Height="40" Content="现在开始拍照" FontWeight="Bold" FontSize="23" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
-                    <Button Click="Button_Click" Template="{StaticResource Photo_backmain}" Margin="700,0,0,0">
+                    <StackPanel x:Name="LookPanel" Visibility="Visible"  Height="80"  Orientation="Vertical" Margin="150,15,0,0">
+                        <Image Source="/CameraPhoto;component/Resources/图标-请看向镜头.png" Height="30" Width="45"></Image>
+                        <Label Width="100"  Height="30" Content="请看向镜头" FontWeight="Bold" FontSize="12" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                    </StackPanel>
+                    <Button Click="Button_Click" Template="{StaticResource Photo_backmain}" Margin="450,0,0,0">
 
                     </Button>
 
@@ -89,12 +94,20 @@
                         </Label>
                        
                     </StackPanel>
+                    <StackPanel x:Name="TipPanelDownCount" Visibility="Collapsed" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" Height="80" Margin="0,270,0,0">
+                        <Label Width="120" Height="40" Content="倒计时" FontWeight="Bold" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FFFFFF" >
+                            
+                        </Label>
+                        <Label Width="100" x:Name="DownCountLabel" Content="9" Height="40" FontWeight="Bold" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FFFFFF" >
+
+                        </Label>
+                    </StackPanel>
                     <StackPanel>
                         <Image Source="/CameraPhoto;component/Resources/操作步骤图示-01.png" Margin="80,120,0,0" Width="60" Height="150"></Image>
                     </StackPanel>
                 </StackPanel>
 
-                <StackPanel Visibility="Collapsed"  Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,-90,0,0" >
+                <StackPanel x:Name="SurePanel" Visibility="Collapsed"  Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,-90,0,0" >
                     <Button Template="{StaticResource reTakePhoto}" Click="ReButton_Click"  Margin="-60,0,0,0" >
 
                     </Button>

@@ -601,13 +601,13 @@ namespace EDSDKLib
         /// </summary>
         /// <param name="ObjectPointer">Pointer to the object. Get it from the SDKObjectEvent.</param>
         /// <param name="directory">Path to where the image will be saved to</param>
-        public void DownloadImage(IntPtr ObjectPointer, string directory)
+        public void DownloadImage(IntPtr ObjectPointer, string ImageFileName)
         {
             EDSDK.EdsDirectoryItemInfo dirInfo;
             IntPtr streamRef;
             //get information about object
             Error = EDSDK.EdsGetDirectoryItemInfo(ObjectPointer, out dirInfo);
-            string CurrentPhoto = Path.Combine(directory, dirInfo.szFileName);
+            string CurrentPhoto = ImageFileName;
 
             SendSDKCommand(delegate
             {

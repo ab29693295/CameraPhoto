@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,6 +16,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace CameraPhoto
 {
@@ -42,10 +44,17 @@ namespace CameraPhoto
 
         #endregion
 
+        public int CurrentCount = 1;
+
+        public string CurrentIamgePath = "";
+
         public int OrderID = 0;
         public int MealType = 1;
 
-        public int _downCOunt = 10;
+        public int _downCOunt = 9;
+        //倒计时9秒
+        DispatcherTimer timer;
+
 
         public PhotoWindow(int orderID, int mealType)
         {
@@ -85,6 +94,7 @@ namespace CameraPhoto
             _tippanel.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/黄色提示框背景-A.png"));
             _tippanel.Stretch = Stretch.Fill;
             this.TipPanel.Background = _tippanel;
+            this.TipPanelDownCount.Background = _tippanel;
 
 
             OrderID = orderID;
@@ -115,15 +125,15 @@ namespace CameraPhoto
         private void SureBtn_Click(object sender, RoutedEventArgs e)
         {
 
-            string imagePath = ConfigHelper.GetConfigString("ImageFile") + "\\1\\test.png";
+            CurrentIamgePath = ConfigHelper.GetConfigString("ImageFile") + "\\1\\test.png";
 
-            new OrderPhotoHelper().AddOrdePhoto(imagePath, 1);
+            int imageID = new OrderPhotoHelper().AddOrdePhoto(CurrentIamgePath, 1);
+            if (imageID > 0)
+            {
+                CurrentCount = CurrentCount + 1;
+            }
 
-            SelectBorder pay = new SelectBorder();
-            pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            pay.Show();
 
-            this.Close();
         }
 
         private void ReButton_Click(object sender, RoutedEventArgs e)
@@ -137,6 +147,17 @@ namespace CameraPhoto
         /// <param name="e"></param>
         private void StartCamera_Click(object sender, RoutedEventArgs e)
         {
+            //样式控制
+            TipPanel.Visibility = Visibility.Collapsed;
+            TipPanelDownCount.Visibility = Visibility.Visible;
+            LookPanel.Visibility = Visibility.Visible;
+            string dicPth = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString();
+            if (Directory.Exists(dicPth) == false)//如果不存
+            {
+                Directory.CreateDirectory(dicPth);
+            }
+            CurrentIamgePath = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\" + CurrentCount.ToString() + ".JPG";
+            CameraHandler.ImageSaveDirectory = CurrentIamgePath;
             openSession();
             try
             {
@@ -148,12 +169,17 @@ namespace CameraPhoto
                     CameraHandler.StartLiveView();
                     //设置第一个照片背景显示
                     this.ImageBc1.Visibility = Visibility.Visible;
+
+                    //启动倒计时
+                    timer = new DispatcherTimer();
+                    timer.Interval = TimeSpan.FromSeconds(1);
+                    timer.Tick += timer1_Tick;
+                    timer.Start();
                 }
                 else
                 {
                     CameraHandler.StopLiveView();
-                    //StarLVButton.Content = "Start LV";
-                    //CameraCanvas.Background = System.Windows.Media.Brush.LightGray;
+
                 }
             }
             catch (Exception ex)
@@ -162,6 +188,31 @@ namespace CameraPhoto
             }
         }
 
+
+        /// <summary>
+        /// 定时器执行的方法
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            //定时执行的内容
+            _downCOunt = _downCOunt - 1;
+            DownCountLabel.Content = _downCOunt.ToString();
+            if (_downCOunt <= 0)
+            {
+                CameraHandler.TakePhoto();
+                timer.Stop();
+             
+
+                this.SurePanel.Visibility = Visibility.Visible;
+
+
+
+            }
+            
+
+        }
 
         #region 相机操作
 
