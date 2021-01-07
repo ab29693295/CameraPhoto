@@ -35,25 +35,25 @@
                         <StackPanel Height="100" Width="170" VerticalAlignment="Center" HorizontalAlignment="Center">
                             <Image x:Name="ImageBc1" Visibility="Hidden" Source="/CameraPhoto;component/Resources/缩略图选中状态背景块.png" Margin="0,0,0,0" Width="120" Height="100"></Image>
                             <StackPanel x:Name="FirstImagePanel" Width="100" Height="80" Margin="-10,-105,0,0">
-                                <Image Source="/CameraPhoto;component/Resources/照片序列占位图-01.png"  Width="100" Height="80"></Image>
+                                <Image x:Name="IamgeFirst" Source="/CameraPhoto;component/Resources/照片序列占位图-01.png"  Width="100" Height="80"></Image>
                             </StackPanel>
                         </StackPanel>
                         <StackPanel Height="100" Width="170" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <Image Visibility="Hidden" Source="/CameraPhoto;component/Resources/缩略图选中状态背景块.png" Margin="0,0,0,0" Width="120" Height="100"></Image>
+                            <Image x:Name="ImageBc2" Visibility="Hidden" Source="/CameraPhoto;component/Resources/缩略图选中状态背景块.png" Margin="0,0,0,0" Width="120" Height="100"></Image>
                             <StackPanel  Width="100" Height="80" Margin="-10,-105,0,0">
-                                <Image Source="/CameraPhoto;component/Resources/照片序列占位图-02.png"  Width="100" Height="80"></Image>
+                                <Image x:Name="IamgeSecond" Source="/CameraPhoto;component/Resources/照片序列占位图-02.png"  Width="100" Height="80"></Image>
                             </StackPanel>
                         </StackPanel>
                         <StackPanel Height="100" Width="170" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <Image Visibility="Hidden" Source="/CameraPhoto;component/Resources/缩略图选中状态背景块.png" Margin="0,0,0,0" Width="120" Height="100"></Image>
+                            <Image x:Name="ImageBc3" Visibility="Hidden" Source="/CameraPhoto;component/Resources/缩略图选中状态背景块.png" Margin="0,0,0,0" Width="120" Height="100"></Image>
                             <StackPanel  Width="100" Height="80" Margin="-10,-105,0,0">
-                                <Image Source="/CameraPhoto;component/Resources/照片序列占位图-03.png"  Width="100" Height="80"></Image>
+                                <Image x:Name="IamgeThird" Source="/CameraPhoto;component/Resources/照片序列占位图-03.png"  Width="100" Height="80"></Image>
                             </StackPanel>
                         </StackPanel>
                         <StackPanel Height="100" Width="170" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <Image Visibility="Hidden" Source="/CameraPhoto;component/Resources/缩略图选中状态背景块.png" Margin="0,0,0,0" Width="120" Height="100"></Image>
+                            <Image  x:Name="ImageBc4" Visibility="Hidden" Source="/CameraPhoto;component/Resources/缩略图选中状态背景块.png" Margin="0,0,0,0" Width="120" Height="100"></Image>
                             <StackPanel  Width="100" Height="80" Margin="-10,-105,0,0">
-                                <Image Source="/CameraPhoto;component/Resources/照片序列占位图-04.png"  Width="100" Height="80"></Image>
+                                <Image x:Name="ImageForth" Source="/CameraPhoto;component/Resources/照片序列占位图-04.png"  Width="100" Height="80"></Image>
                             </StackPanel>
                         </StackPanel>
 
@@ -89,8 +89,8 @@
                     </StackPanel>
                     <!--提示画面-->
                     <StackPanel x:Name="TipPanel" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" Height="80" Margin="0,270,0,0">
-                        <Label MaxWidth="100" FontWeight="Bold" FontSize="14"  Foreground="#FFFFFF">
-                            <TextBlock TextWrapping="Wrap"    Text="拍照前,请确认背景布是否调整好" />
+                        <Label  MaxWidth="100" FontWeight="Bold" FontSize="14"  Foreground="#FFFFFF">
+                            <TextBlock TextWrapping="Wrap"  x:Name="TipLabel"   Text="拍照前,请确认背景布是否调整好" />
                         </Label>
                        
                     </StackPanel>
@@ -115,7 +115,14 @@
 
                     </Button>
                 </StackPanel>
+
+              
             </Grid>
+              <StackPanel Margin="500,280,0,0">
+                <Label Visibility="Hidden" x:Name="downPhoto" Width="90" Height="90" Content="3" FontWeight="Bold" FontSize="70" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FFFFFF" >
+
+                    </Label>
+                </StackPanel>
         </Canvas>
     </Viewbox>
    

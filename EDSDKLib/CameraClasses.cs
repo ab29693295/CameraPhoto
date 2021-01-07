@@ -111,7 +111,7 @@ namespace EDSDKLib
         public delegate void ProgressHandler(int Progress);
         public delegate void StreamUpdate(Stream img);
         public delegate void BitmapUpdate(Bitmap bmp);
-        public delegate void ImageUpdate(Image img);
+        public delegate void ImageUpdate(string img);
         public delegate void FloatUpdate(float Value);
 
         /// <summary>
@@ -134,6 +134,8 @@ namespace EDSDKLib
         /// If an image is downloaded, this event fires with the downloaded image.
         /// </summary>
         public event BitmapUpdate ImageDownloaded;
+
+        public event ImageUpdate ImageHostDownloaded;
         /// <summary>  
         /// Fires if a new framerate is calculated  
         /// </summary>  
@@ -614,9 +616,12 @@ namespace EDSDKLib
                 //create filestream to data
                 Error = EDSDK.EdsCreateFileStream(CurrentPhoto, EDSDK.EdsFileCreateDisposition.CreateAlways, EDSDK.EdsAccess.ReadWrite, out streamRef);
                 //download file
-                lock (STAThread.ExecLock) { DownloadData(ObjectPointer, streamRef); }
+                DownloadData(ObjectPointer, streamRef); 
                 //release stream
                 Error = EDSDK.EdsRelease(streamRef);
+                //Fire the event with the image
+                if (ImageHostDownloaded != null) ImageHostDownloaded(ImageFileName);
+
             }, true);
         }
 
@@ -672,6 +677,8 @@ namespace EDSDKLib
                 Error = EDSDK.EdsRelease(ObjectPointer);
             }
         }
+
+
 
         /// <summary>
         /// Gets the thumbnail of an image (can be raw or jpg)

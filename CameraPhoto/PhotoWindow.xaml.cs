@@ -27,7 +27,8 @@ namespace CameraPhoto
     {
 
         #region Variables
-
+    
+      
         SDKHandler CameraHandler;
         //List<int> AvList;
         //List<int> TvList;
@@ -52,8 +53,15 @@ namespace CameraPhoto
         public int MealType = 1;
 
         public int _downCOunt = 9;
+
+        public int _nextDownCount = 15;
+
+
+        public int rePhotoCount = 1;
         //倒计时9秒
         DispatcherTimer timer;
+
+        DispatcherTimer Nextimer;
 
 
         public PhotoWindow(int orderID, int mealType)
@@ -67,9 +75,11 @@ namespace CameraPhoto
                 // CameraHandler.CameraAdded += new SDKHandler.CameraAddedHandler(SDK_CameraAdded);
                 CameraHandler.LiveViewUpdated += new SDKHandler.StreamUpdate(SDK_LiveViewUpdated);
                 CameraHandler.ProgressChanged += new SDKHandler.ProgressHandler(SDK_ProgressChanged);
+                CameraHandler.ImageHostDownloaded += new SDKHandler.ImageUpdate(SDK_ImageDownloaed);
                 CameraHandler.CameraHasShutdown += SDK_CameraHasShutdown;
+                IsInit = true;
                 SetImageAction = (BitmapImage img) => { bgbrush.ImageSource = img; };
-
+               
             }
             catch (DllNotFoundException)
             {
@@ -103,6 +113,7 @@ namespace CameraPhoto
 
         }
 
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Maximized;
@@ -121,23 +132,115 @@ namespace CameraPhoto
 
             this.Close();
         }
-
+        /// <summary>
+        /// 确认图片操作
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SureBtn_Click(object sender, RoutedEventArgs e)
         {
-
-            CurrentIamgePath = ConfigHelper.GetConfigString("ImageFile") + "\\1\\test.png";
-
-            int imageID = new OrderPhotoHelper().AddOrdePhoto(CurrentIamgePath, 1);
-            if (imageID > 0)
+            _nextDownCount = 15;
+            Nextimer.Stop();
+            rePhotoCount = 1;
+            //判断4张照片
+            if (CurrentCount < 5)
             {
-                CurrentCount = CurrentCount + 1;
+                switch (CurrentCount)
+                {
+                    case 1:
+                        this.ImageBc1.Visibility = Visibility.Hidden;
+                        this.ImageBc2.Visibility = Visibility.Visible;
+                        this.IamgeFirst.Source = new BitmapImage(new Uri(CurrentIamgePath, UriKind.Absolute));
+                        break;
+                    case 2:
+                        this.ImageBc2.Visibility = Visibility.Hidden;
+                        this.ImageBc3.Visibility = Visibility.Visible;
+                        this.IamgeSecond.Source = new BitmapImage(new Uri(CurrentIamgePath, UriKind.Absolute));
+                        break;
+                    case 3:
+                        this.ImageBc3.Visibility = Visibility.Hidden;
+                        this.ImageBc4.Visibility = Visibility.Visible;
+                        this.IamgeThird.Source = new BitmapImage(new Uri(CurrentIamgePath, UriKind.Absolute));
+                        break;
+                    case 4:
+                        this.ImageBc4.Visibility = Visibility.Hidden;                      
+                        this.ImageForth.Source = new BitmapImage(new Uri(CurrentIamgePath, UriKind.Absolute));
+                        break;
+                }
+                //控制相机倒计时
+                if (CurrentCount < 4)
+                {
+
+                    CurrentCount = CurrentCount + 1;
+                    CurrentIamgePath = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\" + CurrentCount.ToString() + ".JPG";
+
+                    //样式控制
+                    this.SurePanel.Visibility = Visibility.Collapsed;
+                    TipPanel.Visibility = Visibility.Collapsed;
+                    TipPanelDownCount.Visibility = Visibility.Visible;
+
+                    CameraCanvas.Background = bgbrush;
+                    CameraHandler.StartLiveView();
+
+
+                    CameraHandler.ImageSaveDirectory = CurrentIamgePath;
+
+
+                    //启动倒计时
+                    timer = new DispatcherTimer();
+                    timer.Interval = TimeSpan.FromSeconds(1);
+                    timer.Tick += timer1_Tick;
+                    timer.Start();
+
+                }
+                //API操作
+                //int imageID = new OrderPhotoHelper().AddOrdePhoto(CurrentIamgePath, 1);
+                //if (imageID > 0)
+                //{
+                //    CurrentCount = CurrentCount + 1;
+                //}
             }
+
+
+
+
+
+
+
 
 
         }
 
         private void ReButton_Click(object sender, RoutedEventArgs e)
         {
+            _nextDownCount = 15;
+            Nextimer.Stop();
+            rePhotoCount = rePhotoCount + 1;
+            if (rePhotoCount > 2)
+            {
+                MessageBox.Show("最多可以重拍一次！");
+            }
+            else
+            {
+                //样式控制
+                this.SurePanel.Visibility = Visibility.Collapsed;
+                TipPanel.Visibility = Visibility.Collapsed;
+                TipPanelDownCount.Visibility = Visibility.Visible;
+
+                CameraCanvas.Background = bgbrush;
+                CameraHandler.StartLiveView();
+
+
+                CameraHandler.ImageSaveDirectory = CurrentIamgePath;
+
+
+                //启动倒计时
+                timer = new DispatcherTimer();
+                timer.Interval = TimeSpan.FromSeconds(1);
+                timer.Tick += timer1_Tick;
+                timer.Start();
+            }
+          
 
         }
         /// <summary>
@@ -147,6 +250,8 @@ namespace CameraPhoto
         /// <param name="e"></param>
         private void StartCamera_Click(object sender, RoutedEventArgs e)
         {
+            openSession();
+
             //样式控制
             TipPanel.Visibility = Visibility.Collapsed;
             TipPanelDownCount.Visibility = Visibility.Visible;
@@ -157,8 +262,7 @@ namespace CameraPhoto
                 Directory.CreateDirectory(dicPth);
             }
             CurrentIamgePath = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\" + CurrentCount.ToString() + ".JPG";
-            CameraHandler.ImageSaveDirectory = CurrentIamgePath;
-            openSession();
+           
             try
             {
                 if (!CameraHandler.IsLiveViewOn)
@@ -167,6 +271,8 @@ namespace CameraPhoto
                     MainPhotoPanel.Visibility = Visibility.Collapsed;
                     CameraCanvas.Background = bgbrush;
                     CameraHandler.StartLiveView();
+                  
+                    CameraHandler.ImageSaveDirectory = CurrentIamgePath;
                     //设置第一个照片背景显示
                     this.ImageBc1.Visibility = Visibility.Visible;
 
@@ -175,6 +281,9 @@ namespace CameraPhoto
                     timer.Interval = TimeSpan.FromSeconds(1);
                     timer.Tick += timer1_Tick;
                     timer.Start();
+
+                    
+
                 }
                 else
                 {
@@ -196,22 +305,59 @@ namespace CameraPhoto
         /// <param name="e"></param>
         private void timer1_Tick(object sender, EventArgs e)
         {
+         
             //定时执行的内容
             _downCOunt = _downCOunt - 1;
             DownCountLabel.Content = _downCOunt.ToString();
+            if (_downCOunt < 4 && _downCOunt > 0)
+            {
+                this.downPhoto.Content = _downCOunt.ToString();
+                this.downPhoto.Visibility = Visibility.Visible;
+               
+
+            }
             if (_downCOunt <= 0)
             {
                 CameraHandler.TakePhoto();
-                timer.Stop();
-             
+                //CameraHandler.DownloadImage()
+                CameraHandler.StopLiveView();
 
+                this.TipPanelDownCount.Visibility = Visibility.Collapsed;
+
+              
+
+                this.TipPanel.Visibility = Visibility.Visible;
+
+                this.downPhoto.Visibility = Visibility.Hidden;
+
+                //显示确认按钮
                 this.SurePanel.Visibility = Visibility.Visible;
 
 
 
+                timer.Stop();
+
+                _downCOunt = 9;
+                //启动另一个倒计时
+                Nextimer = new DispatcherTimer();
+                Nextimer.Interval = TimeSpan.FromSeconds(1);
+                Nextimer.Tick += Nextimer_Tick;
+                Nextimer.Start();
+
             }
             
 
+        }
+
+        public void Nextimer_Tick(object sender, EventArgs e)
+        {
+            
+            this.TipLabel.Text = "确认后，开始下一张拍摄 或 "+_nextDownCount.ToString()+"秒后自动开始下一张拍摄";
+            _nextDownCount = _nextDownCount - 1;
+            if (_nextDownCount < 0)
+            {
+
+            }
         }
 
         #region 相机操作
@@ -230,8 +376,8 @@ namespace CameraPhoto
 
                 if (CameraHandler.GetSetting(EDSDK.PropID_AEMode) != EDSDK.AEMode_Manual) MessageBox.Show("Camera is not in manual mode. Some features might not work!");
 
-
-
+                CameraHandler.SetSetting(EDSDK.PropID_SaveTo, (uint)EDSDK.EdsSaveTo.Host);
+                CameraHandler.SetCapacity();
             }
 
         }
@@ -260,7 +406,18 @@ namespace CameraPhoto
                 MessageBox.Show(ex.ToString());
             }
         }
+        private void SDK_ImageDownloaed(string filePath)
+        {
+          
+            //设置图片背景
+            //ImageBrush _tipcanvas = new ImageBrush();
+            //_tipcanvas.ImageSource = new BitmapImage(new Uri(filePath));
+            //_tipcanvas.Stretch = Stretch.Fill;
+           // this.CameraCanvas.Background = _tipcanvas;
 
+            //this.SurePanel.Visibility = Visibility.Visible;
+
+        }
         private void SDK_ProgressChanged(int Progress)
         {
             try
@@ -282,7 +439,15 @@ namespace CameraPhoto
             try { CloseSession(); }
             catch (Exception ex) { MessageBox.Show(ex.ToString()); }
         }
-
+        /// <summary>
+        /// 关闭相机
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SDK_Event(object sender, EventArgs e)
+        {
+           
+        }
 
         private void CloseSession()
         {
@@ -298,6 +463,8 @@ namespace CameraPhoto
             CamList = CameraHandler.GetCameraList();
 
         }
+
+
         #endregion
     }
 }
