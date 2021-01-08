@@ -115,8 +115,20 @@
 
                     </Button>
                 </StackPanel>
+                <StackPanel Grid.Row="2"  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"  >
+                  
+                    <Button x:Name="Next_Btn" Visibility="Hidden" Click="Next_Btn_Click"  Margin="980,0,0,0"   Content="下一步" FontWeight="Bold" FontSize="18" Foreground="#FFFFFF" Width="120" Height="40">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/CameraPhoto;component/Resources/selectBtnback.png" Stretch="Fill"/>
+                        </Button.Background>
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="24"></Setter>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
 
-              
             </Grid>
               <StackPanel Margin="500,280,0,0">
                 <Label Visibility="Hidden" x:Name="downPhoto" Width="90" Height="90" Content="3" FontWeight="Bold" FontSize="70" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FFFFFF" >

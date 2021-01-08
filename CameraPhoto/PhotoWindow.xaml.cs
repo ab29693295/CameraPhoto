@@ -139,12 +139,18 @@ namespace CameraPhoto
         /// <param name="e"></param>
         private void SureBtn_Click(object sender, RoutedEventArgs e)
         {
+
+           
             _nextDownCount = 15;
             Nextimer.Stop();
             rePhotoCount = 1;
             //判断4张照片
             if (CurrentCount < 5)
             {
+                //将图片保存到数据库中
+                int imageID = new OrderPhotoHelper().AddOrdePhoto(CurrentIamgePath, 1);
+               
+
                 switch (CurrentCount)
                 {
                     case 1:
@@ -163,13 +169,15 @@ namespace CameraPhoto
                         this.IamgeThird.Source = new BitmapImage(new Uri(CurrentIamgePath, UriKind.Absolute));
                         break;
                     case 4:
-                        this.ImageBc4.Visibility = Visibility.Hidden;                      
+                        this.ImageBc4.Visibility = Visibility.Hidden;
+
                         this.ImageForth.Source = new BitmapImage(new Uri(CurrentIamgePath, UriKind.Absolute));
                         break;
                 }
                 //控制相机倒计时
                 if (CurrentCount < 4)
                 {
+
 
                     CurrentCount = CurrentCount + 1;
                     CurrentIamgePath = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\" + CurrentCount.ToString() + ".JPG";
@@ -193,12 +201,16 @@ namespace CameraPhoto
                     timer.Start();
 
                 }
-                //API操作
-                //int imageID = new OrderPhotoHelper().AddOrdePhoto(CurrentIamgePath, 1);
-                //if (imageID > 0)
-                //{
-                //    CurrentCount = CurrentCount + 1;
-                //}
+                else
+                {
+                    this.SurePanel.Visibility = Visibility.Collapsed;
+                    this.Next_Btn.Visibility = Visibility.Visible;
+                }
+
+            }
+            else
+            {
+               
             }
 
 
@@ -209,6 +221,19 @@ namespace CameraPhoto
 
 
 
+        }
+        /// <summary>
+        /// 下一步点击按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Next_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            SelectBorder seBorder = new SelectBorder();
+            seBorder.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            seBorder.Show();
+
+            this.Close();
         }
 
         private void ReButton_Click(object sender, RoutedEventArgs e)
@@ -337,7 +362,8 @@ namespace CameraPhoto
 
                 timer.Stop();
 
-                _downCOunt = 9;
+                _downCOunt = 10;
+                _nextDownCount = 15;
                 //启动另一个倒计时
                 Nextimer = new DispatcherTimer();
                 Nextimer.Interval = TimeSpan.FromSeconds(1);
@@ -351,11 +377,71 @@ namespace CameraPhoto
 
         public void Nextimer_Tick(object sender, EventArgs e)
         {
-            
-            this.TipLabel.Text = "确认后，开始下一张拍摄 或 "+_nextDownCount.ToString()+"秒后自动开始下一张拍摄";
+            if (CurrentCount == 4)
+            {
+                this.TipLabel.Text = "点击确认进入照片边框选择";
+            }
+            else
+            {
+                this.TipLabel.Text = "确认后，开始下一张拍摄 或 " + _nextDownCount.ToString() + "秒后自动开始下一张拍摄";
+            }
+          
             _nextDownCount = _nextDownCount - 1;
             if (_nextDownCount < 0)
             {
+                rePhotoCount = 1;
+                Nextimer.Stop();
+
+                int imageID = new OrderPhotoHelper().AddOrdePhoto(CurrentIamgePath, 1);
+                if (imageID > 0)
+                {
+                    //CurrentCount = CurrentCount + 1;
+                }
+
+                switch (CurrentCount)
+                {
+                    case 1:
+                        this.ImageBc1.Visibility = Visibility.Hidden;
+                        this.ImageBc2.Visibility = Visibility.Visible;
+                        this.IamgeFirst.Source = new BitmapImage(new Uri(CurrentIamgePath, UriKind.Absolute));
+                        break;
+                    case 2:
+                        this.ImageBc2.Visibility = Visibility.Hidden;
+                        this.ImageBc3.Visibility = Visibility.Visible;
+                        this.IamgeSecond.Source = new BitmapImage(new Uri(CurrentIamgePath, UriKind.Absolute));
+                        break;
+                    case 3:
+                        this.ImageBc3.Visibility = Visibility.Hidden;
+                        this.ImageBc4.Visibility = Visibility.Visible;
+                        this.IamgeThird.Source = new BitmapImage(new Uri(CurrentIamgePath, UriKind.Absolute));
+                        break;
+                    case 4:
+                        this.ImageBc4.Visibility = Visibility.Hidden;
+                        this.TipLabel.Text = "点击确认进入边框选择";
+                        this.ImageForth.Source = new BitmapImage(new Uri(CurrentIamgePath, UriKind.Absolute));
+                        break;
+                }
+                _downCOunt = 10;
+                CurrentCount = CurrentCount + 1;
+                CurrentIamgePath = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\" + CurrentCount.ToString() + ".JPG";
+
+                //样式控制
+                this.SurePanel.Visibility = Visibility.Collapsed;
+                TipPanel.Visibility = Visibility.Collapsed;
+                TipPanelDownCount.Visibility = Visibility.Visible;
+
+                CameraCanvas.Background = bgbrush;
+                CameraHandler.StartLiveView();
+
+
+                CameraHandler.ImageSaveDirectory = CurrentIamgePath;
+
+
+                //启动倒计时
+                timer = new DispatcherTimer();
+                timer.Interval = TimeSpan.FromSeconds(1);
+                timer.Tick += timer1_Tick;
+                timer.Start();
 
             }
         }
@@ -466,5 +552,7 @@ namespace CameraPhoto
 
 
         #endregion
+
+      
     }
 }

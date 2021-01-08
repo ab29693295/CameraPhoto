@@ -80,7 +80,7 @@
                                     </LinearGradientBrush>
                                 </Border.BorderBrush>
                                 <StackPanel Width="120" Height="180" Margin="0,0,0,0"  Orientation="Horizontal">
-                                    <StackPanel Width="60" Height="170" Margin="60,-10,0,0" Background="#FFFFFF">
+                                    <StackPanel Width="60" Height="170" Margin="60,-10,0,0" Background="LightPink">
                                         <StackPanel.RenderTransform>
                                             <SkewTransform AngleX="-10"   AngleY="10"></SkewTransform>
                                         </StackPanel.RenderTransform>
@@ -89,7 +89,7 @@
                                         <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
                                         <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
                                     </StackPanel>
-                                    <StackPanel Width="60" Height="170" Margin="-170,10,0,0" Background="#FFFFFF">
+                                    <StackPanel Width="60" Height="170" Margin="-170,10,0,0" Background="LightPink">
                                         <StackPanel.RenderTransform>
                                             <SkewTransform AngleX="10"  AngleY="-10"></SkewTransform>
                                         </StackPanel.RenderTransform>
@@ -117,7 +117,7 @@
                                     </LinearGradientBrush>
                                 </Border.BorderBrush>
                                 <StackPanel Width="120" Height="180"  Orientation="Horizontal">
-                                    <StackPanel Width="60" Height="170" Margin="60,-10,0,0" Background="#FFFFFF">
+                                    <StackPanel Width="60" Height="170" Margin="60,-10,0,0" Background="Violet">
                                         <StackPanel.RenderTransform>
                                             <SkewTransform AngleX="-10"   AngleY="10"></SkewTransform>
                                         </StackPanel.RenderTransform>
@@ -126,7 +126,7 @@
                                         <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
                                         <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
                                     </StackPanel>
-                                    <StackPanel Width="60" Height="170" Margin="-170,10,0,0" Background="#FFFFFF">
+                                    <StackPanel Width="60" Height="170" Margin="-170,10,0,0" Background="Violet">
                                         <StackPanel.RenderTransform>
                                             <SkewTransform AngleX="10"  AngleY="-10"></SkewTransform>
                                         </StackPanel.RenderTransform>
@@ -154,7 +154,7 @@
                                     </LinearGradientBrush>
                                 </Border.BorderBrush>
                                 <StackPanel Width="120" Height="180"  Orientation="Horizontal">
-                                    <StackPanel Width="60" Height="170" Margin="60,-10,0,0" Background="#FFFFFF">
+                                    <StackPanel Width="60" Height="170" Margin="60,-10,0,0" Background="RoyalBlue">
                                         <StackPanel.RenderTransform>
                                             <SkewTransform AngleX="-10"   AngleY="10"></SkewTransform>
                                         </StackPanel.RenderTransform>
@@ -163,7 +163,7 @@
                                         <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
                                         <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
                                     </StackPanel>
-                                    <StackPanel Width="60" Height="170" Margin="-170,10,0,0" Background="#FFFFFF">
+                                    <StackPanel Width="60" Height="170" Margin="-170,10,0,0" Background="RoyalBlue">
                                         <StackPanel.RenderTransform>
                                             <SkewTransform AngleX="10"  AngleY="-10"></SkewTransform>
                                         </StackPanel.RenderTransform>
@@ -179,9 +179,9 @@
                             </Border>
                         </StackPanel>
                         <StackPanel Height="30" Orientation="Horizontal">
-                            <Label Width="200" Margin="20,0,0,0" Height="30" Content="边框-001" Foreground="#FFFFFF" FontWeight="Bold" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
-                            <Label Width="180"  Height="30" Content="边框-002" FontWeight="Bold" Foreground="#FFFFFF" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
-                            <Label Width="200"  Height="30" Content="边框-003" FontWeight="Bold" Foreground="#FFFFFF" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                            <Label Width="200" Margin="20,0,0,0" Height="30" Content="边框-浅粉红" Foreground="#FFFFFF" FontWeight="Bold" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                            <Label Width="180"  Height="30" Content="边框-紫罗兰" FontWeight="Bold" Foreground="#FFFFFF" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                            <Label Width="200"  Height="30" Content="边框-皇家蓝" FontWeight="Bold" Foreground="#FFFFFF" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Border   BorderThickness="1" Margin="60,0,0,0">
@@ -198,7 +198,7 @@
                                     </LinearGradientBrush>
                                 </Border.BorderBrush>
                                 <StackPanel Width="120" Height="180"   Orientation="Horizontal">
-                                    <StackPanel Width="60" Height="170" Margin="60,-10,0,0" Background="#FFFFFF">
+                                    <StackPanel Width="60" Height="170" Margin="60,-10,0,0" Background="SeaGreen">
                                         <StackPanel.RenderTransform>
                                             <SkewTransform AngleX="-10"   AngleY="10"></SkewTransform>
                                         </StackPanel.RenderTransform>
@@ -207,7 +207,7 @@
                                         <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
                                         <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
                                     </StackPanel>
-                                    <StackPanel Width="60" Height="170" Margin="-170,10,0,0" Background="#FFFFFF">
+                                    <StackPanel Width="60" Height="170" Margin="-170,10,0,0" Background="SeaGreen">
                                         <StackPanel.RenderTransform>
                                             <SkewTransform AngleX="10"  AngleY="-10"></SkewTransform>
                                         </StackPanel.RenderTransform>
@@ -235,7 +235,7 @@
                                     </LinearGradientBrush>
                                 </Border.BorderBrush>
                                 <StackPanel Width="120" Height="180"  Orientation="Horizontal">
-                                    <StackPanel Width="60" Height="170" Margin="60,-10,0,0" Background="#FFFFFF">
+                                    <StackPanel Width="60" Height="170" Margin="60,-10,0,0" Background="Khaki">
                                         <StackPanel.RenderTransform>
                                             <SkewTransform AngleX="-10"   AngleY="10"></SkewTransform>
                                         </StackPanel.RenderTransform>
@@ -244,7 +244,7 @@
                                         <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
                                         <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
                                     </StackPanel>
-                                    <StackPanel Width="60" Height="170" Margin="-170,10,0,0" Background="#FFFFFF">
+                                    <StackPanel Width="60" Height="170" Margin="-170,10,0,0" Background="Khaki">
                                         <StackPanel.RenderTransform>
                                             <SkewTransform AngleX="10"  AngleY="-10"></SkewTransform>
                                         </StackPanel.RenderTransform>
@@ -272,7 +272,7 @@
                                     </LinearGradientBrush>
                                 </Border.BorderBrush>
                                 <StackPanel Width="120" Height="180"  Orientation="Horizontal">
-                                    <StackPanel Width="60" Height="170" Margin="60,-10,0,0" Background="#FFFFFF">
+                                    <StackPanel Width="60" Height="170" Margin="60,-10,0,0" Background="DarkOrange">
                                         <StackPanel.RenderTransform>
                                             <SkewTransform AngleX="-10"   AngleY="10"></SkewTransform>
                                         </StackPanel.RenderTransform>
@@ -281,7 +281,7 @@
                                         <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
                                         <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
                                     </StackPanel>
-                                    <StackPanel Width="60" Height="170" Margin="-170,10,0,0" Background="#FFFFFF">
+                                    <StackPanel Width="60" Height="170" Margin="-170,10,0,0" Background="DarkOrange">
                                         <StackPanel.RenderTransform>
                                             <SkewTransform AngleX="10"  AngleY="-10"></SkewTransform>
                                         </StackPanel.RenderTransform>
@@ -297,9 +297,9 @@
                             </Border>
                         </StackPanel>
                         <StackPanel Height="30" Orientation="Horizontal">
-                            <Label Width="200" Margin="20,0,0,0" Height="30" Content="边框-001" Foreground="#FFFFFF" FontWeight="Bold" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
-                            <Label Width="180"  Height="30" Content="边框-002" FontWeight="Bold" Foreground="#FFFFFF" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
-                            <Label Width="200"  Height="30" Content="边框-003" FontWeight="Bold" Foreground="#FFFFFF" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                            <Label Width="200" Margin="20,0,0,0" Height="30" Content="边框-海洋绿" Foreground="#FFFFFF" FontWeight="Bold" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                            <Label Width="180"  Height="30" Content="边框-卡其布" FontWeight="Bold" Foreground="#FFFFFF" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                            <Label Width="200"  Height="30" Content="边框-深橙色" FontWeight="Bold" Foreground="#FFFFFF" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                         </StackPanel>
                     </StackPanel>
                     <StackPanel>
