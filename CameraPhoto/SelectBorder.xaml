@@ -43,19 +43,19 @@
                                 <StackPanel.RenderTransform>
                                     <SkewTransform AngleX="-10"   AngleY="10"></SkewTransform>
                                 </StackPanel.RenderTransform>
-                                <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,5,0,0" Width="110" Height="80"></Image>
-                                <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,5,0,0" Width="110" Height="80"></Image>
-                                <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,5,0,0" Width="110" Height="80"></Image>
-                                <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,5,0,0" Width="110" Height="80"></Image>
+                                <Image x:Name="MainSecond1"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,5,0,0" Width="110" Height="80"></Image>
+                                <Image x:Name="MainSecond2" Source="/CameraPhoto;component/Resources/test.png" Margin="0,5,0,0" Width="110" Height="80"></Image>
+                                <Image x:Name="MainSecond3" Source="/CameraPhoto;component/Resources/test.png" Margin="0,5,0,0" Width="110" Height="80"></Image>
+                                <Image x:Name="MainSecond4" Source="/CameraPhoto;component/Resources/test.png" Margin="0,5,0,0" Width="110" Height="80"></Image>
                             </StackPanel>
                             <StackPanel Width="130" Height="350" Margin="-320,20,0,0" Background="#FFFFFF">
                                 <StackPanel.RenderTransform>
                                     <SkewTransform AngleX="10"  AngleY="-10"></SkewTransform>
                                 </StackPanel.RenderTransform>
-                                <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,5,0,0" Width="110" Height="80"></Image>
-                                <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,5,0,0" Width="110" Height="80"></Image>
-                                <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,5,0,0" Width="110" Height="80"></Image>
-                                <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,5,0,0" Width="110" Height="80"></Image>
+                                <Image x:Name="MainFirst1"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,5,0,0" Width="110" Height="80"></Image>
+                                <Image x:Name="MainFirst2" Source="/CameraPhoto;component/Resources/test.png" Margin="0,5,0,0" Width="110" Height="80"></Image>
+                                <Image x:Name="MainFirst3" Source="/CameraPhoto;component/Resources/test.png" Margin="0,5,0,0" Width="110" Height="80"></Image>
+                                <Image x:Name="MainFirst4" Source="/CameraPhoto;component/Resources/test.png" Margin="0,5,0,0" Width="110" Height="80"></Image>
                             </StackPanel>
                         
                         </StackPanel>
@@ -84,19 +84,19 @@
                                         <StackPanel.RenderTransform>
                                             <SkewTransform AngleX="-10"   AngleY="10"></SkewTransform>
                                         </StackPanel.RenderTransform>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderFirst_1" Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderFirst_2" Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderFirst_3" Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderFirst_4" Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
                                     </StackPanel>
                                     <StackPanel Width="60" Height="170" Margin="-170,10,0,0" Background="LightPink">
                                         <StackPanel.RenderTransform>
                                             <SkewTransform AngleX="10"  AngleY="-10"></SkewTransform>
                                         </StackPanel.RenderTransform>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderFirst1"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderFirst2"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderFirst3"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image  x:Name="BorderFirst4" Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
                                     </StackPanel>
 
                                 </StackPanel>
@@ -121,19 +121,19 @@
                                         <StackPanel.RenderTransform>
                                             <SkewTransform AngleX="-10"   AngleY="10"></SkewTransform>
                                         </StackPanel.RenderTransform>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderSecond_1" Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderSecond_2"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderSecond_3" Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderSecond_4"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
                                     </StackPanel>
                                     <StackPanel Width="60" Height="170" Margin="-170,10,0,0" Background="Violet">
                                         <StackPanel.RenderTransform>
                                             <SkewTransform AngleX="10"  AngleY="-10"></SkewTransform>
                                         </StackPanel.RenderTransform>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderSecond1"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderSecond2" Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderSecond3" Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderSecond4" Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
                                     </StackPanel>
 
                                 </StackPanel>
@@ -158,19 +158,19 @@
                                         <StackPanel.RenderTransform>
                                             <SkewTransform AngleX="-10"   AngleY="10"></SkewTransform>
                                         </StackPanel.RenderTransform>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderThird_1"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderThird_2" Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderThird_3" Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderThird_4"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
                                     </StackPanel>
                                     <StackPanel Width="60" Height="170" Margin="-170,10,0,0" Background="RoyalBlue">
                                         <StackPanel.RenderTransform>
                                             <SkewTransform AngleX="10"  AngleY="-10"></SkewTransform>
                                         </StackPanel.RenderTransform>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image  x:Name="BorderThird1" Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderThird2"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderThird3"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderThird4"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
                                     </StackPanel>
 
                                 </StackPanel>
@@ -202,19 +202,19 @@
                                         <StackPanel.RenderTransform>
                                             <SkewTransform AngleX="-10"   AngleY="10"></SkewTransform>
                                         </StackPanel.RenderTransform>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderForth_1"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderForth_2" Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderForth_3"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderForth_4" Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
                                     </StackPanel>
                                     <StackPanel Width="60" Height="170" Margin="-170,10,0,0" Background="SeaGreen">
                                         <StackPanel.RenderTransform>
                                             <SkewTransform AngleX="10"  AngleY="-10"></SkewTransform>
                                         </StackPanel.RenderTransform>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image  x:Name="BorderForth1" Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderForth2" Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image  x:Name="BorderForth3" Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderForth4" Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
                                     </StackPanel>
 
                                 </StackPanel>
@@ -239,19 +239,19 @@
                                         <StackPanel.RenderTransform>
                                             <SkewTransform AngleX="-10"   AngleY="10"></SkewTransform>
                                         </StackPanel.RenderTransform>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderFive_1"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderFive_2"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderFive_3"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderFive_4"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
                                     </StackPanel>
                                     <StackPanel Width="60" Height="170" Margin="-170,10,0,0" Background="Khaki">
                                         <StackPanel.RenderTransform>
                                             <SkewTransform AngleX="10"  AngleY="-10"></SkewTransform>
                                         </StackPanel.RenderTransform>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderFive1" Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderFive2"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderFive3"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderFive4"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
                                     </StackPanel>
 
                                 </StackPanel>
@@ -276,19 +276,19 @@
                                         <StackPanel.RenderTransform>
                                             <SkewTransform AngleX="-10"   AngleY="10"></SkewTransform>
                                         </StackPanel.RenderTransform>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderSix_1"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderSix_2"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderSix_3" Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderSix_4"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
                                     </StackPanel>
                                     <StackPanel Width="60" Height="170" Margin="-170,10,0,0" Background="DarkOrange">
                                         <StackPanel.RenderTransform>
                                             <SkewTransform AngleX="10"  AngleY="-10"></SkewTransform>
                                         </StackPanel.RenderTransform>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
-                                        <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderSix1"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderSix2"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderSix3"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
+                                        <Image x:Name="BorderSix4"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,2,0,0" Width="60" Height="40"></Image>
                                     </StackPanel>
 
                                 </StackPanel>

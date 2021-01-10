@@ -28,6 +28,8 @@ namespace CameraPhoto
             b.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/bacbkground.png"));
             b.Stretch = Stretch.Fill;
             this.Background = b;
+
+
         }
 
 
@@ -53,6 +55,17 @@ namespace CameraPhoto
             pay.Show();
 
             this.Close();
+        }
+
+        private void SaveToImage(FrameworkElement frameworkElement, string fileName)
+        {
+            System.IO.FileStream fs = new System.IO.FileStream(fileName, System.IO.FileMode.Create);
+            RenderTargetBitmap bmp = new RenderTargetBitmap((int)frameworkElement.ActualWidth, (int)frameworkElement.ActualHeight, 1 / 96, 1 / 96, PixelFormats.Default);
+            bmp.Render(frameworkElement);
+            BitmapEncoder encoder = new TiffBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(bmp));
+            encoder.Save(fs);
+            fs.Close();
         }
     }
 }
