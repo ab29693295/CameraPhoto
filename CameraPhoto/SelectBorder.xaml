@@ -14,6 +14,7 @@
                     <RowDefinition Height="440"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                     <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" >
                     <Image Source="/CameraPhoto;component/Resources/LOGO.png" Margin="30,0,0,0"  VerticalAlignment="Center" Width="140" Height="80"></Image>
@@ -320,7 +321,28 @@
                         </Button.Resources>
                     </Button>
                 </StackPanel>
+                <StackPanel Grid.Row="3"  Visibility="Hidden" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"  Width="400" >
+
+                    <StackPanel x:Name="LastPanelFirst"   Width="140" Height="400"  Background="Blue">
+
+                        <Image x:Name="LastFirst1"  Source="/CameraPhoto;component/Resources/test.png"  Width="120" Height="100"></Image>
+                        <Image x:Name="LastFirst2" Source="/CameraPhoto;component/Resources/test.png"  Width="120" Height="100"></Image>
+                        <Image x:Name="LastFirst3" Source="/CameraPhoto;component/Resources/test.png"  Width="120" Height="100"></Image>
+                        <Image x:Name="LastFirst4" Source="/CameraPhoto;component/Resources/test.png"  Width="120" Height="100"></Image>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Grid.Row="4" Visibility="Hidden"  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"  Width="400" >
+
+                    <StackPanel x:Name="LastPanelSecond"  Width="140" Height="400"  Background="Blue">
+
+                        <Image x:Name="LastSecond1"  Source="/CameraPhoto;component/Resources/test.png"  Width="120" Height="100"></Image>
+                        <Image x:Name="LastSecond2" Source="/CameraPhoto;component/Resources/test.png"  Width="120" Height="100"></Image>
+                        <Image x:Name="LastSecond3" Source="/CameraPhoto;component/Resources/test.png"  Width="120" Height="100"></Image>
+                        <Image x:Name="LastSecond4" Source="/CameraPhoto;component/Resources/test.png"  Width="120" Height="100"></Image>
+                    </StackPanel>
+                </StackPanel>
             </Grid>
+           
         </Canvas>
     </Viewbox>
 </Window>

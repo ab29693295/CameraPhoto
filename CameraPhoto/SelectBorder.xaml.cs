@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -122,6 +123,17 @@ namespace CameraPhoto
             this.BorderSix_4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
 
 
+            //最终图像 
+            this.LastFirst1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
+            this.LastFirst2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
+            this.LastFirst3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
+            this.LastFirst4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
+            this.LastSecond1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
+            this.LastSecond2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
+            this.LastSecond3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
+            this.LastSecond4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
+
+
             Color color = (Color)ColorConverter.ConvertFromString("White");
             _BorderSecond = new SolidColorBrush(color);
 
@@ -143,9 +155,30 @@ namespace CameraPhoto
 
             this.Close();
         }
-
+        /// <summary>
+        /// bao
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Next_Btn_Click(object sender, RoutedEventArgs e)
         {
+          
+          
+           
+
+           
+            string dic = @"D:\File\"+ OrderID.ToString() + "\\Border";
+            if (Directory.Exists(dic) == false)//如果不存
+            {
+                Directory.CreateDirectory(dic);
+            }
+            string FileName1 = dic + "\\1.JPG";
+          
+            string FileName2 = dic + "\\2.JPG";
+           
+            SaveToImage(this.LastPanelFirst, FileName1);
+            SaveToImage(this.LastPanelSecond, FileName2);
+
             SelectFilter pay = new SelectFilter();
             pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             pay.Show();
@@ -156,7 +189,7 @@ namespace CameraPhoto
         private void SaveToImage(FrameworkElement frameworkElement, string fileName)
         {
             System.IO.FileStream fs = new System.IO.FileStream(fileName, System.IO.FileMode.Create);
-            RenderTargetBitmap bmp = new RenderTargetBitmap((int)frameworkElement.ActualWidth, (int)frameworkElement.ActualHeight, 1 / 96, 1 / 96, PixelFormats.Default);
+            RenderTargetBitmap bmp = new RenderTargetBitmap((int)frameworkElement.ActualWidth, (int)frameworkElement.ActualHeight,  96,96, PixelFormats.Default);
             bmp.Render(frameworkElement);
             BitmapEncoder encoder = new TiffBitmapEncoder();
             encoder.Frames.Add(BitmapFrame.Create(bmp));
@@ -190,7 +223,9 @@ namespace CameraPhoto
                 this.MainLabel.Content = "边框-002";
                 CurrentBorder = 2;
             }
-           
+
+            LastPanelFirst.Background = MainPanelFirst.Background;
+            LastPanelSecond.Background = MainPanelSecond.Background;
         }
         /// <summary>
         /// 边框一选择事件
@@ -211,6 +246,8 @@ namespace CameraPhoto
             }
            
             MainPanelFirst.Background = borderColor;
+            LastPanelFirst.Background = MainPanelFirst.Background;
+            LastPanelSecond.Background = MainPanelSecond.Background;
         }
         /// <summary>
         /// 边框二选择事件
@@ -231,6 +268,8 @@ namespace CameraPhoto
             }
           
             MainPanelFirst.Background = borderColor;
+            LastPanelFirst.Background = MainPanelFirst.Background;
+            LastPanelSecond.Background = MainPanelSecond.Background;
         }
         /// <summary>
         /// 边框三选择事件
@@ -251,6 +290,8 @@ namespace CameraPhoto
             }
           
             MainPanelFirst.Background = borderColor;
+            LastPanelFirst.Background = MainPanelFirst.Background;
+            LastPanelSecond.Background = MainPanelSecond.Background;
         }
         /// <summary>
         /// 边框四选择事件
@@ -271,6 +312,9 @@ namespace CameraPhoto
             }
          
             MainPanelFirst.Background = borderColor;
+
+            LastPanelFirst.Background = MainPanelFirst.Background;
+            LastPanelSecond.Background = MainPanelSecond.Background;
         }
         /// <summary>
         /// 边框五选择事件
@@ -291,6 +335,9 @@ namespace CameraPhoto
             }
           
             MainPanelFirst.Background = borderColor;
+
+            LastPanelFirst.Background = MainPanelFirst.Background;
+            LastPanelSecond.Background = MainPanelSecond.Background;
         }
         /// <summary>
         /// 边框六选择事件
@@ -311,6 +358,9 @@ namespace CameraPhoto
             }
          
             MainPanelFirst.Background = borderColor;
+
+            LastPanelFirst.Background = MainPanelFirst.Background;
+            LastPanelSecond.Background = MainPanelSecond.Background;
         }
 
 
