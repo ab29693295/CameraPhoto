@@ -38,8 +38,8 @@
                                 </LinearGradientBrush.GradientStops>
                             </LinearGradientBrush>
                         </Border.BorderBrush>
-                        <StackPanel Width="230" Height="380" Orientation="Horizontal">
-                            <StackPanel Width="130" Height="350" Margin="100,-20,0,0" Background="#FFFFFF">
+                        <StackPanel  Width="230"  Height="380" Orientation="Horizontal">
+                            <StackPanel x:Name="MainPanelSecond" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown_MainSecond" Width="130" Height="350" Margin="100,-20,0,0" Background="#FFFFFF">
                                 <StackPanel.RenderTransform>
                                     <SkewTransform AngleX="-10"   AngleY="10"></SkewTransform>
                                 </StackPanel.RenderTransform>
@@ -48,7 +48,7 @@
                                 <Image x:Name="MainSecond3" Source="/CameraPhoto;component/Resources/test.png" Margin="0,5,0,0" Width="110" Height="80"></Image>
                                 <Image x:Name="MainSecond4" Source="/CameraPhoto;component/Resources/test.png" Margin="0,5,0,0" Width="110" Height="80"></Image>
                             </StackPanel>
-                            <StackPanel Width="130" Height="350" Margin="-320,20,0,0" Background="#FFFFFF">
+                            <StackPanel x:Name="MainPanelFirst" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown" Width="130" Height="350" Margin="-320,20,0,0" Background="#FFFFFF">
                                 <StackPanel.RenderTransform>
                                     <SkewTransform AngleX="10"  AngleY="-10"></SkewTransform>
                                 </StackPanel.RenderTransform>
@@ -66,7 +66,7 @@
 
                     <StackPanel Height="440" Width="600" Margin="30,0,0,0">
                         <StackPanel Orientation="Horizontal">
-                            <Border   BorderThickness="1" Margin="60,0,0,0">
+                            <Border MouseLeftButtonDown="StackPanel_MouseLeftButtonDown_First"   BorderThickness="1" Margin="60,0,0,0">
                                 <Border.BorderBrush>
                                     <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
                                         <LinearGradientBrush.GradientStops>
@@ -79,8 +79,8 @@
                                         </LinearGradientBrush.GradientStops>
                                     </LinearGradientBrush>
                                 </Border.BorderBrush>
-                                <StackPanel Width="120" Height="180" Margin="0,0,0,0"  Orientation="Horizontal">
-                                    <StackPanel Width="60" Height="170" Margin="60,-10,0,0" Background="LightPink">
+                                <StackPanel  Width="120" Height="180" Margin="0,0,0,0"  Orientation="Horizontal">
+                                    <StackPanel x:Name="PanelFirst" Width="60" Height="170" Margin="60,-10,0,0" Background="LightPink">
                                         <StackPanel.RenderTransform>
                                             <SkewTransform AngleX="-10"   AngleY="10"></SkewTransform>
                                         </StackPanel.RenderTransform>
@@ -103,7 +103,7 @@
 
 
                             </Border>
-                            <Border   BorderThickness="1" Margin="60,0,0,0">
+                            <Border MouseLeftButtonDown="StackPanel_MouseLeftButtonDown_Second"  BorderThickness="1" Margin="60,0,0,0">
                                 <Border.BorderBrush>
                                     <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
                                         <LinearGradientBrush.GradientStops>
@@ -140,7 +140,7 @@
 
 
                             </Border>
-                            <Border   BorderThickness="1" Margin="60,0,0,0">
+                            <Border MouseLeftButtonDown="StackPanel_MouseLeftButtonDown_Third"   BorderThickness="1" Margin="60,0,0,0">
                                 <Border.BorderBrush>
                                     <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
                                         <LinearGradientBrush.GradientStops>
@@ -184,7 +184,7 @@
                             <Label Width="200"  Height="30" Content="边框-皇家蓝" FontWeight="Bold" Foreground="#FFFFFF" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <Border   BorderThickness="1" Margin="60,0,0,0">
+                            <Border MouseLeftButtonDown="StackPanel_MouseLeftButtonDown_Forth"  BorderThickness="1" Margin="60,0,0,0">
                                 <Border.BorderBrush>
                                     <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
                                         <LinearGradientBrush.GradientStops>
@@ -221,7 +221,7 @@
 
 
                             </Border>
-                            <Border   BorderThickness="1" Margin="60,0,0,0">
+                            <Border MouseLeftButtonDown="StackPanel_MouseLeftButtonDown_Five"   BorderThickness="1" Margin="60,0,0,0">
                                 <Border.BorderBrush>
                                     <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
                                         <LinearGradientBrush.GradientStops>
@@ -258,7 +258,7 @@
 
 
                             </Border>
-                            <Border   BorderThickness="1" Margin="60,0,0,0">
+                            <Border  MouseLeftButtonDown="StackPanel_MouseLeftButtonDown_Six"  BorderThickness="1"  Margin="60,0,0,0">
                                 <Border.BorderBrush>
                                     <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
                                         <LinearGradientBrush.GradientStops>
@@ -308,7 +308,7 @@
                 </StackPanel>
 
                 <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"  >
-                    <Label Width="200" Margin="100,-0,0,0" Height="40" Content="边框-001" Foreground="#FFFFFF"  FontWeight="Bold" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                    <Label x:Name="MainLabel" Width="200" Margin="100,-0,0,0" Height="40" Content="边框-001" Foreground="#FFFFFF"  FontWeight="Bold" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                     <Button x:Name="Next_Btn" Click="Next_Btn_Click" Margin="720,0,0,0"   Content="下一步" FontWeight="Bold" FontSize="18" Foreground="#FFFFFF" Width="120" Height="40">
                         <Button.Background>
                             <ImageBrush ImageSource="/CameraPhoto;component/Resources/selectBtnback.png" Stretch="Fill"/>
