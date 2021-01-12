@@ -43,19 +43,14 @@
                                 <StackPanel.RenderTransform>
                                     <SkewTransform AngleX="-10"   AngleY="10"></SkewTransform>
                                 </StackPanel.RenderTransform>
-                                <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,5,0,0" Width="110" Height="80"></Image>
-                                <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,5,0,0" Width="110" Height="80"></Image>
-                                <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,5,0,0" Width="110" Height="80"></Image>
-                                <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,5,0,0" Width="110" Height="80"></Image>
+                                <Image  Source="/CameraPhoto;component/Resources/2.JPG" Margin="0,5,0,0" Width="120" Height="340"></Image>
                             </StackPanel>
                             <StackPanel Width="130" Height="350" Margin="-320,20,0,0" Background="#FFFFFF">
                                 <StackPanel.RenderTransform>
                                     <SkewTransform AngleX="10"  AngleY="-10"></SkewTransform>
                                 </StackPanel.RenderTransform>
-                                <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,5,0,0" Width="110" Height="80"></Image>
-                                <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,5,0,0" Width="110" Height="80"></Image>
-                                <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,5,0,0" Width="110" Height="80"></Image>
-                                <Image  Source="/CameraPhoto;component/Resources/test.png" Margin="0,5,0,0" Width="110" Height="80"></Image>
+                                <Image  Source="/CameraPhoto;component/Resources/1.JPG" Margin="0,5,0,0" Width="120" Height="340"></Image>
+              
                             </StackPanel>
 
                         </StackPanel>

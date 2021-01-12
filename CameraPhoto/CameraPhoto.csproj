@@ -251,5 +251,9 @@
   <ItemGroup>
     <Resource Include="Resources\图标-请看向镜头.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\1.JPG" />
+    <Resource Include="Resources\2.JPG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
