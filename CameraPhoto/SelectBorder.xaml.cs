@@ -33,7 +33,7 @@ namespace CameraPhoto
         public string BorderFirstColor = "";
         public string BorderSecondColor = "";
 
-        public SelectBorder()
+        public SelectBorder(int _orderID)
         {
             InitializeComponent();
 
@@ -134,6 +134,8 @@ namespace CameraPhoto
             this.LastSecond4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
 
 
+            OrderID = _orderID;
+
             Color color = (Color)ColorConverter.ConvertFromString("White");
             _BorderSecond = new SolidColorBrush(color);
 
@@ -179,7 +181,7 @@ namespace CameraPhoto
             SaveToImage(this.LastPanelFirst, FileName1);
             SaveToImage(this.LastPanelSecond, FileName2);
 
-            SelectFilter pay = new SelectFilter();
+            SelectFilter pay = new SelectFilter(OrderID);
             pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             pay.Show();
 

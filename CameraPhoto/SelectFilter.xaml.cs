@@ -36,7 +36,7 @@ namespace CameraPhoto
        
 
         public string IamgePath2= "";
-        public SelectFilter()
+        public SelectFilter(int _orderID)
         {
             InitializeComponent();
 
@@ -61,6 +61,8 @@ namespace CameraPhoto
 
             IamgePath2 = dic + "\\2.JPG";
 
+
+            _orderID = OrderID;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
