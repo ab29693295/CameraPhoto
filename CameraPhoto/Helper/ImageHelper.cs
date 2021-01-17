@@ -5,16 +5,17 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace CameraPhoto.Helper
 {
- public   class ImageHelper
+ public static   class ImageHelper
     {
         /// <summary>
         /// 通过http上传图片及传参数
         /// </summary>
         /// <param name="imgPath">图片地址(绝对路径：D:\demo\img\123.jpg)</param>
-        public void UploadImage(string imgPath)
+        public static void UploadImage(string imgPath)
         {
             var uploadUrl = "http://localhost:3020/upload/imgup";
             var dic = new Dictionary<string, string>() {
@@ -56,6 +57,28 @@ namespace CameraPhoto.Helper
             Stream instream = response.GetResponseStream();
             StreamReader sr = new StreamReader(instream, Encoding.UTF8);
             string content = sr.ReadToEnd();
+        }
+
+        public static BitmapSource ToBitmapSource(System.Drawing.Bitmap bmp)
+        {
+            System.IntPtr hBitMap = bmp.GetHbitmap();
+            return System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(hBitMap, System.IntPtr.Zero, System.Windows.Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+        }
+
+        /// <summary>
+        /// 将 BitmapSource 转化为 Bitmap
+        /// </summary>
+        /// <param name="source"/>要转换的 BitmapSource
+        /// <returns>转化后的 Bitmap</returns>
+        public static System.Drawing.Bitmap ToBitmap(this BitmapSource source)
+        {
+            using (System.IO.MemoryStream ms = new System.IO.MemoryStream())
+            {
+                BitmapEncoder encoder = new BmpBitmapEncoder();
+                encoder.Frames.Add(BitmapFrame.Create(source));
+                encoder.Save(ms);
+                return new System.Drawing.Bitmap(ms);
+            }
         }
     }
 }

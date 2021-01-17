@@ -1,0 +1,4523 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SharpImage</name>
+    </assembly>
+    <members>
+        <member name="T:SharpImage.Internal.DuiChengJiaMi">
+            <summary>
+            本类是对称加密
+            </summary>
+        </member>
+        <member name="M:SharpImage.Internal.DuiChengJiaMi.Encrypt(System.String)">
+            <summary>
+            使用内部的安全key来加密Input字符串
+            </summary>
+            <param name="input">待加密的字符串</param>
+            <returns>加密后的字符串</returns>
+        </member>
+        <member name="M:SharpImage.Internal.DuiChengJiaMi.Decrypt(System.String)">
+            <summary>
+            使用默认安全Key进行解密
+            </summary>
+            <param name="input">待解密的字符串</param>
+            <returns>解密后的字符串</returns>
+        </member>
+        <member name="T:SharpImage.Internal.ProductTypeEnum">
+            <summary>
+            产品类型
+            </summary>
+        </member>
+        <member name="F:SharpImage.Internal.SNHelper.productType">
+            <summary>
+            本库所属产品类型
+            </summary>
+        </member>
+        <member name="F:SharpImage.Internal.SNHelper.bPass">
+            <summary>
+            是否通过激活码校验
+            </summary>
+        </member>
+        <member name="M:SharpImage.Internal.SNHelper.IsTrailVersion">
+            <summary>
+            是否是试用版本
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpImage.Internal.SNHelper.CheckKey(System.String)">
+            <summary>
+            检查给定的key是否合法
+            </summary>
+            <param name="strSingleKey">四合一的key，分别是Keyone，keytwo,项目名称，时间 中间用@分割</param>
+        </member>
+        <member name="M:SharpImage.Internal.SNHelper.GetCodeTwo(System.String)">
+            <summary>
+            计算keytwo
+            </summary>
+            <param name="keyOne"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpImage.Internal.SNHelper.GetLibName">
+            <summary>
+            得到使用本库的项目名称，带exe,或者vhost.exe的
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SharpImage.BlendPercentagesConverter">
+            <summary>
+            继承于TypeConverter的类型转换器。将interger类型的对象转换为其他类型。
+            </summary>
+        </member>
+        <member name="T:SharpImage.CalloutShapeElement">
+            <summary>
+            形状标注元素Element。
+            </summary>
+        </member>
+        <member name="M:SharpImage.CalloutShapeElement.#ctor">
+            <summary>
+            初始化一个默认的形状标注element
+            </summary>
+        </member>
+        <member name="M:SharpImage.CalloutShapeElement.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            初始化一个默认的形状标注element
+            </summary>
+            <param name="width">宽度</param>
+            <param name="height">高度</param>
+            <param name="calloutPointX">标注点x坐标</param>
+            <param name="calloutPointY">标注点y坐标</param>
+        </member>
+        <member name="P:SharpImage.CalloutShapeElement.StrokeLineJoinStyle">
+            <summary>
+            路径线的样式
+            </summary>
+        </member>
+        <member name="P:SharpImage.CalloutShapeElement.CalloutArrowX">
+             <summary>
+            获取或设置箭头的x坐标。注:坐标相对于标注边界为x = 0，y = 0(左上角)，x =宽度，y =高度(左下角)
+             </summary>
+        </member>
+        <member name="P:SharpImage.CalloutShapeElement.CalloutArrowY">
+            <summary>
+            获取或设置箭头的y坐标。注:坐标相对于标注边界为x = 0，y = 0(左上角)，x =宽度，y =高度(左下角)。
+            </summary>
+        </member>
+        <member name="P:SharpImage.CalloutShapeElement.CalloutType">
+            <summary>
+            获取和设置标注类型
+            </summary>
+        </member>
+        <member name="T:SharpImage.Canvas">
+            <summary>
+            画布，可以用来自由绘制图像、文字等Element的矩形区。
+            </summary>
+        </member>
+        <member name="M:SharpImage.Canvas.#ctor">
+            <summary>
+            初始化一个宽高都为100，默认填充，autoSize为true，centerElements为false的canvas
+            </summary>
+        </member>
+        <member name="M:SharpImage.Canvas.#ctor(System.Int32,System.Int32)">
+            <summary>
+            初始化指定宽高，默认填充，autoSize为true，centerElements为false的canvas
+            </summary>
+            <param name="width">宽度</param>
+            <param name="height">高度</param>
+        </member>
+        <member name="M:SharpImage.Canvas.#ctor(System.Int32,System.Int32,SharpImage.Fill,System.Boolean,System.Boolean)">
+            <summary>
+            指定矩形区域的参数
+            </summary>
+            <param name="width">宽度</param>
+            <param name="height">高度</param>
+            <param name="fill">填充</param>
+            <param name="autoSize">是否大小调整</param>
+            <param name="centerElements">是否居中摆放元素</param>
+        </member>
+        <member name="P:SharpImage.Canvas.Width">
+            <summary>
+            宽度
+            </summary>
+        </member>
+        <member name="P:SharpImage.Canvas.Height">
+            <summary>
+            设置高度
+            </summary>
+        </member>
+        <member name="P:SharpImage.Canvas.Fill">
+            <summary>
+            填充类型
+            </summary>
+        </member>
+        <member name="P:SharpImage.Canvas.AutoSize">
+            <summary>
+            获取或设置画布是否自适应元素的大小
+            </summary>
+        </member>
+        <member name="P:SharpImage.Canvas.CenterElements">
+            <summary>
+            元素是否被居中摆放
+            </summary>
+        </member>
+        <member name="T:SharpImage.CanvasConverter">
+            <summary>
+            画布的类型转换器
+            </summary>
+        </member>
+        <member name="T:SharpImage.ClosedShapeElement">
+            <summary>
+            这是一个抽象基类，是SharpElement派生类。表示一个闭合的形状。
+            </summary>
+        </member>
+        <member name="P:SharpImage.ClosedShapeElement.Fill">
+            <summary>
+            设置填充类型
+            </summary>
+        </member>
+        <member name="T:SharpImage.WarpShape">
+            <summary>
+            弯曲类型
+            </summary>
+        </member>
+        <member name="T:SharpImage.TextSizing">
+            <summary>
+            文本大小调整方式
+            </summary>
+        </member>
+        <member name="T:SharpImage.SkewType">
+            <summary>
+            倾斜类型
+            </summary>
+        </member>
+        <member name="F:SharpImage.SkewType.Parallelogram">
+            <summary>
+            平行四边形
+            </summary>
+        </member>
+        <member name="F:SharpImage.SkewType.Trapezoid">
+            <summary>
+            梯形
+            </summary>
+        </member>
+        <member name="T:SharpImage.SkewOrientation">
+            <summary>
+            倾斜方向
+            </summary>
+        </member>
+        <member name="T:SharpImage.ScanDirection">
+            <summary>
+            扫描方向
+            </summary>
+        </member>
+        <member name="T:SharpImage.ReflectionLocation">
+            <summary>
+            反射位置
+            </summary>
+        </member>
+        <member name="F:SharpImage.ReflectionLocation.Auto">
+            <summary>
+            自动
+            </summary>
+        </member>
+        <member name="F:SharpImage.ReflectionLocation.Custom">
+            <summary>
+            自定义
+            </summary>
+        </member>
+        <member name="T:SharpImage.PerspectiveOrientation">
+            <summary>
+            透视方向
+            </summary>
+        </member>
+        <member name="T:SharpImage.LockAspectRatio">
+            <summary>
+            保持元素的比例
+            </summary>
+        </member>
+        <member name="F:SharpImage.LockAspectRatio.None">
+            <summary>
+            无
+            </summary>
+        </member>
+        <member name="F:SharpImage.LockAspectRatio.WidthBased">
+            <summary>
+            基于宽度
+            </summary>
+        </member>
+        <member name="F:SharpImage.LockAspectRatio.HeightBased">
+            <summary>
+            基于高度
+            </summary>
+        </member>
+        <member name="F:SharpImage.LockAspectRatio.Fit">
+            <summary>
+            自适应
+            </summary>
+        </member>
+        <member name="F:SharpImage.LockAspectRatio.FitIfMax">
+            <summary>
+            指定只有当源尺寸大于新尺寸时，元素的比例才会基于新的宽度和高度值保持不变；否则元素的大小不会改变。
+            </summary>
+        </member>
+        <member name="T:SharpImage.LineOrientation">
+            <summary>
+            线条方向
+            </summary>
+        </member>
+        <member name="F:SharpImage.LineOrientation.Horizontal">
+            <summary>
+            水平线
+            </summary>
+        </member>
+        <member name="F:SharpImage.LineOrientation.Vertical">
+            <summary>
+            垂直线
+            </summary>
+        </member>
+        <member name="F:SharpImage.LineOrientation.DiagonalUp">
+            <summary>
+            向上的对角线
+            </summary>
+        </member>
+        <member name="F:SharpImage.LineOrientation.DiagonalDown">
+            <summary>
+            向下的对角线
+            </summary>
+        </member>
+        <member name="T:SharpImage.LineCapStyle">
+            <summary>
+            线帽样式
+            </summary>
+        </member>
+        <member name="T:SharpImage.ImageSource">
+            <summary>
+            图像的数据源类型
+            </summary>
+        </member>
+        <member name="F:SharpImage.ImageSource.File">
+            <summary>
+            文件（本地文件或者URL远程文件）
+            </summary>
+        </member>
+        <member name="F:SharpImage.ImageSource.Base64String">
+            <summary>
+            base64字符串，图像字节数组的base64编码形式
+            </summary>
+        </member>
+        <member name="F:SharpImage.ImageSource.Binary">
+            <summary>
+            字节数组
+            </summary>
+        </member>
+        <member name="F:SharpImage.ImageSource.Image">
+            <summary>
+            GDI+对象
+            </summary>
+        </member>
+        <member name="T:SharpImage.ImageDrawFormat">
+            <summary>
+            图像绘制的图像格式
+            </summary>
+        </member>
+        <member name="F:SharpImage.ImageDrawFormat.Bmp">
+            <summary>
+            BMP位图
+            </summary>
+        </member>
+        <member name="F:SharpImage.ImageDrawFormat.Gif">
+            <summary>
+            GIF格式
+            </summary>
+        </member>
+        <member name="F:SharpImage.ImageDrawFormat.Jpeg">
+            <summary>
+            JPG格式
+            </summary>
+        </member>
+        <member name="F:SharpImage.ImageDrawFormat.Png">
+            <summary>
+            PNG格式
+            </summary>
+        </member>
+        <member name="T:SharpImage.HorizontalAlignment">
+            <summary>
+            水平对齐类型
+            </summary>
+        </member>
+        <member name="T:SharpImage.GradientShape">
+            <summary>
+            渐变形状
+            </summary>
+        </member>
+        <member name="F:SharpImage.GradientShape.Line">
+            <summary>
+            线型
+            </summary>
+        </member>
+        <member name="F:SharpImage.GradientShape.Path">
+            <summary>
+            路径
+            </summary>
+        </member>
+        <member name="T:SharpImage.GradientShade">
+            <summary>
+            渐变阴影
+            </summary>
+        </member>
+        <member name="F:SharpImage.GradientShade.None">
+            <summary>
+            无
+            </summary>
+        </member>
+        <member name="F:SharpImage.GradientShade.Triangle">
+            <summary>
+            三角形
+            </summary>
+        </member>
+        <member name="F:SharpImage.GradientShade.BellShapedCurve">
+            <summary>
+            钟形曲线
+            </summary>
+        </member>
+        <member name="T:SharpImage.FontUnit">
+            <summary>
+            字体单位
+            </summary>
+        </member>
+        <member name="F:SharpImage.FontUnit.Inch">
+            <summary>
+            英寸
+            </summary>
+        </member>
+        <member name="F:SharpImage.FontUnit.Millimeter">
+            <summary>
+            毫米
+            </summary>
+        </member>
+        <member name="F:SharpImage.FontUnit.Pixel">
+            <summary>
+            像素
+            </summary>
+        </member>
+        <member name="F:SharpImage.FontUnit.Point">
+            <summary>
+            点(1/72 英寸)
+            </summary>
+        </member>
+        <member name="T:SharpImage.FocalSizing">
+            <summary>
+            焦点大小模式
+            </summary>
+        </member>
+        <member name="F:SharpImage.FocalSizing.Custom">
+            <summary>
+            自定义
+            </summary>
+        </member>
+        <member name="F:SharpImage.FocalSizing.Fit">
+            <summary>
+            自动匹配
+            </summary>
+        </member>
+        <member name="T:SharpImage.FocalShape">
+            <summary>
+            焦点形状枚举
+            </summary>
+        </member>
+        <member name="F:SharpImage.FocalShape.Rectangle">
+            <summary>
+            矩形
+            </summary>
+        </member>
+        <member name="F:SharpImage.FocalShape.Oval">
+            <summary>
+            椭圆形
+            </summary>
+        </member>
+        <member name="F:SharpImage.FocalShape.Polygon">
+            <summary>
+            多边形
+            </summary>
+        </member>
+        <member name="F:SharpImage.FocalShape.Star">
+            <summary>
+            星型
+            </summary>
+        </member>
+        <member name="F:SharpImage.FocalShape.Path">
+            <summary>
+            路径
+            </summary>
+        </member>
+        <member name="F:SharpImage.FocalShape.RoundedRectangle">
+            <summary>
+            圆角矩形
+            </summary>
+        </member>
+        <member name="F:SharpImage.FocalShape.RoundedPolygon">
+            <summary>
+            圆角多边形
+            </summary>
+        </member>
+        <member name="F:SharpImage.FocalShape.RoundedStar">
+            <summary>
+            圆角星型
+            </summary>
+        </member>
+        <member name="F:SharpImage.FocalShape.RoundedPath">
+            <summary>
+            圆角路径
+            </summary>
+        </member>
+        <member name="T:SharpImage.FocalLocation">
+            <summary>
+            焦点是居中还是自定义
+            </summary>
+        </member>
+        <member name="T:SharpImage.FlipType">
+            <summary>
+            翻转类型
+            </summary>
+        </member>
+        <member name="T:SharpImage.FilmstripOrientation">
+            <summary>
+            幻影胶片执行方向
+            </summary>
+        </member>
+        <member name="T:SharpImage.FillType">
+            <summary>
+            填充类型
+            </summary>
+        </member>
+        <member name="F:SharpImage.FillType.Solid">
+            <summary>
+            纯色
+            </summary>
+        </member>
+        <member name="F:SharpImage.FillType.Gradient">
+            <summary>
+            渐变
+            </summary>
+        </member>
+        <member name="F:SharpImage.FillType.Texture">
+            <summary>
+            纹理
+            </summary>
+        </member>
+        <member name="F:SharpImage.FillType.Pattern">
+            <summary>
+            样式
+            </summary>
+        </member>
+        <member name="T:SharpImage.FeatherSizing">
+            <summary>
+            羽化大小的模式
+            </summary>
+        </member>
+        <member name="T:SharpImage.FeatherShape">
+            <summary>
+            羽化区域的形状类型
+            </summary>
+        </member>
+        <member name="T:SharpImage.FadeSizing">
+            <summary>
+            褪色大小模式
+            </summary>
+        </member>
+        <member name="T:SharpImage.FadeShape">
+            <summary>
+            褪色区域的形状类型
+            </summary>
+        </member>
+        <member name="T:SharpImage.FadeLocation">
+            <summary>
+            褪色的位置
+            </summary>
+        </member>
+        <member name="T:SharpImage.ExifTags">
+            <summary>
+            exif标记（Exif v2.2 (JEITA CP-3451) ）可交换图像文件格式，通常用于数码相机等产生的图片标识
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.ImageWidth">
+            <summary>
+            图像的列数
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.ImageLength">
+            <summary>
+            图像的行数
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.BitsPerSample">
+            <summary>
+            每个图像组件的比特数，该值通常为8
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.Compression">
+            <summary>
+            该图像数据的压缩机制，如果是Jpeg压缩，该值被忽略；如果预览图是jpeg压缩，则该值为6
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.PhotometricInterpretation">
+            <summary>
+            像素组成
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.ImageDescription">
+            <summary>
+            图片描述
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.Make">
+            <summary>
+            摄像设备的制造商
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.Model">
+            <summary>
+            摄像设备的型号
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.StripOffsets">
+            <summary>
+            每个条带的字节偏移量
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.Orientation">
+            <summary>
+            按照行和列查看的图像方向
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.SamplesPerPixel">
+            <summary>
+            每个像素的组件数，因为图像通常为RGB或者YCbCr，该值为3
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.RowsPerStrip">
+            <summary>
+            每个条带的行数
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.StripByteCounts">
+            <summary>
+            每个条带的字节总数
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.XResolution">
+            <summary>
+            图像宽度方向上每个分辨率单位的像素数。当图像分辨率未知时，指定72 dpi。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.YResolution">
+            <summary>
+            图像高度方向上每个分辨率单位的像素数。当图像分辨率未知时，指定72 dpi。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.PlanarConfiguration">
+            <summary>
+            平面配置
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.ResolutionUnit">
+            <summary>
+            测量xResolution和yrResolution的单位。如果图像分辨率未知，则指定2（英寸）。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.TransferFunction">
+            <summary>
+            以表格形式描述的图像传递函数。通常不需要这个标记，因为颜色空间是在颜色空间信息标记（color space）中指定的。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.Software">
+            <summary>
+            此标签记录用于生成图像的相机或图像输入设备的软件或固件的名称和版本。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.DateTime">
+            <summary>
+            图像创建的日期和时间。在本标准中，是更改文件的日期和时间。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.Artist">
+            <summary>
+            此标签记录相机所有者、摄影师或图像创建者的名称
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.WhitePoint">
+            <summary>
+            图像白点的色度。通常不需要这个标记，因为颜色空间是在颜色空间信息标记（color space）中指定的。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.PrimaryChromaticities">
+            <summary>
+            图像的三种原色的色度。通常不需要这个标记，因为颜色空间是在颜色空间信息标记（colorspace）中指定的。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.JPEGInterchangeFormat">
+            <summary>
+            JPEG压缩缩略图数据的起始字节（SOI）偏移量。这不用于主图像JPEG数据。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.JPEGInterchangeFormatLength">
+            <summary>
+            jpeg压缩的缩略图数据的字节数。这不用于主图像jpeg数据。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.YCbCrCoefficients">
+            <summary>
+            从RGB到YCBCR图像数据转换的矩阵系数
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.YCbCrSubSampling">
+            <summary>
+            色度分量相对于亮度分量的采样率。在jpeg压缩数据中，使用jpeg标记而不是此标记。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.YCbCrPositioning">
+            <summary>
+            色度分量相对于亮度分量的位置。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.ReferenceBlackWhite">
+            <summary>
+            参考黑点值和参考白点值。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.Copyright">
+            <summary>
+            版权信息
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.ExposureTime">
+            <summary>
+            曝光时间，以秒（秒）为单位。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.FNumber">
+            <summary>
+            F数
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.ExposureProgram">
+            <summary>
+            照相机在拍照时用来设置曝光的程序的类。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.SpectralSensitivity">
+            <summary>
+            指示所用摄像机的每个通道的光谱灵敏度
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.ISOSpeedRatings">
+            <summary>
+            指示ISO 12232中规定的摄像机或输入设备的ISO速度和ISO纬度。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.OECF">
+            <summary>
+            表示ISO 14524中规定的光电转换功能（OECF）。OECF是相机光学输入和图像值之间的关系。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.ExifVersion">
+            <summary>
+            exif的版本
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.DateTimeOriginal">
+            <summary>
+            生成原始图像数据的日期和时间。对于DSC，记录拍摄照片的日期和时间。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.DateTimeDigitized">
+            <summary>
+            将图像存储为数字数据的日期和时间
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.ComponentsConfiguration">
+            <summary>
+            压缩数据的信息特性
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.CompressedBitsPerPixel">
+            <summary>
+            压缩数据的信息特性
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.ShutterSpeedValue">
+            <summary>
+            快门速度
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.ApertureValue">
+            <summary>
+            透镜光圈
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.BrightnessValue">
+            <summary>
+            亮度值
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.ExposureBiasValue">
+            <summary>
+            曝光偏差
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.MaxApertureValue">
+            <summary>
+            透镜的最小f个数
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.SubjectDistance">
+            <summary>
+            到目标的距离，以米为单位。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.MeteringMode">
+            <summary>
+            计量模式。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.LightSource">
+            <summary>
+            光源类型
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.Flash">
+            <summary>
+            拍摄图像时闪光灯的状态。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.FocalLength">
+            <summary>
+            镜头的实际焦距，单位为毫米
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.SubjectArea">
+            <summary>
+            整个场景中主体的位置和区域。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.MakerNote">
+            <summary>
+            Exif写入器制造商记录任何所需信息的标签
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.UserComment">
+            <summary>
+            注释
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.SubsecTime">
+            <summary>
+            用于记录日期时间标记的秒数分数
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.SubsecTimeOriginal">
+            <summary>
+            用于记录DateTimeOriginal标记秒数分数的标记。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.SubsecTimeDigitized">
+            <summary>
+            一种标记，用于记录日期时间数字化标记的几分之一秒。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.FlashpixVersion">
+            <summary>
+            FPXR文件支持的Flashpix格式版本。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.ColorSpace">
+            <summary>
+            颜色空间
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.PixelXDimension">
+            <summary>
+            有效宽度
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.PixelYDimension">
+            <summary>
+            有效高度
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.RelatedSoundFile">
+            <summary>
+            记录与图像数据相关的音频文件的名称
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.FlashEnergy">
+            <summary>
+            捕捉图像时的闪光灯能量，以(BCPS)为单位测量。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.SpatialFrequencyResponse">
+            <summary>
+            按照国际标准化组织12233的规定，在图像宽度、图像高度和对角线方向上记录摄像机或输入设备的空间频率表和SFR值。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.FocalPlaneXResolution">
+            <summary>
+            相机焦平面上每个聚焦平面分辨率在图像宽度(X)方向上的像素数。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.FocalPlaneYResolution">
+            <summary>
+            相机焦平面上每个聚焦平面分辨率在图像高度(Y)方向上的像素数。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.FocalPlaneResolutionUnit">
+            <summary>
+            测量聚焦平面分辨率和聚焦平面分辨率的单位。该值与分辨率单位相同。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.SubjectLocation">
+            <summary>
+            场景中主体的位置
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.ExposureIndex">
+            <summary>
+            拍摄图像时在相机或输入设备上选择的曝光指数。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.SensingMethod">
+            <summary>
+            相机或输入设备上的图像传感器类型。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.FileSource">
+            <summary>
+            图像源
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.SceneType">
+            <summary>
+            场景的类型
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.CFAPattern">
+            <summary>
+            CFA样式
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.CustomRendered">
+            <summary>
+            自定义渲染器
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.ExposureMode">
+            <summary>
+            曝光模式
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.WhiteBalance">
+            <summary>
+            白平衡
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.DigitalZoomRatio">
+            <summary>
+            数字缩放角度
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.FocalLengthIn35mmFilm">
+            <summary>
+            35毫米胶片相机的等效焦距，单位为毫米
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.SceneCaptureType">
+            <summary>
+            拍摄的场景类型
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GainControl">
+            <summary>
+            整体图像增益调整的程度
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.Contrast">
+            <summary>
+            对比度
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.Saturation">
+            <summary>
+            拍摄图像时相机应用的饱和处理方向。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.Sharpness">
+            <summary>
+            锐度
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.DeviceSettingDescription">
+            <summary>
+            特定相机型号的拍照条件的信息
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.SubjectDistanceRange">
+            <summary>
+            物体距离
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.ImageUniqueID">
+            <summary>
+            唯一分配给每个图像的标识符
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSVersionID">
+            <summary>
+            GPS版本ID
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSLatitudeRef">
+            <summary>
+            指示纬度是北纬还是南纬。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSLatitude">
+            <summary>
+            维度
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSLongitudeRef">
+            <summary>
+            是东经还是西经
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSLongitude">
+            <summary>
+            经度
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSAltitudeRef">
+            <summary>
+            用作参考高度的高度
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSAltitude">
+            <summary>
+            高度
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSTimeStamp">
+            <summary>
+            时间戳
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSSatellites">
+            <summary>
+            用于测量的全球定位系统卫星。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSStatus">
+            <summary>
+            记录图像时全球定位系统接收器的状态
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSMeasureMode">
+            <summary>
+            全球定位系统测量模式
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSDOP">
+            <summary>
+            定位点(数据精度)
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSSpeedRef">
+            <summary>
+            接收器移动速度的单位
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSSpeed">
+            <summary>
+            移动速度
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSTrackRef">
+            <summary>
+            全球定位系统接收器移动方向的参考
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSTrack">
+            <summary>
+            移动方向
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSImgDirectionRef">
+            <summary>
+            捕获图像时给出图像方向的参考。“t”表示真实方向，“M”表示磁性方向。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSImgDirection">
+            <summary>
+            图像捕获时的方向。值的范围从0.00到359.99。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSMapDatum">
+            <summary>
+            全球定位系统接收器使用的大地测量数据
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSDestLatitudeRef">
+            <summary>
+            目标点的纬度是北纬还是南纬。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSDestLatitude">
+            <summary>
+            维度
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSDestLongitudeRef">
+            <summary>
+            目标点是东经还是西经
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSDestLongitude">
+            <summary>
+            经度
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSDestBearingRef">
+             <summary>
+            用于将方位赋予目标点的参考。“t”表示真实方向，“M”表示磁性方向。
+             </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSDestBearing">
+            <summary>
+            目标点的方位。值的范围从0.00到359.99。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSDestDistanceRef">
+            <summary>
+            表示到目的点的距离的单位。“k”、“M”和“N”代表公里、英里和节。
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSDestDistance">
+            <summary>
+            到目标点的距离
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSProcessingMethod">
+            <summary>
+            记录用于定位的方法的名称
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSAreaInformation">
+            <summary>
+            全球定位系统区域名称
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSDateStamp">
+            <summary>
+            和UTC日期信息
+            </summary>
+        </member>
+        <member name="F:SharpImage.ExifTags.GPSDifferential">
+            <summary>
+            是否应用差分校正
+            </summary>
+        </member>
+        <member name="T:SharpImage.DitherMethod">
+            <summary>
+            仿色方式
+            </summary>
+        </member>
+        <member name="F:SharpImage.DitherMethod.Threshold">
+            <summary>
+            阀值
+            </summary>
+        </member>
+        <member name="F:SharpImage.DitherMethod.PatternDiffusion">
+            <summary>
+            模式扩散
+            </summary>
+        </member>
+        <member name="F:SharpImage.DitherMethod.FloydSteinberg">
+            <summary>
+            误差扩散
+            </summary>
+        </member>
+        <member name="T:SharpImage.BitmapMaskLocation">
+            <summary>
+            指定位图掩膜在目标Element的放置位置
+            </summary>
+        </member>
+        <member name="F:SharpImage.BitmapMaskLocation.Center">
+            <summary>
+            中间
+            </summary>
+        </member>
+        <member name="F:SharpImage.BitmapMaskLocation.Custom">
+            <summary>
+            自定义
+            </summary>
+        </member>
+        <member name="T:SharpImage.CalloutType">
+            <summary>
+            标注类型
+            </summary>
+        </member>
+        <member name="F:SharpImage.CalloutType.Rectangle">
+            <summary>
+            矩形
+            </summary>
+        </member>
+        <member name="F:SharpImage.CalloutType.Oval">
+            <summary>
+            椭圆形
+            </summary>
+        </member>
+        <member name="T:SharpImage.CircleTextLayout">
+            <summary>
+            当使用基于圆的路径时文本的布局方式
+            </summary>
+        </member>
+        <member name="F:SharpImage.CircleTextLayout.Rotate">
+            <summary>
+            旋转
+            </summary>
+        </member>
+        <member name="F:SharpImage.CircleTextLayout.Vertical">
+            <summary>
+            竖直
+            </summary>
+        </member>
+        <member name="F:SharpImage.CircleTextLayout.Perpendicular">
+            <summary>
+            垂直线
+            </summary>
+        </member>
+        <member name="T:SharpImage.ColorDepth">
+            <summary>
+            图像色深
+            </summary>
+        </member>
+        <member name="F:SharpImage.ColorDepth.Format16bpp">
+            <summary>
+            每个像素16个bit
+            </summary>
+        </member>
+        <member name="F:SharpImage.ColorDepth.Format24bpp">
+            <summary>
+            每个像素24个bit
+            </summary>
+        </member>
+        <member name="F:SharpImage.ColorDepth.Format32bpp">
+            <summary>
+            每个像素32个bit
+            </summary>
+        </member>
+        <member name="F:SharpImage.ColorDepth.Format32bppAlpha">
+            <summary>
+            每个像素32个bit，支持alpha通道
+            </summary>
+        </member>
+        <member name="T:SharpImage.Corners">
+            <summary>
+            角
+            </summary>
+        </member>
+        <member name="F:SharpImage.Corners.All">
+            <summary>
+            所有角
+            </summary>
+        </member>
+        <member name="F:SharpImage.Corners.TopLeft">
+            <summary>
+            左上角
+            </summary>
+        </member>
+        <member name="F:SharpImage.Corners.TopRight">
+            <summary>
+            右上角
+            </summary>
+        </member>
+        <member name="F:SharpImage.Corners.BottomLeft">
+            <summary>
+            左下角
+            </summary>
+        </member>
+        <member name="F:SharpImage.Corners.BottomRight">
+            <summary>
+            右下角
+            </summary>
+        </member>
+        <member name="T:SharpImage.Element">
+            <summary>
+            元素Element，一个抽象基类，表示一个能够用来参与图像合成的元素。是所有Element结尾的类的直接或间接父类。
+            </summary>
+        </member>
+        <member name="P:SharpImage.Element.X">
+            <summary>
+            提供左边界的x坐标
+            </summary>
+        </member>
+        <member name="P:SharpImage.Element.Y">
+            <summary>
+            提供上边界的y坐标
+            </summary>
+        </member>
+        <member name="P:SharpImage.Element.Name">
+            <summary>
+            该图像元素的名称。元素名称必须全局唯一
+            </summary>
+        </member>
+        <member name="P:SharpImage.Element.Width">
+            <summary>
+            元素的宽度
+            </summary>
+        </member>
+        <member name="P:SharpImage.Element.Height">
+            <summary>
+            元素的高度
+            </summary>
+        </member>
+        <member name="P:SharpImage.Element.Visible">
+            <summary>
+            是否显示该Element
+            </summary>
+        </member>
+        <member name="P:SharpImage.Element.Effects">
+            <summary>
+            该Element上应用的特效集合
+            </summary>
+        </member>
+        <member name="P:SharpImage.Element.Dpi">
+            <summary>
+            该Element代表的图像的DPI设定，默认为96
+            </summary>
+        </member>
+        <member name="M:SharpImage.Element.GetSize">
+            <summary>
+            得到该Element的大小
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpImage.Element.GetSizeAfterEffects">
+            <summary>
+            得到应用特效后的大小
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpImage.Element.GetOutputImage">
+            <summary>
+            得到该Element的图像化位图，背景为白色填充
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpImage.Element.GetOutputImage(SharpImage.Fill)">
+            <summary>
+            得到该Element的图像化位图，背景使用指定填充
+            </summary>
+            <param name="background">背景的填充对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpImage.Element.GetOutputImageBinary(SharpImage.ImageDrawFormat)">
+            <summary>
+            得到该Element的图像化位图的字节流，背景色填充为透明
+            </summary>
+            <param name="format">图像格式</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpImage.Element.GetOutputImageBinary(SharpImage.Fill,SharpImage.ImageDrawFormat)">
+            <summary>
+            得到该Element的图像化位图的字节流，图像使用指定的填充对象以及指定的图像格式
+            </summary>
+            <param name="background">背景填充对象</param>
+            <param name="format">图像格式</param>
+            <returns></returns>
+        </member>
+        <member name="T:SharpImage.ElementCollection">
+            <summary>
+            Element对象的集合，是IList实现
+            </summary>
+        </member>
+        <member name="M:SharpImage.ElementCollection.#ctor">
+            <summary>
+            初始化一个空白的列表
+            </summary>
+        </member>
+        <member name="P:SharpImage.ElementCollection.Item(System.Int32)">
+            <summary>
+            返回该列表第index个元素
+            </summary>
+            <param name="index">索引，从0开始</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpImage.ElementCollection.Add(SharpImage.Element)">
+            <summary>
+            添加一个Element到列表
+            </summary>
+            <param name="element">Element元素</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpImage.ElementCollection.Clear">
+            <summary>
+            清除所有Element
+            </summary>
+        </member>
+        <member name="M:SharpImage.ElementCollection.Contains(SharpImage.Element)">
+            <summary>
+            判断列表中是否包含指定的Element
+            </summary>
+            <param name="element">要判断的Element</param>
+            <returns>true表示存在，false为不存在</returns>
+        </member>
+        <member name="M:SharpImage.ElementCollection.IndexOf(SharpImage.Element)">
+            <summary>
+            获取指定Element在本列表中的索引
+            </summary>
+            <param name="element"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpImage.ElementCollection.Insert(System.Int32,SharpImage.Element)">
+            <summary>
+            将指定Element插入到本List的指定索引的后边
+            </summary>
+            <param name="index">目标索引，新Element将插入到该索引后</param>
+            <param name="element">索引</param>
+        </member>
+        <member name="M:SharpImage.ElementCollection.RemoveAt(System.Int32)">
+            <summary>
+            将指定索引的Element给删除
+            </summary>
+            <param name="index">要删除的元素的索引，从0开始</param>
+        </member>
+        <member name="M:SharpImage.ElementCollection.Remove(SharpImage.Element)">
+            <summary>
+            将指定Element从列表中删除
+            </summary>
+            <param name="element">元素</param>
+        </member>
+        <member name="M:SharpImage.ElementCollection.GetEnumerator">
+            <summary>
+            获取枚举器
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SharpImage.ElementCollection.Count">
+            <summary>
+            列表的个数
+            </summary>
+        </member>
+        <member name="M:SharpImage.ElementCollection.CopyTo(System.Array,System.Int32)">
+            <summary>
+            从指定的索引开始，将元素集合中的项复制到指定的数组。
+            </summary>
+            <param name="array">要接收数据的目标数组</param>
+            <param name="index">array数组中接收项的第一个索引，从0开始计算</param>
+        </member>
+        <member name="P:SharpImage.ElementCollection.IsSynchronized">
+            <summary>
+            获取一个标志位，判定该元素集合是否是线程安全的
+            </summary>
+        </member>
+        <member name="P:SharpImage.ElementCollection.SyncRoot">
+            <summary>
+            获取一个可以线程安全访问该元素集合的锁定对象
+            </summary>
+        </member>
+        <member name="T:SharpImage.Fill">
+            <summary>
+            填充
+            </summary>
+        </member>
+        <member name="M:SharpImage.Fill.#ctor(System.Drawing.Color)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="backgroundColor">填充的背景色</param>
+        </member>
+        <member name="M:SharpImage.Fill.#ctor(System.Drawing.Drawing2D.HatchStyle,System.Drawing.Color,System.Drawing.Color)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="pattern">指定画刷样式</param>
+            <param name="backgroundColor">背景色</param>
+            <param name="foregroundColor">前景色</param>
+        </member>
+        <member name="M:SharpImage.Fill.#ctor(System.Drawing.Color,System.Drawing.Color,System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="gradientColor1">渐变色1</param>
+            <param name="gradientColor2">渐变色2</param>
+            <param name="gradientAngle">渐变角度</param>
+        </member>
+        <member name="M:SharpImage.Fill.#ctor(System.String,System.Drawing.Drawing2D.WrapMode)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="backgroundTextureUrl">图案填充，图案图片的绝对路径</param>
+            <param name="wrapMode">图案的平铺方式</param>
+        </member>
+        <member name="M:SharpImage.Fill.#ctor(SharpImage.FillType,System.Drawing.Drawing2D.HatchStyle,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color,System.Int32,System.String,System.Drawing.Drawing2D.WrapMode,SharpImage.GradientShade,System.Int32,System.Int32,System.Drawing.Color[],System.Int32[],System.Int32[],System.Single,System.Single,System.Int32,System.Int32,SharpImage.GradientShape,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <param name="pattern"></param>
+            <param name="backgroundColor"></param>
+            <param name="foregroundColor"></param>
+            <param name="gradientColor1"></param>
+            <param name="gradientColor2"></param>
+            <param name="gradientAngle"></param>
+            <param name="backgroundTextureUrl"></param>
+            <param name="wrapMode"></param>
+            <param name="gradientShade"></param>
+            <param name="gradientShadeFocus"></param>
+            <param name="gradientShadeScale"></param>
+            <param name="blendColors"></param>
+            <param name="blendFactors"></param>
+            <param name="blendPositions"></param>
+            <param name="gradientCenterPointX"></param>
+            <param name="gradientCenterPointY"></param>
+            <param name="gradientFocusScaleX"></param>
+            <param name="gradientFocusScaleY"></param>
+            <param name="gradientShape"></param>
+            <param name="gradientCentered"></param>
+        </member>
+        <member name="P:SharpImage.Fill.Type">
+            <summary>
+            填充类型
+            </summary>
+        </member>
+        <member name="P:SharpImage.Fill.BackgroundColor">
+            <summary>
+            当Type为Solid或者Pattern时的背景色
+            </summary>
+        </member>
+        <member name="P:SharpImage.Fill.ForegroundColor">
+            <summary>
+            当Type为Pattern时的前景色
+            </summary>
+        </member>
+        <member name="P:SharpImage.Fill.Pattern">
+            <summary>
+            当Type为Pattern时的画刷样式
+            </summary>
+        </member>
+        <member name="P:SharpImage.Fill.GradientColor1">
+            <summary>
+            渐变颜色1
+            </summary>
+        </member>
+        <member name="P:SharpImage.Fill.GradientColor2">
+            <summary>
+            渐变颜色2
+            </summary>
+        </member>
+        <member name="P:SharpImage.Fill.GradientAngle">
+            <summary>
+            渐变角度，逆时针方向
+            </summary>
+        </member>
+        <member name="P:SharpImage.Fill.BackgroundTextureUrl">
+            <summary>
+            当Type为Texture时，纹理图片的绝对路径
+            </summary>
+        </member>
+        <member name="P:SharpImage.Fill.WrapMode">
+            <summary>
+            纹理图案的平铺模式
+            </summary>
+        </member>
+        <member name="P:SharpImage.Fill.GradientShade">
+            <summary>
+            获取或设置用于创建渐变填充的阴影样式。
+            </summary>
+        </member>
+        <member name="P:SharpImage.Fill.GradientShadeFocus">
+            <summary>
+            获取或设置渐变起始颜色的位置。位置是边界线之间距离的百分比，必须在0到100之间。
+            </summary>
+        </member>
+        <member name="P:SharpImage.Fill.GradientShadeScale">
+            <summary>
+            获取或设置渐变开始颜色与渐变结束颜色在焦点位置混合的百分比。比例参数必须在0到100的范围内。默认值为100，表示结束颜色为全亮度。
+            </summary>
+        </member>
+        <member name="P:SharpImage.Fill.GradientBlendColors">
+            <summary>
+            获取或设置渐变填充的混合颜色。
+            </summary>
+        </member>
+        <member name="P:SharpImage.Fill.GradientBlendFactors">
+            <summary>
+            获取或设置渐变填充的混合因子。因子值必须用百分比表示，即从0到100。
+            </summary>
+        </member>
+        <member name="P:SharpImage.Fill.GradientBlendPositions">
+            <summary>
+            获取或设置渐变填充的混合位置。位置值必须用百分比表示，即从0到100。
+            </summary>
+        </member>
+        <member name="P:SharpImage.Fill.GradientCenterPointX">
+            <summary>
+            获取或设置渐变填充的中心点x坐标。
+            </summary>
+        </member>
+        <member name="P:SharpImage.Fill.GradientCenterPointY">
+            <summary>
+            获取或设置渐变填充的中心点y坐标。
+            </summary>
+        </member>
+        <member name="P:SharpImage.Fill.GradientFocusScaleX">
+            <summary>
+            获取或设置渐变衰减的焦点x坐标。焦点值必须用百分比表示，即从0到100。
+            </summary>
+        </member>
+        <member name="P:SharpImage.Fill.GradientFocusScaleY">
+            <summary>
+            获取或设置渐变衰减的焦点y坐标。焦点值必须用百分比表示，即从0到100。
+            </summary>
+        </member>
+        <member name="P:SharpImage.Fill.GradientShape">
+            <summary>
+            获取或设置用于创建渐变填充的形状。
+            </summary>
+        </member>
+        <member name="P:SharpImage.Fill.GradientCentered">
+            <summary>
+            获取或设置路径渐变是否必须居中。
+            </summary>
+        </member>
+        <member name="T:SharpImage.FillConverter">
+            <summary>
+            填充转换器
+            </summary>
+        </member>
+        <member name="T:SharpImage.Font">
+            <summary>
+            封装的字体，及其属性
+            </summary>
+        </member>
+        <member name="M:SharpImage.Font.#ctor">
+            <summary>
+            创建Arial字体，大小为8点
+            </summary>
+        </member>
+        <member name="M:SharpImage.Font.#ctor(System.String,System.Single)">
+            <summary>
+            创建字体
+            </summary>
+            <param name="name">字体名称</param>
+            <param name="size">大小，单位为点</param>
+        </member>
+        <member name="M:SharpImage.Font.#ctor(System.String,System.Single,SharpImage.FontUnit)">
+            <summary>
+            创建字体
+            </summary>
+            <param name="name">字体名称</param>
+            <param name="size">字体大小</param>
+            <param name="unit">字体单位</param>
+        </member>
+        <member name="M:SharpImage.Font.#ctor(System.String,System.Int32,System.Single)">
+            <summary>
+            创建字体
+            </summary>
+            <param name="customFontFile">字体文件，本地磁盘的一个字体文件的路径</param>
+            <param name="customFontFileFamilyIndex">字体文件中的FontFamily索引</param>
+            <param name="size">字体大小</param>
+        </member>
+        <member name="M:SharpImage.Font.#ctor(System.String,System.Int32,System.Single,SharpImage.FontUnit)">
+            <summary>
+            创建字体
+            </summary>
+            <param name="customFontFile">字体文件，本地磁盘的一个字体文件的路径</param>
+            <param name="customFontFileFamilyIndex">字体文件中的FontFamily索引</param>
+            <param name="size">字体大小</param>
+            <param name="unit">字体单位</param>
+        </member>
+        <member name="P:SharpImage.Font.Name">
+            <summary>
+            字体名称
+            </summary>
+        </member>
+        <member name="P:SharpImage.Font.Size">
+            <summary>
+            字体大小
+            </summary>
+        </member>
+        <member name="P:SharpImage.Font.Bold">
+            <summary>
+            是否加粗
+            </summary>
+        </member>
+        <member name="P:SharpImage.Font.Italic">
+            <summary>
+            是否斜体
+            </summary>
+        </member>
+        <member name="P:SharpImage.Font.Underline">
+            <summary>
+            是否下划线
+            </summary>
+        </member>
+        <member name="P:SharpImage.Font.Strikeout">
+            <summary>
+            是否删除线
+            </summary>
+        </member>
+        <member name="P:SharpImage.Font.Unit">
+            <summary>
+            字体单位
+            </summary>
+        </member>
+        <member name="P:SharpImage.Font.CustomFontFile">
+            <summary>
+            自定义字体文件的本地绝对路径
+            </summary>
+        </member>
+        <member name="P:SharpImage.Font.CustomFontFileFamilyIndex">
+            <summary>
+            在自定义字体文件中，要使用的字体的FontFamily的索引
+            </summary>
+        </member>
+        <member name="P:SharpImage.Font.Style">
+            <summary>
+            字体样式
+            </summary>
+        </member>
+        <member name="T:SharpImage.FontConverter">
+            <summary>
+            字体转换器
+            </summary>
+        </member>
+        <member name="T:SharpImage.AdjustBrightnessEffect">
+            <summary>
+            亮度调整特效滤镜，该滤镜调整图像的明暗
+            该特效滤镜可以调整一个Element的亮度。您需要亮度级别，Level参数。取值范围为(-100,100)。-100表示最暗，100表示最亮。
+            </summary>
+        </member>
+        <member name="M:SharpImage.AdjustBrightnessEffect.#ctor">
+            <summary>
+            默认情况下，亮度级别为0
+            </summary>
+        </member>
+        <member name="M:SharpImage.AdjustBrightnessEffect.#ctor(System.Int32)">
+            <summary>
+            使用指定的亮度级别初始化特效滤镜
+            </summary>
+            <param name="level">级别值</param>
+        </member>
+        <member name="P:SharpImage.AdjustBrightnessEffect.Level">
+            <summary>
+            亮度级别，取值范围为(-100,100)
+            </summary>
+        </member>
+        <member name="T:SharpImage.AdjustContrastEffect">
+            <summary>
+            对比度调整特效滤镜，该特效滤镜调整一个Element的对比度，需要设置一个对比度级别Level参数。-100对比度最小，100对比度最强烈。
+            </summary>
+        </member>
+        <member name="M:SharpImage.AdjustContrastEffect.#ctor">
+            <summary>
+            构造默认级别的对比度特效滤镜，Level默认为0
+            </summary>
+        </member>
+        <member name="M:SharpImage.AdjustContrastEffect.#ctor(System.Int32)">
+            <summary>
+            构造指定对比度级别的对比度特效滤镜
+            </summary>
+            <param name="level">对比度级别</param>
+        </member>
+        <member name="P:SharpImage.AdjustContrastEffect.Level">
+            <summary>
+            对比度级别，取值范围为:(-100,100)
+            </summary>
+        </member>
+        <member name="T:SharpImage.AdjustGammaEffect">
+            <summary>
+            gamma校正特效滤镜，该特效滤镜调整一个Element的gamma值，需要设置一个gamma参数.
+            </summary>
+        </member>
+        <member name="M:SharpImage.AdjustGammaEffect.#ctor">
+            <summary>
+            构造默认的滤镜，Gamma值为0
+            </summary>
+        </member>
+        <member name="M:SharpImage.AdjustGammaEffect.#ctor(System.Int32)">
+            <summary>
+            构造指定gamma值的滤镜
+            </summary>
+            <param name="gamma">gamma值</param>
+        </member>
+        <member name="P:SharpImage.AdjustGammaEffect.Gamma">
+            <summary>
+            gamma校正数值，取值范围为:(-100,100),-100为最暗，100为最亮
+            </summary>
+        </member>
+        <member name="T:SharpImage.AdjustHSLEffect">
+            <summary>
+            HSL调整特效滤镜，作用是调整色相，亮度、饱和度、从而影响画面的阴影，色调、强度、饱和度、亮度。
+            </summary>
+        </member>
+        <member name="M:SharpImage.AdjustHSLEffect.#ctor">
+            <summary>
+            构造默认的HSL滤镜，色相、亮度、饱和度均为0
+            </summary>
+        </member>
+        <member name="M:SharpImage.AdjustHSLEffect.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            使用指定的值构造
+            </summary>
+            <param name="hue">色相值，（-180,180）</param>
+            <param name="saturation">饱和度，（-100,100）</param>
+            <param name="lightness">亮度,（-100,100）</param>
+        </member>
+        <member name="P:SharpImage.AdjustHSLEffect.Hue">
+            <summary>
+            色相（-180,180）
+            </summary>
+        </member>
+        <member name="P:SharpImage.AdjustHSLEffect.Saturation">
+            <summary>
+            饱和度值（-100,100）
+            </summary>
+        </member>
+        <member name="P:SharpImage.AdjustHSLEffect.Lightness">
+            <summary>
+            亮度值（-100,100）
+            </summary>
+        </member>
+        <member name="T:SharpImage.AdjustHueEffect">
+            <summary>
+            色调调整特效滤镜，该滤镜的目的是通过调整Hue通道的值来影响整体色调
+            Hue通道的值通过angle来调整
+            </summary>
+        </member>
+        <member name="M:SharpImage.AdjustHueEffect.#ctor">
+            <summary>
+            构造默认的色相调整滤镜，angle值为0
+            </summary>
+        </member>
+        <member name="M:SharpImage.AdjustHueEffect.#ctor(System.Int32)">
+            <summary>
+            使用指定的角度构造滤镜
+            </summary>
+            <param name="angle">色调角度（色相环中的角度）</param>
+        </member>
+        <member name="P:SharpImage.AdjustHueEffect.Angle">
+            <summary>
+            Hue角度,(-180,180)
+            </summary>
+        </member>
+        <member name="T:SharpImage.AdjustOpacityEffect">
+            <summary>
+            不透明度调整特效滤镜，作用是调整一个Element的不透明度。可以给opacity属性设置[0,100]。0表示完全透明，100表示完全不透明。
+            </summary>
+        </member>
+        <member name="M:SharpImage.AdjustOpacityEffect.#ctor">
+            <summary>
+            创建默认的滤镜，默认为完全不透明
+            </summary>
+        </member>
+        <member name="M:SharpImage.AdjustOpacityEffect.#ctor(System.Int32)">
+            <summary>
+            创建一个滤镜，使用指定的不透明度设置
+            </summary>
+            <param name="opacity">不透明度</param>
+        </member>
+        <member name="P:SharpImage.AdjustOpacityEffect.Opacity">
+            <summary>
+            不透明度，取值范围[0,100]
+            </summary>
+        </member>
+        <member name="T:SharpImage.AdjustSaturationEffect">
+            <summary>
+            饱和度调整特效滤镜，作用是调整Element的饱和度，通过Level属性来调整，取值范围为(-100,100)。-100饱和度最低，100饱和度最高。
+            </summary>
+        </member>
+        <member name="M:SharpImage.AdjustSaturationEffect.#ctor">
+            <summary>
+            创建默认的饱和度调整滤镜，默认Level为0
+            </summary>
+        </member>
+        <member name="M:SharpImage.AdjustSaturationEffect.#ctor(System.Int32)">
+            <summary>
+            创建指定Level的饱和度调整
+            </summary>
+            <param name="level">饱和度级别</param>
+        </member>
+        <member name="P:SharpImage.AdjustSaturationEffect.Level">
+            <summary>
+            饱和度级别，(-100,100)
+            </summary>
+        </member>
+        <member name="T:SharpImage.BitmapMaskEffect">
+            <summary>
+            位图蒙版特效滤镜，用一个透明背景的图片作为蒙版，处理后只能看到蒙版上不透明像素下的背景图。
+            异形图像、背景穿透的效果就是该滤镜的效果。
+            </summary>
+        </member>
+        <member name="M:SharpImage.BitmapMaskEffect.#ctor">
+            <summary>
+            初始化一个位图蒙版滤镜，默认蒙版位置在中心，没有蒙版图片
+            </summary>
+        </member>
+        <member name="M:SharpImage.BitmapMaskEffect.#ctor(SharpImage.BitmapMaskLocation,System.Int32,System.Int32,System.String,System.String,System.Byte[])">
+            <summary>
+            初始化一个位图蒙版滤镜
+            </summary>
+            <param name="maskLocation">蒙版位置</param>
+            <param name="maskX">蒙版的左上角x坐标</param>
+            <param name="maskY">蒙版的左上角y坐标</param>
+            <param name="maskFile">蒙版图片文件路径</param>
+            <param name="maskBase64">蒙版图片的base64形式</param>
+            <param name="arrImage">蒙版图片的字节数组形式</param>
+        </member>
+        <member name="P:SharpImage.BitmapMaskEffect.MaskLocation">
+            <summary>
+            蒙版图片放置到被蒙版图片上的位置。如果设置为center，则忽略MaskLocationX和MaskLocationY参数
+            </summary>
+        </member>
+        <member name="P:SharpImage.BitmapMaskEffect.MaskLocationX">
+            <summary>
+            蒙版图片左上角x坐标
+            </summary>
+        </member>
+        <member name="P:SharpImage.BitmapMaskEffect.MaskLocationY">
+            <summary>
+            蒙版图片左上角y坐标
+            </summary>
+        </member>
+        <member name="P:SharpImage.BitmapMaskEffect.MaskFile">
+            <summary>
+            蒙版图片的文件全路径或者URL
+            </summary>
+        </member>
+        <member name="P:SharpImage.BitmapMaskEffect.MaskBase64">
+            <summary>
+            蒙版图片数据的base64字符串
+            </summary>
+        </member>
+        <member name="P:SharpImage.BitmapMaskEffect.MaskBinary">
+            <summary>
+            蒙版图片数据的字节数组
+            </summary>
+        </member>
+        <member name="P:SharpImage.BitmapMaskEffect.MaskBinaryOffset">
+            <summary>
+            当使用MaskBinary时，本属性用来指定应该跳过多少个字节来获取图形数据
+            </summary>
+        </member>
+        <member name="P:SharpImage.BitmapMaskEffect.MaskImage">
+            <summary>
+            蒙版图像
+            </summary>
+        </member>
+        <member name="T:SharpImage.CameraViewEffect">
+            <summary>
+            相机视图特效滤镜，该滤镜模拟针对Element的相机视图。就像一个摄像头在观看该Element。可以通过两个角度值来确定该摄像头观看的位置。
+            Elevation表示高程值，Azimuth表示方位角
+            </summary>
+        </member>
+        <member name="M:SharpImage.CameraViewEffect.#ctor">
+            <summary>
+            构造默认的相机视图滤镜，默认高程和方位角均为0
+            </summary>
+        </member>
+        <member name="M:SharpImage.CameraViewEffect.#ctor(System.Int32,System.Int32)">
+            <summary>
+            构造相机视图滤镜
+            </summary>
+            <param name="elevation">高程值</param>
+            <param name="azimuth">方位角</param>
+        </member>
+        <member name="P:SharpImage.CameraViewEffect.Elevation">
+            <summary>
+            高程值，摄像机视野边界相对于Element图像中心点的垂直旋转角度，[-180,180]
+            </summary>
+        </member>
+        <member name="P:SharpImage.CameraViewEffect.Azimuth">
+            <summary>
+            方位角，摄像机视野边界相对于Element图像中心点的水平旋转角度，[-180,180]
+            </summary>
+        </member>
+        <member name="T:SharpImage.ColorSubstitutionEffect">
+            <summary>
+            颜色替换特效滤镜，使用另外一个颜色，替换Element中当前的某一个颜色
+            </summary>
+        </member>
+        <member name="M:SharpImage.ColorSubstitutionEffect.#ctor">
+            <summary>
+            构造默认颜色替换滤镜，新颜色和旧颜色都为白色
+            </summary>
+        </member>
+        <member name="M:SharpImage.ColorSubstitutionEffect.#ctor(System.Drawing.Color,System.Drawing.Color)">
+            <summary>
+            构造颜色替换滤镜
+            </summary>
+            <param name="oldColor">要被替换的颜色</param>
+            <param name="newColor">新的颜色</param>
+        </member>
+        <member name="P:SharpImage.ColorSubstitutionEffect.OldColor">
+            <summary>
+            要被替换的颜色
+            </summary>
+        </member>
+        <member name="P:SharpImage.ColorSubstitutionEffect.NewColor">
+            <summary>
+            要替换成的新颜色
+            </summary>
+        </member>
+        <member name="P:SharpImage.ColorSubstitutionEffect.ColorTolerance">
+            <summary>
+            颜色方差。该值将决定是否和旧颜色相似的颜色也被替换。如果方差为0，则只有RGB值刚好为oldColor的像素才被替换，否则会有一个范围内的颜色被替换。
+            </summary>
+        </member>
+        <member name="T:SharpImage.ConvertToBlackWhiteEffect">
+            <summary>
+            黑白图片效果特效滤镜，本滤镜实现将彩色变成黑白两种颜色的淡色效果。
+            本类提供三种不同的方法来达到该目的。1、简单阀值，模式扩散、Floyd-steinberg算法。
+            </summary>
+        </member>
+        <member name="M:SharpImage.ConvertToBlackWhiteEffect.#ctor">
+            <summary>
+            构建默认黑白单色滤镜
+            </summary>
+        </member>
+        <member name="P:SharpImage.ConvertToBlackWhiteEffect.DitherMethod">
+            <summary>
+            设置转换算法，默认为FloydSteinberg。
+            </summary>
+        </member>
+        <member name="P:SharpImage.ConvertToBlackWhiteEffect.Threshold">
+            <summary>
+            设置阀值范围,[0,100]
+            </summary>
+        </member>
+        <member name="P:SharpImage.ConvertToBlackWhiteEffect.ReverseEffect">
+            <summary>
+            是否翻转单色图像中的黑色区域和白色区域
+            </summary>
+        </member>
+        <member name="T:SharpImage.ConvertToGrayscaleEffect">
+            <summary>
+            灰度化特效滤镜，将彩色图像变为灰度图，不需要设置任何参数
+            </summary>
+        </member>
+        <member name="T:SharpImage.ConvertToNegativeEffect">
+            <summary>
+            负片效果特效滤镜，作用为把某个Element的图像变成负片效果，不需要任何参数
+            </summary>
+        </member>
+        <member name="T:SharpImage.ConvertToSepiaEffect">
+            <summary>
+            棕褐色效果特效滤镜，让Element的图像变成棕褐色的图像，不需要任何参数
+            </summary>
+        </member>
+        <member name="T:SharpImage.CropEffect">
+            <summary>
+            裁剪特效滤镜，本滤镜裁剪Element图像的矩形区域，也就是切图的功能。矩形区域可以通过x,y,size来共同决定。
+            
+            </summary>
+        </member>
+        <member name="M:SharpImage.CropEffect.#ctor">
+            <summary>
+            构造默认裁剪滤镜，区域为0,0,100,100
+            </summary>
+        </member>
+        <member name="M:SharpImage.CropEffect.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            构造裁剪指定区域的裁剪滤镜
+            </summary>
+            <param name="x">裁剪区域矩形的x</param>
+            <param name="y">裁剪区域矩形的y</param>
+            <param name="width">裁剪区域矩形的宽</param>
+            <param name="height">裁剪区域矩形的高</param>
+        </member>
+        <member name="M:SharpImage.CropEffect.#ctor(System.Int32,System.Int32)">
+            <summary>
+            构造裁剪指定大小的裁剪滤镜，x和y都为0
+            </summary>
+            <param name="width">宽度</param>
+            <param name="height">高度</param>
+        </member>
+        <member name="P:SharpImage.CropEffect.Width">
+            <summary>
+            裁剪区域的宽
+            </summary>
+        </member>
+        <member name="P:SharpImage.CropEffect.Height">
+            <summary>
+            裁剪区域的高
+            </summary>
+        </member>
+        <member name="P:SharpImage.CropEffect.X">
+            <summary>
+            裁剪区域的x
+            </summary>
+        </member>
+        <member name="P:SharpImage.CropEffect.Y">
+            <summary>
+            裁剪区域的y
+            </summary>
+        </member>
+        <member name="P:SharpImage.CropEffect.Center">
+            <summary>
+            是否居中裁剪
+            </summary>
+        </member>
+        <member name="P:SharpImage.CropEffect.AntiAlias">
+            <summary>
+            是否抗锯齿
+            </summary>
+        </member>
+        <member name="P:SharpImage.CropEffect.PathPoints">
+            <summary>
+            获取或设置一个字符串，该字符串包含描述裁剪路径的点对。使用它执行路径裁剪
+            </summary>
+        </member>
+        <member name="P:SharpImage.CropEffect.Roundness">
+            <summary>
+            获取或设置用于裁剪的路径圆度。使用它执行路径裁剪,必须大于等于0
+            </summary>
+        </member>
+        <member name="T:SharpImage.DecorativeBorderEffect">
+            <summary>
+            装饰边框特效滤镜，该滤镜会添加一个装饰性的边框到Element的图像上。该边框可以指定宽度、线型，填充类型
+            </summary>
+        </member>
+        <member name="M:SharpImage.DecorativeBorderEffect.#ctor">
+            <summary>
+            构造默认的装饰边框滤镜，宽度为1像素，类型为实色
+            </summary>
+        </member>
+        <member name="M:SharpImage.DecorativeBorderEffect.#ctor(System.Int32)">
+            <summary>
+            构造指定宽度的实色边框
+            </summary>
+            <param name="width">宽度，单位为像素</param>
+        </member>
+        <member name="M:SharpImage.DecorativeBorderEffect.#ctor(System.Int32,System.Drawing.Drawing2D.DashStyle,SharpImage.Fill)">
+            <summary>
+            构造指定的滤镜
+            </summary>
+            <param name="width">边框宽度，单位为像素</param>
+            <param name="dashStyle">线型</param>
+            <param name="fill">填充类型，比如颜色</param>
+        </member>
+        <member name="P:SharpImage.DecorativeBorderEffect.Width">
+            <summary>
+            宽度
+            </summary>
+        </member>
+        <member name="P:SharpImage.DecorativeBorderEffect.DashStyle">
+            <summary>
+            设置线型
+            </summary>
+        </member>
+        <member name="P:SharpImage.DecorativeBorderEffect.Fill">
+            <summary>
+            设置填充方式
+            </summary>
+        </member>
+        <member name="T:SharpImage.DistortCornersEffect">
+            <summary>
+            扭曲角特效滤镜，通过改变Element图像四个边角的值，来实现对图像的扭曲
+            </summary>
+        </member>
+        <member name="M:SharpImage.DistortCornersEffect.#ctor">
+            <summary>
+            构造默认扭曲角滤镜，该实例默认不扭曲
+            </summary>
+        </member>
+        <member name="M:SharpImage.DistortCornersEffect.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            使用指定的坐标值来初始化扭曲角滤镜
+            </summary>
+            <param name="x1">左上角的x坐标</param>
+            <param name="y1">左上角的y坐标</param>
+            <param name="x2">右上角的x坐标</param>
+            <param name="y2">右上角的y坐标</param>
+            <param name="x3">右下角的x坐标</param>
+            <param name="y3">右下角的y坐标</param>
+            <param name="x4">左下角的x坐标</param>
+            <param name="y4">左下角的y坐标</param>
+        </member>
+        <member name="P:SharpImage.DistortCornersEffect.X1">
+            <summary>
+            左上角的x坐标
+            </summary>
+        </member>
+        <member name="P:SharpImage.DistortCornersEffect.Y1">
+            <summary>
+            左上角的y坐标
+            </summary>
+        </member>
+        <member name="P:SharpImage.DistortCornersEffect.X2">
+            <summary>
+            右上角的x坐标
+            </summary>
+        </member>
+        <member name="P:SharpImage.DistortCornersEffect.Y2">
+            <summary>
+            右上角的y坐标
+            </summary>
+        </member>
+        <member name="P:SharpImage.DistortCornersEffect.X3">
+            <summary>
+            右下角的x坐标
+            </summary>
+        </member>
+        <member name="P:SharpImage.DistortCornersEffect.Y3">
+            <summary>
+            右下角的y坐标
+            </summary>
+        </member>
+        <member name="P:SharpImage.DistortCornersEffect.X4">
+            <summary>
+            左下角的x坐标
+            </summary>
+        </member>
+        <member name="P:SharpImage.DistortCornersEffect.Y4">
+            <summary>
+            左下角的y坐标
+            </summary>
+        </member>
+        <member name="T:SharpImage.DropShadowEffect">
+            <summary>
+            真实阴影特效滤镜，即阴影效果,为Element添加阴影效果
+            angle：设置阴影的方向并模拟灯光照在对象上的角度。从x轴逆时针测量。
+            
+            </summary>
+        </member>
+        <member name="M:SharpImage.DropShadowEffect.#ctor">
+            <summary>
+            构造默认的阴影特效，颜色为黑色，不透明度为100，距离为5，softness为5，angle为315度
+            </summary>
+        </member>
+        <member name="M:SharpImage.DropShadowEffect.#ctor(System.Int32,System.Drawing.Color,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            使用指定的参数初始化阴影特效
+            </summary>
+            <param name="distance">阴影距离</param>
+            <param name="color">颜色</param>
+            <param name="opacity">不透明度[0,100]</param>
+            <param name="softness">柔软度</param>
+            <param name="angle">阴影方向</param>
+        </member>
+        <member name="P:SharpImage.DropShadowEffect.Distance">
+            <summary>
+            阴影距离
+            </summary>
+        </member>
+        <member name="P:SharpImage.DropShadowEffect.Color">
+            <summary>
+            阴影颜色
+            </summary>
+        </member>
+        <member name="P:SharpImage.DropShadowEffect.Opacity">
+            <summary>
+            阴影的不透明度，[0,100]
+            </summary>
+        </member>
+        <member name="P:SharpImage.DropShadowEffect.Softness">
+            <summary>
+            阴影的柔软程度
+            </summary>
+        </member>
+        <member name="P:SharpImage.DropShadowEffect.Angle">
+            <summary>
+            阴影方向，按照x的逆时针方向测量
+            </summary>
+        </member>
+        <member name="T:SharpImage.EmbossEffect">
+            <summary>
+            浮雕效果特效滤镜
+            </summary>
+        </member>
+        <member name="P:SharpImage.EmbossEffect.LightAngle">
+            <summary>
+            光照的角度，按照x的逆时针方向测量,[0,360]
+            </summary>
+        </member>
+        <member name="P:SharpImage.EmbossEffect.LightElevation">
+            <summary>
+            光照的高程值，[0,90]
+            </summary>
+        </member>
+        <member name="P:SharpImage.EmbossEffect.BumpHeight">
+            <summary>
+            浮雕的凹凸程度，[2,100]
+            </summary>
+        </member>
+        <member name="P:SharpImage.EmbossEffect.ReliefTexture">
+            <summary>
+            是否应显示目标元素的彩色浮雕
+            </summary>
+        </member>
+        <member name="T:SharpImage.FadeEffect">
+            <summary>
+            淡出特效滤镜，褪色效果逐渐将目标元素的给定区域淡入背景，区域可能是一个矩形，也可以是椭圆，圆角矩形，星形
+            </summary>
+        </member>
+        <member name="M:SharpImage.FadeEffect.#ctor">
+            <summary>
+            创建淡出效果滤镜，默认是矩形
+            </summary>
+        </member>
+        <member name="M:SharpImage.FadeEffect.#ctor(SharpImage.FadeShape)">
+            <summary>
+            创建淡出效果滤镜，形状为指定的形状
+            </summary>
+            <param name="shape">弹出滤镜的应用形状</param>
+        </member>
+        <member name="P:SharpImage.FadeEffect.Shape">
+            <summary>
+            获取或设置用于淡入淡出的区域/区域的形状。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FadeEffect.Sizing">
+            <summary>
+            获取或设置用于淡入淡出的区域/区域的大小类型。如果适合，则区域/区域的大小将自动适合目标元素的大小；否则，区域/区域的大小必须由宽度和高度属性指定。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FadeEffect.Location">
+            <summary>
+            获取或设置用于淡入淡出的区域/区域的形状的位置。如果区域/区域是中心，则区域/区域将以目标元素为中心；否则，区域/区域的位置必须由X和Y属性指定。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FadeEffect.ShapeFill">
+            <summary>
+            获取用于淡出的形状填充。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FadeEffect.Width">
+            <summary>
+            获取或设置渐变形状区域的宽度
+            </summary>
+        </member>
+        <member name="P:SharpImage.FadeEffect.Height">
+            <summary>
+            设置淡出区域的高度
+            </summary>
+        </member>
+        <member name="P:SharpImage.FadeEffect.X">
+            <summary>
+            获取或设置淡入淡出形状区域左侧的X坐标。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FadeEffect.Y">
+            <summary>
+            获取或者设置淡入淡出区域左侧的Y坐标
+            </summary>
+        </member>
+        <member name="P:SharpImage.FadeEffect.PathPoints">
+            <summary>
+            获取或设置一个字符串，该字符串包含描述淡入淡出路径的点对。使用它执行路径或圆形路径淡入。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FadeEffect.StarPoints">
+            <summary>
+            获取或设置用于淡出的星形形状的点数。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FadeEffect.PolygonSides">
+            <summary>
+            获取或设置用于淡入淡出的多边形的边数。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FadeEffect.Roundness">
+            <summary>
+            获取或设置用于褪色的形状圆度。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FadeEffect.StarInnerRadiusPercentage">
+            <summary>
+            获取或设置用于淡入淡出的星形形状的内半径百分比。
+            </summary>
+        </member>
+        <member name="T:SharpImage.FeatherEffect">
+            <summary>
+            羽化特效滤镜，羽化会模糊目标元素上给定区域的边缘，并将其混合到背景中。
+            </summary>
+        </member>
+        <member name="M:SharpImage.FeatherEffect.#ctor">
+            <summary>
+            创建羽化特效，默认羽化形状为矩形，羽化半径为5
+            </summary>
+        </member>
+        <member name="M:SharpImage.FeatherEffect.#ctor(SharpImage.FeatherShape,System.Int32)">
+            <summary>
+            创建羽化特效，采用指定的羽化形状和羽化半径
+            </summary>
+            <param name="shape">羽化形状</param>
+            <param name="radius">羽化半径</param>
+        </member>
+        <member name="P:SharpImage.FeatherEffect.Shape">
+            <summary>
+            羽化形状
+            </summary>
+        </member>
+        <member name="P:SharpImage.FeatherEffect.Sizing">
+            <summary>
+            获取或设置用于羽化的区域的大小类型。如果适合，则区域/区域的大小将自动适合目标元素的大小；否则，区域/区域的大小必须由宽度和高度属性指定。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FeatherEffect.FeatherRadius">
+            <summary>
+            获取或设置羽化量。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FeatherEffect.Width">
+            <summary>
+            获取或设置羽化形状区域的宽度
+            </summary>
+        </member>
+        <member name="P:SharpImage.FeatherEffect.Height">
+            <summary>
+            获取或设置羽化形状区域/区域的高度
+            </summary>
+        </member>
+        <member name="P:SharpImage.FeatherEffect.PathPoints">
+            <summary>
+            获取或设置一个字符串，该字符串包含描述羽化路径的点对。使用它执行路径或圆形路径羽化。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FeatherEffect.StarPoints">
+            <summary>
+            获取或设置用于羽化的星形形状的点数。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FeatherEffect.PolygonSides">
+            <summary>
+            获取或设置用于羽化的多边形的边数。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FeatherEffect.Roundness">
+            <summary>
+            获取或设置用于羽化的形状圆度。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FeatherEffect.StarInnerRadiusPercentage">
+            <summary>
+            获取或设置用于羽化的星形形状的内半径百分比。
+            </summary>
+        </member>
+        <member name="T:SharpImage.FilmstripEffect">
+            <summary>
+            电影胶片效果特效滤镜，该滤镜会在图片的外边缘添加类似电影胶片的边框
+            </summary>
+        </member>
+        <member name="M:SharpImage.FilmstripEffect.#ctor">
+            <summary>
+            创建默认的电影边框
+            </summary>
+        </member>
+        <member name="M:SharpImage.FilmstripEffect.#ctor(System.Int32,System.Int32,SharpImage.Fill,System.Int32,System.Drawing.Color,System.Int32,SharpImage.FilmstripOrientation)">
+            <summary>
+            创建指定的电影边框
+            </summary>
+            <param name="width">电影边框的宽</param>
+            <param name="height">电影边框的高</param>
+            <param name="background">电影边框的背景颜色</param>
+            <param name="perforationWidth"></param>
+            <param name="perforationColor"></param>
+            <param name="roundness"></param>
+            <param name="orientation"></param>
+        </member>
+        <member name="P:SharpImage.FilmstripEffect.Width">
+            <summary>
+            电影边框的宽，大于等于1
+            </summary>
+        </member>
+        <member name="P:SharpImage.FilmstripEffect.Height">
+            <summary>
+            电影边框的高，大于等于1
+            </summary>
+        </member>
+        <member name="P:SharpImage.FilmstripEffect.Background">
+            <summary>
+            背景填充
+            </summary>
+        </member>
+        <member name="P:SharpImage.FilmstripEffect.PerforationWidth">
+            <summary>
+            胶片的穿孔宽度,大于等于1
+            </summary>
+        </member>
+        <member name="P:SharpImage.FilmstripEffect.PerforationColor">
+            <summary>
+            胶片穿孔颜色
+            </summary>
+        </member>
+        <member name="P:SharpImage.FilmstripEffect.Roundness">
+            <summary>
+            胶片内容的角圆度,必须大于等于0
+            </summary>
+        </member>
+        <member name="P:SharpImage.FilmstripEffect.Orientation">
+            <summary>
+            胶片的方向
+            </summary>
+        </member>
+        <member name="T:SharpImage.FlipEffect">
+            <summary>
+            翻转效果特效滤镜
+            </summary>
+        </member>
+        <member name="M:SharpImage.FlipEffect.#ctor">
+            <summary>
+            创建翻转效果，默认为水平翻转
+            </summary>
+        </member>
+        <member name="M:SharpImage.FlipEffect.#ctor(SharpImage.FlipType)">
+            <summary>
+            使用指定的翻转类型
+            </summary>
+            <param name="type">翻转类型</param>
+        </member>
+        <member name="P:SharpImage.FlipEffect.Type">
+            <summary>
+            翻转图像的翻转类型
+            </summary>
+        </member>
+        <member name="T:SharpImage.FocalGrayscaleEffect">
+            <summary>
+            焦距灰度特效滤镜，该滤镜将创建具有彩色焦点区域的灰度图。
+            </summary>
+        </member>
+        <member name="M:SharpImage.FocalGrayscaleEffect.#ctor">
+            <summary>
+            创建默认滤镜，焦点形状为椭圆形
+            </summary>
+        </member>
+        <member name="M:SharpImage.FocalGrayscaleEffect.#ctor(SharpImage.FocalShape)">
+            <summary>
+            创建指定形状的滤镜
+            </summary>
+            <param name="shape"></param>
+        </member>
+        <member name="P:SharpImage.FocalGrayscaleEffect.Shape">
+            <summary>
+            焦点区域的形状，该形状内部为彩色像素
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalGrayscaleEffect.Sizing">
+            <summary>
+            获取或设置用于创建彩色焦点的区域/区域的大小类型。如果适合，则区域/区域的大小将自动适合目标元素的大小；否则，区域/区域的大小必须由宽度和高度属性指定。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalGrayscaleEffect.Location">
+            <summary>
+            获取或设置用于创建彩色焦点的区域的形状的位置。如果区域是中心，则区域将以目标元素为中心；否则，区域的位置必须由X和Y属性指定。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalGrayscaleEffect.ShapeFill">
+            <summary>
+            获取用于创建彩色焦点的形状填充。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalGrayscaleEffect.Width">
+            <summary>
+            焦点形状区域的宽度
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalGrayscaleEffect.Height">
+            <summary>
+            焦点形状区域的高度
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalGrayscaleEffect.PathPoints">
+            <summary>
+            一个字符串，包含描述创建彩色焦点的路径的点对。用于执行路径或圆形路径焦点形状。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalGrayscaleEffect.StarPoints">
+            <summary>
+            用于创建彩色焦点的星形形状的点数。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalGrayscaleEffect.PolygonSides">
+            <summary>
+            用来创建彩色焦点的多边形的边数
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalGrayscaleEffect.Roundness">
+            <summary>
+            用于创建彩色焦点的形状圆度。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalGrayscaleEffect.StarInnerRadiusPercentage">
+            <summary>
+            用于创建彩色焦点的恒星形状的内半径百分比, [1,100]
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalGrayscaleEffect.X">
+            <summary>
+            焦点形状区域左侧的X坐标
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalGrayscaleEffect.Y">
+            <summary>
+            焦点形状区域左侧的Y坐标
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalGrayscaleEffect.ReverseEffect">
+            <summary>
+            焦点灰度效果是否应反转
+            </summary>
+        </member>
+        <member name="T:SharpImage.FocalPixelateEffect">
+            <summary>
+            焦距像素化特效滤镜，即马赛克效果。创建指定焦距区域内打上马赛克的效果，其他区域不变
+            </summary>
+        </member>
+        <member name="M:SharpImage.FocalPixelateEffect.#ctor">
+            <summary>
+            创建默认的FocalPixelateEffect滤镜，焦距形状为椭圆
+            </summary>
+        </member>
+        <member name="M:SharpImage.FocalPixelateEffect.#ctor(SharpImage.FocalShape)">
+            <summary>
+            使用指定的焦距形状的FocalPixelateEffect滤镜
+            </summary>
+            <param name="shape">焦距形状</param>
+        </member>
+        <member name="P:SharpImage.FocalPixelateEffect.PixelSize">
+            <summary>
+            像素大小,即马赛克颗粒大小
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalPixelateEffect.Shape">
+            <summary>
+            用于创建马赛克区域的形状。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalPixelateEffect.Sizing">
+            <summary>
+            用于创建马赛克区域的大小类型。如果适合，则区域的大小将自动适合目标元素的大小；否则，区域的大小必须由宽度和高度属性指定。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalPixelateEffect.Location">
+            <summary>
+            将定位用于创建马赛克区域形状。如果区域是中心，则区域将以目标元素为中心；否则，区域的位置必须由X和Y属性指定。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalPixelateEffect.ShapeFill">
+            <summary>
+            用于创建马赛克的形状填充。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalPixelateEffect.Width">
+            <summary>
+            焦点形状区域的宽度
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalPixelateEffect.Height">
+            <summary>
+            焦点形状区域的高度
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalPixelateEffect.PathPoints">
+            <summary>
+            一个字符串，包含描述创建马赛克的路径的点对。用于执行路径或圆形路径焦点形状。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalPixelateEffect.StarPoints">
+            <summary>
+            用来创建焦距马赛克效果的星型的点数
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalPixelateEffect.PolygonSides">
+            <summary>
+            用来创建焦距马赛克的多边形的边数
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalPixelateEffect.Roundness">
+            <summary>
+            创建焦距马赛克的形状圆度
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalPixelateEffect.StarInnerRadiusPercentage">
+            <summary>
+            用于创建马赛克焦点的恒星形状的内半径百分比。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalPixelateEffect.X">
+            <summary>
+            焦点形状区域左侧的X坐标
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalPixelateEffect.Y">
+            <summary>
+            焦点形状区域顶部的Y坐标
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalPixelateEffect.ReverseEffect">
+            <summary>
+            是否应反转焦点像素效果。
+            </summary>
+        </member>
+        <member name="T:SharpImage.FocalSoftenEffect">
+            <summary>
+            焦距柔化特效滤镜，定义了创建柔化元素的效果，该元素的焦点由形状表示。此类不能继承。
+            </summary>
+        </member>
+        <member name="M:SharpImage.FocalSoftenEffect.#ctor">
+            <summary>
+            构造一个焦距柔化特效滤镜，默认焦距形状为椭圆形
+            </summary>
+        </member>
+        <member name="M:SharpImage.FocalSoftenEffect.#ctor(SharpImage.FocalShape)">
+            <summary>
+            构造指定焦距形状的焦距柔化特效滤镜
+            </summary>
+            <param name="shape">焦距形状</param>
+        </member>
+        <member name="P:SharpImage.FocalSoftenEffect.Softness">
+            <summary>
+            设置柔化程度,[1,50]
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalSoftenEffect.Shape">
+            <summary>
+            焦距柔化的焦距形状
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalSoftenEffect.Sizing">
+            <summary>
+            用于创建焦点的区域大小类型。如果适合，则区域的大小将自动适合目标元素的大小；否则，区域的大小必须由宽度和高度属性指定。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalSoftenEffect.Location">
+            <summary>
+            如何定位用于创建焦点的区域形状。如果区域是中心，则区域将以目标元素为中心；否则，区域的位置必须由X和Y属性指定。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalSoftenEffect.ShapeFill">
+            <summary>
+            用于创建焦点的形状填充。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalSoftenEffect.Width">
+            <summary>
+            焦点形状区域的宽度
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalSoftenEffect.Height">
+            <summary>
+            焦点形状区域的高度
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalSoftenEffect.PathPoints">
+            <summary>
+            包含描述创建焦点路径的点对的字符串。用于执行路径或圆形路径焦点形状。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalSoftenEffect.StarPoints">
+            <summary>
+            用于创建焦点的星体形状的点数。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalSoftenEffect.PolygonSides">
+            <summary>
+            用于创建焦点的多边形形状的边数
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalSoftenEffect.Roundness">
+            <summary>
+            用于创建焦点的形状圆度。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalSoftenEffect.StarInnerRadiusPercentage">
+            <summary>
+            获取或设置用于创建焦点的星形的内径百分比，默认为50
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalSoftenEffect.X">
+            <summary>
+            柔化形状区域的左边界的x坐标
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalSoftenEffect.Y">
+            <summary>
+            柔化形状区域上边界的y坐标，默认为0
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalSoftenEffect.ReverseEffect">
+            <summary>
+            是否翻转该柔化滤镜的效果
+            </summary>
+        </member>
+        <member name="T:SharpImage.FocalTintEffect">
+            <summary>
+            焦距淡色特效滤镜，该滤镜是用形状表示的焦点来创建元素的着色效果。
+            </summary>
+        </member>
+        <member name="M:SharpImage.FocalTintEffect.#ctor">
+            <summary>
+            创建默认的焦距淡色滤镜，焦点形状为椭圆形
+            </summary>
+        </member>
+        <member name="M:SharpImage.FocalTintEffect.#ctor(SharpImage.FocalShape)">
+            <summary>
+            使用指定的焦点形状来初始化滤镜
+            </summary>
+            <param name="shape">焦点形状</param>
+        </member>
+        <member name="P:SharpImage.FocalTintEffect.Color">
+            <summary>
+            设置用来着色的颜色
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalTintEffect.Shape">
+            <summary>
+            焦点形状
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalTintEffect.Sizing">
+            <summary>
+            获取或设置用于创建焦点的区域的大小类型。
+            如果为Fit，则区域的大小将自动匹配目标元素的大小；否则，区域的大小必须由宽度和高度属性指定。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalTintEffect.Location">
+            <summary>
+            焦点形状的摆放位置，如果为center，则该滤镜效果将出现在Element的中心，否则滤镜效果的应用位置由x,y指定
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalTintEffect.ShapeFill">
+            <summary>
+            创建焦点形状的填充对象
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalTintEffect.Width">
+            <summary>
+            焦点形状的宽度
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalTintEffect.Height">
+            <summary>
+            焦点形状的高度
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalTintEffect.PathPoints">
+            <summary>
+            如果Shape属性为Path或者RoundedPath，则PathPoints指定路径的点的坐标对
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalTintEffect.StarPoints">
+            <summary>
+            焦点形状为星形时的顶点个数
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalTintEffect.PolygonSides">
+            <summary>
+            焦点形状为多边形时的边数
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalTintEffect.Roundness">
+            <summary>
+            用来创建焦点形状的圆度
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalTintEffect.StarInnerRadiusPercentage">
+            <summary>
+            获取或设置用于创建焦点的星形的内径百分比。
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalTintEffect.X">
+            <summary>
+            焦点形状左边界的x坐标
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalTintEffect.Y">
+            <summary>
+            焦点形状上边界的y坐标
+            </summary>
+        </member>
+        <member name="P:SharpImage.FocalTintEffect.ReverseEffect">
+            <summary>
+            焦点形状的特效是否要反转
+            </summary>
+        </member>
+        <member name="T:SharpImage.GaussianBlurEffect">
+            <summary>
+            高斯模糊特效滤镜
+            </summary>
+        </member>
+        <member name="M:SharpImage.GaussianBlurEffect.#ctor">
+            <summary>
+            默认的高斯模糊滤镜，半径为1
+            </summary>
+        </member>
+        <member name="M:SharpImage.GaussianBlurEffect.#ctor(System.Int32)">
+            <summary>
+            初始化高斯模糊滤镜，使用指定的模糊半径
+            </summary>
+            <param name="radius"></param>
+        </member>
+        <member name="P:SharpImage.GaussianBlurEffect.Radius">
+            <summary>
+            模糊半径，[1,50]
+            </summary>
+        </member>
+        <member name="T:SharpImage.GlassTableEffect">
+            <summary>
+            玻璃桌子特效滤镜，该滤镜在图像下方添加一个映射，就像物体在玻璃桌子上的倒影
+            </summary>
+        </member>
+        <member name="M:SharpImage.GlassTableEffect.#ctor">
+            <summary>
+            默认的玻璃桌子特效
+            </summary>
+        </member>
+        <member name="M:SharpImage.GlassTableEffect.#ctor(System.Int32,System.Int32)">
+            <summary>
+            创建玻璃桌子特效
+            </summary>
+            <param name="reflectionOpacity">透明度百分比</param>
+            <param name="reflectionPercentage">要参与特效的图像高度百分比</param>
+        </member>
+        <member name="M:SharpImage.GlassTableEffect.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            创建玻璃桌子特效
+            </summary>
+            <param name="reflectionLocationX">特效图像左边界的x坐标</param>
+            <param name="reflectionLocationY">特效图像上边界的y坐标</param>
+            <param name="reflectionOpacity">透明度百分比</param>
+            <param name="reflectionPercentage">要参与特效的图像高度百分比</param>
+        </member>
+        <member name="M:SharpImage.GlassTableEffect.#ctor(SharpImage.ReflectionLocation,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            创建玻璃桌子特效
+            </summary>
+            <param name="reflectionLocation">反射位置</param>
+            <param name="reflectionLocationX">特效图像左边界的x坐标</param>
+            <param name="reflectionLocationY">特效图像上边界的y坐标</param>
+            <param name="reflectionOpacity">透明度百分比</param>
+            <param name="reflectionPercentage">要参与特效的图像高度百分比</param>
+        </member>
+        <member name="P:SharpImage.GlassTableEffect.ReflectionLocation">
+            <summary>
+            映射的位置，如果是auto，则特效就在原始图像的正下方，否则就通过ReflectionLocationX和ReflectionLocationY指定
+            </summary>
+        </member>
+        <member name="P:SharpImage.GlassTableEffect.ReflectionLocationX">
+            <summary>
+            映射位置左边界的x坐标
+            </summary>
+        </member>
+        <member name="P:SharpImage.GlassTableEffect.ReflectionLocationY">
+            <summary>
+            映射位置上边界的y坐标
+            </summary>
+        </member>
+        <member name="P:SharpImage.GlassTableEffect.ReflectionOpacity">
+            <summary>
+            透明度百分比,[0,100]
+            </summary>
+        </member>
+        <member name="P:SharpImage.GlassTableEffect.ReflectionPercentage">
+            <summary>
+            将被映射的图像高度百分比
+            </summary>
+        </member>
+        <member name="T:SharpImage.GlowEffect">
+            <summary>
+            发光效果特效滤镜
+            </summary>
+        </member>
+        <member name="T:SharpImage.ImageEffect">
+            <summary>
+            图像特效滤镜的基类。是所有Effect结尾的特效滤镜的直接或间接父类。该类为抽象类
+            </summary>
+        </member>
+        <member name="T:SharpImage.ImageEffectCollection">
+            <summary>
+            图像特效的列表。
+            </summary>
+        </member>
+        <member name="M:SharpImage.ImageEffectCollection.Add(SharpImage.ImageEffect)">
+            <summary>
+            添加图像特效
+            </summary>
+            <param name="obj">要添加的特效</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpImage.ImageEffectCollection.Clear">
+            <summary>
+            清理特效滤镜
+            </summary>
+        </member>
+        <member name="M:SharpImage.ImageEffectCollection.Contains(SharpImage.ImageEffect)">
+            <summary>
+            该列表是否包含指定的特效滤镜
+            </summary>
+            <param name="effect"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpImage.ImageEffectCollection.IndexOf(SharpImage.ImageEffect)">
+            <summary>
+            得到指定特效的索引
+            </summary>
+            <param name="effect">特效对象</param>
+            <returns>在本列表中的索引</returns>
+        </member>
+        <member name="M:SharpImage.ImageEffectCollection.Insert(System.Int32,SharpImage.ImageEffect)">
+            <summary>
+            在指定Index后边插入特效
+            </summary>
+            <param name="index"></param>
+            <param name="effect"></param>
+        </member>
+        <member name="M:SharpImage.ImageEffectCollection.RemoveAt(System.Int32)">
+            <summary>
+            移除指定索引的特效
+            </summary>
+            <param name="index">从0开始</param>
+        </member>
+        <member name="M:SharpImage.ImageEffectCollection.Remove(SharpImage.ImageEffect)">
+            <summary>
+            移除指定特效对象
+            </summary>
+            <param name="effect"></param>
+        </member>
+        <member name="P:SharpImage.ImageEffectCollection.Count">
+            <summary>
+            特效个数
+            </summary>
+        </member>
+        <member name="P:SharpImage.ImageEffectCollection.IsSynchronized">
+            <summary>
+            是否线程安全
+            </summary>
+        </member>
+        <member name="P:SharpImage.ImageEffectCollection.SyncRoot">
+            <summary>
+            实现线程安全的对象
+            </summary>
+        </member>
+        <member name="M:SharpImage.ImageEffectCollection.System#Collections#IList#Add(System.Object)">
+            <summary>
+            添加一个特效对象
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SharpImage.MailStampEffect">
+            <summary>
+            邮戳效果特效滤镜
+            </summary>
+        </member>
+        <member name="M:SharpImage.MailStampEffect.#ctor(System.Int32,System.Int32,SharpImage.Padding,System.Drawing.Color,SharpImage.Fill,System.Int32,System.Int32,System.Drawing.Color)">
+            <summary>
+            邮戳效果
+            </summary>
+            <param name="width">邮戳宽度</param>
+            <param name="height">邮戳高度</param>
+            <param name="imagePadding">在图像和邮戳边界之间的填充</param>
+            <param name="imageBorderColor">图像边界颜色</param>
+            <param name="background">背景填充对象</param>
+            <param name="perforationWidth">穿孔宽度</param>
+            <param name="perforationHeight">穿孔高度</param>
+            <param name="perforationBorderColor">穿孔边界颜色</param>
+        </member>
+        <member name="P:SharpImage.MailStampEffect.Width">
+            <summary>
+            邮戳宽度
+            </summary>
+        </member>
+        <member name="P:SharpImage.MailStampEffect.Height">
+            <summary>
+            邮戳高度
+            </summary>
+        </member>
+        <member name="P:SharpImage.MailStampEffect.Background">
+            <summary>
+            背景填充对象
+            </summary>
+        </member>
+        <member name="P:SharpImage.MailStampEffect.ImagePadding">
+            <summary>
+            图像和邮戳之间填充对象
+            </summary>
+        </member>
+        <member name="P:SharpImage.MailStampEffect.ImageBorderColor">
+            <summary>
+            图像边界颜色
+            </summary>
+        </member>
+        <member name="P:SharpImage.MailStampEffect.PerforationBorderColor">
+            <summary>
+            穿孔边界颜色
+            </summary>
+        </member>
+        <member name="P:SharpImage.MailStampEffect.PerforationWidth">
+            <summary>
+            穿孔宽度
+            </summary>
+        </member>
+        <member name="P:SharpImage.MailStampEffect.PerforationHeight">
+            <summary>
+            穿孔高度
+            </summary>
+        </member>
+        <member name="T:SharpImage.MakeTransparentEffect">
+            <summary>
+            使背景透明特效滤镜
+            </summary>
+        </member>
+        <member name="M:SharpImage.MakeTransparentEffect.#ctor(System.Boolean)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="useFirstPixel">是否使用该图像第一个像素的颜色作为透明色来使背景透明</param>
+        </member>
+        <member name="M:SharpImage.MakeTransparentEffect.#ctor(System.Drawing.Color)">
+            <summary>
+            使用指定颜色来使背景透明
+            </summary>
+            <param name="color">透明色</param>
+        </member>
+        <member name="M:SharpImage.MakeTransparentEffect.#ctor(System.Drawing.Color,System.Byte)">
+            <summary>
+            使用指定颜色来透明，并设置透明的透明度
+            </summary>
+            <param name="color">透明色</param>
+            <param name="alpha">透明度</param>
+        </member>
+        <member name="M:SharpImage.MakeTransparentEffect.#ctor(System.Boolean,System.Drawing.Color,System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="useFirstPixel"></param>
+            <param name="color"></param>
+            <param name="alpha"></param>
+        </member>
+        <member name="P:SharpImage.MakeTransparentEffect.Color">
+            <summary>
+            透明颜色
+            </summary>
+        </member>
+        <member name="P:SharpImage.MakeTransparentEffect.Alpha">
+            <summary>
+            透明度
+            </summary>
+        </member>
+        <member name="P:SharpImage.MakeTransparentEffect.UseFirstPixel">
+            <summary>
+            是否使用第一个像素的颜色作为透明色
+            </summary>
+        </member>
+        <member name="P:SharpImage.MakeTransparentEffect.ColorTolerance">
+            <summary>
+            获取或设置透明度的颜色容差。容差为0表示必须和透明色完全一样才会透明，容差越大，则相似度在容差范围内的都会被透明
+            </summary>
+        </member>
+        <member name="P:SharpImage.MakeTransparentEffect.ScanDirection">
+            <summary>
+            像素扫描方向
+            </summary>
+        </member>
+        <member name="T:SharpImage.MuseumMatteFrameEffect">
+            <summary>
+            博物馆哑色框架特效滤镜，在元素周围添加阴影边框
+            </summary>
+        </member>
+        <member name="P:SharpImage.MuseumMatteFrameEffect.OuterBorderWidth">
+            <summary>
+            外边框宽
+            </summary>
+        </member>
+        <member name="P:SharpImage.MuseumMatteFrameEffect.OuterBorderFill">
+            <summary>
+            外边界的填充
+            </summary>
+        </member>
+        <member name="P:SharpImage.MuseumMatteFrameEffect.OuterBorderShadowColor">
+            <summary>
+            外边界的颜色
+            </summary>
+        </member>
+        <member name="P:SharpImage.MuseumMatteFrameEffect.InnerBorderWidth">
+            <summary>
+            内边界宽度
+            </summary>
+        </member>
+        <member name="P:SharpImage.MuseumMatteFrameEffect.InnerBorderFill">
+            <summary>
+            内边界的填充
+            </summary>
+        </member>
+        <member name="P:SharpImage.MuseumMatteFrameEffect.InnerBorderShadowColor">
+            <summary>
+            内边界阴影颜色
+            </summary>
+        </member>
+        <member name="T:SharpImage.PerspectiveReflectionEffect">
+            <summary>
+            透视反射特效滤镜
+            </summary>
+        </member>
+        <member name="M:SharpImage.PerspectiveReflectionEffect.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="length">反射长度</param>
+            <param name="widthPercentage">参与反射的元素宽度百分比</param>
+            <param name="angle">反射角度</param>
+        </member>
+        <member name="P:SharpImage.PerspectiveReflectionEffect.Length">
+            <summary>
+            透视反射长度
+            </summary>
+        </member>
+        <member name="P:SharpImage.PerspectiveReflectionEffect.WidthPercentage">
+            <summary>
+            参与反射的元素宽度百分比
+            </summary>
+        </member>
+        <member name="P:SharpImage.PerspectiveReflectionEffect.Angle">
+            <summary>
+            透视反射角度，逆时针角度
+            </summary>
+        </member>
+        <member name="P:SharpImage.PerspectiveReflectionEffect.OffsetY">
+            <summary>
+            透视反射的Y偏移
+            </summary>
+        </member>
+        <member name="P:SharpImage.PerspectiveReflectionEffect.Opacity">
+            <summary>
+            反射的不透明度
+            </summary>
+        </member>
+        <member name="T:SharpImage.PerspectiveShadowEffect">
+            <summary>
+            透视阴影特效滤镜
+            </summary>
+        </member>
+        <member name="M:SharpImage.PerspectiveShadowEffect.#ctor(System.Int32,System.Drawing.Color,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="length">透视阴影长度</param>
+            <param name="color">阴影颜色</param>
+            <param name="widthPercentage">基于元素宽度的透视阴影的宽度百分比</param>
+            <param name="angle">阴影角度</param>
+        </member>
+        <member name="P:SharpImage.PerspectiveShadowEffect.Length">
+            <summary>
+            透视阴影长度
+            </summary>
+        </member>
+        <member name="P:SharpImage.PerspectiveShadowEffect.Color">
+            <summary>
+            透视阴影颜色
+            </summary>
+        </member>
+        <member name="P:SharpImage.PerspectiveShadowEffect.WidthPercentage">
+            <summary>
+            基于元素宽度的透视阴影的宽度百分比
+            </summary>
+        </member>
+        <member name="P:SharpImage.PerspectiveShadowEffect.Angle">
+            <summary>
+            阴影角度，逆时针
+            </summary>
+        </member>
+        <member name="P:SharpImage.PerspectiveShadowEffect.OffsetY">
+            <summary>
+            透视阴影的y偏移
+            </summary>
+        </member>
+        <member name="P:SharpImage.PerspectiveShadowEffect.Opacity">
+            <summary>
+            不透明度
+            </summary>
+        </member>
+        <member name="P:SharpImage.PerspectiveShadowEffect.Softness">
+            <summary>
+            获取或设置阴影的锐度
+            </summary>
+        </member>
+        <member name="T:SharpImage.PerspectiveViewEffect">
+            <summary>
+            透视图特效滤镜，模拟元素透视图的特效。
+            </summary>
+        </member>
+        <member name="M:SharpImage.PerspectiveViewEffect.#ctor(SharpImage.PerspectiveOrientation,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="orientation">透视方向</param>
+            <param name="angle">透视图角度</param>
+        </member>
+        <member name="P:SharpImage.PerspectiveViewEffect.Orientation">
+            <summary>
+            透视图方向
+            </summary>
+        </member>
+        <member name="P:SharpImage.PerspectiveViewEffect.Angle">
+            <summary>
+            透视图角度
+            </summary>
+        </member>
+        <member name="T:SharpImage.PixelateEffect">
+            <summary>
+            马赛克，像素化特效滤镜。
+            </summary>
+        </member>
+        <member name="M:SharpImage.PixelateEffect.#ctor(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="pixelSize">像素大小</param>
+            <param name="fade">褪色百分比</param>
+        </member>
+        <member name="P:SharpImage.PixelateEffect.PixelSize">
+            <summary>
+            像素大小
+            </summary>
+        </member>
+        <member name="P:SharpImage.PixelateEffect.Fade">
+            <summary>
+            褪色百分比，[0,100]
+            </summary>
+        </member>
+        <member name="T:SharpImage.PolaroidEffect">
+            <summary>
+            宝丽来特效滤镜
+            </summary>
+        </member>
+        <member name="M:SharpImage.PolaroidEffect.#ctor(System.Int32,System.Int32,SharpImage.Padding,System.Drawing.Color,SharpImage.Fill,System.Drawing.Color,System.Int32,SharpImage.Font,System.Drawing.Color,System.String,System.Drawing.Text.TextRenderingHint,System.Drawing.StringAlignment)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="width">宽度</param>
+            <param name="height">高度</param>
+            <param name="imagePadding">图像和边缘之间插入的空间量</param>
+            <param name="imageBorderColor">图像边框颜色</param>
+            <param name="background">背景填充</param>
+            <param name="borderColor">边框颜色</param>
+            <param name="roundness">拐角圆度</param>
+            <param name="font">字体</param>
+            <param name="foreColor">前景色</param>
+            <param name="text">字体</param>
+            <param name="textQuality">字体质量</param>
+            <param name="textAlignment">字体对齐</param>
+        </member>
+        <member name="P:SharpImage.PolaroidEffect.Width">
+            <summary>
+            宽度
+            </summary>
+        </member>
+        <member name="P:SharpImage.PolaroidEffect.Height">
+            <summary>
+            高度
+            </summary>
+        </member>
+        <member name="P:SharpImage.PolaroidEffect.Background">
+            <summary>
+            宝丽来背景
+            </summary>
+        </member>
+        <member name="P:SharpImage.PolaroidEffect.ImagePadding">
+            <summary>
+            图像和边缘之间插入的空间量
+            </summary>
+        </member>
+        <member name="P:SharpImage.PolaroidEffect.ImageBorderColor">
+            <summary>
+            图像边框的颜色
+            </summary>
+        </member>
+        <member name="P:SharpImage.PolaroidEffect.ImageBorderWidth">
+            <summary>
+            图像边框的宽度
+            </summary>
+        </member>
+        <member name="P:SharpImage.PolaroidEffect.ImageCorners">
+            <summary>
+            获取或设置哪些图像角将被舍入
+            </summary>
+        </member>
+        <member name="P:SharpImage.PolaroidEffect.BorderColor">
+            <summary>
+            边框颜色
+            </summary>
+        </member>
+        <member name="P:SharpImage.PolaroidEffect.BorderWidth">
+            <summary>
+            边框宽度
+            </summary>
+        </member>
+        <member name="P:SharpImage.PolaroidEffect.Corners">
+            <summary>
+            有哪些角会被舍去
+            </summary>
+        </member>
+        <member name="P:SharpImage.PolaroidEffect.Roundness">
+            <summary>
+            获取或设置拐角圆度
+            </summary>
+        </member>
+        <member name="P:SharpImage.PolaroidEffect.ForeColor">
+            <summary>
+            字体的颜色
+            </summary>
+        </member>
+        <member name="P:SharpImage.PolaroidEffect.Text">
+            <summary>
+            宝丽来的文字
+            </summary>
+        </member>
+        <member name="P:SharpImage.PolaroidEffect.TextQuality">
+            <summary>
+            文字质量
+            </summary>
+        </member>
+        <member name="P:SharpImage.PolaroidEffect.TextAlignment">
+            <summary>
+            文字对齐方式
+            </summary>
+        </member>
+        <member name="P:SharpImage.PolaroidEffect.Font">
+            <summary>
+            字体
+            </summary>
+        </member>
+        <member name="T:SharpImage.RedEyeRemovalEffect">
+            <summary>
+            红眼消除特效滤镜
+            </summary>
+        </member>
+        <member name="P:SharpImage.RedEyeRemovalEffect.RedEyeAreas">
+            <summary>
+            获取或设置应用红眼修正的矩形区域
+            </summary>
+        </member>
+        <member name="P:SharpImage.RedEyeRemovalEffect.Threshold">
+            <summary>
+            获取或设置检测红眼区域中红色像素的阈值
+            </summary>
+        </member>
+        <member name="T:SharpImage.RemovePixelEffect">
+            <summary>
+            移除像素特效滤镜
+            </summary>
+        </member>
+        <member name="M:SharpImage.RemovePixelEffect.#ctor(System.Drawing.Color)">
+            <summary>
+            移除像素
+            </summary>
+            <param name="color">颜色</param>
+        </member>
+        <member name="P:SharpImage.RemovePixelEffect.Color">
+            <summary>
+            获取或设置要从目标元素中移除的颜色
+            </summary>
+        </member>
+        <member name="P:SharpImage.RemovePixelEffect.ColorTolerance">
+            <summary>
+            移除像素的颜色容差。颜色容差表示以指定颜色为起点将被移除的颜色的色调范围。如果输入0，只有与指定颜色色调完全相同的像素才会被删除；否则，更大范围的将被移除。
+            </summary>
+        </member>
+        <member name="P:SharpImage.RemovePixelEffect.ScanDirection">
+            <summary>
+            像素扫描方向
+            </summary>
+        </member>
+        <member name="T:SharpImage.RemoveTransparencyEffect">
+            <summary>
+            移除透明度特效滤镜
+            </summary>
+        </member>
+        <member name="T:SharpImage.ResizeEffect">
+            <summary>
+            大小调整特效滤镜
+            </summary>
+        </member>
+        <member name="M:SharpImage.ResizeEffect.#ctor(System.Int32,System.Int32,SharpImage.LockAspectRatio,System.Drawing.Drawing2D.InterpolationMode)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="newWidth">新宽度</param>
+            <param name="newHeight">新高度</param>
+            <param name="lockAspectRatio">它指定如何保持元素的比例</param>
+            <param name="interpolationMode">缩放算法</param>
+        </member>
+        <member name="P:SharpImage.ResizeEffect.Width">
+            <summary>
+            宽度
+            </summary>
+        </member>
+        <member name="P:SharpImage.ResizeEffect.Height">
+            <summary>
+            高度
+            </summary>
+        </member>
+        <member name="P:SharpImage.ResizeEffect.InterpolationMode">
+            <summary>
+            缩放算法
+            </summary>
+        </member>
+        <member name="P:SharpImage.ResizeEffect.LockAspectRatio">
+            <summary>
+            获取或设置元素比例的维护方式
+            </summary>
+        </member>
+        <member name="T:SharpImage.RotateEffect">
+            <summary>
+            旋转特效滤镜
+            </summary>
+        </member>
+        <member name="M:SharpImage.RotateEffect.#ctor(System.Int32,System.Drawing.Drawing2D.InterpolationMode)">
+            <summary>
+            
+            </summary>
+            <param name="angle">从x轴逆时针测量的旋转角度。</param>
+            <param name="interpolationMode">旋转算法</param>
+        </member>
+        <member name="P:SharpImage.RotateEffect.Angle">
+            <summary>
+            角度，逆时针
+            </summary>
+        </member>
+        <member name="P:SharpImage.RotateEffect.InterpolationMode">
+            <summary>
+            旋转算法
+            </summary>
+        </member>
+        <member name="T:SharpImage.RoundCornersEffect">
+            <summary>
+            圆角矩形处理特效滤镜
+            </summary>
+        </member>
+        <member name="M:SharpImage.RoundCornersEffect.#ctor(System.Int32,System.Drawing.Color,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="roundness">拐角圆度</param>
+            <param name="borderColor">边界颜色</param>
+            <param name="borderWidth">边界宽度</param>
+        </member>
+        <member name="P:SharpImage.RoundCornersEffect.Roundness">
+            <summary>
+            圆度
+            </summary>
+        </member>
+        <member name="P:SharpImage.RoundCornersEffect.BorderColor">
+            <summary>
+            边界颜色
+            </summary>
+        </member>
+        <member name="P:SharpImage.RoundCornersEffect.BorderWidth">
+            <summary>
+            边界宽度
+            </summary>
+        </member>
+        <member name="P:SharpImage.RoundCornersEffect.Corners">
+            <summary>
+            要被圆角化的角
+            </summary>
+        </member>
+        <member name="T:SharpImage.ScaleEffect">
+            <summary>
+            缩放效果特效滤镜
+            </summary>
+        </member>
+        <member name="M:SharpImage.ScaleEffect.#ctor(System.Int32,System.Int32,System.Drawing.Drawing2D.InterpolationMode)">
+            <summary>
+            
+            </summary>
+            <param name="widthPercentage">基于原始宽度百分比的新图像宽度。</param>
+            <param name="heightPercentage">基于原始高度百分比的新图像高度。</param>
+            <param name="interpolationMode">缩放算法</param>
+        </member>
+        <member name="P:SharpImage.ScaleEffect.WidthPercentage">
+            <summary>
+            基于原始宽度百分比的新图像宽度
+            </summary>
+        </member>
+        <member name="P:SharpImage.ScaleEffect.HeightPercentage">
+            <summary>
+            基于原始高度百分比的新图像高度
+            </summary>
+        </member>
+        <member name="P:SharpImage.ScaleEffect.InterpolationMode">
+            <summary>
+            缩放算法
+            </summary>
+        </member>
+        <member name="T:SharpImage.SharpenEffect">
+            <summary>
+            锐化特效滤镜
+            </summary>
+        </member>
+        <member name="T:SharpImage.SilhouetteEffect">
+            <summary>
+            轮廓特效滤镜
+            </summary>
+        </member>
+        <member name="M:SharpImage.SilhouetteEffect.#ctor(System.Drawing.Color)">
+            <summary>
+            
+            </summary>
+            <param name="color">轮廓颜色</param>
+        </member>
+        <member name="P:SharpImage.SilhouetteEffect.Color">
+            <summary>
+            轮廓颜色
+            </summary>
+        </member>
+        <member name="T:SharpImage.SkewEffect">
+            <summary>
+            倾斜特效滤镜。通过沿水平或垂直轴倾斜元素产生特效。倾斜时，元素以其原点为轴。
+            </summary>
+        </member>
+        <member name="M:SharpImage.SkewEffect.#ctor(SharpImage.SkewType,SharpImage.SkewOrientation,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="type">倾斜类型</param>
+            <param name="orientation">倾斜方向</param>
+            <param name="angle">倾斜角度</param>
+        </member>
+        <member name="P:SharpImage.SkewEffect.Type">
+            <summary>
+            倾斜类型
+            </summary>
+        </member>
+        <member name="P:SharpImage.SkewEffect.Orientation">
+            <summary>
+            倾斜方向
+            </summary>
+        </member>
+        <member name="P:SharpImage.SkewEffect.Angle">
+            <summary>
+            倾斜角度
+            </summary>
+        </member>
+        <member name="P:SharpImage.SkewEffect.ConstrainProportions">
+            <summary>
+            约束比例
+            </summary>
+        </member>
+        <member name="T:SharpImage.SolarizeEffect">
+            <summary>
+            过度曝光特效滤镜
+            </summary>
+        </member>
+        <member name="T:SharpImage.StretchEffect">
+            <summary>
+            拉伸特效滤镜
+            </summary>
+        </member>
+        <member name="T:SharpImage.TintEffect">
+            <summary>
+            淡色特效滤镜
+            </summary>
+        </member>
+        <member name="T:SharpImage.ImageEngine">
+            <summary>
+            图像引擎类。它本类库最核心的类，
+            每个引擎有一个画布，调用者可以在画布上合成多个Element，可以对单个Element和合成后的图像应用ImageEffect，并将结果保存成多种形式
+            </summary>
+        </member>
+        <member name="P:SharpImage.ImageEngine.Canvas">
+            <summary>
+            画布。待输出图像均是在该画布上绘制。
+            </summary>
+        </member>
+        <member name="P:SharpImage.ImageEngine.Elements">
+            <summary>
+            元素集合。图像合成时，就是一个个Element的叠加合成
+            </summary>
+        </member>
+        <member name="P:SharpImage.ImageEngine.Effects">
+            <summary>
+            要应用到该图像的特效滤镜
+            </summary>
+        </member>
+        <member name="P:SharpImage.ImageEngine.Background">
+            <summary>
+            仅在对整个输出图像应用特效滤镜时获取背景填充。
+            </summary>
+        </member>
+        <member name="P:SharpImage.ImageEngine.ImageFormat">
+            <summary>
+            读写图像的绘制格式，默认为png. 可以选择： Gif, Jpeg, Bmp, and Png.
+            </summary>
+        </member>
+        <member name="P:SharpImage.ImageEngine.JpegCompressionLevel">
+            <summary>
+            读写当输出图像是jpeg格式时，jpeg的压缩级别，默认为80,可取范围为[0,100]，数字越大，质量越高，压缩越少。
+            </summary>
+        </member>
+        <member name="P:SharpImage.ImageEngine.ColorDepth">
+            <summary>
+            读写色彩深度。色彩深度定义了每个像素有多少比特,单位为bpp。如果输出图像为gif，则该值的设定被忽略，因为gif的色深一直为8bpp。
+            </summary>
+        </member>
+        <member name="P:SharpImage.ImageEngine.Dpi">
+            <summary>
+            读写输出图像的分辨率，单位为点每英寸, DPI.默认为96DPI。
+            </summary>
+        </member>
+        <member name="P:SharpImage.ImageEngine.OutputImageSize">
+            <summary>
+            输出图像的宽和高
+            </summary>
+        </member>
+        <member name="P:SharpImage.ImageEngine.MonochromeSettings">
+            <summary>
+            单色设定
+            </summary>
+        </member>
+        <member name="P:SharpImage.ImageEngine.Monochrome">
+            <summary>
+            读写输出图像是否必须转换为单色模式，及色彩深度为1bpp。
+            </summary>
+        </member>
+        <member name="M:SharpImage.ImageEngine.GetOutputImage">
+            <summary>
+            得到输出图像的Bitmap。该Bitmap的图像格式为ImageFormat指定的值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpImage.ImageEngine.GetOutputImageBinary">
+            <summary>
+            得到输出图像的字节数组，该图像的图像格式为ImageFormat指定的值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpImage.ImageEngine.GetDraftImage">
+            <summary>
+            获取图像草图
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SharpImage.ImageEngine.GetOutputImageBinary(System.String)">
+            <summary>
+            获取输出图像的字节数组，该输出图像基于给定的MIME
+            </summary>
+            <param name="MIME">可以是image/bmp， image/jpeg， image/png， image/gif， image/vnd.wap.wbmp</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpImage.ImageEngine.SaveWbmpImage(System.String)">
+            <summary>
+            保存输出图像到指定的文件，图像格式为wbmp
+            </summary>
+            <param name="filename">文件名</param>
+        </member>
+        <member name="M:SharpImage.ImageEngine.SaveWbmpImage(System.IO.Stream)">
+            <summary>
+            保存输出图像到给定的流，图像格式为wbmp
+            </summary>
+            <param name="stream">流</param>
+        </member>
+        <member name="M:SharpImage.ImageEngine.Save(System.String)">
+            <summary>
+            保存给定的图像到指定的文件，图像格式为ImageFormat属性指定的值
+            </summary>
+            <param name="fileName">文件名</param>
+        </member>
+        <member name="M:SharpImage.ImageEngine.Save(System.String,System.Drawing.Imaging.ImageFormat)">
+            <summary>
+            保存给定的图像到指定的文件，按照指定的图像格式保存
+            </summary>
+            <param name="fileName">文件名</param>
+            <param name="format">需要的图像格式</param>
+        </member>
+        <member name="M:SharpImage.ImageEngine.Save(System.IO.Stream)">
+            <summary>
+            保存给定的图像到指定的流，图像格式为ImageFormat属性指定的值
+            </summary>
+            <param name="stream"></param>
+        </member>
+        <member name="M:SharpImage.ImageEngine.Save(System.IO.Stream,System.Drawing.Imaging.ImageFormat)">
+            <summary>
+            保存给定的图像到指定的流，图像格式为指定的值
+            </summary>
+            <param name="stream"></param>
+            <param name="format"></param>
+        </member>
+        <member name="T:SharpImage.ImageElement">
+            <summary>
+            图像元素Element。表示一个图片
+            </summary>
+        </member>
+        <member name="P:SharpImage.ImageElement.SourceType">
+            <summary>
+            图像的数据源
+            </summary>
+        </member>
+        <member name="P:SharpImage.ImageElement.SourceFile">
+            <summary>
+            图像的图片绝对路径，SourceType为File有效
+            </summary>
+        </member>
+        <member name="P:SharpImage.ImageElement.SourceBase64">
+            <summary>
+            Base64格式的图片，SourceType为base64
+            </summary>
+        </member>
+        <member name="P:SharpImage.ImageElement.SourceBinary">
+            <summary>
+            二进制数组格式的图片，SourceType为Binary
+            </summary>
+        </member>
+        <member name="P:SharpImage.ImageElement.SourceBinaryOffset">
+            <summary>
+            获取或设置基于SourceBinary属性生成图像时,必须跳过的字节数
+            </summary>
+        </member>
+        <member name="P:SharpImage.ImageElement.SourceImage">
+            <summary>
+            Image类型的图像，，SourceType为Image
+            </summary>
+        </member>
+        <member name="P:SharpImage.ImageElement.NullImageUrl">
+            <summary>
+            当设定的图像URL无法访问时要显示的图片绝对路径
+            </summary>
+        </member>
+        <member name="P:SharpImage.ImageElement.MultiPageIndex">
+            <summary>
+            如果给定的图像包含多帧，该属性指定要使用哪一帧，从0开始
+            </summary>
+        </member>
+        <member name="P:SharpImage.ImageElement.MultiPageCount">
+            <summary>
+            在包含多帧的图像文件里，总共多少帧
+            </summary>
+        </member>
+        <member name="P:SharpImage.ImageElement.UseSourceDpi">
+            <summary>
+            创建的ImageElement元素是否使用原始图像的DPI值
+            </summary>
+        </member>
+        <member name="P:SharpImage.ImageElement.SourceDpi">
+            <summary>
+            获取原始图像的DPI值
+            </summary>
+        </member>
+        <member name="P:SharpImage.ImageElement.PreserveMetaData">
+            <summary>
+            是否在ImageElement中保留原始图像的EXIF元数据
+            </summary>
+        </member>
+        <member name="M:SharpImage.ImageElement.FromUrl(System.String)">
+            <summary>
+            从指定的URL创建ImageElement
+            </summary>
+            <param name="url">图片路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpImage.ImageElement.FromFile(System.String)">
+            <summary>
+            从指定的绝对路径创建ImageElement
+            </summary>
+            <param name="fileName">图片绝对路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpImage.ImageElement.FromBase64(System.String)">
+            <summary>
+            从图像的base64数据中创建ImageElement
+            </summary>
+            <param name="base64">base64格式图片</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpImage.ImageElement.FromBinary(System.Byte[])">
+            <summary>
+            从二进制图像数据中创建ImageElement
+            </summary>
+            <param name="binaryContent">图像的二进制字节流</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpImage.ImageElement.FromBinary(System.Byte[],System.Int32)">
+            <summary>
+            从二进制图像数据创建ImageElement，允许设定偏移
+            </summary>
+            <param name="binaryContent">图像的二进制字节流</param>
+            <param name="binaryContentOffset">图像数据的偏移，从0开始</param>
+            <returns></returns>
+        </member>
+        <member name="M:SharpImage.ImageElement.FromImage(System.Drawing.Image)">
+            <summary>
+            从Image对象创建ImageElement
+            </summary>
+            <param name="image">Image对象</param>
+            <returns></returns>
+        </member>
+        <member name="T:SharpImage.ImageMetaDataReader">
+            <summary>
+            图像元数据，exif数据获取器。用来读取指定图像的exif元数据
+            </summary>
+        </member>
+        <member name="M:SharpImage.ImageMetaDataReader.GetExifMetadata(System.String)">
+            <summary>
+            得到指定图像文件的原数据
+            </summary>
+            <param name="imageFileName">图像文件</param>
+            <returns>exif标记及其值的键值对</returns>
+        </member>
+        <member name="M:SharpImage.ImageMetaDataReader.GetExifMetadata(System.String,SharpImage.ExifTags)">
+            <summary>
+            得到指定图像文件指定exif标记的值
+            </summary>
+            <param name="imageFileName">图像文件</param>
+            <param name="exifTag">标记类型</param>
+            <returns>值</returns>
+        </member>
+        <member name="T:SharpImage.LineShapeElement">
+            <summary>
+            表示一个线型元素Element
+            </summary>
+        </member>
+        <member name="P:SharpImage.LineShapeElement.Orientation">
+            <summary>
+            线的方向
+            </summary>
+        </member>
+        <member name="P:SharpImage.LineShapeElement.StartLineCap">
+            <summary>
+            开始一个线段的线帽样式
+            </summary>
+        </member>
+        <member name="P:SharpImage.LineShapeElement.EndLineCap">
+            <summary>
+            结束的线帽样式
+            </summary>
+        </member>
+        <member name="P:SharpImage.LineShapeElement.StartLineCapWidth">
+            <summary>
+            开始的线帽宽度
+            </summary>
+        </member>
+        <member name="P:SharpImage.LineShapeElement.EndLineCapWidth">
+            <summary>
+            线段结束线帽宽度
+            </summary>
+        </member>
+        <member name="T:SharpImage.MonochromeSettings">
+            <summary>
+            定义单色转换设定，黑白转换，或者是wbmp转换会用到该设定值
+            </summary>
+        </member>
+        <member name="P:SharpImage.MonochromeSettings.DitherMethod">
+            <summary>
+            单色转换使用的仿色方式
+            </summary>
+        </member>
+        <member name="P:SharpImage.MonochromeSettings.Threshold">
+            <summary>
+            阀值百分比，[0,100]
+            </summary>
+        </member>
+        <member name="P:SharpImage.MonochromeSettings.ReverseEffect">
+            <summary>
+            单色效果是否要反转
+            </summary>
+        </member>
+        <member name="T:SharpImage.OvalShapeElement">
+            <summary>
+            椭圆形形状元素Element
+            </summary>
+        </member>
+        <member name="T:SharpImage.Padding">
+            <summary>
+            填充，空白对象
+            </summary>
+        </member>
+        <member name="P:SharpImage.Padding.Left">
+            <summary>
+            左边界
+            </summary>
+        </member>
+        <member name="P:SharpImage.Padding.Right">
+            <summary>
+            右边界
+            </summary>
+        </member>
+        <member name="P:SharpImage.Padding.Top">
+            <summary>
+            上边界
+            </summary>
+        </member>
+        <member name="P:SharpImage.Padding.Bottom">
+            <summary>
+            下边界
+            </summary>
+        </member>
+        <member name="T:SharpImage.PaddingConverter">
+            <summary>
+            填充对象的转换器
+            </summary>
+        </member>
+        <member name="T:SharpImage.PathShapeElement">
+            <summary>
+            路径形状元素Element
+            </summary>
+        </member>
+        <member name="M:SharpImage.PathShapeElement.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="pathPoints">路径形状的关键点坐标组成的字符串，用逗号分隔</param>
+        </member>
+        <member name="P:SharpImage.PathShapeElement.PathPoints">
+            <summary>
+            包含路径关键点坐标的字符串，逗号分隔
+            </summary>
+        </member>
+        <member name="P:SharpImage.PathShapeElement.ClosedPath">
+            <summary>
+            设置路径是否是闭合的
+            </summary>
+        </member>
+        <member name="T:SharpImage.PolygonShapeElement">
+            <summary>
+            多边形元素Element
+            </summary>
+        </member>
+        <member name="M:SharpImage.PolygonShapeElement.#ctor(System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="sides">边数</param>
+        </member>
+        <member name="P:SharpImage.PolygonShapeElement.Sides">
+            <summary>
+            多边形的边数
+            </summary>
+        </member>
+        <member name="T:SharpImage.QuadrilateralPoints">
+            <summary>
+            四边形的四个点
+            </summary>
+        </member>
+        <member name="P:SharpImage.QuadrilateralPoints.UpperLeftX">
+            <summary>
+            左上角x坐标
+            </summary>
+        </member>
+        <member name="P:SharpImage.QuadrilateralPoints.UpperLeftY">
+            <summary>
+            左上角y
+            </summary>
+        </member>
+        <member name="P:SharpImage.QuadrilateralPoints.UpperRightX">
+            <summary>
+            右上角x
+            </summary>
+        </member>
+        <member name="P:SharpImage.QuadrilateralPoints.UpperRightY">
+            <summary>
+            右上角y
+            </summary>
+        </member>
+        <member name="P:SharpImage.QuadrilateralPoints.LowerLeftX">
+            <summary>
+            左下角x
+            </summary>
+        </member>
+        <member name="P:SharpImage.QuadrilateralPoints.LowerLeftY">
+            <summary>
+            左下角y
+            </summary>
+        </member>
+        <member name="P:SharpImage.QuadrilateralPoints.LowerRightX">
+            <summary>
+            右下角x
+            </summary>
+        </member>
+        <member name="P:SharpImage.QuadrilateralPoints.LowerRightY">
+            <summary>
+            右下角y
+            </summary>
+        </member>
+        <member name="T:SharpImage.RectangleShapeElement">
+            <summary>
+            矩形形状元素Element
+            </summary>
+        </member>
+        <member name="M:SharpImage.RectangleShapeElement.#ctor(System.Int32,System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="width">宽度</param>
+            <param name="height">高度</param>
+        </member>
+        <member name="P:SharpImage.RectangleShapeElement.Corners">
+            <summary>
+            要舍入的角
+            </summary>
+        </member>
+        <member name="T:SharpImage.RedEyeArea">
+            <summary>
+            存储红眼消除的矩形区域值，表示红眼消除的位置和大小
+            </summary>
+        </member>
+        <member name="T:SharpImage.RedEyeAreasConverter">
+            <summary>
+            RedEyeArea对象的转换器
+            </summary>
+        </member>
+        <member name="T:SharpImage.RichTextElement">
+            <summary>
+            富文本元素Element
+            </summary>
+        </member>
+        <member name="P:SharpImage.RichTextElement.RichText">
+            <summary>
+            文本内容
+            </summary>
+        </member>
+        <member name="P:SharpImage.RichTextElement.NullDisplayText">
+            <summary>
+            如果文本内容为Null时显示的默认文本
+            </summary>
+        </member>
+        <member name="P:SharpImage.RichTextElement.ConvertEmptyStringToNull">
+            <summary>
+            获取或设置一个值，该值指示在数据源中更新数据字段时，是否将空字符串转换为Null
+            </summary>
+        </member>
+        <member name="P:SharpImage.RichTextElement.Stretch">
+            <summary>
+            文本是否自动缩放到RichTextElement的大小
+            </summary>
+        </member>
+        <member name="P:SharpImage.RichTextElement.TextQuality">
+            <summary>
+            文本质量
+            </summary>
+        </member>
+        <member name="P:SharpImage.RichTextElement.TextAlignment">
+            <summary>
+            文本对齐
+            </summary>
+        </member>
+        <member name="P:SharpImage.RichTextElement.TextMargin">
+            <summary>
+            文本间空白
+            </summary>
+        </member>
+        <member name="P:SharpImage.RichTextElement.LineSpacing">
+            <summary>
+            在文本间的间隔大小
+            </summary>
+        </member>
+        <member name="P:SharpImage.RichTextElement.Background">
+            <summary>
+            背景填充样式
+            </summary>
+        </member>
+        <member name="T:SharpImage.ShapeElement">
+            <summary>
+            所有ShapeElement的直接或间接父类。它是一个抽象基类
+            </summary>
+        </member>
+        <member name="P:SharpImage.ShapeElement.Text">
+            <summary>
+            文本
+            </summary>
+        </member>
+        <member name="P:SharpImage.ShapeElement.Font">
+            <summary>
+            字体
+            </summary>
+        </member>
+        <member name="P:SharpImage.ShapeElement.TextForeColor">
+            <summary>
+            文本颜色
+            </summary>
+        </member>
+        <member name="P:SharpImage.ShapeElement.TextStrokeColor">
+            <summary>
+            文本删除线颜色
+            </summary>
+        </member>
+        <member name="P:SharpImage.ShapeElement.TextStrokeWidth">
+            <summary>
+            文本删除线宽度
+            </summary>
+        </member>
+        <member name="P:SharpImage.ShapeElement.TextQuality">
+            <summary>
+            文本质量
+            </summary>
+        </member>
+        <member name="P:SharpImage.ShapeElement.TextAlignment">
+            <summary>
+            文本对齐方式
+            </summary>
+        </member>
+        <member name="P:SharpImage.ShapeElement.TextPadding">
+            <summary>
+            两个图形间的空白
+            </summary>
+        </member>
+        <member name="P:SharpImage.ShapeElement.StrokeWidth">
+            <summary>
+            边框宽度
+            </summary>
+        </member>
+        <member name="P:SharpImage.ShapeElement.StrokeDashStyle">
+            <summary>
+            删除线样式
+            </summary>
+        </member>
+        <member name="P:SharpImage.ShapeElement.StrokeLineJoinStyle">
+            <summary>
+            获取或设置图形或形状中两个连续线段末端的连接样式
+            </summary>
+        </member>
+        <member name="P:SharpImage.ShapeElement.StrokeFill">
+            <summary>
+            得到边框样式
+            </summary>
+        </member>
+        <member name="P:SharpImage.ShapeElement.StrokeAntialias">
+            <summary>
+            线是否反锯齿
+            </summary>
+        </member>
+        <member name="P:SharpImage.ShapeElement.Roundness">
+            <summary>
+            获取或设置形状圆度
+            </summary>
+        </member>
+        <member name="P:SharpImage.ShapeElement.NullDisplayText">
+            <summary>
+            如果Text为空，默认显示的文本
+            </summary>
+        </member>
+        <member name="P:SharpImage.ShapeElement.ConvertEmptyStringToNull">
+            <summary>
+            是否自动将空白字符串转换为Null
+            </summary>
+        </member>
+        <member name="P:SharpImage.ShapeElement.RightToLeft">
+            <summary>
+            是否启用RTL
+            </summary>
+        </member>
+        <member name="P:SharpImage.ShapeElement.TextMultiStrokeColors">
+            <summary>
+            获取或设置文本轮廓边框的颜色序列。红色、绿色和蓝色通道值的组合必须以十六进制指定颜色。颜色必须用逗号分隔
+            </summary>
+        </member>
+        <member name="P:SharpImage.ShapeElement.TextMultiStrokeWidths">
+            <summary>
+            获取或设置文本轮廓的边框宽度。边框宽度必须指定为整数，并用逗号分隔
+            </summary>
+        </member>
+        <member name="T:SharpImage.StarShapeElement">
+            <summary>
+            星型元素Element
+            </summary>
+        </member>
+        <member name="M:SharpImage.StarShapeElement.#ctor(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="points">星型点个数</param>
+        </member>
+        <member name="P:SharpImage.StarShapeElement.Points">
+            <summary>
+            星型点数
+            </summary>
+        </member>
+        <member name="P:SharpImage.StarShapeElement.InnerRadiusPercentage">
+            <summary>
+            获取或设置星形的内径百分比
+            </summary>
+        </member>
+        <member name="T:SharpImage.TextElement">
+            <summary>
+            文本元素Element
+            </summary>
+        </member>
+        <member name="M:SharpImage.TextElement.#ctor(System.String,SharpImage.Font,System.Drawing.Color,System.Drawing.Color,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="text">该Element的文本</param>
+            <param name="font">字体</param>
+            <param name="foreColor">字体颜色</param>
+            <param name="strokeColor">沿着文本轮廓的边框颜色。</param>
+            <param name="strokeWidth">沿着文本轮廓的边框宽度。</param>
+        </member>
+        <member name="P:SharpImage.TextElement.Text">
+            <summary>
+            文本
+            </summary>
+        </member>
+        <member name="P:SharpImage.TextElement.NullDisplayText">
+            <summary>
+            文本为空时的显示文本
+            </summary>
+        </member>
+        <member name="P:SharpImage.TextElement.ConvertEmptyStringToNull">
+            <summary>
+            是否将空文本转换为Null
+            </summary>
+        </member>
+        <member name="P:SharpImage.TextElement.Font">
+            <summary>
+            字体
+            </summary>
+        </member>
+        <member name="P:SharpImage.TextElement.ForeColor">
+            <summary>
+            字体颜色
+            </summary>
+        </member>
+        <member name="P:SharpImage.TextElement.StrokeColor">
+            <summary>
+            获取或设置文本轮廓边框的颜色
+            </summary>
+        </member>
+        <member name="P:SharpImage.TextElement.StrokeWidth">
+            <summary>
+            获取或设置文本轮廓边框的宽度
+            </summary>
+        </member>
+        <member name="P:SharpImage.TextElement.AutoSize">
+            <summary>
+            获取或设置此TextElement对象是否自动调整大小以显示其全部内容。
+            </summary>
+        </member>
+        <member name="P:SharpImage.TextElement.Multiline">
+            <summary>
+            获取或设置文本是否可以跨越多行。
+            </summary>
+        </member>
+        <member name="P:SharpImage.TextElement.TextQuality">
+            <summary>
+            文本质量
+            </summary>
+        </member>
+        <member name="P:SharpImage.TextElement.TextAlignment">
+            <summary>
+            文本对齐
+            </summary>
+        </member>
+        <member name="P:SharpImage.TextElement.RightToLeft">
+            <summary>
+            是否启用RTL
+            </summary>
+        </member>
+        <member name="P:SharpImage.TextElement.MultiStrokeColors">
+            <summary>
+            获取或设置文本轮廓边框的颜色序列。红色、绿色和蓝色通道值的组合必须以十六进制指定颜色。颜色也必须用逗号分隔。
+            </summary>
+        </member>
+        <member name="P:SharpImage.TextElement.MultiStrokeWidths">
+            <summary>
+            获取或设置文本轮廓的边框宽度。边框宽度必须指定为整数，并用逗号分隔。
+            </summary>
+        </member>
+        <member name="P:SharpImage.TextElement.Sizing">
+            <summary>
+            文本调整方式
+            </summary>
+        </member>
+        <member name="T:SharpImage.TextSpan">
+            <summary>
+            表示一个文本内部容器
+            </summary>
+        </member>
+        <member name="P:SharpImage.TextSpan.FontName">
+            <summary>
+            字体名
+            </summary>
+        </member>
+        <member name="P:SharpImage.TextSpan.FontUnit">
+            <summary>
+            字体单位
+            </summary>
+        </member>
+        <member name="P:SharpImage.TextSpan.FontSize">
+            <summary>
+            字体大小
+            </summary>
+        </member>
+        <member name="P:SharpImage.TextSpan.FontBold">
+            <summary>
+            是否加粗
+            </summary>
+        </member>
+        <member name="P:SharpImage.TextSpan.FontItalic">
+            <summary>
+            是否斜体
+            </summary>
+        </member>
+        <member name="P:SharpImage.TextSpan.FontUnderline">
+            <summary>
+            是否下划线
+            </summary>
+        </member>
+        <member name="P:SharpImage.TextSpan.FontStrikeout">
+            <summary>
+            是否删除线
+            </summary>
+        </member>
+        <member name="P:SharpImage.TextSpan.CustomFontFile">
+            <summary>
+            自定义字体文件
+            </summary>
+        </member>
+        <member name="P:SharpImage.TextSpan.CustomFontFileFamilyIndex">
+            <summary>
+            自定义字体文件的字体家族索引
+            </summary>
+        </member>
+        <member name="P:SharpImage.TextSpan.ForeColor">
+            <summary>
+            前景色
+            </summary>
+        </member>
+        <member name="P:SharpImage.TextSpan.BackColor">
+            <summary>
+            背景色
+            </summary>
+        </member>
+        <member name="P:SharpImage.TextSpan.BaselineOffset">
+            <summary>
+            和基线间的垂直偏差
+            </summary>
+        </member>
+        <member name="P:SharpImage.TextSpan.Kerning">
+            <summary>
+            字母间的空白值
+            </summary>
+        </member>
+        <member name="P:SharpImage.TextSpan.Text">
+            <summary>
+            文本
+            </summary>
+        </member>
+        <member name="T:SharpImage.WordArtElement">
+            <summary>
+            艺术字文本元素Element
+            </summary>
+        </member>
+        <member name="P:SharpImage.WordArtElement.Text">
+            <summary>
+            文本
+            </summary>
+        </member>
+        <member name="P:SharpImage.WordArtElement.NullDisplayText">
+            <summary>
+            文本为Null时的显示文本
+            </summary>
+        </member>
+        <member name="P:SharpImage.WordArtElement.ConvertEmptyStringToNull">
+            <summary>
+            是否将空字符串转换为Null
+            </summary>
+        </member>
+        <member name="P:SharpImage.WordArtElement.Font">
+            <summary>
+            字体
+            </summary>
+        </member>
+        <member name="P:SharpImage.WordArtElement.ForeFill">
+            <summary>
+            前填充
+            </summary>
+        </member>
+        <member name="P:SharpImage.WordArtElement.StrokeFill">
+            <summary>
+            获取文本轮廓边框的填充。
+            </summary>
+        </member>
+        <member name="P:SharpImage.WordArtElement.StrokeWidth">
+            <summary>
+            获取或设置文本轮廓边框的宽度
+            </summary>
+        </member>
+        <member name="P:SharpImage.WordArtElement.AutoSize">
+            <summary>
+            获取或设置此WordArtElement对象是否自动调整大小以显示其全部内容
+            </summary>
+        </member>
+        <member name="P:SharpImage.WordArtElement.Multiline">
+            <summary>
+            获取或设置文本是否可以跨越多行。
+            </summary>
+        </member>
+        <member name="P:SharpImage.WordArtElement.TextAlignment">
+            <summary>
+            文本对齐方式
+            </summary>
+        </member>
+        <member name="P:SharpImage.WordArtElement.WordArtShape">
+            <summary>
+            艺术字的形状
+            </summary>
+        </member>
+        <member name="T:SharpImage.WordArtShape">
+            <summary>
+            艺术字形状
+            </summary>
+        </member>
+        <member name="P:SharpImage.WordArtShape.Shape">
+            <summary>
+            扭曲类型
+            </summary>
+        </member>
+        <member name="P:SharpImage.WordArtShape.QuadrilateralPoints">
+            <summary>
+            获取自定义四边形的四个点
+            </summary>
+        </member>
+        <member name="P:SharpImage.WordArtShape.ShapePercentage">
+            <summary>
+            获取或设置将被扭曲的目标元素的边百分比。它用于一些四边形形状，如渐变、倾斜和级联。值的范围从0到100。
+            </summary>
+        </member>
+        <member name="P:SharpImage.WordArtShape.CircleTextLayout">
+            <summary>
+            获取或设置使用基于圆的路径进行扭曲时文本的布局方式
+            </summary>
+        </member>
+        <member name="P:SharpImage.WordArtShape.CircleTextJustify">
+            <summary>
+            获取或设置文本在圆形路径中是否完全对齐
+            </summary>
+        </member>
+        <member name="P:SharpImage.WordArtShape.CircleTextStartingAngle">
+            <summary>
+            获取或设置圆形路径中文本的起始角度。它是从x轴逆时针测量的。
+            </summary>
+        </member>
+        <member name="P:SharpImage.WordArtShape.CircleTextRangeAngle">
+            <summary>
+            获取或设置圆形路径中文本的范围角度，从CircleTextStartingAngle属性开始。它是从x轴逆时针测量的。
+            </summary>
+        </member>
+        <member name="T:SharpImage.WordArtShapeConverter">
+            <summary>
+            艺术字形状转换器
+            </summary>
+        </member>
+        <member name="T:SharpImage.KeyMgr">
+            <summary>
+            设置授权Key，在使用本库之前必须调用，否则无法使用本库功能
+            </summary>
+        </member>
+        <member name="M:SharpImage.KeyMgr.SetKey(System.String)">
+            <summary>
+            设置授权信息
+            </summary>
+            <param name="strKey">您的授权key。试用时请传入Test</param>
+        </member>
+    </members>
+</doc>

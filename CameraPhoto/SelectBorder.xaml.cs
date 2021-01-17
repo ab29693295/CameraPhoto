@@ -188,6 +188,7 @@ namespace CameraPhoto
 
         private void SaveToImage(FrameworkElement frameworkElement, string fileName)
         {
+
             System.IO.FileStream fs = new System.IO.FileStream(fileName, System.IO.FileMode.Create);
             RenderTargetBitmap bmp = new RenderTargetBitmap((int)frameworkElement.ActualWidth, (int)frameworkElement.ActualHeight,  96,96, PixelFormats.Default);
             bmp.Render(frameworkElement);

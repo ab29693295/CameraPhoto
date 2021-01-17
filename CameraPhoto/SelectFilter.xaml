@@ -39,17 +39,17 @@
                             </LinearGradientBrush>
                         </Border.BorderBrush>
                         <StackPanel Width="230" Height="380" Orientation="Horizontal">
-                            <StackPanel Width="130" Height="350" Margin="100,-20,0,0" Background="#FFFFFF">
+                            <StackPanel MouseLeftButtonDown="StackPanel_MouseLeftButtonDown_MainSecond" Width="130" Height="350" Margin="100,-20,0,0" Background="#FFFFFF">
                                 <StackPanel.RenderTransform>
                                     <SkewTransform AngleX="-10"   AngleY="10"></SkewTransform>
                                 </StackPanel.RenderTransform>
-                                <Image  Source="/CameraPhoto;component/Resources/2.JPG" Margin="0,5,0,0" Width="120" Height="340"></Image>
+                                <Image  x:Name="MainSecond" Source="/CameraPhoto;component/Resources/2.JPG" Margin="0,5,0,0" Width="120" Height="340"></Image>
                             </StackPanel>
-                            <StackPanel Width="130" Height="350" Margin="-320,20,0,0" Background="#FFFFFF">
+                            <StackPanel MouseLeftButtonDown="StackPanel_MouseLeftButtonDown_MainFirst" Width="130" Height="350" Margin="-320,20,0,0" Background="#FFFFFF">
                                 <StackPanel.RenderTransform>
                                     <SkewTransform AngleX="10"  AngleY="-10"></SkewTransform>
                                 </StackPanel.RenderTransform>
-                                <Image  Source="/CameraPhoto;component/Resources/1.JPG" Margin="0,5,0,0" Width="120" Height="340"></Image>
+                                <Image x:Name="MainFirst" Source="/CameraPhoto;component/Resources/1.JPG" Margin="0,5,0,0" Width="120" Height="340"></Image>
               
                             </StackPanel>
 
@@ -60,8 +60,8 @@
 
 
                     <StackPanel Height="440" Width="600" Margin="30,0,0,0">
-                        <StackPanel Orientation="Horizontal" Height="120" Margin="20,20,0,0">
-                            <Border x:Name="filter1"  BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
+                        <StackPanel x:Name="FilterStack1" Orientation="Horizontal" Height="120" Margin="20,20,0,0">
+                            <Border x:Name="filter1" ToolTip="102" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"  BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
                                 <Border.BorderBrush>
                                     <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
                                         <LinearGradientBrush.GradientStops>
@@ -74,16 +74,16 @@
                                         </LinearGradientBrush.GradientStops>
                                     </LinearGradientBrush>
                                 </Border.BorderBrush>
-                                <StackPanel Width="120" Height="120" Margin="0,0,0,0"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <StackPanel  Width="120" Height="120" Margin="0,0,0,0"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
 
                                     <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0"></Image>
-                                   
-                                    <Label Width="120"  Height="30" Content="滤镜-001" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+
+                                    <Label Width="120"  Height="30" Content="滤镜-白皙" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                                 </StackPanel>
 
 
                             </Border>
-                            <Border x:Name="filter2"  BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
+                            <Border x:Name="filter2" ToolTip="100" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"  BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
                                 <Border.BorderBrush>
                                     <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
                                         <LinearGradientBrush.GradientStops>
@@ -96,16 +96,16 @@
                                         </LinearGradientBrush.GradientStops>
                                     </LinearGradientBrush>
                                 </Border.BorderBrush>
-                                <StackPanel Width="120" Height="120" Margin="0,0,0,0"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <StackPanel  Width="120" Height="120" Margin="0,0,0,0"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
 
-                                    <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0"></Image>
+                                    <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0" RenderTransformOrigin="0.5,0.542"></Image>
 
-                                    <Label Width="120"  Height="30" Content="滤镜-001" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                                    <Label Width="120"  Height="30" Content="滤镜-暖暖" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                                 </StackPanel>
 
 
                             </Border>
-                            <Border x:Name="filter3"  BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
+                            <Border x:Name="filter3" ToolTip="103" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"  BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
                                 <Border.BorderBrush>
                                     <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
                                         <LinearGradientBrush.GradientStops>
@@ -118,16 +118,16 @@
                                         </LinearGradientBrush.GradientStops>
                                     </LinearGradientBrush>
                                 </Border.BorderBrush>
-                                <StackPanel Width="120" Height="120" Margin="0,0,0,0"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <StackPanel  Width="120" Height="120" Margin="0,0,0,0"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
 
                                     <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0"></Image>
 
-                                    <Label Width="120"  Height="30" Content="滤镜-001" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                                    <Label Width="120"  Height="30" Content="滤镜-冷艳" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                                 </StackPanel>
 
 
                             </Border>
-                            <Border x:Name="filter4"  BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
+                            <Border  x:Name="filter4" ToolTip="105" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown" BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
                                 <Border.BorderBrush>
                                     <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
                                         <LinearGradientBrush.GradientStops>
@@ -140,110 +140,19 @@
                                         </LinearGradientBrush.GradientStops>
                                     </LinearGradientBrush>
                                 </Border.BorderBrush>
-                                <StackPanel Width="120" Height="120" Margin="0,0,0,0"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <StackPanel  Width="120" Height="120" Margin="0,0,0,0"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
 
                                     <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0"></Image>
 
-                                    <Label Width="120"  Height="30" Content="滤镜-001" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
-                                </StackPanel>
-
-
-                            </Border>
-
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Height="120" Margin="20,20,0,0">
-                            <Border x:Name="filter5"  BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
-                                <Border.BorderBrush>
-                                    <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
-                                        <LinearGradientBrush.GradientStops>
-                                            <GradientStop Color="#FFFFFF" Offset="0"/>
-                                            <GradientStop Color="#FFFFFF" Offset="0.2"/>
-                                            <GradientStop Color="Transparent" Offset="0.4"/>
-                                            <GradientStop Color="Transparent" Offset="0.6"/>
-                                            <GradientStop Color="#FFFFFF" Offset="0.8"/>
-                                            <GradientStop Color="#FFFFFF" Offset="1"/>
-                                        </LinearGradientBrush.GradientStops>
-                                    </LinearGradientBrush>
-                                </Border.BorderBrush>
-                                <StackPanel Width="120" Height="120" Margin="0,0,0,0"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-
-                                    <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0"></Image>
-
-                                    <Label Width="120"  Height="30" Content="滤镜-001" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
-                                </StackPanel>
-
-
-                            </Border>
-                            <Border x:Name="filter6"  BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
-                                <Border.BorderBrush>
-                                    <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
-                                        <LinearGradientBrush.GradientStops>
-                                            <GradientStop Color="#FFFFFF" Offset="0"/>
-                                            <GradientStop Color="#FFFFFF" Offset="0.2"/>
-                                            <GradientStop Color="Transparent" Offset="0.4"/>
-                                            <GradientStop Color="Transparent" Offset="0.6"/>
-                                            <GradientStop Color="#FFFFFF" Offset="0.8"/>
-                                            <GradientStop Color="#FFFFFF" Offset="1"/>
-                                        </LinearGradientBrush.GradientStops>
-                                    </LinearGradientBrush>
-                                </Border.BorderBrush>
-                                <StackPanel Width="120" Height="120" Margin="0,0,0,0"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-
-                                    <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0"></Image>
-
-                                    <Label Width="120"  Height="30" Content="滤镜-001" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
-                                </StackPanel>
-
-
-                            </Border>
-                            <Border x:Name="filter7"  BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
-                                <Border.BorderBrush>
-                                    <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
-                                        <LinearGradientBrush.GradientStops>
-                                            <GradientStop Color="#FFFFFF" Offset="0"/>
-                                            <GradientStop Color="#FFFFFF" Offset="0.2"/>
-                                            <GradientStop Color="Transparent" Offset="0.4"/>
-                                            <GradientStop Color="Transparent" Offset="0.6"/>
-                                            <GradientStop Color="#FFFFFF" Offset="0.8"/>
-                                            <GradientStop Color="#FFFFFF" Offset="1"/>
-                                        </LinearGradientBrush.GradientStops>
-                                    </LinearGradientBrush>
-                                </Border.BorderBrush>
-                                <StackPanel Width="120" Height="120" Margin="0,0,0,0"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-
-                                    <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0"></Image>
-
-                                    <Label Width="120"  Height="30" Content="滤镜-001" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
-                                </StackPanel>
-
-
-                            </Border>
-                            <Border x:Name="filter8"  BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
-                                <Border.BorderBrush>
-                                    <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
-                                        <LinearGradientBrush.GradientStops>
-                                            <GradientStop Color="#FFFFFF" Offset="0"/>
-                                            <GradientStop Color="#FFFFFF" Offset="0.2"/>
-                                            <GradientStop Color="Transparent" Offset="0.4"/>
-                                            <GradientStop Color="Transparent" Offset="0.6"/>
-                                            <GradientStop Color="#FFFFFF" Offset="0.8"/>
-                                            <GradientStop Color="#FFFFFF" Offset="1"/>
-                                        </LinearGradientBrush.GradientStops>
-                                    </LinearGradientBrush>
-                                </Border.BorderBrush>
-                                <StackPanel Width="120" Height="120" Margin="0,0,0,0"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-
-                                    <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0"></Image>
-
-                                    <Label Width="120"  Height="30" Content="滤镜-001" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                                    <Label Width="120"  Height="30" Content="滤镜-复古" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                                 </StackPanel>
 
 
                             </Border>
 
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" Height="120" Margin="20,20,0,0">
-                            <Border x:Name="filter9"  BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
+                        <StackPanel  x:Name="FilterStack2" Orientation="Horizontal" Height="120" Margin="20,20,0,0">
+                            <Border x:Name="filter5" ToolTip="111" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"   BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
                                 <Border.BorderBrush>
                                     <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
                                         <LinearGradientBrush.GradientStops>
@@ -256,16 +165,16 @@
                                         </LinearGradientBrush.GradientStops>
                                     </LinearGradientBrush>
                                 </Border.BorderBrush>
-                                <StackPanel Width="120" Height="120" Margin="0,0,0,0"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <StackPanel  Width="120" Height="120" Margin="0,0,0,0"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
 
                                     <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0"></Image>
 
-                                    <Label Width="120"  Height="30" Content="滤镜-001" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                                    <Label Width="120"  Height="30" Content="滤镜-胶片" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                                 </StackPanel>
 
 
                             </Border>
-                            <Border x:Name="filter10"  BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
+                            <Border x:Name="filter6" ToolTip="114" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"   BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
                                 <Border.BorderBrush>
                                     <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
                                         <LinearGradientBrush.GradientStops>
@@ -278,16 +187,16 @@
                                         </LinearGradientBrush.GradientStops>
                                     </LinearGradientBrush>
                                 </Border.BorderBrush>
-                                <StackPanel Width="120" Height="120" Margin="0,0,0,0"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <StackPanel  Width="120" Height="120" Margin="0,0,0,0"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
 
                                     <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0"></Image>
 
-                                    <Label Width="120"  Height="30" Content="滤镜-001" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                                    <Label Width="120"  Height="30" Content="滤镜-迷情" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                                 </StackPanel>
 
 
                             </Border>
-                            <Border x:Name="filter11"  BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
+                            <Border x:Name="filter7" ToolTip="116" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"   BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
                                 <Border.BorderBrush>
                                     <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
                                         <LinearGradientBrush.GradientStops>
@@ -300,16 +209,63 @@
                                         </LinearGradientBrush.GradientStops>
                                     </LinearGradientBrush>
                                 </Border.BorderBrush>
-                                <StackPanel Width="120" Height="120" Margin="0,0,0,0"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <StackPanel  Width="120" Height="120" Margin="0,0,0,0"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
 
                                     <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0"></Image>
 
-                                    <Label Width="120"  Height="30" Content="滤镜-001" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                                    <Label Width="120"  Height="30" Content="滤镜-日系" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                                 </StackPanel>
 
 
                             </Border>
-                            <Border x:Name="filter12"  BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
+                            <Border x:Name="filter8" ToolTip="130" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"   BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
+                                <Border.BorderBrush>
+                                    <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
+                                        <LinearGradientBrush.GradientStops>
+                                            <GradientStop Color="#FFFFFF" Offset="0"/>
+                                            <GradientStop Color="#FFFFFF" Offset="0.2"/>
+                                            <GradientStop Color="Transparent" Offset="0.4"/>
+                                            <GradientStop Color="Transparent" Offset="0.6"/>
+                                            <GradientStop Color="#FFFFFF" Offset="0.8"/>
+                                            <GradientStop Color="#FFFFFF" Offset="1"/>
+                                        </LinearGradientBrush.GradientStops>
+                                    </LinearGradientBrush>
+                                </Border.BorderBrush>
+                                <StackPanel  Width="120" Height="120" Margin="0,0,0,0"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                                    <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0"></Image>
+
+                                    <Label Width="120"  Height="30" Content="滤镜-甜美" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                                </StackPanel>
+
+
+                            </Border>
+
+                        </StackPanel>
+                        <StackPanel  x:Name="FilterStack3" Orientation="Horizontal" Height="120" Margin="20,20,0,0">
+                            <Border  x:Name="filter9" ToolTip="131" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"  BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
+                                <Border.BorderBrush>
+                                    <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
+                                        <LinearGradientBrush.GradientStops>
+                                            <GradientStop Color="#FFFFFF" Offset="0"/>
+                                            <GradientStop Color="#FFFFFF" Offset="0.2"/>
+                                            <GradientStop Color="Transparent" Offset="0.4"/>
+                                            <GradientStop Color="Transparent" Offset="0.6"/>
+                                            <GradientStop Color="#FFFFFF" Offset="0.8"/>
+                                            <GradientStop Color="#FFFFFF" Offset="1"/>
+                                        </LinearGradientBrush.GradientStops>
+                                    </LinearGradientBrush>
+                                </Border.BorderBrush>
+                                <StackPanel  Width="120" Height="120" Margin="0,0,0,0"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                                    <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0"></Image>
+
+                                    <Label Width="120"  Height="30" Content="滤镜-唯美" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                                </StackPanel>
+
+
+                            </Border>
+                            <Border  x:Name="filter10" ToolTip="134" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"   BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
                                 <Border.BorderBrush>
                                     <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
                                         <LinearGradientBrush.GradientStops>
@@ -326,7 +282,51 @@
 
                                     <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0"></Image>
 
-                                    <Label Width="120"  Height="30" Content="滤镜-001" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                                    <Label Width="120"  Height="30" Content="滤镜-花颜" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                                </StackPanel>
+
+
+                            </Border>
+                            <Border x:Name="filter11" ToolTip="201" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"   BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
+                                <Border.BorderBrush>
+                                    <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
+                                        <LinearGradientBrush.GradientStops>
+                                            <GradientStop Color="#FFFFFF" Offset="0"/>
+                                            <GradientStop Color="#FFFFFF" Offset="0.2"/>
+                                            <GradientStop Color="Transparent" Offset="0.4"/>
+                                            <GradientStop Color="Transparent" Offset="0.6"/>
+                                            <GradientStop Color="#FFFFFF" Offset="0.8"/>
+                                            <GradientStop Color="#FFFFFF" Offset="1"/>
+                                        </LinearGradientBrush.GradientStops>
+                                    </LinearGradientBrush>
+                                </Border.BorderBrush>
+                                <StackPanel  Width="120" Height="120" Margin="0,0,0,0"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                                    <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0"></Image>
+
+                                    <Label Width="120"  Height="30" Content="滤镜-枫叶" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                                </StackPanel>
+
+
+                            </Border>
+                            <Border x:Name="filter12" ToolTip="203" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"  BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
+                                <Border.BorderBrush>
+                                    <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
+                                        <LinearGradientBrush.GradientStops>
+                                            <GradientStop Color="#FFFFFF" Offset="0"/>
+                                            <GradientStop Color="#FFFFFF" Offset="0.2"/>
+                                            <GradientStop Color="Transparent" Offset="0.4"/>
+                                            <GradientStop Color="Transparent" Offset="0.6"/>
+                                            <GradientStop Color="#FFFFFF" Offset="0.8"/>
+                                            <GradientStop Color="#FFFFFF" Offset="1"/>
+                                        </LinearGradientBrush.GradientStops>
+                                    </LinearGradientBrush>
+                                </Border.BorderBrush>
+                                <StackPanel  Width="120" Height="120" Margin="0,0,0,0"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                                    <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0"></Image>
+
+                                    <Label Width="120"  Height="30" Content="滤镜-暖秋" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                                 </StackPanel>
 
 
@@ -342,7 +342,7 @@
                 </StackPanel>
 
                 <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"  >
-                    <Label Width="200" Margin="100,-0,0,0" Height="40" Content="边框-001" Foreground="#FFFFFF"  FontWeight="Bold" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                    <Label x:Name="MainLabel" Width="200" Margin="100,-0,0,0" Height="40" Content="滤镜-001" Foreground="#FFFFFF"  FontWeight="Bold" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                     <Button  Margin="720,0,0,0"  x:Name="NextBtn" Click="NextBtn_Click"  Content="下一步" FontWeight="Bold" FontSize="18" Foreground="#FFFFFF" Width="120" Height="40">
                         <Button.Background>
                             <ImageBrush ImageSource="/CameraPhoto;component/Resources/selectBtnback.png" Stretch="Fill"/>
@@ -353,6 +353,22 @@
                             </Style>
                         </Button.Resources>
                     </Button>
+                </StackPanel>
+                <StackPanel Grid.Row="3"  Visibility="Hidden" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"  Width="400" >
+
+                    <StackPanel    Width="140" Height="400"  Background="Blue">
+
+                        <Image x:Name="LastPanelFirst"  Source="/CameraPhoto;component/Resources/test.png"  Width="130" Height="350"></Image>
+                       
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Grid.Row="4" Visibility="Hidden"  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"  Width="400" >
+
+                    <StackPanel   Width="140" Height="400"  Background="Blue">
+
+                        <Image x:Name="LastPanelSecond"  Source="/CameraPhoto;component/Resources/test.png"  Width="130" Height="350"></Image>
+             
+                    </StackPanel>
                 </StackPanel>
             </Grid>
         </Canvas>
