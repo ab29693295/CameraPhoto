@@ -36,7 +36,7 @@ namespace CameraPhoto
        
 
         public string IamgePath2= "";
-        public SelectFilter(int _orderID)
+        public SelectFilter()
         {
             InitializeComponent();
 
@@ -62,7 +62,7 @@ namespace CameraPhoto
             IamgePath2 = dic + "\\2.JPG";
 
 
-            _orderID = OrderID;
+            //_orderID = OrderID;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -85,7 +85,7 @@ namespace CameraPhoto
         private void NextBtn_Click(object sender, RoutedEventArgs e)
         {
             string dic = @"D:\File\" + OrderID.ToString() + "\\Filter" +
-                "'";
+                "";
             if (Directory.Exists(dic) == false)//如果不存
             {
                 Directory.CreateDirectory(dic);
@@ -103,6 +103,124 @@ namespace CameraPhoto
             pay.Show();
 
             this.Close();
+
+           // PrintMainFirst();
+
+          //  PrintMainSecond();
+        }
+        /// <summary>
+        /// 打印第一张
+        /// </summary>
+        public void PrintMainFirst()
+        {
+            BitmapImage MainBitmap = (BitmapImage)LastPanelFirst.Source;
+
+            JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(MainBitmap));
+            FileStream files = new FileStream("1.jpg", FileMode.Create, FileAccess.ReadWrite);
+            encoder.Save(files);
+            files.Close();
+
+            System.Drawing.Printing.PrintDocument pd = new System.Drawing.Printing.PrintDocument();
+            pd.DefaultPageSettings.PrinterSettings.PrinterName = "Canon SELPHY CP1200";
+            System.Drawing.Printing.PaperSize psize = new System.Drawing.Printing.PaperSize();
+            foreach (System.Drawing.Printing.PaperSize i in pd.PrinterSettings.PaperSizes)
+            {
+                if (i.PaperName == "P 无边距 100x148mm 4x6\"") //无边距可正常居中，有边距0,0点位置需考虑边距
+                {
+                    psize = i;
+                    break;
+
+                }
+                Console.WriteLine(i.PaperName);
+            }
+            pd.DefaultPageSettings.PaperSize = psize;
+            pd.PrintPage += (s, args) =>
+            {
+                System.Drawing.Image i = System.Drawing.Image.FromFile("1.jpg");
+                System.Drawing.Rectangle m = args.PageBounds;
+                if (i.Width < i.Height)
+                    i.RotateFlip(System.Drawing.RotateFlipType.Rotate90FlipNone);
+
+                if (i.Width >= i.Height)
+                {
+                    if ((double)i.Width / (double)i.Height <= (double)m.Width / (double)m.Height)
+                    {
+                        int w = (int)((double)i.Width / (double)i.Height * (double)m.Height);
+                        int dx = (m.Width - w) / 2;
+                        m.X = dx;
+                        m.Y = 0;
+                        m.Width = w;
+                    }
+                    else
+                    {
+                        int h = (int)((double)i.Height / (double)i.Width * (double)m.Width);
+                        int dy = (m.Height - h) / 2;
+                        m.X = 0;
+                        m.Y = dy;
+                        m.Height = h;
+                    }
+                }
+                args.Graphics.DrawImage(i, m);
+            };
+            pd.Print();
+        }
+        /// <summary>
+        /// 打印第二张
+        /// </summary>
+        public void PrintMainSecond()
+        {
+            BitmapImage MainBitmap = (BitmapImage)LastPanelSecond.Source;
+
+            JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(MainBitmap));
+            FileStream files = new FileStream("1.jpg", FileMode.Create, FileAccess.ReadWrite);
+            encoder.Save(files);
+            files.Close();
+
+            System.Drawing.Printing.PrintDocument pd = new System.Drawing.Printing.PrintDocument();
+            pd.DefaultPageSettings.PrinterSettings.PrinterName = "Canon SELPHY CP1200";
+            System.Drawing.Printing.PaperSize psize = new System.Drawing.Printing.PaperSize();
+            foreach (System.Drawing.Printing.PaperSize i in pd.PrinterSettings.PaperSizes)
+            {
+                if (i.PaperName == "P 无边距 100x148mm 4x6\"") //无边距可正常居中，有边距0,0点位置需考虑边距
+                {
+                    psize = i;
+                    break;
+
+                }
+                Console.WriteLine(i.PaperName);
+            }
+            pd.DefaultPageSettings.PaperSize = psize;
+            pd.PrintPage += (s, args) =>
+            {
+                System.Drawing.Image i = System.Drawing.Image.FromFile("1.jpg");
+                System.Drawing.Rectangle m = args.PageBounds;
+                if (i.Width < i.Height)
+                    i.RotateFlip(System.Drawing.RotateFlipType.Rotate90FlipNone);
+
+                if (i.Width >= i.Height)
+                {
+                    if ((double)i.Width / (double)i.Height <= (double)m.Width / (double)m.Height)
+                    {
+                        int w = (int)((double)i.Width / (double)i.Height * (double)m.Height);
+                        int dx = (m.Width - w) / 2;
+                        m.X = dx;
+                        m.Y = 0;
+                        m.Width = w;
+                    }
+                    else
+                    {
+                        int h = (int)((double)i.Height / (double)i.Width * (double)m.Width);
+                        int dy = (m.Height - h) / 2;
+                        m.X = 0;
+                        m.Y = dy;
+                        m.Height = h;
+                    }
+                }
+                args.Graphics.DrawImage(i, m);
+            };
+            pd.Print();
         }
 
         private void StackPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -158,7 +276,9 @@ namespace CameraPhoto
             a.Stretch = Stretch.Fill;
             spanel.Background = a;
 
-           
+            LastPanelFirst.Source = MainFirst.Source;
+            LastPanelSecond.Source = MainSecond.Source;
+
         }
 
         private void StackPanel_MouseLeftButtonDown_MainFirst(object sender, MouseButtonEventArgs e)

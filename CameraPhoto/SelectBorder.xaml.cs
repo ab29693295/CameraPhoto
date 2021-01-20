@@ -181,7 +181,7 @@ namespace CameraPhoto
             SaveToImage(this.LastPanelFirst, FileName1);
             SaveToImage(this.LastPanelSecond, FileName2);
 
-            SelectFilter pay = new SelectFilter(OrderID);
+            SelectFilter pay = new SelectFilter();
             pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             pay.Show();
 
