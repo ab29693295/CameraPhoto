@@ -29,7 +29,9 @@ namespace CameraPhoto
             b.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/bacbkground.png"));
             b.Stretch = Stretch.Fill;
             this.Background = b;
-            
+          
+
+
         }
 
         private void Step1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -64,6 +66,20 @@ namespace CameraPhoto
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+         
+            //机器注册码
+            string EqCode = ConfigHelper.GetConfigString("EquipCode");
+            if (string.IsNullOrEmpty(EqCode))
+            {
+
+                Login _login = new Login();
+                _login.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                _login.Show();
+
+                this.Close();
+
+            }
+
             this.WindowState = WindowState.Maximized;
         }
     }

@@ -48,6 +48,7 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -69,10 +70,14 @@
     </ApplicationDefinition>
     <Compile Include="Helper\CombHelper.cs" />
     <Compile Include="Helper\ConfigHelper.cs" />
+    <Compile Include="Helper\EquipHelper.cs" />
     <Compile Include="Helper\HttpHelper.cs" />
     <Compile Include="Helper\ImageHelper.cs" />
     <Compile Include="Helper\OrderHelper.cs" />
     <Compile Include="Helper\OrderPhotoHelper.cs" />
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\EnumDescription.cs" />
     <Compile Include="Model\EnumExtensions.cs" />
     <Compile Include="Model\Enum\EnumModel.cs" />
@@ -102,6 +107,10 @@
     </Compile>
     <Compile Include="ZBeautyEngineDll.cs" />
     <Compile Include="ZPhotoEngineDll.cs" />
+    <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
