@@ -343,7 +343,7 @@ namespace CameraPhoto
             }
             if (_downCOunt <= 0)
             {
-                CameraHandler.TakePhoto();
+                //CameraHandler.TakePhoto();
                 //CameraHandler.DownloadImage()
                 CameraHandler.StopLiveView();
 
