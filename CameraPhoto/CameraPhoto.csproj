@@ -81,9 +81,11 @@
     <Compile Include="Model\EnumDescription.cs" />
     <Compile Include="Model\EnumExtensions.cs" />
     <Compile Include="Model\Enum\EnumModel.cs" />
+    <Compile Include="Model\EquipMB.cs" />
     <Compile Include="Model\ObjectExtensions.cs" />
     <Compile Include="Model\TypeExtensions.cs" />
     <Compile Include="Model\WrappingStream.cs" />
+    <Compile Include="Model\YNFaceDetector.cs" />
     <Compile Include="PayStatus.xaml.cs">
       <DependentUpon>PayStatus.xaml</DependentUpon>
     </Compile>

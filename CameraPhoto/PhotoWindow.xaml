@@ -62,7 +62,7 @@
                     </StackPanel>
                     <!--主相机画面-->
                     <StackPanel Width="600" Height="400" VerticalAlignment="Center" HorizontalAlignment="Center" >
-                        <Border x:Name="CameraCanvas" Visibility="Collapsed"  BorderThickness="10" CornerRadius="15" >
+                        <Border x:Name="CameraCanvas"   Width="640" Height="410" Visibility="Collapsed"  BorderThickness="10" CornerRadius="15" >
 
                             <Canvas     Margin="5"    Width="580" Height="380"></Canvas>
                         </Border>

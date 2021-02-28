@@ -80,5 +80,7 @@ namespace CameraPhoto.Helper
                 return new System.Drawing.Bitmap(ms);
             }
         }
+
+        
     }
 }

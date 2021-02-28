@@ -1,4 +1,5 @@
-﻿using CameraPhoto.Model;
+﻿using CameraPhoto.Helper;
+using CameraPhoto.Model;
 using EDSDKLib;
 using System;
 using System.Collections.Generic;
@@ -62,12 +63,19 @@ namespace CameraPhoto
         DispatcherTimer timer;
 
         DispatcherTimer Nextimer;
-
+        //美颜工具
+        private ZPhotoEngineDll zPhoto = null;
+        private ZBeautyEngineDll zSoftSkin = null;
+        private int[] landMark;
+        private int faceNum = 0;
+        private int baseLMLen = 101;
 
         public PhotoWindow(int orderID, int mealType)
         {
             InitializeComponent();
 
+            zPhoto = new ZPhotoEngineDll();
+            zSoftSkin = new ZBeautyEngineDll();
             #region
             try
             {
@@ -213,14 +221,6 @@ namespace CameraPhoto
                
             }
 
-
-
-
-
-
-
-
-
         }
         /// <summary>
         /// 下一步点击按钮
@@ -297,7 +297,7 @@ namespace CameraPhoto
                     CameraCanvas.Background = bgbrush;
                     CameraHandler.StartLiveView();
                   
-                    CameraHandler.ImageSaveDirectory = CurrentIamgePath;
+                    //CameraHandler.ImageSaveDirectory = CurrentIamgePath;
                     //设置第一个照片背景显示
                     this.ImageBc1.Visibility = Visibility.Visible;
 
@@ -346,6 +346,10 @@ namespace CameraPhoto
                 //CameraHandler.TakePhoto();
                 //CameraHandler.DownloadImage()
                 CameraHandler.StopLiveView();
+                //美颜照片
+                MBphoto();
+
+                SaveToImage(CameraCanvas, CurrentIamgePath);
 
                 this.TipPanelDownCount.Visibility = Visibility.Collapsed;
 
@@ -444,6 +448,150 @@ namespace CameraPhoto
                 timer.Start();
 
             }
+        }
+        /// <summary>
+        /// 使用美颜处理图片
+        /// </summary>
+
+        public void MBphoto()
+        {
+          
+            EquipMB _Equip = EquipHelper.GetEquipMB();
+   
+
+            BitmapSource msource = CreateElementScreenshot(CameraCanvas);
+            System.Drawing.Bitmap curBitmap = ImageHelper.ToBitmap(msource);
+            ImageBrush b = new ImageBrush();
+            System.Drawing.Bitmap btnew = curBitmap;
+
+
+            landMark = new int[baseLMLen * 2];
+            using (YNFaceDetector detector = new YNFaceDetector())
+            {
+                String startup = System.Windows.Forms.Application.StartupPath;
+                YNFaceDetector.YNRESULT res = detector.loadModels(startup + "\\models\\yn_model_detect.tar");
+                if (res != YNFaceDetector.YNRESULT.YN_OK)
+                {
+                    faceNum = 0;
+                 
+                    
+                }
+
+                YNFaceDetector.YNFaces[] result = detector.Detect(curBitmap);
+                if (result != null && result.Count() > 0)
+                {
+                    faceNum = 1;
+                    for (int i = 0; i < baseLMLen; i++)
+                    {
+                        landMark[i * 2 + 0] = (int)result[0].shape.pts[i].x;
+                        landMark[i * 2 + 1] = (int)result[0].shape.pts[i].y;
+                    }
+                }
+                else
+                {
+                    faceNum = 0;
+                    //MessageBox.Show("获取人脸点位失败！！！！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+
+            if (_Equip != null&& faceNum>0)
+            {
+                //美白
+                if (_Equip.BeaMB > 0)
+                {
+                    btnew = zSoftSkin.DoSkinWhitening(curBitmap, Convert.ToInt32( _Equip.BeaMB));
+                }
+                //磨皮
+                if (_Equip.BeaMP > 0)
+                {
+                    btnew = zSoftSkin.DoSoftSkin(curBitmap, landMark, Convert.ToInt32(_Equip.BeaMP));
+                }
+                //大眼
+                if (_Equip.BeaDY > 0)
+                {
+                    btnew = zSoftSkin.DoEyeWarp(curBitmap, landMark, Convert.ToInt32(_Equip.BeaDY));
+                }
+                //瘦脸
+                if (_Equip.BeaSL > 0)
+                {
+                    btnew = zSoftSkin.DoFaceLift(curBitmap, landMark, Convert.ToInt32(_Equip.BeaSL)/2);
+                }
+                //眼袋
+                if (_Equip.BeaYD > 0)
+                {
+                    btnew = zSoftSkin.DoEyeBagRemoval(curBitmap, landMark, Convert.ToInt32(_Equip.BeaYD));
+                }
+                //鼻梁
+                if (_Equip.BeaBL > 0)
+                {
+                    btnew = zSoftSkin.DoHighNose(curBitmap, landMark, Convert.ToInt32(_Equip.BeaBL));
+                }
+          
+                //亮眼
+                if (_Equip.BeaLY > 0)
+                {
+                    btnew = zSoftSkin.DoLightEye(curBitmap, landMark, Convert.ToInt32(_Equip.BeaLY));
+                }
+                //自动雀斑
+                if (_Equip.BeaMB==1)
+                {
+                    btnew = zSoftSkin.DoDefreckleAuto(curBitmap, landMark, true);
+                }
+
+                b.ImageSource = BitmapToBitmapImage(btnew);
+            }
+
+
+
+            //System.Drawing.Bitmap btnew = zPhoto.EffectFilterById(bt, 1);
+            //b.ImageSource = BitmapToBitmapImage(btnew);
+
+
+            this.Background = b;
+            
+        }
+        /// <summary>
+        /// 保存图片
+        /// </summary>
+        /// <param name="frameworkElement"></param>
+        /// <returns></returns>
+        private BitmapSource CreateElementScreenshot(FrameworkElement frameworkElement)
+        {
+
+            RenderTargetBitmap bmp = new RenderTargetBitmap((int)frameworkElement.Width, (int)frameworkElement.Height, 96, 96, PixelFormats.Default);
+            bmp.Render(frameworkElement);
+
+            return bmp;
+        }
+
+        private BitmapImage BitmapToBitmapImage(System.Drawing.Bitmap bitmap)
+        {
+            BitmapImage bitmapImage = new BitmapImage();
+            using (System.IO.MemoryStream ms = new System.IO.MemoryStream())
+            {
+                bitmap.Save(ms, bitmap.RawFormat);
+                bitmapImage.BeginInit();
+                bitmapImage.StreamSource = ms;
+                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                bitmapImage.EndInit();
+                bitmapImage.Freeze();
+            }
+            return bitmapImage;
+        }
+
+
+
+        //保存图片
+        private void SaveToImage(FrameworkElement frameworkElement, string fileName)
+        {
+
+            System.IO.FileStream fs = new System.IO.FileStream(fileName, System.IO.FileMode.Create);
+            RenderTargetBitmap bmp = new RenderTargetBitmap((int)frameworkElement.ActualWidth, (int)frameworkElement.ActualHeight, 96, 96, PixelFormats.Default);
+            bmp.Render(frameworkElement);
+            BitmapEncoder encoder = new TiffBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(bmp));
+            encoder.Save(fs);
+            fs.Close();
         }
 
         #region 相机操作

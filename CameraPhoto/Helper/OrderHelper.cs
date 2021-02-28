@@ -22,7 +22,7 @@ namespace CameraPhoto
             packageParameter.Add("Price", price.ToString());//开始时间 string格式
             packageParameter.Add("PayStatus",((int)OrderEnumPayStatus.Wait).ToString());//未支付
             packageParameter.Add("Status", ((int)OrderEnumphotoStatus.Wait).ToString());//订单状态
-            packageParameter.Add("EqID", ConfigHelper.GetConfigString("EquipmentID"));//随机生成的字符串
+            packageParameter.Add("EqID", ConfigHelper.GetConfigString("EquipCode"));//随机生成的字符串
 
             packageParameter.Add("EqUserID", ConfigHelper.GetConfigString("EqUserID"));//默认推流 0为否
            

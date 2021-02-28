@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using CameraPhoto.Model;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,27 @@ namespace CameraPhoto.Helper
 
 
             return Convert.ToBoolean(result["R"]);
+        }
+        /// <summary>
+        /// 获取设备美白信息
+        /// </summary>
+        /// <returns></returns>
+        public static EquipMB GetEquipMB()
+        {
+            string EquipCode= ConfigHelper.GetConfigString("EquipCode").ToString(); 
+
+            string Url = Website + "/api/EquipMB/GetEquipMB?EqCode=" + EquipCode;
+
+            string response = HttpHelper.SendGet(Url);
+
+            JObject result = (JObject)Newtonsoft.Json.JsonConvert.DeserializeObject(response);
+            string value = result["Data"].ToString();
+
+            EquipMB equipMB = Newtonsoft.Json.JsonConvert.DeserializeObject<EquipMB>(value);
+
+            return equipMB;
+
+           
         }
     }
 }
