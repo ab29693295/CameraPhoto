@@ -59,6 +59,9 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="ThoughtWorks.QRCode, Version=1.0.4778.30637, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ThoughtWorks.QRCode.1.1.0\lib\ThoughtWorks.QRCode.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -83,12 +86,25 @@
     <Compile Include="Model\Enum\EnumModel.cs" />
     <Compile Include="Model\EquipMB.cs" />
     <Compile Include="Model\ObjectExtensions.cs" />
+    <Compile Include="Model\OrderResult.cs" />
     <Compile Include="Model\TypeExtensions.cs" />
     <Compile Include="Model\WrappingStream.cs" />
     <Compile Include="Model\YNFaceDetector.cs" />
     <Compile Include="PayStatus.xaml.cs">
       <DependentUpon>PayStatus.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pay\WX\lib\Config.cs" />
+    <Compile Include="Pay\WX\lib\Data.cs" />
+    <Compile Include="Pay\WX\lib\DemoConfig.cs" />
+    <Compile Include="Pay\WX\lib\Exception.cs" />
+    <Compile Include="Pay\WX\lib\HttpService.cs" />
+    <Compile Include="Pay\WX\lib\IConfig.cs" />
+    <Compile Include="Pay\WX\lib\Log.cs" />
+    <Compile Include="Pay\WX\lib\Notify.cs" />
+    <Compile Include="Pay\WX\lib\RandomGenerator.cs" />
+    <Compile Include="Pay\WX\lib\SafeXmlDocument.cs" />
+    <Compile Include="Pay\WX\lib\WxPayApi.cs" />
+    <Compile Include="Pay\WX\NativePay.cs" />
     <Compile Include="PhotoWindow.xaml.cs">
       <DependentUpon>PhotoWindow.xaml</DependentUpon>
     </Compile>
@@ -274,5 +290,6 @@
     <Resource Include="Resources\1.JPG" />
     <Resource Include="Resources\2.JPG" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

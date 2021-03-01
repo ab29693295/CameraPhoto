@@ -1,4 +1,5 @@
 ﻿using CameraPhoto.Model;
+using CameraPhoto.Pay;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
@@ -13,16 +14,59 @@ namespace CameraPhoto
 {
     public  class OrderHelper
     {
-        public  int AddOrder(int _MealType,string _MealName, double price)
+        /// <summary>
+        /// 获取跳转链接
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <param name="prodName"></param>
+        /// <param name="money"></param>
+        /// <param name="out_trade_no"></param>
+        /// <returns></returns>
+        public OrderResult GetPayUrl(int _MealType, string _MealName, double price)
+        {
+            OrderResult _orderResult = new OrderResult();
+            string out_trade_no = CombHelper.GenerateOrderNumber();
+            string proID = CombHelper.GenerateLong().ToString();
+
+            WxPayData data = new WxPayData();
+            data.SetValue("body", _MealName);//商品描述
+            data.SetValue("attach", "石油商旅");//附加数据
+            data.SetValue("out_trade_no", out_trade_no);//随机字符串
+            data.SetValue("total_fee", 1);//总金额
+            data.SetValue("time_start", DateTime.Now.ToString("yyyyMMddHHmmss"));//交易起始时间
+            data.SetValue("time_expire", DateTime.Now.AddMinutes(10).ToString("yyyyMMddHHmmss"));//交易结束时间
+            data.SetValue("goods_tag", ConfigHelper.GetConfigString("EquipCode"));//商品标记
+            data.SetValue("trade_type", "NATIVE");//交易类型
+            data.SetValue("product_id", proID);//商品ID
+            string url = "";
+
+            //订单信息写入数据库
+            //OrderInfoBLL bll = new OrderInfoBLL();
+            int orderID = AddOrder(_MealType, _MealName, price, proID, out_trade_no);
+            _orderResult.OrderID = orderID;
+            try
+            {
+                WxPayData result = WxPayApi.UnifiedOrder(data);//调用统一下单接口
+                _orderResult.Url = result.GetValue("code_url").ToString();//获得统一下单接口返回的二维码链接
+            }
+            catch (Exception ex)
+            {
+             
+            }
+            return _orderResult;
+        }
+
+        public  int AddOrder(int _MealType,string _MealName, double price,string OrderID,string out_trade_no)
         {
             Hashtable packageParameter = new Hashtable();
-            packageParameter.Add("OrderID", CombHelper.GenerateOrderNumber());//直播名称
+            packageParameter.Add("OrderID", OrderID);//直播名称
             packageParameter.Add("MealType", _MealType.ToString());//配置文件中的AppKey
             packageParameter.Add("MealName", _MealName);//配置文件中的AppName
             packageParameter.Add("Price", price.ToString());//开始时间 string格式
             packageParameter.Add("PayStatus",((int)OrderEnumPayStatus.Wait).ToString());//未支付
             packageParameter.Add("Status", ((int)OrderEnumphotoStatus.Wait).ToString());//订单状态
             packageParameter.Add("EqID", ConfigHelper.GetConfigString("EquipCode"));//随机生成的字符串
+            packageParameter.Add("out_trade_no", out_trade_no);//订单交易ID
 
             packageParameter.Add("EqUserID", ConfigHelper.GetConfigString("EqUserID"));//默认推流 0为否
            

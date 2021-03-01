@@ -1,5 +1,8 @@
-﻿using System;
+﻿using CameraPhoto.Model;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ThoughtWorks.QRCode.Codec;
 
 namespace CameraPhoto
 {
@@ -51,12 +55,33 @@ namespace CameraPhoto
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             double _firstMeal =Convert.ToDouble( ConfigHelper.GetConfigString("FirstMeal"));
-            int OrderID = new OrderHelper().AddOrder(1,"套餐一 19.9元", _firstMeal);
-            if (OrderID != 0)
+            OrderResult _orderResult = new OrderHelper().GetPayUrl(2, "套餐一 39.9元", _firstMeal);
+            if (_orderResult.OrderID != 0)
             {
-                PhotoWindow pay = new PhotoWindow(OrderID,1);
+
+                string dicPth = ConfigHelper.GetConfigString("ImageFile") + "\\" + _orderResult.OrderID.ToString() + "\\Pay";
+                if (Directory.Exists(dicPth) == false)//如果不存
+                {
+                    Directory.CreateDirectory(dicPth);
+                }
+                string ImagePath = dicPth + "\\" + _orderResult.OrderID + ".PNG";
+                QRCodeEncoder qrCodeEncoder = new QRCodeEncoder();
+                qrCodeEncoder.QRCodeEncodeMode = QRCodeEncoder.ENCODE_MODE.BYTE;
+                qrCodeEncoder.QRCodeErrorCorrect = QRCodeEncoder.ERROR_CORRECTION.M;
+                qrCodeEncoder.QRCodeVersion = 0;
+                qrCodeEncoder.QRCodeScale = 4;
+                //将字符串生成二维码图片
+                //Bitmap image = qrCodeEncoder.Encode(HttpUtility.UrlEncode(url), Encoding.Default);
+                Bitmap imageBit = qrCodeEncoder.Encode(_orderResult.Url, Encoding.Default);
+                imageBit.Save(ImagePath, System.Drawing.Imaging.ImageFormat.Png);
+
+                PayStatus pay = new PayStatus(_orderResult.OrderID, ImagePath);
                 pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 pay.Show();
+
+                //PhotoWindow pay = new PhotoWindow(_orderResult.OrderID, 2);
+                //pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                //pay.Show();
 
                 this.Close();
             }
@@ -70,10 +95,27 @@ namespace CameraPhoto
         private void SecondMeal_Click(object sender, RoutedEventArgs e)
         {
             double _SecondMeal = Convert.ToDouble(ConfigHelper.GetConfigString("SecondMeal"));
-            int OrderID = new OrderHelper().AddOrder(2, "套餐一 39.9元", _SecondMeal);
-            if (OrderID != 0)
+            OrderResult _orderResult = new OrderHelper().GetPayUrl(2, "套餐一 39.9元", _SecondMeal);
+            if (_orderResult.OrderID != 0)
             {
-                PhotoWindow pay = new PhotoWindow(OrderID,2);
+                string dicPth = ConfigHelper.GetConfigString("ImageFile") + "\\" + _orderResult.OrderID.ToString() + "\\Pay";
+                if (Directory.Exists(dicPth) == false)//如果不存
+                {
+                    Directory.CreateDirectory(dicPth);
+                }
+                string ImagePath = dicPth + "\\" + _orderResult.OrderID + ".PNG";
+                QRCodeEncoder qrCodeEncoder = new QRCodeEncoder();
+                qrCodeEncoder.QRCodeEncodeMode = QRCodeEncoder.ENCODE_MODE.BYTE;
+                qrCodeEncoder.QRCodeErrorCorrect = QRCodeEncoder.ERROR_CORRECTION.M;
+                qrCodeEncoder.QRCodeVersion = 0;
+                qrCodeEncoder.QRCodeScale = 4;
+                //将字符串生成二维码图片
+                //Bitmap image = qrCodeEncoder.Encode(HttpUtility.UrlEncode(url), Encoding.Default);
+                Bitmap imageBit = qrCodeEncoder.Encode(_orderResult.Url, Encoding.Default);
+
+
+
+                PayStatus pay = new PayStatus(_orderResult.OrderID, ImagePath);
                 pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 pay.Show();
 

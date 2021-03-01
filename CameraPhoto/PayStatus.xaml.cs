@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,9 @@ namespace CameraPhoto
         public static int _OrderID = 0;
 
         DispatcherTimer timer;
-        public PayStatus(int orderID)
+
+        DispatcherTimer paytimer;
+        public PayStatus(int orderID,string  imagePath)
         {
             InitializeComponent();
             // 在此点之下插入创建对象所需的代码。
@@ -38,6 +41,23 @@ namespace CameraPhoto
 
             _OrderID = orderID;
 
+            PayCode.Source = new BitmapImage(new Uri(imagePath, UriKind.Absolute));
+
+        }
+
+        private BitmapImage BitmapToBitmapImage(System.Drawing.Bitmap bitmap)
+        {
+            BitmapImage bitmapImage = new BitmapImage();
+            using (System.IO.MemoryStream ms = new System.IO.MemoryStream())
+            {
+                bitmap.Save(ms, bitmap.RawFormat);
+                bitmapImage.BeginInit();
+                bitmapImage.StreamSource = ms;
+                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                bitmapImage.EndInit();
+                bitmapImage.Freeze();
+            }
+            return bitmapImage;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -48,6 +68,12 @@ namespace CameraPhoto
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += timer1_Tick;
             timer.Start();
+
+            paytimer=new DispatcherTimer();
+            paytimer.Interval = TimeSpan.FromSeconds(1);
+            paytimer.Tick += PayTimer_Tick;
+            paytimer.Start();
+
         }
         /// <summary>
         /// 定时器执行的方法
@@ -60,6 +86,15 @@ namespace CameraPhoto
             int Seconds = Convert.ToInt32(this.TimeLabel.Content);
 
             this.TimeLabel.Content = Seconds - 1;
+
+        }
+        /// <summary>
+        /// 请求
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PayTimer_Tick(object sender, EventArgs e)
+        {
 
         }
 
