@@ -14,6 +14,25 @@ namespace CameraPhoto
 {
     public  class OrderHelper
     {
+        public static string Website = ConfigHelper.GetConfigString("HttpUrl").ToString();
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="EquipCode"></param>
+        /// <returns></returns>
+        public static int GetOrderPayStatus(int OrderID)
+        {
+            string Url = Website + "/api/Order/GetOrderPayStatus?ID=" + OrderID;
+
+            string response = HttpHelper.SendGet(Url);
+
+            JObject result = (JObject)Newtonsoft.Json.JsonConvert.DeserializeObject(response);
+            //isTruncated nextMarker  streams
+
+
+            return Convert.ToInt32(result["PayStatus"]);
+        }
+
         /// <summary>
         /// 获取跳转链接
         /// </summary>

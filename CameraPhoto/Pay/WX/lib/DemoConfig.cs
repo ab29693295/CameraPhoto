@@ -19,16 +19,16 @@ namespace CameraPhoto.Pay
         */
 
         public string GetAppID(){
-            //return "wx9832dd5b51ec46f2";
-            return "wx33d6144e79376101";
+            //return "wx1047cd69bf64c912,wx620ee7eb2fd747ea,wx9832dd5b51ec46f2,wxbecc13a2b99c1732";
+            return "wx1047cd69bf64c912";
         }
         public string GetMchID(){
             // return "1522987431";
-            return "1519542211";
+            return "1522987431";
         }
         public string GetKey(){
             //return "443ECC0790ED46EEB661B96B643A7EF7";
-            return "49C1F39F60AD2253456E3593E50515DE";
+            return "443ECC0790ED46EEB661B96B643A7EF7";
 
         }
         public string GetAppSecret(){
@@ -56,7 +56,7 @@ namespace CameraPhoto.Pay
         /* 支付结果通知回调url，用于商户接收支付结果
         */
         public string GetNotifyUrl(){
-        //return "http://v2.cabrjzy.com//pay//pay_weixin_notify.aspx";
+      
         return ConfigHelper.GetConfigString("HttpUrl") + "/Common/Notify";
         }
 

@@ -75,7 +75,7 @@ namespace CameraPhoto
                 Bitmap imageBit = qrCodeEncoder.Encode(_orderResult.Url, Encoding.Default);
                 imageBit.Save(ImagePath, System.Drawing.Imaging.ImageFormat.Png);
 
-                PayStatus pay = new PayStatus(_orderResult.OrderID, ImagePath);
+                PayStatus pay = new PayStatus(_orderResult.OrderID, ImagePath,1);
                 pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 pay.Show();
 
@@ -115,7 +115,7 @@ namespace CameraPhoto
 
 
 
-                PayStatus pay = new PayStatus(_orderResult.OrderID, ImagePath);
+                PayStatus pay = new PayStatus(_orderResult.OrderID, ImagePath,2);
                 pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 pay.Show();
 

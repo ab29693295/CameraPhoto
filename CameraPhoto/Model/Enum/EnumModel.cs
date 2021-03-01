@@ -31,16 +31,16 @@ namespace CameraPhoto.Model
         [EnumDescription("已退款")]
         Refunds = -2,
         [EnumDescription("等待付款")]
-        Wait = 1,
+        Wait = 0,
         [EnumDescription(" 已付款")]
-        OK = 2,
+        OK = 1,
         [EnumDescription(" 付款失败")]
-        Error = 3,
+        Error = 2,
         [EnumDescription(" 订单失效")]
-        Overtime = 4,
+        Overtime = 3,
         [EnumDescription(" 扣款成功")]
-        DeOk = 5,
+        DeOk = 4,
         [EnumDescription(" 扣款失败")]
-        DeError = 6
+        DeError = 5
     }
 }

@@ -23,10 +23,12 @@ namespace CameraPhoto
     {
         public static int _OrderID = 0;
 
+        public int _MealType = 1;
+
         DispatcherTimer timer;
 
         DispatcherTimer paytimer;
-        public PayStatus(int orderID,string  imagePath)
+        public PayStatus(int orderID,string  imagePath,int MealType)
         {
             InitializeComponent();
             // 在此点之下插入创建对象所需的代码。
@@ -43,6 +45,7 @@ namespace CameraPhoto
 
             PayCode.Source = new BitmapImage(new Uri(imagePath, UriKind.Absolute));
 
+            _MealType = MealType;
         }
 
         private BitmapImage BitmapToBitmapImage(System.Drawing.Bitmap bitmap)
@@ -84,8 +87,16 @@ namespace CameraPhoto
         {
             //定时执行的内容
             int Seconds = Convert.ToInt32(this.TimeLabel.Content);
-
-            this.TimeLabel.Content = Seconds - 1;
+            if (Seconds >= 80)
+            {
+                this.TimeLabel.Content = Seconds - 1;
+            }
+            else
+            {
+                this.RePayStack.Visibility = Visibility.Visible;
+                this.MainStack.Visibility = Visibility.Collapsed;
+            }
+            
 
         }
         /// <summary>
@@ -95,16 +106,37 @@ namespace CameraPhoto
         /// <param name="e"></param>
         private void PayTimer_Tick(object sender, EventArgs e)
         {
-
+            int PayStatus = OrderHelper.GetOrderPayStatus(_OrderID);
+            if (PayStatus == 1)
+            {
+                PhotoWindow pay = new PhotoWindow(_OrderID, _MealType);
+                pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                pay.Show();
+            }
         }
-
+        /// <summary>
+        /// 支付返回
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //PhotoWindow pay = new PhotoWindow();
-            //pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            //pay.Show();
+            MainWindow pay = new MainWindow();
+            pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            pay.Show();
 
             this.Close();
+        }
+        /// <summary>
+        /// 重新支付
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RePayBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.RePayStack.Visibility = Visibility.Collapsed;
+            this.MainStack.Visibility = Visibility.Visible;
+            this.TimeLabel.Content = "90";
         }
     }
 }

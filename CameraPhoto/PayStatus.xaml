@@ -15,7 +15,7 @@
             
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" >
-            <StackPanel  Orientation="Vertical" x:Name="MainStack" Width="450" Height="400" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel   Orientation="Vertical" x:Name="MainStack" Width="450" Height="400" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <StackPanel >
                     <Image x:Name="PayCode"  Source="/CameraPhoto;component/Resources/PayIamge.png" Width="360" Height="240" Margin="0,30,0,0" ></Image>
                 </StackPanel>
@@ -47,11 +47,11 @@
             <Label Width="250"  Height="40" Content="正在完成支付..." FontWeight="Bold" FontSize="23" Foreground="#FFFFFF"   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
           
         </StackPanel>
-        <StackPanel Visibility="Collapsed" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel x:Name="RePayStack" Visibility="Collapsed" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Image Source="/CameraPhoto;component/Resources/图标-警示.png" Height="150" Width="150"></Image>
             <Label Width="450"  Height="40" Content="支付失败，请点击重试后重新完成支付！" FontWeight="Bold" FontSize="23" Foreground="#FFFFFF"   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
           
-            <Button Margin="0,20,0,0"   Content="重新支付" FontWeight="Bold" FontSize="20" Foreground="#FFFFFF" Width="180" Height="45">
+            <Button Margin="0,20,0,0" x:Name="RePayBtn" Click="RePayBtn_Click"   Content="重新支付" FontWeight="Bold" FontSize="20" Foreground="#FFFFFF" Width="180" Height="45">
                 <Button.Background>
                     <ImageBrush ImageSource="/CameraPhoto;component/Resources/Repay.png" Stretch="Fill"/>
                 </Button.Background>
