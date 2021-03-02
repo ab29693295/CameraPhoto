@@ -87,7 +87,7 @@ namespace CameraPhoto
         {
             //定时执行的内容
             int Seconds = Convert.ToInt32(this.TimeLabel.Content);
-            if (Seconds >= 80)
+            if (Seconds >= 30)
             {
                 this.TimeLabel.Content = Seconds - 1;
             }

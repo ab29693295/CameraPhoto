@@ -49,7 +49,7 @@ namespace CameraPhoto
 
             WxPayData data = new WxPayData();
             data.SetValue("body", _MealName);//商品描述
-            data.SetValue("attach", "石油商旅");//附加数据
+            data.SetValue("attach", "精诚博源");//附加数据
             data.SetValue("out_trade_no", out_trade_no);//随机字符串
             data.SetValue("total_fee", 1);//总金额
             data.SetValue("time_start", DateTime.Now.ToString("yyyyMMddHHmmss"));//交易起始时间
