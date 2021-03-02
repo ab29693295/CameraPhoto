@@ -70,15 +70,18 @@ namespace CameraPhoto
         private int faceNum = 0;
         private int baseLMLen = 101;
 
-        public PhotoWindow(int orderID, int mealType)
+        public PhotoWindow(int orderID, int mealType)//
         {
             InitializeComponent();
 
-            zPhoto = new ZPhotoEngineDll();
-            zSoftSkin = new ZBeautyEngineDll();
+          
             #region
             try
             {
+
+                zPhoto = new ZPhotoEngineDll();
+                zSoftSkin = new ZBeautyEngineDll();
+
                 CameraHandler = new SDKHandler();
                 // CameraHandler.CameraAdded += new SDKHandler.CameraAddedHandler(SDK_CameraAdded);
                 CameraHandler.LiveViewUpdated += new SDKHandler.StreamUpdate(SDK_LiveViewUpdated);
@@ -91,9 +94,18 @@ namespace CameraPhoto
             }
             catch (DllNotFoundException)
             {
-                MessageBox.Show("相机未连接请检查设备!");
+                MessageTip message = new MessageTip("相机未连接请检查设备");
+                message.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                message.Show();
+              
             }
-            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
+            catch (Exception ex) {
+                MessageTip message = new MessageTip("相机未连接请检查设备");
+                message.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                message.Show();
+                App.CameraLog.Debug(ex.ToString());
+
+            }
 
 
             #endregion
@@ -115,8 +127,8 @@ namespace CameraPhoto
             this.TipPanelDownCount.Background = _tippanel;
 
 
-            OrderID = orderID;
-            MealType = mealType;
+            OrderID = 91;
+            MealType = 1;
 
 
         }

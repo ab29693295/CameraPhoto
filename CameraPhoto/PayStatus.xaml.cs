@@ -87,7 +87,7 @@ namespace CameraPhoto
         {
             //定时执行的内容
             int Seconds = Convert.ToInt32(this.TimeLabel.Content);
-            if (Seconds >= 30)
+            if (Seconds >= 1)
             {
                 this.TimeLabel.Content = Seconds - 1;
             }
@@ -109,9 +109,12 @@ namespace CameraPhoto
             int PayStatus = OrderHelper.GetOrderPayStatus(_OrderID);
             if (PayStatus == 1)
             {
-                PhotoWindow pay = new PhotoWindow(_OrderID, _MealType);
+               
+                PhotoWindow pay = new PhotoWindow(_OrderID, _MealType);//
                 pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 pay.Show();
+
+                this.Close();
             }
         }
         /// <summary>

@@ -152,20 +152,22 @@ namespace EDSDKLib
         /// </summary>
         public SDKHandler()
         {
-            //initialize SDK
-            Error = EDSDK.EdsInitializeSDK();
-            STAThread.Init();
-            //subscribe to camera added event (the C# event and the SDK event)
-            SDKCameraAddedEvent += new EDSDK.EdsCameraAddedHandler(SDKHandler_CameraAddedEvent);
-            EDSDK.EdsSetCameraAddedHandler(SDKCameraAddedEvent, IntPtr.Zero);
+           
+                //initialize SDK
+                Error = EDSDK.EdsInitializeSDK();
+                STAThread.Init();
+                //subscribe to camera added event (the C# event and the SDK event)
+                SDKCameraAddedEvent += new EDSDK.EdsCameraAddedHandler(SDKHandler_CameraAddedEvent);
+                EDSDK.EdsSetCameraAddedHandler(SDKCameraAddedEvent, IntPtr.Zero);
 
-            //subscribe to the camera events (for the C# events)
-            SDKStateEvent += new EDSDK.EdsStateEventHandler(Camera_SDKStateEvent);
-            SDKPropertyEvent += new EDSDK.EdsPropertyEventHandler(Camera_SDKPropertyEvent);
-            SDKProgressCallbackEvent += new EDSDK.EdsProgressCallback(Camera_SDKProgressCallbackEvent);
-            SDKObjectEvent += new EDSDK.EdsObjectEventHandler(Camera_SDKObjectEvent);
+                //subscribe to the camera events (for the C# events)
+                SDKStateEvent += new EDSDK.EdsStateEventHandler(Camera_SDKStateEvent);
+                SDKPropertyEvent += new EDSDK.EdsPropertyEventHandler(Camera_SDKPropertyEvent);
+                SDKProgressCallbackEvent += new EDSDK.EdsProgressCallback(Camera_SDKProgressCallbackEvent);
+                SDKObjectEvent += new EDSDK.EdsObjectEventHandler(Camera_SDKObjectEvent);
+           
 
-  
+
         }
     
         /// <summary>

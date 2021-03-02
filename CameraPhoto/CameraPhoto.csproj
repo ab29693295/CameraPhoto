@@ -41,6 +41,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\CSkin.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -81,10 +84,14 @@
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MessageTip.xaml.cs">
+      <DependentUpon>MessageTip.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\EnumDescription.cs" />
     <Compile Include="Model\EnumExtensions.cs" />
     <Compile Include="Model\Enum\EnumModel.cs" />
     <Compile Include="Model\EquipMB.cs" />
+    <Compile Include="Model\EquipMeal.cs" />
     <Compile Include="Model\ObjectExtensions.cs" />
     <Compile Include="Model\OrderResult.cs" />
     <Compile Include="Model\TypeExtensions.cs" />
@@ -141,6 +148,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MessageTip.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PayStatus.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

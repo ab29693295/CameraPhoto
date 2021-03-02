@@ -1,4 +1,5 @@
-﻿using CameraPhoto.Model;
+﻿using CameraPhoto.Helper;
+using CameraPhoto.Model;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -42,11 +43,24 @@ namespace CameraPhoto
             this.select_Panel2.Background = selectback;
 
 
-        
-
-            
-
+            LoadMeal();
         }
+
+
+        public void LoadMeal()
+        {
+            List<EquipMeal> MealData = EquipHelper.GetEquipMeal();
+            if (MealData != null&&MealData.Count()>1)
+            {
+                this.FisrtMealName.Content = MealData[0].MealName;
+                this.FisrtMealPrice.Content = MealData[0].MealPrice;
+                this.SecondMealName.Content = MealData[1].MealName;
+                this.SecondMealPrice.Content = MealData[1].MealPrice;
+            }
+        }
+
+
+
         /// <summary>
         /// 套餐一点击事件
         /// </summary>

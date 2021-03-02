@@ -44,5 +44,27 @@ namespace CameraPhoto.Helper
 
            
         }
+
+        /// <summary>
+        /// 获取设备美白信息
+        /// </summary>
+        /// <returns></returns>
+        public static List<EquipMeal> GetEquipMeal()
+        {
+            string EquipCode = ConfigHelper.GetConfigString("EquipCode").ToString();
+
+            string Url = Website + "/api/EquipMeal/GetEquipMeal?EqCode=" + EquipCode;
+
+            string response = HttpHelper.SendGet(Url);
+
+            JObject result = (JObject)Newtonsoft.Json.JsonConvert.DeserializeObject(response);
+            string value = result["Data"].ToString();
+
+            List<EquipMeal> equipMealData = Newtonsoft.Json.JsonConvert.DeserializeObject<List<EquipMeal>>(value);
+
+            return equipMealData;
+
+
+        }
     }
 }
