@@ -43,6 +43,10 @@ namespace CameraPhoto
             b.Stretch = Stretch.Fill;
             this.Background = b;
 
+
+
+
+
             string _IamgePath1 = @"D:\File\"+OrderID.ToString()+"\\1.JPG";
             string _IamgePath2 = @"D:\File\" + OrderID.ToString() + "\\2.JPG";
             string _IamgePath3 = @"D:\File\" + OrderID.ToString() + "\\3.JPG";
