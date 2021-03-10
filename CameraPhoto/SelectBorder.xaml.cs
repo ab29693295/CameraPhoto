@@ -25,15 +25,15 @@ namespace CameraPhoto
 
         public int CurrentBorder = 1;
 
-        public SolidColorBrush _BorderFirst;
-        public SolidColorBrush _BorderSecond;
+        public Brush _BorderFirst;
+        public Brush _BorderSecond;
 
-        public SolidColorBrush _CurrentColor;
+        public Brush _CurrentColor;
 
         public string BorderFirstColor = "";
         public string BorderSecondColor = "";
 
-        public SelectBorder(int _orderID)
+        public SelectBorder(int _orderID)//
         {
             InitializeComponent();
 
@@ -43,14 +43,14 @@ namespace CameraPhoto
             b.Stretch = Stretch.Fill;
             this.Background = b;
 
+            //记载边框背景图
+            LoadBackGround();
 
 
-
-
-            string _IamgePath1 = @"D:\File\"+OrderID.ToString()+"\\1.JPG";
-            string _IamgePath2 = @"D:\File\" + OrderID.ToString() + "\\2.JPG";
-            string _IamgePath3 = @"D:\File\" + OrderID.ToString() + "\\3.JPG";
-            string _IamgePath4 = @"D:\File\" + OrderID.ToString() + "\\4.JPG";
+            string _IamgePath1 = @"E:\File\"+OrderID.ToString()+"\\1.JPG";
+            string _IamgePath2 = @"E:\File\" + OrderID.ToString() + "\\2.JPG";
+            string _IamgePath3 = @"E:\File\" + OrderID.ToString() + "\\3.JPG";
+            string _IamgePath4 = @"E:\File\" + OrderID.ToString() + "\\4.JPG";
 
             //主界面1
             this.MainFirst1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
@@ -138,12 +138,77 @@ namespace CameraPhoto
             this.LastSecond4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
 
 
-            OrderID = _orderID;
+            //OrderID = _orderID;
 
             Color color = (Color)ColorConverter.ConvertFromString("White");
             _BorderSecond = new SolidColorBrush(color);
 
             _BorderFirst = new SolidColorBrush(color);
+        }
+        /// <summary>
+        /// 加载背景图
+        /// </summary>
+
+        public void LoadBackGround()
+        {
+            ImageBrush mainback = new ImageBrush();
+            mainback.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/Border/Border-1.png"));
+            mainback.Stretch = Stretch.Fill;
+
+            MainPanelFirst.Background = mainback;
+
+
+            ImageBrush mainback_2 = new ImageBrush();
+            mainback_2.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/Border/Border-2.png"));
+            mainback_2.Stretch = Stretch.Fill;
+
+            MainPanelSecond.Background = mainback_2;
+
+            ImageBrush Firstback = new ImageBrush();
+            Firstback.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/Border/Border-1.png"));
+            Firstback.Stretch = Stretch.Fill;
+
+            PanelFirst.Background = Firstback;
+            PanelFirst2.Background = Firstback;
+
+            ImageBrush Secondback = new ImageBrush();
+            Secondback.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/Border/Border-2.png"));
+            Secondback.Stretch = Stretch.Fill;
+
+            PanelSecond.Background = Secondback;
+            PanelSecond2.Background = Secondback;
+
+            ImageBrush Thirdback = new ImageBrush();
+            Thirdback.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/Border/Border-3.png"));
+            Thirdback.Stretch = Stretch.Fill;
+
+            PanelThird.Background = Thirdback;
+            PanelThird2.Background = Thirdback;
+
+            ImageBrush Forthback = new ImageBrush();
+            Forthback.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/Border/Border-4.png"));
+            Forthback.Stretch = Stretch.Fill;
+
+
+            PanelForth.Background = Forthback;
+            PanelForth2.Background = Forthback;
+
+            ImageBrush Fivetback = new ImageBrush();
+            Fivetback.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/Border/Border-5.png"));
+            Fivetback.Stretch = Stretch.Fill;
+
+
+            PanelFive.Background = Fivetback;
+            PanelFive2.Background = Fivetback;
+
+            ImageBrush Sixback = new ImageBrush();
+            Sixback.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/Border/Border-6.png"));
+            Sixback.Stretch = Stretch.Fill;
+
+            PanelSix.Background = Sixback;
+            PanelSix2.Background = Sixback;
+
+
         }
 
 
@@ -206,7 +271,7 @@ namespace CameraPhoto
 
         private void StackPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            _CurrentColor =(SolidColorBrush)MainPanelSecond.Background;
+            _CurrentColor =(Brush)MainPanelSecond.Background;
 
             MainPanelSecond.Background = MainPanelFirst.Background;
             MainPanelFirst.Background = _CurrentColor;
@@ -219,7 +284,7 @@ namespace CameraPhoto
 
         private void StackPanel_MouseLeftButtonDown_MainSecond(object sender, MouseButtonEventArgs e)
         {
-            _CurrentColor = (SolidColorBrush)MainPanelFirst.Background;
+            _CurrentColor = (Brush)MainPanelFirst.Background;
 
 
             MainPanelFirst.Background = MainPanelSecond.Background;
@@ -241,15 +306,15 @@ namespace CameraPhoto
         /// <param name="e"></param>
         private void StackPanel_MouseLeftButtonDown_First(object sender, MouseButtonEventArgs e)
         { 
-            Color color = (Color)ColorConverter.ConvertFromString("LightPink");
-            SolidColorBrush borderColor = new SolidColorBrush(color);
+           
+            Brush borderColor = this.PanelFirst.Background;
             if (CurrentBorder == 1)
             {
-                _BorderFirst = new SolidColorBrush(color);
+                _BorderFirst = borderColor;
             }
             else
             {
-                _BorderSecond = new SolidColorBrush(color);
+                _BorderSecond = borderColor;
             }
            
             MainPanelFirst.Background = borderColor;
@@ -263,17 +328,16 @@ namespace CameraPhoto
         /// <param name="e"></param>
         private void StackPanel_MouseLeftButtonDown_Second(object sender, MouseButtonEventArgs e)
         {
-            Color color = (Color)ColorConverter.ConvertFromString("Violet");
-            SolidColorBrush borderColor = new SolidColorBrush(color);
+            Brush borderColor = this.PanelSecond.Background;
             if (CurrentBorder == 1)
             {
-                _BorderFirst = new SolidColorBrush(color);
+                _BorderFirst = borderColor;
             }
             else
             {
-                _BorderSecond = new SolidColorBrush(color);
+                _BorderSecond = borderColor;
             }
-          
+
             MainPanelFirst.Background = borderColor;
             LastPanelFirst.Background = MainPanelFirst.Background;
             LastPanelSecond.Background = MainPanelSecond.Background;
@@ -285,17 +349,15 @@ namespace CameraPhoto
         /// <param name="e"></param>
         private void StackPanel_MouseLeftButtonDown_Third(object sender, MouseButtonEventArgs e)
         {
-            Color color = (Color)ColorConverter.ConvertFromString("RoyalBlue");
-            SolidColorBrush borderColor = new SolidColorBrush(color);
+            Brush borderColor = this.PanelThird.Background;
             if (CurrentBorder == 1)
             {
-                _BorderFirst = new SolidColorBrush(color);
+                _BorderFirst = borderColor;
             }
             else
             {
-                _BorderSecond = new SolidColorBrush(color);
+                _BorderSecond = borderColor;
             }
-          
             MainPanelFirst.Background = borderColor;
             LastPanelFirst.Background = MainPanelFirst.Background;
             LastPanelSecond.Background = MainPanelSecond.Background;
@@ -307,17 +369,16 @@ namespace CameraPhoto
         /// <param name="e"></param>
         private void StackPanel_MouseLeftButtonDown_Forth(object sender, MouseButtonEventArgs e)
         {
-            Color color = (Color)ColorConverter.ConvertFromString("SeaGreen");
-            SolidColorBrush borderColor = new SolidColorBrush(color);
+            Brush borderColor = this.PanelForth.Background;
             if (CurrentBorder == 1)
             {
-                _BorderFirst = new SolidColorBrush(color);
+                _BorderFirst = borderColor;
             }
             else
             {
-                _BorderSecond = new SolidColorBrush(color);
+                _BorderSecond = borderColor;
             }
-         
+
             MainPanelFirst.Background = borderColor;
 
             LastPanelFirst.Background = MainPanelFirst.Background;
@@ -330,17 +391,16 @@ namespace CameraPhoto
         /// <param name="e"></param>
         private void StackPanel_MouseLeftButtonDown_Five(object sender, MouseButtonEventArgs e)
         {
-            Color color = (Color)ColorConverter.ConvertFromString("Khaki");
-            SolidColorBrush borderColor = new SolidColorBrush(color);
+            Brush borderColor = this.PanelFive.Background;
             if (CurrentBorder == 1)
             {
-                _BorderFirst = new SolidColorBrush(color);
+                _BorderFirst = borderColor;
             }
             else
             {
-                _BorderSecond = new SolidColorBrush(color);
+                _BorderSecond = borderColor;
             }
-          
+
             MainPanelFirst.Background = borderColor;
 
             LastPanelFirst.Background = MainPanelFirst.Background;
@@ -353,17 +413,16 @@ namespace CameraPhoto
         /// <param name="e"></param>
         private void StackPanel_MouseLeftButtonDown_Six(object sender, MouseButtonEventArgs e)
         {
-            Color color = (Color)ColorConverter.ConvertFromString("DarkOrange");
-            SolidColorBrush borderColor = new SolidColorBrush(color);
+            Brush borderColor = this.PanelSix.Background;
             if (CurrentBorder == 1)
             {
-                _BorderFirst = new SolidColorBrush(color);
+                _BorderFirst = borderColor;
             }
             else
             {
-                _BorderSecond = new SolidColorBrush(color);
+                _BorderSecond = borderColor;
             }
-         
+
             MainPanelFirst.Background = borderColor;
 
             LastPanelFirst.Background = MainPanelFirst.Background;

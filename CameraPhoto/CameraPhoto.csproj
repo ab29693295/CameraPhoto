@@ -304,5 +304,14 @@
   <ItemGroup>
     <Resource Include="Resources\Border\Border-1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Border\Border-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Border\Border-3.png" />
+    <Resource Include="Resources\Border\Border-4.png" />
+    <Resource Include="Resources\Border\Border-5.png" />
+    <Resource Include="Resources\Border\Border-6.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
