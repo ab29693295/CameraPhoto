@@ -57,11 +57,21 @@ namespace CameraPhoto
         /// <param name="e"></param>
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            SelectMeal _meal = new SelectMeal();
-            _meal.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            _meal.Show();
+            try
+            {
+                SelectMeal _meal = new SelectMeal();
+                _meal.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                _meal.Show();
 
-            this.Close();
+                this.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+          
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

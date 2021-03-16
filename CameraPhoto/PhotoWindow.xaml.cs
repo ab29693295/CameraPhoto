@@ -198,7 +198,6 @@ namespace CameraPhoto
                 if (CurrentCount < 4)
                 {
 
-
                     CurrentCount = CurrentCount + 1;
                     CurrentIamgePath = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\" + CurrentCount.ToString() + ".JPG";
 
@@ -210,9 +209,7 @@ namespace CameraPhoto
                     CameraCanvas.Background = bgbrush;
                     CameraHandler.StartLiveView();
 
-
                     CameraHandler.ImageSaveDirectory = CurrentIamgePath;
-
 
                     //启动倒计时
                     timer = new DispatcherTimer();

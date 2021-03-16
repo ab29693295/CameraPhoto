@@ -28,22 +28,32 @@ namespace CameraPhoto
         {
             InitializeComponent();
 
-            // 在此点之下插入创建对象所需的代码。
-            ImageBrush b = new ImageBrush();
-            b.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/bacbkground.png"));
-            b.Stretch = Stretch.Fill;
-            this.Background = b;
+            try
+            {
+                // 在此点之下插入创建对象所需的代码。
+                ImageBrush b = new ImageBrush();
+                b.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/bacbkground.png"));
+                b.Stretch = Stretch.Fill;
+                this.Background = b;
 
-            //设置选择套餐的背景
-            ImageBrush selectback = new ImageBrush();
-            selectback.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/mealbackgrond.png"));
-            selectback.Stretch = Stretch.Fill;
+                //设置选择套餐的背景
+                ImageBrush selectback = new ImageBrush();
+                selectback.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/mealbackgrond.png"));
+                selectback.Stretch = Stretch.Fill;
 
-            this.select_Panel1.Background = selectback;
-            this.select_Panel2.Background = selectback;
+                this.select_Panel1.Background = selectback;
+                this.select_Panel2.Background = selectback;
 
 
-            LoadMeal();
+                LoadMeal();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+         
         }
 
 
