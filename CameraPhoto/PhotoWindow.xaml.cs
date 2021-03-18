@@ -352,9 +352,11 @@ namespace CameraPhoto
             }
             if (_downCOunt <= 0)
             {
-                //CameraHandler.TakePhoto();
-                //CameraHandler.DownloadImage()
                 CameraHandler.StopLiveView();
+                CameraHandler.TakePhoto();
+
+                //CameraHandler.DownloadImage()
+               
                 //美颜照片
                 MBphoto();
 
