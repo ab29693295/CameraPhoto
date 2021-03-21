@@ -70,7 +70,7 @@ namespace CameraPhoto
         private int faceNum = 0;
         private int baseLMLen = 101;
 
-        public PhotoWindow(int orderID, int mealType)//
+        public PhotoWindow(int orderID, int mealType)
         {
             InitializeComponent();
 
@@ -90,7 +90,11 @@ namespace CameraPhoto
                 CameraHandler.CameraHasShutdown += SDK_CameraHasShutdown;
                 IsInit = true;
                 SetImageAction = (BitmapImage img) => { bgbrush.ImageSource = img; };
-               
+
+                //设置相机保存文件方式和路径
+                CameraHandler.SetSetting(EDSDK.PropID_SaveTo, (uint)EDSDK.EdsSaveTo.Host);
+                CameraHandler.SetCapacity();
+
             }
             catch (DllNotFoundException)
             {
@@ -306,7 +310,7 @@ namespace CameraPhoto
                     CameraCanvas.Background = bgbrush;
                     CameraHandler.StartLiveView();
                   
-                    //CameraHandler.ImageSaveDirectory = CurrentIamgePath;
+                    CameraHandler.ImageSaveDirectory = CurrentIamgePath;
                     //设置第一个照片背景显示
                     this.ImageBc1.Visibility = Visibility.Visible;
 
@@ -339,7 +343,11 @@ namespace CameraPhoto
         /// <param name="e"></param>
         private void timer1_Tick(object sender, EventArgs e)
         {
+
+            //CurrentIamgePath = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\" + CurrentCount.ToString() + ".JPG";
          
+
+           
             //定时执行的内容
             _downCOunt = _downCOunt - 1;
             DownCountLabel.Content = _downCOunt.ToString();
@@ -355,12 +363,17 @@ namespace CameraPhoto
                 CameraHandler.StopLiveView();
                 CameraHandler.TakePhoto();
 
-                //CameraHandler.DownloadImage()
-               
+
+
+
+
+
+                //CameraHandler.DownloadImage(,CurrentIamgePath);
+
                 //美颜照片
                 MBphoto();
 
-                SaveToImage(CameraCanvas, CurrentIamgePath);
+                //SaveToImage(CameraCanvas, CurrentIamgePath);
 
                 this.TipPanelDownCount.Visibility = Visibility.Collapsed;
 
