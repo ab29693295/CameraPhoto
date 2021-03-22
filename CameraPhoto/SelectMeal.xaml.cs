@@ -83,6 +83,11 @@ namespace CameraPhoto
             if (_orderResult.OrderID != 0)
             {
 
+                if (Directory.Exists(ConfigHelper.GetConfigString("ImageFile")) == false)//如果不存
+                {
+                    Directory.CreateDirectory(ConfigHelper.GetConfigString("ImageFile"));
+                }
+
                 string dicPth = ConfigHelper.GetConfigString("ImageFile") + "\\" + _orderResult.OrderID.ToString() + "\\Pay";
                 if (Directory.Exists(dicPth) == false)//如果不存
                 {
@@ -123,6 +128,12 @@ namespace CameraPhoto
             if (_orderResult.OrderID != 0)
             {
                 string dicPth = ConfigHelper.GetConfigString("ImageFile") + "\\" + _orderResult.OrderID.ToString() + "\\Pay";
+
+
+                if (Directory.Exists(ConfigHelper.GetConfigString("ImageFile")) == false)//如果不存
+                {
+                    Directory.CreateDirectory(ConfigHelper.GetConfigString("ImageFile"));
+                }
                 if (Directory.Exists(dicPth) == false)//如果不存
                 {
                     Directory.CreateDirectory(dicPth);
