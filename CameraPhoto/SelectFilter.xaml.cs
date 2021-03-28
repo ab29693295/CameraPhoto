@@ -27,6 +27,8 @@ namespace CameraPhoto
 
         public int currentFilter = 1;
 
+        public int MealTime = 1;
+
         public int OrderID = 91;
 
         public ImageSource currentImage;
@@ -36,9 +38,11 @@ namespace CameraPhoto
        
 
         public string IamgePath2= "";
-        public SelectFilter(int _orderID)
+        public SelectFilter(int _orderID,int _MealTime=1)
         {
             InitializeComponent();
+
+            MealTime = _MealTime;
 
             // 在此点之下插入创建对象所需的代码。
             ImageBrush b = new ImageBrush();
@@ -60,6 +64,13 @@ namespace CameraPhoto
             IamgePath1 = dic + "\\1.JPG";
 
             IamgePath2 = dic + "\\2.JPG";
+
+            if (MealTime == 2)
+            {
+                IamgePath1 = dic + "\\3.JPG";
+
+                IamgePath2 = dic + "\\4.JPG";
+            }
 
 
             OrderID = _orderID;
@@ -93,31 +104,37 @@ namespace CameraPhoto
             string FileName1 = dic + "\\1.JPG";
 
             string FileName2 = dic + "\\2.JPG";
+            if (MealTime == 2)
+            {
+                IamgePath1 = dic + "\\3.JPG";
+
+                IamgePath2 = dic + "\\4.JPG";
+            }
 
             SaveToImage(this.LastPanelFirst, FileName1);
             SaveToImage(this.LastPanelSecond, FileName2);
 
 
-            PrintPhoto pay = new PrintPhoto();//_orderID
+            PrintPhoto pay = new PrintPhoto(OrderID,MealTime);//_orderID
             pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             pay.Show();
 
             this.Close();
 
-            PrintMainFirst();
+            PrintMainFirst(FileName1);
 
-            PrintMainSecond();
+            PrintMainSecond(FileName2);
         }
         /// <summary>
         /// 打印第一张
         /// </summary>
-        public void PrintMainFirst()
+        public void PrintMainFirst(string FilePath)
         {
             BitmapImage MainBitmap = (BitmapImage)LastPanelFirst.Source;
 
             JpegBitmapEncoder encoder = new JpegBitmapEncoder();
             encoder.Frames.Add(BitmapFrame.Create(MainBitmap));
-            FileStream files = new FileStream("1.jpg", FileMode.Create, FileAccess.ReadWrite);
+            FileStream files = new FileStream(FilePath, FileMode.Create, FileAccess.ReadWrite);
             encoder.Save(files);
             files.Close();
 
@@ -168,13 +185,13 @@ namespace CameraPhoto
         /// <summary>
         /// 打印第二张
         /// </summary>
-        public void PrintMainSecond()
+        public void PrintMainSecond(string FilePath)
         {
             BitmapImage MainBitmap = (BitmapImage)LastPanelSecond.Source;
 
             JpegBitmapEncoder encoder = new JpegBitmapEncoder();
             encoder.Frames.Add(BitmapFrame.Create(MainBitmap));
-            FileStream files = new FileStream("1.jpg", FileMode.Create, FileAccess.ReadWrite);
+            FileStream files = new FileStream(FilePath, FileMode.Create, FileAccess.ReadWrite);
             encoder.Save(files);
             files.Close();
 

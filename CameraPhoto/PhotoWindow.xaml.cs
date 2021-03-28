@@ -53,6 +53,8 @@ namespace CameraPhoto
         public int OrderID = 0;
         public int MealType = 1;
 
+        public int MealTime = 1;
+
         public int _downCOunt = 9;
 
         public int _nextDownCount = 15;
@@ -70,11 +72,11 @@ namespace CameraPhoto
         private int faceNum = 0;
         private int baseLMLen = 101;
 
-        public PhotoWindow(int orderID, int mealType)
+        public PhotoWindow(int orderID, int mealType,int _MealTime=1)
         {
             InitializeComponent();
+            MealTime =_MealTime;
 
-          
             #region
             try
             {
@@ -199,7 +201,7 @@ namespace CameraPhoto
                         break;
                 }
                 //控制相机倒计时
-                if (CurrentCount < 4)
+                if (CurrentCount < 8)
                 {
 
                     CurrentCount = CurrentCount + 1;
@@ -242,7 +244,7 @@ namespace CameraPhoto
         /// <param name="e"></param>
         private void Next_Btn_Click(object sender, RoutedEventArgs e)
         {
-            SelectBorder seBorder = new SelectBorder(OrderID);//
+            SelectBorder seBorder = new SelectBorder(OrderID,MealTime);//
             seBorder.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             seBorder.Show();
 

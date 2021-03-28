@@ -74,6 +74,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ElePrint.xaml.cs">
+      <DependentUpon>ElePrint.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Helper\CombHelper.cs" />
     <Compile Include="Helper\ConfigHelper.cs" />
     <Compile Include="Helper\EquipHelper.cs" />
@@ -97,6 +100,9 @@
     <Compile Include="Model\TypeExtensions.cs" />
     <Compile Include="Model\WrappingStream.cs" />
     <Compile Include="Model\YNFaceDetector.cs" />
+    <Compile Include="QcodeFilter.xaml.cs">
+      <DependentUpon>QcodeFilter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PayStatus.xaml.cs">
       <DependentUpon>PayStatus.xaml</DependentUpon>
     </Compile>
@@ -132,6 +138,10 @@
     </Compile>
     <Compile Include="ZBeautyEngineDll.cs" />
     <Compile Include="ZPhotoEngineDll.cs" />
+    <Page Include="ElePrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -151,6 +161,10 @@
     <Page Include="MessageTip.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QcodeFilter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="PayStatus.xaml">
       <SubType>Designer</SubType>

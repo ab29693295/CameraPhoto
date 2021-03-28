@@ -23,6 +23,8 @@ namespace CameraPhoto
 
         public int OrderID = 91;
 
+        public int MealTime = 1;
+
         public int CurrentBorder = 1;
 
         public Brush _BorderFirst;
@@ -33,7 +35,7 @@ namespace CameraPhoto
         public string BorderFirstColor = "";
         public string BorderSecondColor = "";
 
-        public SelectBorder(int _orderID)//
+        public SelectBorder(int _orderID,int _MealTime)//
         {
             InitializeComponent();
 
@@ -46,14 +48,23 @@ namespace CameraPhoto
             //记载边框背景图
             LoadBackGround();
 
+            MealTime = _MealTime;
+          
 
             string _IamgePath1 = @"E:\File\"+OrderID.ToString()+"\\1.JPG";
             string _IamgePath2 = @"E:\File\" + OrderID.ToString() + "\\2.JPG";
             string _IamgePath3 = @"E:\File\" + OrderID.ToString() + "\\3.JPG";
             string _IamgePath4 = @"E:\File\" + OrderID.ToString() + "\\4.JPG";
+            if (MealTime == 2)
+            {
+                _IamgePath1= @"E:\File\"+OrderID.ToString()+"\\5.JPG";
+                _IamgePath2 = @"E:\File\" + OrderID.ToString() + "\\6.JPG";
+                _IamgePath3 = @"E:\File\" + OrderID.ToString() + "\\7.JPG";
+                _IamgePath4 = @"E:\File\" + OrderID.ToString() + "\\8.JPG";
+            }
 
-            //主界面1
-            this.MainFirst1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
+                //主界面1
+                this.MainFirst1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
             this.MainFirst2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
             this.MainFirst3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
             this.MainFirst4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
@@ -244,8 +255,13 @@ namespace CameraPhoto
                 Directory.CreateDirectory(dic);
             }
             string FileName1 = dic + "\\1.JPG";
-          
+
             string FileName2 = dic + "\\2.JPG";
+            if (MealTime == 2)
+            {
+                FileName1 = dic + "\\3.JPG";
+                FileName1 = dic + "\\4.JPG";
+            }
            
             SaveToImage(this.LastPanelFirst, FileName1);
             SaveToImage(this.LastPanelSecond, FileName2);

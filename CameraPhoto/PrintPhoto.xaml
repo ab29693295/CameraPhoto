@@ -56,7 +56,7 @@
                             </Style>
                         </Button.Resources>
                     </Button>
-                    <Button Margin="30,0,0,0"   Content="开始第 2 份拍照" FontWeight="Bold" FontSize="18" Foreground="#FFFFFF" Width="240" Height="50">
+                    <Button Margin="30,0,0,0" x:Name="Btn_second"   Content="开始第 2 份拍照" FontWeight="Bold" FontSize="18" Foreground="#FFFFFF" Width="240" Height="50">
                         <Button.Background>
                             <ImageBrush ImageSource="/CameraPhoto;component/Resources/selectBtnback.png" Stretch="Fill"/>
                         </Button.Background>
