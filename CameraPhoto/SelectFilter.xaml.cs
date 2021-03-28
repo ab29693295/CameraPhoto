@@ -98,15 +98,15 @@ namespace CameraPhoto
             SaveToImage(this.LastPanelSecond, FileName2);
 
 
-            PrintPhoto pay = new PrintPhoto();
+            PrintPhoto pay = new PrintPhoto();//_orderID
             pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             pay.Show();
 
             this.Close();
 
-           // PrintMainFirst();
+            PrintMainFirst();
 
-          //  PrintMainSecond();
+            PrintMainSecond();
         }
         /// <summary>
         /// 打印第一张
