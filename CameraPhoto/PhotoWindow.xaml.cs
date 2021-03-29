@@ -204,7 +204,10 @@ namespace CameraPhoto
 
                     CurrentCount = CurrentCount + 1;
                     CurrentIamgePath = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\" + CurrentCount.ToString() + ".JPG";
-
+                    if (MealTime == 2)
+                    {
+                        CurrentIamgePath = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "_2" + "\\" + CurrentCount.ToString() + ".JPG";
+                    }
                     //样式控制
                     this.SurePanel.Visibility = Visibility.Collapsed;
                     TipPanel.Visibility = Visibility.Collapsed;
@@ -242,7 +245,7 @@ namespace CameraPhoto
         /// <param name="e"></param>
         private void Next_Btn_Click(object sender, RoutedEventArgs e)
         {
-            SelectBorder seBorder = new SelectBorder(OrderID,MealTime);//
+            SelectBorder seBorder = new SelectBorder();//OrderID,MealTime
             seBorder.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             seBorder.Show();
 
@@ -300,7 +303,11 @@ namespace CameraPhoto
                 Directory.CreateDirectory(dicPth);
             }
             CurrentIamgePath = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\" + CurrentCount.ToString() + ".JPG";
-           
+            if (MealTime == 2)
+            {
+                CurrentIamgePath = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "_2" + "\\" + CurrentCount.ToString() + ".JPG";
+            }
+
             try
             {
                 if (!CameraHandler.IsLiveViewOn)
@@ -457,6 +464,10 @@ namespace CameraPhoto
                 _downCOunt = 10;
                 CurrentCount = CurrentCount + 1;
                 CurrentIamgePath = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\" + CurrentCount.ToString() + ".JPG";
+                if (MealTime == 2)
+                {
+                    CurrentIamgePath = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString()+"_2" + "\\" + CurrentCount.ToString() + ".JPG";
+                }
 
                 //样式控制
                 this.SurePanel.Visibility = Visibility.Collapsed;

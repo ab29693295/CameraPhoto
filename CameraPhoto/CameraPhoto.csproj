@@ -84,6 +84,7 @@
     <Compile Include="Helper\ImageHelper.cs" />
     <Compile Include="Helper\OrderHelper.cs" />
     <Compile Include="Helper\OrderPhotoHelper.cs" />
+    <Compile Include="Helper\PrinterHelper.cs" />
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
