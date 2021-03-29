@@ -110,9 +110,11 @@ namespace CameraPhoto
             if (PayStatus == 1)
             {
                
-                PhotoWindow pay = new PhotoWindow(_OrderID, _MealType);//
+                PhotoWindow pay = new PhotoWindow(_OrderID, _MealType,1);//
                 pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 pay.Show();
+
+                paytimer.Stop();
 
                 this.Close();
             }

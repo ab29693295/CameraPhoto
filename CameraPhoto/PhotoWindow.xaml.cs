@@ -72,10 +72,10 @@ namespace CameraPhoto
         private int faceNum = 0;
         private int baseLMLen = 101;
 
-        public PhotoWindow(int orderID, int mealType,int _MealTime=1)
+        public PhotoWindow(int orderID, int mealType, int _MealTime)//int orderID, int mealType,int _MealTime=1
         {
             InitializeComponent();
-            MealTime =_MealTime;
+            MealTime = 1;//_MealTime;
 
             #region
             try
@@ -93,9 +93,7 @@ namespace CameraPhoto
                 IsInit = true;
                 SetImageAction = (BitmapImage img) => { bgbrush.ImageSource = img; };
 
-                //设置相机保存文件方式和路径
-                CameraHandler.SetSetting(EDSDK.PropID_SaveTo, (uint)EDSDK.EdsSaveTo.Host);
-                CameraHandler.SetCapacity();
+             
 
             }
             catch (DllNotFoundException)
@@ -133,8 +131,8 @@ namespace CameraPhoto
             this.TipPanelDownCount.Background = _tippanel;
 
 
-            OrderID = 91;
-            MealType = 1;
+            OrderID = orderID;
+            MealType =mealType;
 
 
         }
@@ -201,7 +199,7 @@ namespace CameraPhoto
                         break;
                 }
                 //控制相机倒计时
-                if (CurrentCount < 8)
+                if (CurrentCount < 4)
                 {
 
                     CurrentCount = CurrentCount + 1;
@@ -311,7 +309,12 @@ namespace CameraPhoto
                     MainPhotoPanel.Visibility = Visibility.Collapsed;
                     CameraCanvas.Background = bgbrush;
                     CameraHandler.StartLiveView();
-                  
+
+
+                    //设置相机保存文件方式和路径
+                    CameraHandler.SetSetting(EDSDK.PropID_SaveTo, (uint)EDSDK.EdsSaveTo.Host);
+                    CameraHandler.SetCapacity();
+
                     CameraHandler.ImageSaveDirectory = CurrentIamgePath;
                     //设置第一个照片背景显示
                     this.ImageBc1.Visibility = Visibility.Visible;

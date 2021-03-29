@@ -12,6 +12,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
@@ -42,6 +43,9 @@ namespace CameraPhoto
         {
             InitializeComponent();
 
+
+            OrderID = _orderID;
+
             MealTime = _MealTime;
 
             // 在此点之下插入创建对象所需的代码。
@@ -55,25 +59,25 @@ namespace CameraPhoto
 
 
 
-            string dic = @"D:\File\" + OrderID.ToString() + "\\Border";
+            string dic = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\Border";
             if (Directory.Exists(dic) == false)//如果不存
             {
                 Directory.CreateDirectory(dic);
             }
 
-            IamgePath1 = dic + "\\1.JPG";
+            IamgePath1 = dic + "\\1.PNG";
 
-            IamgePath2 = dic + "\\2.JPG";
+            IamgePath2 = dic + "\\2.PNG";
 
             if (MealTime == 2)
             {
-                IamgePath1 = dic + "\\3.JPG";
+                IamgePath1 = dic + "\\3.PNG";
 
-                IamgePath2 = dic + "\\4.JPG";
+                IamgePath2 = dic + "\\4.PNG";
             }
 
 
-            OrderID = _orderID;
+            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -95,20 +99,20 @@ namespace CameraPhoto
 
         private void NextBtn_Click(object sender, RoutedEventArgs e)
         {
-            string dic = @"D:\File\" + OrderID.ToString() + "\\Filter" +
+            string dic = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\Filter" +
                 "";
             if (Directory.Exists(dic) == false)//如果不存
             {
                 Directory.CreateDirectory(dic);
             }
-            string FileName1 = dic + "\\1.JPG";
+            string FileName1 = dic + "\\1.PNG";
 
-            string FileName2 = dic + "\\2.JPG";
+            string FileName2 = dic + "\\2.PNG";
             if (MealTime == 2)
             {
-                IamgePath1 = dic + "\\3.JPG";
+                IamgePath1 = dic + "\\3.PNG";
 
-                IamgePath2 = dic + "\\4.JPG";
+                IamgePath2 = dic + "\\4.PNG";
             }
 
             SaveToImage(this.LastPanelFirst, FileName1);
@@ -121,16 +125,17 @@ namespace CameraPhoto
 
             this.Close();
 
-            PrintMainFirst(FileName1);
+            //PrintMainFirst(FileName1);
 
-            PrintMainSecond(FileName2);
+            //PrintMainSecond(FileName2);
         }
         /// <summary>
         /// 打印第一张
         /// </summary>
         public void PrintMainFirst(string FilePath)
         {
-            BitmapImage MainBitmap = (BitmapImage)LastPanelFirst.Source;
+            BitmapSource MainBitmap = (BitmapSource)LastPanelSecond.Source;
+
 
             JpegBitmapEncoder encoder = new JpegBitmapEncoder();
             encoder.Frames.Add(BitmapFrame.Create(MainBitmap));
@@ -139,7 +144,7 @@ namespace CameraPhoto
             files.Close();
 
             System.Drawing.Printing.PrintDocument pd = new System.Drawing.Printing.PrintDocument();
-            pd.DefaultPageSettings.PrinterSettings.PrinterName = "Canon SELPHY CP1200";
+            pd.DefaultPageSettings.PrinterSettings.PrinterName = "DS-RX1";
             System.Drawing.Printing.PaperSize psize = new System.Drawing.Printing.PaperSize();
             foreach (System.Drawing.Printing.PaperSize i in pd.PrinterSettings.PaperSizes)
             {
@@ -187,7 +192,7 @@ namespace CameraPhoto
         /// </summary>
         public void PrintMainSecond(string FilePath)
         {
-            BitmapImage MainBitmap = (BitmapImage)LastPanelSecond.Source;
+            BitmapSource MainBitmap = (BitmapSource)LastPanelSecond.Source;
 
             JpegBitmapEncoder encoder = new JpegBitmapEncoder();
             encoder.Frames.Add(BitmapFrame.Create(MainBitmap));
@@ -196,7 +201,7 @@ namespace CameraPhoto
             files.Close();
 
             System.Drawing.Printing.PrintDocument pd = new System.Drawing.Printing.PrintDocument();
-            pd.DefaultPageSettings.PrinterSettings.PrinterName = "Canon SELPHY CP1200";
+            pd.DefaultPageSettings.PrinterSettings.PrinterName = "DS-RX1";
             System.Drawing.Printing.PaperSize psize = new System.Drawing.Printing.PaperSize();
             foreach (System.Drawing.Printing.PaperSize i in pd.PrinterSettings.PaperSizes)
             {
@@ -340,5 +345,26 @@ namespace CameraPhoto
                 encoder.Save(stream);
 
         }
+
+
+        /// <summary>
+        /// 从Bitmap转换成BitmapSource
+        /// </summary>
+        /// <param name="bmp"></param>
+        /// <returns></returns>
+        public BitmapSource ChangeBitmapToBitmapSource(System.Drawing.Bitmap bmp)
+        {
+            BitmapSource returnSource;
+            try
+            {
+                returnSource = Imaging.CreateBitmapSourceFromHBitmap(bmp.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+            }
+            catch
+            {
+                returnSource = null;
+            }
+            return returnSource;
+        }
+
     }
 }

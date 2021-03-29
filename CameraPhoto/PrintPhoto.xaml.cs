@@ -40,7 +40,7 @@ namespace CameraPhoto
 
             if (MealTime != 2)
             {
-                this.Btn_second.Visibility = Visibility.Hidden;
+                this.Btn_second.Visibility = Visibility.Collapsed;
             }
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -77,7 +77,7 @@ namespace CameraPhoto
         private void Button_Click_Agin(object sender, RoutedEventArgs e)
         {
 
-            PhotoWindow pay = new PhotoWindow(OrderID,2,2);
+            PhotoWindow pay = new PhotoWindow(OrderID, 2, 2);
             pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             pay.Show();
 

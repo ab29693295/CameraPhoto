@@ -35,7 +35,7 @@ namespace CameraPhoto
         public string BorderFirstColor = "";
         public string BorderSecondColor = "";
 
-        public SelectBorder(int _orderID,int _MealTime)//
+        public SelectBorder(int _orderID, int _MealTime)//int _orderID,int _MealTime
         {
             InitializeComponent();
 
@@ -48,19 +48,21 @@ namespace CameraPhoto
             //记载边框背景图
             LoadBackGround();
 
-            MealTime = _MealTime;
-          
+            MealTime =_MealTime;
 
-            string _IamgePath1 = @"E:\File\"+OrderID.ToString()+"\\1.JPG";
-            string _IamgePath2 = @"E:\File\" + OrderID.ToString() + "\\2.JPG";
-            string _IamgePath3 = @"E:\File\" + OrderID.ToString() + "\\3.JPG";
-            string _IamgePath4 = @"E:\File\" + OrderID.ToString() + "\\4.JPG";
+            OrderID =_orderID;
+
+
+            string _IamgePath1 = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString()+"\\1.JPG";
+            string _IamgePath2 = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\2.JPG";
+            string _IamgePath3 = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\3.JPG";
+            string _IamgePath4 = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\4.JPG";
             if (MealTime == 2)
             {
-                _IamgePath1= @"E:\File\"+OrderID.ToString()+"\\5.JPG";
-                _IamgePath2 = @"E:\File\" + OrderID.ToString() + "\\6.JPG";
-                _IamgePath3 = @"E:\File\" + OrderID.ToString() + "\\7.JPG";
-                _IamgePath4 = @"E:\File\" + OrderID.ToString() + "\\8.JPG";
+                _IamgePath1= ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString()+"\\5.JPG";
+                _IamgePath2 = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\6.JPG";
+                _IamgePath3 = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\7.JPG";
+                _IamgePath4 = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\8.JPG";
             }
 
                 //主界面1
@@ -149,7 +151,7 @@ namespace CameraPhoto
             this.LastSecond4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
 
 
-            //OrderID = _orderID;
+          
 
             Color color = (Color)ColorConverter.ConvertFromString("White");
             _BorderSecond = new SolidColorBrush(color);
@@ -249,18 +251,18 @@ namespace CameraPhoto
            
 
            
-            string dic = @"D:\File\"+ OrderID.ToString() + "\\Border";
+            string dic = ConfigHelper.GetConfigString("ImageFile") +"\\"+ OrderID.ToString() + "\\Border";
             if (Directory.Exists(dic) == false)//如果不存
             {
                 Directory.CreateDirectory(dic);
             }
-            string FileName1 = dic + "\\1.JPG";
+            string FileName1 = dic + "\\1.PNG";
 
-            string FileName2 = dic + "\\2.JPG";
+            string FileName2 = dic + "\\2.PNG";
             if (MealTime == 2)
             {
-                FileName1 = dic + "\\3.JPG";
-                FileName1 = dic + "\\4.JPG";
+                FileName1 = dic + "\\3.PNG";
+                FileName2 = dic + "\\4.PNG";
             }
            
             SaveToImage(this.LastPanelFirst, FileName1);
@@ -273,16 +275,45 @@ namespace CameraPhoto
             this.Close();
         }
 
+        //public static void UISaveToImage(FrameworkElement ui, string fileName, int bigX, int BigY, int width, int height)
+        //{
+        //    RenderTargetBitmap bmp = new RenderTargetBitmap(bigX, BigY, 96d, 96d, PixelFormats.Pbgra32);
+        //    bmp.Render(ui);
+        //    int offsetX = Math.Max((int)(0.5 * (bigX - width)), 0);
+        //    int offsetY = Math.Max((int)(0.5 * (BigY - height)), 0);
+        //    BitmapSource bmpSource = new CroppedBitmap(BitmapFrame.Create(bmp), new Int32Rect(offsetX, offsetY, width, height));
+        //    ImageSourceToBitmap(bmpSource).Save(fileName);
+        //}
+        //public static System.Drawing.Bitmap ImageSourceToBitmap(ImageSource imageSource)
+        //{
+        //    BitmapSource bitmapSource = (BitmapSource)imageSource;
+        //    System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(bitmapSource.PixelWidth, bitmapSource.PixelHeight, System.Drawing.Imaging.PixelFormat.Format32bppPArgb);
+        //    System.Drawing.Imaging.BitmapData data = bmp.LockBits(
+        //    new Rectangle(System.Drawing.Point.Empty, bmp.Size), System.Drawing.Imaging.ImageLockMode.WriteOnly, System.Drawing.Imaging.PixelFormat.Format32bppPArgb);
+        //    bitmapSource.CopyPixels(Int32Rect.Empty, data.Scan0, data.Height * data.Stride, data.Stride);
+        //    bmp.UnlockBits(data);
+        //    return bmp;
+        //}
+
+
+
+
         private void SaveToImage(FrameworkElement frameworkElement, string fileName)
         {
 
             System.IO.FileStream fs = new System.IO.FileStream(fileName, System.IO.FileMode.Create);
-            RenderTargetBitmap bmp = new RenderTargetBitmap((int)frameworkElement.ActualWidth, (int)frameworkElement.ActualHeight,  96,96, PixelFormats.Default);
+            RenderTargetBitmap bmp = new RenderTargetBitmap((int)frameworkElement.ActualWidth, (int)frameworkElement.ActualHeight, 96, 96, PixelFormats.Default);
             bmp.Render(frameworkElement);
             BitmapEncoder encoder = new TiffBitmapEncoder();
             encoder.Frames.Add(BitmapFrame.Create(bmp));
             encoder.Save(fs);
             fs.Close();
+        }
+
+
+        public void SaveImageByg(FrameworkElement frameworkElement)
+        {
+          
         }
 
         private void StackPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

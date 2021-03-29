@@ -35,8 +35,8 @@
 
                   
                 </StackPanel>
-                <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-                    <Button Click="Button_Click" Margin="0,0,0,0"   Content="获得电子版到手机" FontWeight="Bold" FontSize="18" Foreground="#FFFFFF" Width="240" Height="50">
+                <StackPanel Grid.Row="2" HorizontalAlignment="Center"  VerticalAlignment="Center" Orientation="Horizontal">
+                    <Button Click="Button_Click" Margin="0,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Content="获得电子版到手机" FontWeight="Bold" FontSize="18" Foreground="#FFFFFF" Width="240" Height="50">
                         <Button.Background>
                             <ImageBrush ImageSource="/CameraPhoto;component/Resources/单色按钮-H108-L.png" Stretch="Fill"/>
                         </Button.Background>
