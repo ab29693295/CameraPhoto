@@ -321,25 +321,25 @@
                         </Button.Resources>
                     </Button>
                 </StackPanel>
-                <StackPanel Grid.Row="3"  Visibility="Hidden"  Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,0,0" HorizontalAlignment="Left"  Width="400" >
+                <StackPanel Grid.Row="3"  Visibility="Hidden"    Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,0,0" HorizontalAlignment="Left"  Width="400" >
 
-                    <StackPanel x:Name="LastPanelFirst"   Width="140" Height="400"  >
+                    <Canvas x:Name="LastPanelFirst"   Width="140" Height="400"  >
 
-                        <Image x:Name="LastFirst1"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,4,0,0"  Width="120" Height="87"></Image>
-                        <Image x:Name="LastFirst2" Source="/CameraPhoto;component/Resources/test.png"  Width="120" Height="87"></Image>
-                        <Image x:Name="LastFirst3" Source="/CameraPhoto;component/Resources/test.png"  Width="120" Height="87"></Image>
-                        <Image x:Name="LastFirst4" Source="/CameraPhoto;component/Resources/test.png"  Margin="0,-1,0,0"  Width="120" Height="87"></Image>
-                    </StackPanel>
+                        <Image x:Name="LastFirst1"  Source="/CameraPhoto;component/Resources/test.png" Margin="10,4,0,0"  Width="120" Height="87"></Image>
+                        <Image x:Name="LastFirst2" Source="/CameraPhoto;component/Resources/test.png" Margin="10,103,0,0"  Width="120" Height="87"></Image>
+                        <Image x:Name="LastFirst3" Source="/CameraPhoto;component/Resources/test.png"   Margin="10,200,0,0" Width="120" Height="87"></Image>
+                        <Image x:Name="LastFirst4" Source="/CameraPhoto;component/Resources/test.png"   Margin="10,297,0,0"  Width="120" Height="87"></Image>
+                    </Canvas>
                 </StackPanel>
                 <StackPanel Grid.Row="4"  Visibility="Hidden"  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"  Width="400" >
 
-                    <StackPanel x:Name="LastPanelSecond"  Width="140" Height="400"  >
+                    <Canvas x:Name="LastPanelSecond"  Width="140" Height="400"  >
 
-                        <Image x:Name="LastSecond1"  Source="/CameraPhoto;component/Resources/test.png"  Margin="0,4,0,0"  Width="120" Height="87"></Image>
-                        <Image x:Name="LastSecond2" Source="/CameraPhoto;component/Resources/test.png"  Width="120" Height="87"></Image>
-                        <Image x:Name="LastSecond3" Source="/CameraPhoto;component/Resources/test.png"  Width="120" Height="87"></Image>
-                        <Image x:Name="LastSecond4" Source="/CameraPhoto;component/Resources/test.png"   Margin="0,-1,0,0" Width="120" Height="87"></Image>
-                    </StackPanel>
+                        <Image x:Name="LastSecond1"  Source="/CameraPhoto;component/Resources/test.png"  Margin="10,4,0,0"  Width="120" Height="87"></Image>
+                        <Image x:Name="LastSecond2" Source="/CameraPhoto;component/Resources/test.png" Margin="10,103,0,0" Height="87"></Image>
+                        <Image x:Name="LastSecond3" Source="/CameraPhoto;component/Resources/test.png" Margin="10,200,0,0" Width="120" Height="87"></Image>
+                        <Image x:Name="LastSecond4" Source="/CameraPhoto;component/Resources/test.png"  Margin="10,297,0,0" Width="120" Height="87"></Image>
+                    </Canvas>
                 </StackPanel>
             </Grid>
            

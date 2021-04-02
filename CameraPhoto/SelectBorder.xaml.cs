@@ -66,7 +66,7 @@ namespace CameraPhoto
             }
 
                 //主界面1
-                this.MainFirst1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
+             this.MainFirst1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
             this.MainFirst2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
             this.MainFirst3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
             this.MainFirst4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
