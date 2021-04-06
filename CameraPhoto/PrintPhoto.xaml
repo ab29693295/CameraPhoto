@@ -23,10 +23,10 @@
                 </StackPanel>
 
                 <StackPanel Grid.Row="1"  VerticalAlignment="Center" Orientation="Horizontal">
-                    <StackPanel Margin="480,0,0,0">
+                    <StackPanel Margin="380,0,0,0">
                         <Image Source="/CameraPhoto;component/Resources/打印完成配图.png" Width="240" Height="160"   VerticalAlignment="Center" ></Image>
-                        <Label Width="240"  Height="40" Content="照片打印完成" FontWeight="Bold" FontSize="21" Margin="0,20,0,0" Foreground="#FFFFFF"   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
-                        <Label Width="240"  Height="40" Content="请在下方出纸口取走您的照片"  FontSize="17" Margin="0,0,0,0" Foreground="#FFFFFF"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                        <Label Width="440"  Height="40" Content="照片打印完成后请在下方出纸口取走您的照片" FontWeight="Bold"  Foreground="#FFFFFF" FontSize="21" Margin="0,20,0,0"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                        <!--<Label Width="240"  Height="40" Content="请在下方出纸口取走您的照片"  FontSize="17" Margin="0,0,0,0" Foreground="#FFFFFF"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>-->
                     </StackPanel>
                     <StackPanel>
                         <Image Source="/CameraPhoto;component/Resources/操作步骤图示-03.png" Margin="360,120,0,0" Width="60" Height="150"></Image>
@@ -46,7 +46,7 @@
                             </Style>
                         </Button.Resources>
                     </Button>
-                    <Button Click="Button_Click_Agin" Margin="30,0,0,0"   Content="9.9开始第 2 份拍照" FontWeight="Bold" FontSize="18" Foreground="#FFFFFF" Width="240" Height="50">
+                    <Button Click="Button_Click_Agin" Margin="30,0,0,0" Visibility="Collapsed"   Content="9.9开始第 2 份拍照" FontWeight="Bold" FontSize="18" Foreground="#FFFFFF" Width="240" Height="50">
                         <Button.Background>
                             <ImageBrush ImageSource="/CameraPhoto;component/Resources/单色按钮-H108-L.png" Stretch="Fill"/>
                         </Button.Background>

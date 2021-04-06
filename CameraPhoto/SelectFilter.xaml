@@ -39,18 +39,24 @@
                             </LinearGradientBrush>
                         </Border.BorderBrush>
                         <StackPanel Width="230" Height="380" Orientation="Horizontal">
-                            <StackPanel MouseLeftButtonDown="StackPanel_MouseLeftButtonDown_MainSecond" Width="130" Height="350" Margin="100,-20,0,0" Background="#FFFFFF">
+                            <StackPanel x:Name="MainPanelSecond" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown_MainSecond" Width="130" Height="350" Margin="100,-20,0,0" Background="#FFFFFF">
                                 <StackPanel.RenderTransform>
                                     <SkewTransform AngleX="-10"   AngleY="10"></SkewTransform>
                                 </StackPanel.RenderTransform>
-                                <Image  x:Name="MainSecond" Source="/CameraPhoto;component/Resources/2.JPG" Margin="0,5,0,0" Width="120" Height="340"></Image>
+                                <Image x:Name="MainSecond1"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,6,0,0" Width="110" Height="70"></Image>
+                                <Image x:Name="MainSecond2" Source="/CameraPhoto;component/Resources/test.png" Margin="0,6,0,0" Width="110" Height="70"></Image>
+                                <Image x:Name="MainSecond3" Source="/CameraPhoto;component/Resources/test.png" Margin="0,6,0,0" Width="110" Height="70"></Image>
+                                <Image x:Name="MainSecond4" Source="/CameraPhoto;component/Resources/test.png" Margin="0,6,0,0" Width="110" Height="70"></Image>
                             </StackPanel>
-                            <StackPanel MouseLeftButtonDown="StackPanel_MouseLeftButtonDown_MainFirst" Width="130" Height="350" Margin="-320,20,0,0" Background="#FFFFFF">
+                            <StackPanel x:Name="MainPanelFirst" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown_MainFirst" Width="130" Height="350" Margin="-320,20,0,0" Background="#FFFFFF">
                                 <StackPanel.RenderTransform>
                                     <SkewTransform AngleX="10"  AngleY="-10"></SkewTransform>
                                 </StackPanel.RenderTransform>
-                                <Image x:Name="MainFirst" Source="/CameraPhoto;component/Resources/1.JPG" Margin="0,5,0,0" Width="120" Height="340"></Image>
-              
+                                <Image x:Name="MainFirst1"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,6,0,0" Width="120" Height="70"></Image>
+                                <Image x:Name="MainFirst2" Source="/CameraPhoto;component/Resources/test.png" Margin="0,6,0,0" Width="120" Height="70"></Image>
+                                <Image x:Name="MainFirst3" Source="/CameraPhoto;component/Resources/test.png" Margin="0,6,0,0" Width="120" Height="70"></Image>
+                                <Image x:Name="MainFirst4" Source="/CameraPhoto;component/Resources/test.png" Margin="0,6,0,0" Width="120" Height="70"></Image>
+
                             </StackPanel>
 
                         </StackPanel>
@@ -78,7 +84,7 @@
 
                                     <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0"></Image>
 
-                                    <Label Width="120"  Height="30" Content="滤镜-白皙" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                                    <Label Width="120"  Height="30" Content="白皙" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                                 </StackPanel>
 
 
@@ -100,7 +106,7 @@
 
                                     <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0" RenderTransformOrigin="0.5,0.542"></Image>
 
-                                    <Label Width="120"  Height="30" Content="滤镜-暖暖" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                                    <Label Width="120"  Height="30" Content="暖暖" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                                 </StackPanel>
 
 
@@ -122,7 +128,7 @@
 
                                     <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0"></Image>
 
-                                    <Label Width="120"  Height="30" Content="滤镜-冷艳" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                                    <Label Width="120"  Height="30" Content="冷艳" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                                 </StackPanel>
 
 
@@ -144,7 +150,7 @@
 
                                     <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0"></Image>
 
-                                    <Label Width="120"  Height="30" Content="滤镜-复古" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                                    <Label Width="120"  Height="30" Content="复古" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                                 </StackPanel>
 
 
@@ -169,7 +175,7 @@
 
                                     <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0"></Image>
 
-                                    <Label Width="120"  Height="30" Content="滤镜-胶片" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                                    <Label Width="120"  Height="30" Content="胶片" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                                 </StackPanel>
 
 
@@ -191,7 +197,7 @@
 
                                     <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0"></Image>
 
-                                    <Label Width="120"  Height="30" Content="滤镜-迷情" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                                    <Label Width="120"  Height="30" Content="迷情" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                                 </StackPanel>
 
 
@@ -213,7 +219,7 @@
 
                                     <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0"></Image>
 
-                                    <Label Width="120"  Height="30" Content="滤镜-日系" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                                    <Label Width="120"  Height="30" Content="日系" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                                 </StackPanel>
 
 
@@ -235,7 +241,7 @@
 
                                     <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0"></Image>
 
-                                    <Label Width="120"  Height="30" Content="滤镜-甜美" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                                    <Label Width="120"  Height="30" Content="甜美" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                                 </StackPanel>
 
 
@@ -260,7 +266,7 @@
 
                                     <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0"></Image>
 
-                                    <Label Width="120"  Height="30" Content="滤镜-唯美" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                                    <Label Width="120"  Height="30" Content="唯美" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                                 </StackPanel>
 
 
@@ -282,7 +288,7 @@
 
                                     <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0"></Image>
 
-                                    <Label Width="120"  Height="30" Content="滤镜-花颜" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                                    <Label Width="120"  Height="30" Content="花颜" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                                 </StackPanel>
 
 
@@ -304,7 +310,7 @@
 
                                     <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0"></Image>
 
-                                    <Label Width="120"  Height="30" Content="滤镜-枫叶" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                                    <Label Width="120"  Height="30" Content="枫叶" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                                 </StackPanel>
 
 
@@ -326,7 +332,7 @@
 
                                     <Image  Source="/CameraPhoto;component/Resources/滤镜占位图.png" Width="100" Height="80" Margin="0,10,0,0"></Image>
 
-                                    <Label Width="120"  Height="30" Content="滤镜-暖秋" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                                    <Label Width="120"  Height="30" Content="暖秋" FontWeight="Bold" FontSize="15" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                                 </StackPanel>
 
 
@@ -354,21 +360,33 @@
                         </Button.Resources>
                     </Button>
                 </StackPanel>
-                <StackPanel Grid.Row="3"  Visibility="Hidden" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"  Width="400" >
+                <StackPanel Grid.Row="3"  Visibility="Hidden"   Margin="0,-550,0,0"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Left"  Width="410" >
+                    <StackPanel x:Name="FinalPhoto"  Orientation="Horizontal" >
+                        <Canvas x:Name="LastPanelFirst" Margin="7,10,0,0"   Width="198" Height="600"  >
 
-                    <StackPanel    Width="140" Height="400"  Background="Blue">
+                            <Image x:Name="LastFirst1"  Stretch="Fill" Source="/CameraPhoto;component/Resources/test.png" Margin="10,11,0,0"  Width="178" Height="120"></Image>
+                            <Image x:Name="LastFirst2" Stretch="Fill" Source="/CameraPhoto;component/Resources/test.png" Margin="10,141,0,0" Width="178" Height="120"></Image>
+                            <Image x:Name="LastFirst3" Stretch="Fill" Source="/CameraPhoto;component/Resources/test.png"   Margin="10,271,0,0" Width="178" Height="120"></Image>
+                            <Image x:Name="LastFirst4" Stretch="Fill" Source="/CameraPhoto;component/Resources/test.png"   Margin="10,401,0,0"  Width="178" Height="120"></Image>
+                        </Canvas>
+                        <Canvas x:Name="LastPanelSecond"   Margin="1,10,0,0"  Width="198" Height="600" >
 
-                        <Image x:Name="LastPanelFirst"  Source="/CameraPhoto;component/Resources/test.png"  Width="130" Height="350"></Image>
-                       
+                            <Image x:Name="LastSecond1" Stretch="Fill"  Source="/CameraPhoto;component/Resources/test.png"  Margin="10,11,0,0"  Width="178" Height="120"></Image>
+                            <Image x:Name="LastSecond2" Stretch="Fill" Source="/CameraPhoto;component/Resources/test.png" Margin="10,141,0,0" Width="178" Height="120"></Image>
+                            <Image x:Name="LastSecond3" Stretch="Fill" Source="/CameraPhoto;component/Resources/test.png" Margin="10,271,0,0" Width="178" Height="120"></Image>
+                            <Image x:Name="LastSecond4" Stretch="Fill" Source="/CameraPhoto;component/Resources/test.png"  Margin="10,401,0,0" Width="178" Height="120"></Image>
+                        </Canvas>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel Grid.Row="4" Visibility="Hidden"  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"  Width="400" >
 
-                    <StackPanel   Width="140" Height="400"  Background="Blue">
+
+                   
+                    <!--<StackPanel   Width="140" Height="400"  Background="Blue">
 
                         <Image x:Name="LastPanelSecond"  Source="/CameraPhoto;component/Resources/test.png"  Width="130" Height="350"></Image>
              
-                    </StackPanel>
+                    </StackPanel>-->
                 </StackPanel>
             </Grid>
         </Canvas>

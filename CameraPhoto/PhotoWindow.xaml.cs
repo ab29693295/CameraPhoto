@@ -375,7 +375,10 @@ namespace CameraPhoto
                 CameraHandler.StopLiveView();
                 CameraHandler.TakePhoto();
 
-
+                ImageBrush b = new ImageBrush();
+                b.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/bacbkground.png"));
+                b.Stretch = Stretch.Fill;
+                this.Background = b;
 
 
 
@@ -587,7 +590,7 @@ namespace CameraPhoto
             //b.ImageSource = BitmapToBitmapImage(btnew);
 
 
-            this.Background = b;
+            //this.Background = b;
             
         }
         /// <summary>
