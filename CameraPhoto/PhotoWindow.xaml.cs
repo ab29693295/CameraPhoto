@@ -245,7 +245,7 @@ namespace CameraPhoto
         /// <param name="e"></param>
         private void Next_Btn_Click(object sender, RoutedEventArgs e)
         {
-            SelectBorder seBorder = new SelectBorder();//OrderID,MealTime
+            SelectBorder seBorder = new SelectBorder(OrderID, MealTime);//OrderID,MealTime
             seBorder.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             seBorder.Show();
 

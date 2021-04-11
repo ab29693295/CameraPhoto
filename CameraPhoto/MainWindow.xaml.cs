@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace CameraPhoto
 {
@@ -20,6 +21,8 @@ namespace CameraPhoto
     /// </summary>
     public partial class MainWindow : Window
     {
+        private int times = 0;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -91,6 +94,29 @@ namespace CameraPhoto
             }
 
             this.WindowState = WindowState.Maximized;
+        }
+
+        private void StackPanel_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            times += 1;
+
+            DispatcherTimer timer = new DispatcherTimer();
+
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 300);
+
+            timer.Tick += (s, e1) => { timer.IsEnabled = false; times = 0; };
+
+            timer.IsEnabled = true;
+
+            if (times % 2 == 0)
+            {
+                timer.IsEnabled = false;
+                times = 0;
+
+                Application.Current.Shutdown();
+
+            }
+
         }
     }
 }

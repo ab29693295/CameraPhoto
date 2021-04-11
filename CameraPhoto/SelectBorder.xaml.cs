@@ -39,7 +39,7 @@ namespace CameraPhoto
         public string BorderPath1 = "";
         public string BorderPath2 = "";
 
-        public SelectBorder()//int _orderID, int _MealTime
+        public SelectBorder(int _orderID, int _MealTime)//int _orderID, int _MealTime
         {
             InitializeComponent();
 
@@ -177,15 +177,15 @@ namespace CameraPhoto
             LastPanelFirst.Background = mainback;
 
            
+            //边框二
 
+            //ImageBrush mainback_2 = new ImageBrush();
+            //mainback_2.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/Border/Border-2.png"));
+            //mainback_2.Stretch = Stretch.Fill;
 
-            ImageBrush mainback_2 = new ImageBrush();
-            mainback_2.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/Border/Border-2.png"));
-            mainback_2.Stretch = Stretch.Fill;
+            MainPanelSecond.Background = mainback;
 
-            MainPanelSecond.Background = mainback_2;
-
-            LastPanelSecond.Background= mainback_2;
+            LastPanelSecond.Background= mainback;
 
 
             BorderPath1 = "pack://application:,,,/CameraPhoto;component/Resources/Border/Border-1.png";
@@ -371,6 +371,7 @@ namespace CameraPhoto
             BorderPath1 = "pack://application:,,,/CameraPhoto;component/Resources/Border/Border-1.png";
 
             MainPanelFirst.Background = borderColor;
+            MainPanelSecond.Background = borderColor;
             LastPanelFirst.Background = MainPanelFirst.Background;
             LastPanelSecond.Background = MainPanelSecond.Background;
         }
@@ -393,6 +394,7 @@ namespace CameraPhoto
             BorderPath1 = "pack://application:,,,/CameraPhoto;component/Resources/Border/Border-2.png";
 
             MainPanelFirst.Background = borderColor;
+            MainPanelSecond.Background = borderColor;
             LastPanelFirst.Background = MainPanelFirst.Background;
             LastPanelSecond.Background = MainPanelSecond.Background;
         }
@@ -414,7 +416,7 @@ namespace CameraPhoto
             }
             MainPanelFirst.Background = borderColor;
             BorderPath1 = "pack://application:,,,/CameraPhoto;component/Resources/Border/Border-3.png";
-
+            MainPanelSecond.Background = borderColor;
 
             LastPanelFirst.Background = MainPanelFirst.Background;
             LastPanelSecond.Background = MainPanelSecond.Background;
@@ -438,7 +440,7 @@ namespace CameraPhoto
 
             MainPanelFirst.Background = borderColor;
             BorderPath1 = "pack://application:,,,/CameraPhoto;component/Resources/Border/Border-4.png";
-
+            MainPanelSecond.Background = borderColor;
             LastPanelFirst.Background = MainPanelFirst.Background;
             LastPanelSecond.Background = MainPanelSecond.Background;
         }
@@ -461,7 +463,7 @@ namespace CameraPhoto
 
             MainPanelFirst.Background = borderColor;
             BorderPath1 = "pack://application:,,,/CameraPhoto;component/Resources/Border/Border-5.png";
-
+            MainPanelSecond.Background = borderColor;
             LastPanelFirst.Background = MainPanelFirst.Background;
             LastPanelSecond.Background = MainPanelSecond.Background;
         }
@@ -484,7 +486,7 @@ namespace CameraPhoto
 
             MainPanelFirst.Background = borderColor;
             BorderPath1 = "pack://application:,,,/CameraPhoto;component/Resources/Border/Border-6.png";
-
+            MainPanelSecond.Background = borderColor;
             LastPanelFirst.Background = MainPanelFirst.Background;
             LastPanelSecond.Background = MainPanelSecond.Background;
         }

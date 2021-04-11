@@ -39,23 +39,25 @@
                             </LinearGradientBrush>
                         </Border.BorderBrush>
                         <StackPanel Width="230" Height="380" Orientation="Horizontal">
-                            <StackPanel x:Name="MainPanelSecond" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown_MainSecond" Width="130" Height="350" Margin="100,-20,0,0" Background="#FFFFFF">
+                            <StackPanel x:Name="MainPanelSecond"  Width="130" Height="350" Margin="100,-20,0,0" Background="#FFFFFF">
+                                <!--MouseLeftButtonDown="StackPanel_MouseLeftButtonDown_MainSecond"-->
                                 <StackPanel.RenderTransform>
                                     <SkewTransform AngleX="-10"   AngleY="10"></SkewTransform>
                                 </StackPanel.RenderTransform>
-                                <Image x:Name="MainSecond1"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,6,0,0" Width="110" Height="70"></Image>
-                                <Image x:Name="MainSecond2" Source="/CameraPhoto;component/Resources/test.png" Margin="0,6,0,0" Width="110" Height="70"></Image>
-                                <Image x:Name="MainSecond3" Source="/CameraPhoto;component/Resources/test.png" Margin="0,6,0,0" Width="110" Height="70"></Image>
-                                <Image x:Name="MainSecond4" Source="/CameraPhoto;component/Resources/test.png" Margin="0,6,0,0" Width="110" Height="70"></Image>
+                                <Image x:Name="MainSecond1" Stretch="Fill"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,6,0,0" Width="120" Height="70"></Image>
+                                <Image x:Name="MainSecond2" Stretch="Fill" Source="/CameraPhoto;component/Resources/test.png" Margin="0,6,0,0" Width="120" Height="70"></Image>
+                                <Image x:Name="MainSecond3" Stretch="Fill" Source="/CameraPhoto;component/Resources/test.png" Margin="0,6,0,0" Width="120" Height="70"></Image>
+                                <Image x:Name="MainSecond4" Stretch="Fill" Source="/CameraPhoto;component/Resources/test.png" Margin="0,6,0,0" Width="120" Height="70"></Image>
                             </StackPanel>
-                            <StackPanel x:Name="MainPanelFirst" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown_MainFirst" Width="130" Height="350" Margin="-320,20,0,0" Background="#FFFFFF">
+                            <StackPanel x:Name="MainPanelFirst"  Width="130" Height="350" Margin="-320,20,0,0" Background="#FFFFFF">
+                                <!--MouseLeftButtonDown="StackPanel_MouseLeftButtonDown_MainFirst"-->
                                 <StackPanel.RenderTransform>
                                     <SkewTransform AngleX="10"  AngleY="-10"></SkewTransform>
                                 </StackPanel.RenderTransform>
-                                <Image x:Name="MainFirst1"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,6,0,0" Width="120" Height="70"></Image>
-                                <Image x:Name="MainFirst2" Source="/CameraPhoto;component/Resources/test.png" Margin="0,6,0,0" Width="120" Height="70"></Image>
-                                <Image x:Name="MainFirst3" Source="/CameraPhoto;component/Resources/test.png" Margin="0,6,0,0" Width="120" Height="70"></Image>
-                                <Image x:Name="MainFirst4" Source="/CameraPhoto;component/Resources/test.png" Margin="0,6,0,0" Width="120" Height="70"></Image>
+                                <Image x:Name="MainFirst1" Stretch="Fill"  Source="/CameraPhoto;component/Resources/test.png" Margin="0,6,0,0" Width="120" Height="70"></Image>
+                                <Image x:Name="MainFirst2" Stretch="Fill" Source="/CameraPhoto;component/Resources/test.png" Margin="0,6,0,0" Width="120" Height="70"></Image>
+                                <Image x:Name="MainFirst3" Stretch="Fill" Source="/CameraPhoto;component/Resources/test.png" Margin="0,6,0,0" Width="120" Height="70"></Image>
+                                <Image x:Name="MainFirst4" Stretch="Fill" Source="/CameraPhoto;component/Resources/test.png" Margin="0,6,0,0" Width="120" Height="70"></Image>
 
                             </StackPanel>
 
@@ -360,21 +362,21 @@
                         </Button.Resources>
                     </Button>
                 </StackPanel>
-                <StackPanel Grid.Row="3"  Visibility="Hidden"   Margin="0,-550,0,0"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Left"  Width="410" >
+                <StackPanel Grid.Row="3"  Visibility="Hidden"  Margin="0,-550,0,0"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Left"  Width="410" >
                     <StackPanel x:Name="FinalPhoto"  Orientation="Horizontal" >
-                        <Canvas x:Name="LastPanelFirst" Margin="7,10,0,0"   Width="198" Height="600"  >
+                        <Canvas x:Name="LastPanelFirst" Margin="5,9,0,0"   Width="192" Height="600"  >
 
-                            <Image x:Name="LastFirst1"  Stretch="Fill" Source="/CameraPhoto;component/Resources/test.png" Margin="10,11,0,0"  Width="178" Height="120"></Image>
-                            <Image x:Name="LastFirst2" Stretch="Fill" Source="/CameraPhoto;component/Resources/test.png" Margin="10,141,0,0" Width="178" Height="120"></Image>
-                            <Image x:Name="LastFirst3" Stretch="Fill" Source="/CameraPhoto;component/Resources/test.png"   Margin="10,271,0,0" Width="178" Height="120"></Image>
-                            <Image x:Name="LastFirst4" Stretch="Fill" Source="/CameraPhoto;component/Resources/test.png"   Margin="10,401,0,0"  Width="178" Height="120"></Image>
+                            <Image x:Name="LastFirst1"  Stretch="Fill" Source="/CameraPhoto;component/Resources/test.png" Margin="10,11,0,0"  Width="172" Height="120"></Image>
+                            <Image x:Name="LastFirst2" Stretch="Fill" Source="/CameraPhoto;component/Resources/test.png" Margin="10,141,0,0" Width="172" Height="120"></Image>
+                            <Image x:Name="LastFirst3" Stretch="Fill" Source="/CameraPhoto;component/Resources/test.png"   Margin="10,271,0,0" Width="172" Height="120"></Image>
+                            <Image x:Name="LastFirst4" Stretch="Fill" Source="/CameraPhoto;component/Resources/test.png"   Margin="10,401,0,0"  Width="172" Height="120"></Image>
                         </Canvas>
-                        <Canvas x:Name="LastPanelSecond"   Margin="1,10,0,0"  Width="198" Height="600" >
+                        <Canvas x:Name="LastPanelSecond"   Margin="0,9,0,0"  Width="192" Height="600" >
 
-                            <Image x:Name="LastSecond1" Stretch="Fill"  Source="/CameraPhoto;component/Resources/test.png"  Margin="10,11,0,0"  Width="178" Height="120"></Image>
-                            <Image x:Name="LastSecond2" Stretch="Fill" Source="/CameraPhoto;component/Resources/test.png" Margin="10,141,0,0" Width="178" Height="120"></Image>
-                            <Image x:Name="LastSecond3" Stretch="Fill" Source="/CameraPhoto;component/Resources/test.png" Margin="10,271,0,0" Width="178" Height="120"></Image>
-                            <Image x:Name="LastSecond4" Stretch="Fill" Source="/CameraPhoto;component/Resources/test.png"  Margin="10,401,0,0" Width="178" Height="120"></Image>
+                            <Image x:Name="LastSecond1" Stretch="Fill"  Source="/CameraPhoto;component/Resources/test.png"  Margin="10,11,0,0"  Width="172" Height="120"></Image>
+                            <Image x:Name="LastSecond2" Stretch="Fill" Source="/CameraPhoto;component/Resources/test.png" Margin="10,141,0,0" Width="172" Height="120"></Image>
+                            <Image x:Name="LastSecond3" Stretch="Fill" Source="/CameraPhoto;component/Resources/test.png" Margin="10,271,0,0" Width="172" Height="120"></Image>
+                            <Image x:Name="LastSecond4" Stretch="Fill" Source="/CameraPhoto;component/Resources/test.png"  Margin="10,401,0,0" Width="172" Height="120"></Image>
                         </Canvas>
                     </StackPanel>
                 </StackPanel>

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
+using System.Printing;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -158,13 +159,13 @@ namespace CameraPhoto
 
 
 
-            ImageBrush mainback_2 = new ImageBrush();
-            mainback_2.ImageSource = new BitmapImage(new Uri(BorderPath2));
-            mainback_2.Stretch = Stretch.Fill;
+            //ImageBrush mainback_2 = new ImageBrush();
+            //mainback_2.ImageSource = new BitmapImage(new Uri(BorderPath2));
+            //mainback_2.Stretch = Stretch.Fill;
 
-            MainPanelSecond.Background = mainback_2;
+            MainPanelSecond.Background = mainback;
 
-            LastPanelSecond.Background = mainback_2;
+            LastPanelSecond.Background = mainback;
 
         }
 
@@ -198,7 +199,7 @@ namespace CameraPhoto
 
             SaveToImage(this.FinalPhoto, FileName1);
             //SaveToImage(this.LastPanelSecond, FileName2);
-
+            new OrderPhotoHelper().AddOrdeFilter(FileName1,OrderID);
 
             PrintPhoto pay = new PrintPhoto(OrderID,MealTime);//_orderID
             pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
@@ -213,7 +214,13 @@ namespace CameraPhoto
             System.Drawing.SolidBrush brush = new System.Drawing.SolidBrush(System.Drawing.Color.Black);
             System.Drawing.Font DrawFont = new System.Drawing.Font("Arial", 22);
 
-            TestPrint();
+            System.Windows.Controls.PrintDialog dlg = new System.Windows.Controls.PrintDialog();
+         
+            dlg.PrintTicket.PageOrientation = PageOrientation.Landscape;
+            dlg.PrintVisual(FinalPhoto, "Print Receipt");
+         
+
+           // TestPrint();
 
             //PrintDocument pd = new PrintDocument();
             //pd.PrintPage += PicturePrintDocument_PrintPage; //注册打印事件
@@ -276,6 +283,10 @@ namespace CameraPhoto
             this.MainFirst2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
             this.MainFirst3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
             this.MainFirst4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
+            this.MainSecond1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
+            this.MainSecond2.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
+            this.MainSecond3.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
+            this.MainSecond4.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
             //if (currentFilter == 2)
             //{
             //    this.MainFirst1.Source = new BitmapImage(new Uri(IamgePath2, UriKind.Absolute));
@@ -296,21 +307,20 @@ namespace CameraPhoto
             this.MainFirst2.Source = GetSource(MainFirst2, sender);
             this.MainFirst3.Source = GetSource(MainFirst3, sender);
             this.MainFirst4.Source = GetSource(MainFirst4, sender);
+            this.MainSecond1.Source = this.MainFirst1.Source;
+            this.MainSecond2.Source = this.MainFirst2.Source;
+            this.MainSecond3.Source = this.MainFirst3.Source;
+            this.MainSecond4.Source = this.MainFirst4.Source;
 
-            if (currentFilter == 1)
-            {
-                this.LastFirst1.Source = this.MainFirst1.Source;
-                this.LastFirst2.Source = this.MainFirst2.Source;
-                this.LastFirst3.Source = this.MainFirst3.Source;
-                this.LastFirst4.Source = this.MainFirst4.Source;
-            }
-            else
-            {
-                this.LastSecond1.Source = this.MainFirst1.Source;
-                this.LastSecond2.Source = this.MainFirst2.Source;
-                this.LastSecond3.Source = this.MainFirst3.Source;
-                this.LastSecond4.Source = this.MainFirst4.Source;
-            }
+            this.LastFirst1.Source = this.MainFirst1.Source;
+            this.LastFirst2.Source = this.MainFirst2.Source;
+            this.LastFirst3.Source = this.MainFirst3.Source;
+            this.LastFirst4.Source = this.MainFirst4.Source;
+            this.LastSecond1.Source = this.MainFirst1.Source;
+            this.LastSecond2.Source = this.MainFirst2.Source;
+            this.LastSecond3.Source = this.MainFirst3.Source;
+            this.LastSecond4.Source = this.MainFirst4.Source;
+
 
 
 
@@ -481,6 +491,13 @@ namespace CameraPhoto
 
         private void SaveToImage(FrameworkElement frameworkElement, string fileName)
         {
+
+          
+
+            //var encoder = new PngBitmapEncoder();
+            //encoder.Frames.Add(BitmapFrame.Create((BitmapSource)frameworkElement.Source));
+            //using (FileStream stream = new FileStream(.FileName, FileMode.Create))
+            //    encoder.Save(stream);
 
             System.IO.FileStream fs = new System.IO.FileStream(fileName, System.IO.FileMode.Create);
             RenderTargetBitmap bmp = new RenderTargetBitmap((int)frameworkElement.ActualWidth, (int)frameworkElement.ActualHeight, 96, 96, PixelFormats.Pbgra32);

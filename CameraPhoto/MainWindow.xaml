@@ -15,8 +15,8 @@
                     <RowDefinition Height="140"></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <StackPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" >
-                    <Image Source="/CameraPhoto;component/Resources/LOGO.png" Margin="30,0,0,0"  VerticalAlignment="Center" Width="140" Height="80"></Image>
+                <StackPanel MouseDown="StackPanel_MouseDown" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" >
+                    <Image  Source="/CameraPhoto;component/Resources/LOGO.png" Margin="30,0,0,0"  VerticalAlignment="Center" Width="140" Height="80"></Image>
                 </StackPanel>
 
             <StackPanel Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
