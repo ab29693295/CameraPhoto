@@ -63,9 +63,9 @@ namespace CameraPhoto
             if (MealData != null&&MealData.Count()>1)
             {
                 this.FisrtMealName.Content = MealData[0].MealName;
-                this.FisrtMealPrice.Content = MealData[0].MealPrice;
+                this.FisrtMealPrice.Content = MealData[0].MealPrice+"元";
                 this.SecondMealName.Content = MealData[1].MealName;
-                this.SecondMealPrice.Content = MealData[1].MealPrice;
+                this.SecondMealPrice.Content = MealData[1].MealPrice + "元";
             }
         }
 
