@@ -127,10 +127,10 @@ namespace CameraPhoto
 
                 JObject orderObject = (JObject)Newtonsoft.Json.JsonConvert.DeserializeObject(content);
 
-                int PhtoID = Convert.ToInt32(orderObject["ID"].ToString());
-                if (PhtoID > 0)
+                bool PhtoID = Convert.ToBoolean(orderObject["R"].ToString());
+                if (PhtoID)
                 {
-                    return PhtoID;
+                    return 1;
                 }
                 else
                 {

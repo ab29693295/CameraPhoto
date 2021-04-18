@@ -71,7 +71,7 @@ namespace CameraPhoto
 
 
 
-        /// <summary>
+        /// <summary>         
         /// 套餐一点击事件
         /// </summary>
         /// <param name="sender"></param>
