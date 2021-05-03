@@ -72,11 +72,13 @@ namespace CameraPhoto
         private int faceNum = 0;
         private int baseLMLen = 101;
 
+        private int times = 0;
+
         public PhotoWindow(int orderID, int mealType, int _MealTime)//int orderID, int mealType,int _MealTime=1
         {
             InitializeComponent();
-            MealTime = 1;//_MealTime;
-
+            MealTime = _MealTime;//_MealTime;
+            MealType = mealType;
             #region
             try
             {
@@ -229,6 +231,8 @@ namespace CameraPhoto
                 {
                     this.SurePanel.Visibility = Visibility.Collapsed;
                     this.Next_Btn.Visibility = Visibility.Visible;
+
+
                 }
 
             }
@@ -245,7 +249,11 @@ namespace CameraPhoto
         /// <param name="e"></param>
         private void Next_Btn_Click(object sender, RoutedEventArgs e)
         {
-            SelectBorder seBorder = new SelectBorder(OrderID, MealTime);//OrderID,MealTime
+
+            CloseSession();
+            CameraHandler.Dispose();
+
+            SelectBorder seBorder = new SelectBorder(OrderID,MealType, MealTime);//OrderID,MealTime
             seBorder.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             seBorder.Show();
 
@@ -305,6 +313,12 @@ namespace CameraPhoto
             CurrentIamgePath = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\" + CurrentCount.ToString() + ".JPG";
             if (MealTime == 2)
             {
+
+                dicPth = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "_2";
+                if (Directory.Exists(dicPth) == false)//如果不存
+                {
+                    Directory.CreateDirectory(dicPth);
+                }
                 CurrentIamgePath = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "_2" + "\\" + CurrentCount.ToString() + ".JPG";
             }
 
@@ -397,21 +411,32 @@ namespace CameraPhoto
                 this.TipPanel.Visibility = Visibility.Visible;
 
                 this.downPhoto.Visibility = Visibility.Hidden;
+                Thread.Sleep(1000);
 
                 //显示确认按钮
                 this.SurePanel.Visibility = Visibility.Visible;
 
 
-
                 timer.Stop();
+
 
                 _downCOunt = 10;
                 _nextDownCount = 15;
-                //启动另一个倒计时
-                Nextimer = new DispatcherTimer();
-                Nextimer.Interval = TimeSpan.FromSeconds(1);
-                Nextimer.Tick += Nextimer_Tick;
-                Nextimer.Start();
+                if (CurrentCount < 4)
+                {
+                    //启动另一个倒计时
+                    Nextimer = new DispatcherTimer();
+                    Nextimer.Interval = TimeSpan.FromSeconds(1);
+                    Nextimer.Tick += Nextimer_Tick;
+                    Nextimer.Start();
+                }
+                else
+                {
+                    this.TipLabel.Text = "点击确认进入边框选择";
+                }
+            
+
+             
 
             }
             
@@ -420,12 +445,9 @@ namespace CameraPhoto
 
         public void Nextimer_Tick(object sender, EventArgs e)
         {
-            if (CurrentCount == 4)
+            if (CurrentCount != 4)
             {
-                this.TipLabel.Text = "点击确认进入照片边框选择";
-            }
-            else
-            {
+               
                 this.TipLabel.Text = "确认后，开始下一张拍摄 或 " + _nextDownCount.ToString() + "秒后自动开始下一张拍摄";
             }
           
@@ -483,12 +505,23 @@ namespace CameraPhoto
 
                 CameraHandler.ImageSaveDirectory = CurrentIamgePath;
 
+                if (CurrentCount == 4)
+                {
 
-                //启动倒计时
-                timer = new DispatcherTimer();
-                timer.Interval = TimeSpan.FromSeconds(1);
-                timer.Tick += timer1_Tick;
-                timer.Start();
+                    this.TipLabel.Text = "点击确认进入照片边框选择";
+                    this.SurePanel.Visibility = Visibility.Collapsed;
+                    this.Next_Btn.Visibility = Visibility.Visible;
+                    
+                }
+                else
+                {
+                    //启动倒计时
+                    timer = new DispatcherTimer();
+                    timer.Interval = TimeSpan.FromSeconds(1);
+                    timer.Tick += timer1_Tick;
+                    timer.Start();
+                }
+              
 
             }
         }
@@ -741,9 +774,32 @@ namespace CameraPhoto
 
         }
 
+        private void StackPanel_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            times += 1;
+
+            DispatcherTimer timer = new DispatcherTimer();
+
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 800);
+
+            timer.Tick += (s, e1) => { timer.IsEnabled = false; times = 0; };
+
+            timer.IsEnabled = true;
+
+            if (times % 2 == 0)
+            {
+                timer.IsEnabled = false;
+                times = 0;
+
+                Application.Current.Shutdown();
+
+            }
+
+        }
+
 
         #endregion
 
-      
+
     }
 }

@@ -78,17 +78,76 @@ namespace CameraPhoto
         /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            double _firstMeal =Convert.ToDouble( ConfigHelper.GetConfigString("FirstMeal"));
-            OrderResult _orderResult = new OrderHelper().GetPayUrl(2, "套餐一 39.9元", _firstMeal);
+            try
+            {
+                string FirstName = this.FisrtMealName.Content.ToString();
+                int EqID = Convert.ToInt32(ConfigHelper.GetConfigString("EquipmentID"));
+                double _firstMeal = Convert.ToDouble(EquipHelper.GetMealPrice(EqID,1));
+                OrderResult _orderResult = new OrderHelper().GetPayUrl(2, FirstName, _firstMeal);
+                if (_orderResult.OrderID != 0)
+                {
+
+                    if (Directory.Exists(ConfigHelper.GetConfigString("ImageFile")) == false)//如果不存
+                    {
+                        Directory.CreateDirectory(ConfigHelper.GetConfigString("ImageFile"));
+                    }
+
+                    string dicPth = ConfigHelper.GetConfigString("ImageFile") + "\\" + _orderResult.OrderID.ToString() + "\\Pay";
+                    if (Directory.Exists(dicPth) == false)//如果不存
+                    {
+                        Directory.CreateDirectory(dicPth);
+                    }
+                    string ImagePath = dicPth + "\\" + _orderResult.OrderID + ".PNG";
+                    QRCodeEncoder qrCodeEncoder = new QRCodeEncoder();
+                    qrCodeEncoder.QRCodeEncodeMode = QRCodeEncoder.ENCODE_MODE.BYTE;
+                    qrCodeEncoder.QRCodeErrorCorrect = QRCodeEncoder.ERROR_CORRECTION.M;
+                    qrCodeEncoder.QRCodeVersion = 0;
+                    qrCodeEncoder.QRCodeScale = 4;
+                    //将字符串生成二维码图片
+                    //Bitmap image = qrCodeEncoder.Encode(HttpUtility.UrlEncode(url), Encoding.Default);
+                    Bitmap imageBit = qrCodeEncoder.Encode(_orderResult.Url, Encoding.Default);
+                    imageBit.Save(ImagePath, System.Drawing.Imaging.ImageFormat.Png);
+
+                    PayStatus pay = new PayStatus(_orderResult.OrderID, ImagePath, 1);
+                    pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                    pay.Show();
+
+                    //PhotoWindow pay = new PhotoWindow(_orderResult.OrderID, 2);
+                    //pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                    //pay.Show();
+
+                    this.Close();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                App.CameraLog.Info("错误信息："+ex.ToString());
+            }
+          
+        }
+        /// <summary>
+        /// 第二个套餐
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SecondMeal_Click(object sender, RoutedEventArgs e)
+        {
+            string SecondName = this.SecondMealName.Content.ToString();
+
+            int EqID = Convert.ToInt32(ConfigHelper.GetConfigString("EquipmentID"));
+            double _SecondMeal = Convert.ToDouble(EquipHelper.GetMealPrice(EqID, 2));
+    
+            OrderResult _orderResult = new OrderHelper().GetPayUrl(2, SecondName, _SecondMeal);
             if (_orderResult.OrderID != 0)
             {
+                string dicPth = ConfigHelper.GetConfigString("ImageFile") + "\\" + _orderResult.OrderID.ToString() + "\\Pay";
+
 
                 if (Directory.Exists(ConfigHelper.GetConfigString("ImageFile")) == false)//如果不存
                 {
                     Directory.CreateDirectory(ConfigHelper.GetConfigString("ImageFile"));
                 }
-
-                string dicPth = ConfigHelper.GetConfigString("ImageFile") + "\\" + _orderResult.OrderID.ToString() + "\\Pay";
                 if (Directory.Exists(dicPth) == false)//如果不存
                 {
                     Directory.CreateDirectory(dicPth);
@@ -104,53 +163,11 @@ namespace CameraPhoto
                 Bitmap imageBit = qrCodeEncoder.Encode(_orderResult.Url, Encoding.Default);
                 imageBit.Save(ImagePath, System.Drawing.Imaging.ImageFormat.Png);
 
-                PayStatus pay = new PayStatus(_orderResult.OrderID, ImagePath,1);
-                pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-                pay.Show();
 
-                //PhotoWindow pay = new PhotoWindow(_orderResult.OrderID, 2);
-                //pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-                //pay.Show();
-
-                this.Close();
-            }
-           
-        }
-        /// <summary>
-        /// 第二个套餐
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SecondMeal_Click(object sender, RoutedEventArgs e)
-        {
-            double _SecondMeal = Convert.ToDouble(ConfigHelper.GetConfigString("SecondMeal"));
-            OrderResult _orderResult = new OrderHelper().GetPayUrl(2, "套餐一 39.9元", _SecondMeal);
-            if (_orderResult.OrderID != 0)
-            {
-                string dicPth = ConfigHelper.GetConfigString("ImageFile") + "\\" + _orderResult.OrderID.ToString() + "\\Pay";
-
-
-                if (Directory.Exists(ConfigHelper.GetConfigString("ImageFile")) == false)//如果不存
-                {
-                    Directory.CreateDirectory(ConfigHelper.GetConfigString("ImageFile"));
-                }
-                if (Directory.Exists(dicPth) == false)//如果不存
-                {
-                    Directory.CreateDirectory(dicPth);
-                }
-                string ImagePath = dicPth + "\\" + _orderResult.OrderID + ".PNG";
-                QRCodeEncoder qrCodeEncoder = new QRCodeEncoder();
-                qrCodeEncoder.QRCodeEncodeMode = QRCodeEncoder.ENCODE_MODE.BYTE;
-                qrCodeEncoder.QRCodeErrorCorrect = QRCodeEncoder.ERROR_CORRECTION.M;
-                qrCodeEncoder.QRCodeVersion = 0;
-                qrCodeEncoder.QRCodeScale = 4;
-                //将字符串生成二维码图片
-                //Bitmap image = qrCodeEncoder.Encode(HttpUtility.UrlEncode(url), Encoding.Default);
-                Bitmap imageBit = qrCodeEncoder.Encode(_orderResult.Url, Encoding.Default);
-
-
-
-                PayStatus pay = new PayStatus(_orderResult.OrderID, ImagePath,2);
+                //PhotoWindow pp = new PhotoWindow(452, 2,2);
+                //pp.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                //pp.Show();
+                PayStatus pay = new PayStatus(_orderResult.OrderID, ImagePath, 2);
                 pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 pay.Show();
 

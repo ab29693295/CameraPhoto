@@ -11,7 +11,7 @@ namespace CameraPhoto.Helper
    public class EquipHelper
     {
         public static string Website = ConfigHelper.GetConfigString("HttpUrl").ToString();
-        public static bool LoginEquip(string EquipCode)
+        public static int LoginEquip(string EquipCode)
         {
             string Url = Website + "/api/EquipAPI/LoginEquip?EqCode=" + EquipCode;
 
@@ -21,7 +21,20 @@ namespace CameraPhoto.Helper
             //isTruncated nextMarker  streams
 
 
-            return Convert.ToBoolean(result["R"]);
+            return Convert.ToInt32(result["ID"]);
+        }
+
+        public static double GetMealPrice(int  EqID,int type)
+        {
+            string Url = Website + "/api/EquipAPI/GetEquipPrice?EqID=" + EqID+ "&type="+ type;
+
+            string response = HttpHelper.SendGet(Url);
+
+            JObject result = (JObject)Newtonsoft.Json.JsonConvert.DeserializeObject(response);
+            //isTruncated nextMarker  streams
+
+
+            return Convert.ToDouble(result["Price"]);
         }
         /// <summary>
         /// 获取设备美白信息

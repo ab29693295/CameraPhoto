@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace CameraPhoto
 {
@@ -19,6 +20,9 @@ namespace CameraPhoto
     /// </summary>
     public partial class ElePrint : Window
     {
+        DispatcherTimer timer;
+        int TimeCount = 20;
+
         public ElePrint(string ImagePath)
         {
             InitializeComponent();
@@ -58,12 +62,38 @@ namespace CameraPhoto
         {
 
             this.WindowState = WindowState.Maximized;
+
+
+            //启动倒计时
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += timer1_Tick;
+            timer.Start();
         }
 
+        /// <summary>
+        /// 定时器执行的方法
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            TimeCount--;
+            if (TimeCount < 1)
+            {
+                MainWindow pay = new MainWindow();
+                pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                pay.Show();
+                timer.Stop();
+                this.Close();
+            }
+
+        }
 
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            timer.Stop();
             MainWindow pay = new MainWindow();
             pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             pay.Show();

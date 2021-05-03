@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EDSDKLib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace CameraPhoto
     {
         private int times = 0;
 
+        List<Camera> CamList;
+
+        SDKHandler CameraHandler;
+
+        bool processing;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -32,8 +39,10 @@ namespace CameraPhoto
             b.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/bacbkground.png"));
             b.Stretch = Stretch.Fill;
             this.Background = b;
-          
-
+            string backMp3 = ConfigHelper.GetConfigString("BackgroundWva");
+            System.Media.SoundPlayer Audio = new System.Media.SoundPlayer(backMp3);
+            Audio.Play();//播放
+            
 
         }
 
@@ -60,21 +69,42 @@ namespace CameraPhoto
         /// <param name="e"></param>
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
+            if (processing == true) return;
             try
             {
-                SelectMeal _meal = new SelectMeal();
-                _meal.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-                _meal.Show();
+                processing = true;
+                CameraHandler = new SDKHandler();
+                CamList = CameraHandler.GetCameraList();
+                if (CamList.Count() > 0)
+                {
+                    //执行需要2秒以上
 
-                this.Close();
+                    SelectMeal _meal = new SelectMeal();
+                    _meal.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                    _meal.Show();
 
+                    CameraHandler.Dispose();
+
+                    this.Close();
+                }
+                else
+                {
+                    MessageTip message = new MessageTip("相机未连接请联系工作人员");
+                    message.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                    message.Show();
+
+                    CameraHandler.Dispose();
+                    return;
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-
-          
+            finally
+            {
+                processing = false;
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -102,7 +132,7 @@ namespace CameraPhoto
 
             DispatcherTimer timer = new DispatcherTimer();
 
-            timer.Interval = new TimeSpan(0, 0, 0, 0, 300);
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 800);
 
             timer.Tick += (s, e1) => { timer.IsEnabled = false; times = 0; };
 
@@ -110,6 +140,8 @@ namespace CameraPhoto
 
             if (times % 2 == 0)
             {
+
+
                 timer.IsEnabled = false;
                 times = 0;
 

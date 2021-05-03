@@ -45,18 +45,20 @@ namespace CameraPhoto
             }
             else
             {
-                if (EquipHelper.LoginEquip(EqCode))
+                int EqID = EquipHelper.LoginEquip(EqCode);
+                if (EqID > 0)
                 {
                     if (ConfigHelper.ChangeConfig("EquipCode", EqCode))
                     {
 
-                        this.Close();
+                        ConfigHelper.ChangeConfig("EquipmentID", EqID.ToString());
 
                         MainWindow _main = new MainWindow();
                         _main.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                         _main.Show();
 
-                       
+                        this.Close();
+
                     }
                     else
                     {

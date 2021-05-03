@@ -39,7 +39,9 @@ namespace CameraPhoto
         public string BorderPath1 = "";
         public string BorderPath2 = "";
 
-        public SelectBorder(int _orderID, int _MealTime)//int _orderID, int _MealTime
+        public int MealType = 1;
+
+        public SelectBorder(int _orderID,int _MealType, int _MealTime)//int _orderID, int _MealTime
         {
             InitializeComponent();
 
@@ -48,119 +50,127 @@ namespace CameraPhoto
             b.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/bacbkground.png"));
             b.Stretch = Stretch.Fill;
             this.Background = b;
-
-            //记载边框背景图
-            LoadBackGround();
-
-            MealTime = 1;//_MealTime;
-
-            OrderID = 205;//_orderID;
-
-
-            string _IamgePath1 = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString()+"\\1.JPG";
-            string _IamgePath2 = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\2.JPG";
-            string _IamgePath3 = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\3.JPG";
-            string _IamgePath4 = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\4.JPG";
-            if (MealTime == 2)
+            try
             {
-                _IamgePath1= ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "_2"+"\\1.JPG";
-                _IamgePath2 = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "_2" + "\\2.JPG";
-                _IamgePath3 = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "_2" + "\\3.JPG";
-                _IamgePath4 = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "_2" + "\\4.JPG";
-            }
+
+
+                //记载边框背景图
+                LoadBackGround();
+
+                MealTime = _MealTime;//_MealTime;
+
+                OrderID = _orderID;//_orderID;
+                MealType = _MealType;
+
+                string _IamgePath1 = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\1.JPG";
+                string _IamgePath2 = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\2.JPG";
+                string _IamgePath3 = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\3.JPG";
+                string _IamgePath4 = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\4.JPG";
+                if (MealTime == 2)
+                {
+                    _IamgePath1 = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "_2" + "\\1.JPG";
+                    _IamgePath2 = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "_2" + "\\2.JPG";
+                    _IamgePath3 = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "_2" + "\\3.JPG";
+                    _IamgePath4 = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "_2" + "\\4.JPG";
+                }
 
                 //主界面1
-             this.MainFirst1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
-            this.MainFirst2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
-            this.MainFirst3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
-            this.MainFirst4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
+                this.MainFirst1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
+                this.MainFirst2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
+                this.MainFirst3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
+                this.MainFirst4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
 
-            //主界面2
-            this.MainSecond1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
-            this.MainSecond2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
-            this.MainSecond3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
-            this.MainSecond4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
+                //主界面2
+                this.MainSecond1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
+                this.MainSecond2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
+                this.MainSecond3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
+                this.MainSecond4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
 
-            //边框一 
-            this.BorderFirst1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
-            this.BorderFirst2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
-            this.BorderFirst3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
-            this.BorderFirst4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));       
-            this.BorderFirst_1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
-            this.BorderFirst_2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
-            this.BorderFirst_3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
-            this.BorderFirst_4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
+                //边框一 
+                this.BorderFirst1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
+                this.BorderFirst2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
+                this.BorderFirst3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
+                this.BorderFirst4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
+                this.BorderFirst_1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
+                this.BorderFirst_2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
+                this.BorderFirst_3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
+                this.BorderFirst_4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
 
-            //边框三 
-            this.BorderThird1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
-            this.BorderThird2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
-            this.BorderThird3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
-            this.BorderThird4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
-            this.BorderThird_1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
-            this.BorderThird_2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
-            this.BorderThird_3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
-            this.BorderThird_4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
+                //边框三 
+                this.BorderThird1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
+                this.BorderThird2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
+                this.BorderThird3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
+                this.BorderThird4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
+                this.BorderThird_1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
+                this.BorderThird_2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
+                this.BorderThird_3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
+                this.BorderThird_4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
 
-            //边框二
-            this.BorderSecond1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
-            this.BorderSecond2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
-            this.BorderSecond3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
-            this.BorderSecond4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
-            this.BorderSecond_1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
-            this.BorderSecond_2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
-            this.BorderSecond_3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
-            this.BorderSecond_4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
-
-
-            //边框四 
-            this.BorderForth1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
-            this.BorderForth2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
-            this.BorderForth3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
-            this.BorderForth4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
-            this.BorderForth_1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
-            this.BorderForth_2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
-            this.BorderForth_3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
-            this.BorderForth_4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
+                //边框二
+                this.BorderSecond1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
+                this.BorderSecond2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
+                this.BorderSecond3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
+                this.BorderSecond4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
+                this.BorderSecond_1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
+                this.BorderSecond_2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
+                this.BorderSecond_3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
+                this.BorderSecond_4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
 
 
-            //边框五
-            this.BorderFive1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
-            this.BorderFive2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
-            this.BorderFive3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
-            this.BorderFive4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
-            this.BorderFive_1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
-            this.BorderFive_2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
-            this.BorderFive_3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
-            this.BorderFive_4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
-
-            //边框六 
-            this.BorderSix1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
-            this.BorderSix2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
-            this.BorderSix3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
-            this.BorderSix4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
-            this.BorderSix_1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
-            this.BorderSix_2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
-            this.BorderSix_3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
-            this.BorderSix_4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
+                //边框四 
+                this.BorderForth1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
+                this.BorderForth2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
+                this.BorderForth3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
+                this.BorderForth4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
+                this.BorderForth_1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
+                this.BorderForth_2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
+                this.BorderForth_3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
+                this.BorderForth_4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
 
 
-            //最终图像 
-            this.LastFirst1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
-            this.LastFirst2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
-            this.LastFirst3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
-            this.LastFirst4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
-            this.LastSecond1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
-            this.LastSecond2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
-            this.LastSecond3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
-            this.LastSecond4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
+                //边框五
+                this.BorderFive1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
+                this.BorderFive2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
+                this.BorderFive3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
+                this.BorderFive4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
+                this.BorderFive_1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
+                this.BorderFive_2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
+                this.BorderFive_3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
+                this.BorderFive_4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
+
+                //边框六 
+                this.BorderSix1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
+                this.BorderSix2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
+                this.BorderSix3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
+                this.BorderSix4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
+                this.BorderSix_1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
+                this.BorderSix_2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
+                this.BorderSix_3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
+                this.BorderSix_4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
 
 
-          
+                //最终图像 
+                this.LastFirst1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
+                this.LastFirst2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
+                this.LastFirst3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
+                this.LastFirst4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
+                this.LastSecond1.Source = new BitmapImage(new Uri(_IamgePath1, UriKind.Absolute));
+                this.LastSecond2.Source = new BitmapImage(new Uri(_IamgePath2, UriKind.Absolute));
+                this.LastSecond3.Source = new BitmapImage(new Uri(_IamgePath3, UriKind.Absolute));
+                this.LastSecond4.Source = new BitmapImage(new Uri(_IamgePath4, UriKind.Absolute));
 
-            Color color = (Color)ColorConverter.ConvertFromString("White");
-            _BorderSecond = new SolidColorBrush(color);
 
-            _BorderFirst = new SolidColorBrush(color);
+
+
+                Color color = (Color)ColorConverter.ConvertFromString("White");
+                _BorderSecond = new SolidColorBrush(color);
+
+                _BorderFirst = new SolidColorBrush(color);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
         /// <summary>
         /// 加载背景图
@@ -288,7 +298,7 @@ namespace CameraPhoto
                 App.CameraLog.Info("边框错误："+ex.ToString());
             }
 
-            SelectFilter pay = new SelectFilter(OrderID,1,BorderPath1,BorderPath2);
+            SelectFilter pay = new SelectFilter(OrderID,MealType,MealTime,BorderPath1,BorderPath2);
             pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             pay.Show();
 

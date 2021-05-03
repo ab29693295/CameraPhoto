@@ -17,14 +17,14 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" >
-                    <Image Source="/CameraPhoto;component/Resources/LOGO.png" Margin="30,0,0,0"  VerticalAlignment="Center" Width="140" Height="80"></Image>
+                    <Image  Source="/CameraPhoto;component/Resources/LOGO.png" Margin="30,0,0,0"  VerticalAlignment="Center" Width="140" Height="80"></Image>
                     
                     <Label Width="200"  Height="40" Content="现在开始拍照" FontWeight="Bold" FontSize="23" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                     <StackPanel x:Name="LookPanel" Visibility="Visible"  Height="80"  Orientation="Vertical" Margin="150,15,0,0">
                         <Image Source="/CameraPhoto;component/Resources/图标-请看向镜头.png" Height="30" Width="45"></Image>
                         <Label Width="100"  Height="30" Content="请看向镜头" FontWeight="Bold" FontSize="12" Foreground="#FFFFFF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
                     </StackPanel>
-                    <Button Click="Button_Click" Template="{StaticResource Photo_backmain}" Margin="450,0,0,0">
+                    <Button Click="Button_Click" Template="{StaticResource Photo_backmain}" Visibility="Hidden" Margin="450,0,0,0">
 
                     </Button>
 

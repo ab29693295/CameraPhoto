@@ -25,7 +25,7 @@ namespace CameraPhoto
             log4net.Config.XmlConfigurator.Configure();
             CameraLog = LogManager.GetLogger(typeof(App));
 
-
+           
             #region 设置开机自启
             try
             {

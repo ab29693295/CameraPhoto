@@ -50,10 +50,10 @@ namespace CameraPhoto
         public ImageSource currentImage2;
         public ImageSource currentImage3;
         public ImageSource currentImage4;
-
+        public int MealType=1;
 
         public string IamgePath2 = "";
-        public SelectFilter(int _orderID, int _MealTime = 1,string borderPath1="",string borderPath2="")
+        public SelectFilter(int _orderID, int _MealType,int _MealTime,string borderPath1="",string borderPath2="")
         {
             InitializeComponent();
 
@@ -61,6 +61,8 @@ namespace CameraPhoto
             OrderID = _orderID;
 
             MealTime = _MealTime;
+
+            MealType = _MealType;
 
             // 在此点之下插入创建对象所需的代码。
             ImageBrush b = new ImageBrush();
@@ -201,7 +203,7 @@ namespace CameraPhoto
             //SaveToImage(this.LastPanelSecond, FileName2);
             new OrderPhotoHelper().AddOrdeFilter(FileName1,OrderID);
 
-            PrintPhoto pay = new PrintPhoto(OrderID,MealTime);//_orderID
+            PrintPhoto pay = new PrintPhoto(OrderID,MealType,MealTime);//_orderID
             pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             pay.Show();
 
@@ -218,7 +220,9 @@ namespace CameraPhoto
          
             dlg.PrintTicket.PageOrientation = PageOrientation.Landscape;
             dlg.PrintVisual(FinalPhoto, "Print Receipt");
-         
+
+
+            OrderHelper.UpdatePrintStatus(OrderID);
 
            // TestPrint();
 
