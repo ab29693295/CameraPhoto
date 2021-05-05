@@ -39,9 +39,10 @@ namespace CameraPhoto
             b.ImageSource = new BitmapImage(new Uri("pack://application:,,,/CameraPhoto;component/Resources/bacbkground.png"));
             b.Stretch = Stretch.Fill;
             this.Background = b;
-            string backMp3 = ConfigHelper.GetConfigString("BackgroundWva");
+            string backMp3 = System.AppDomain.CurrentDomain.BaseDirectory+ "camera.wav";
             System.Media.SoundPlayer Audio = new System.Media.SoundPlayer(backMp3);
-            Audio.Play();//播放
+            Audio.Load();
+            Audio.PlayLooping();//播放
             
 
         }
@@ -99,6 +100,8 @@ namespace CameraPhoto
             }
             catch (Exception ex)
             {
+
+
                 MessageBox.Show(ex.ToString());
             }
             finally

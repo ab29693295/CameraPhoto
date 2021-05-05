@@ -69,7 +69,7 @@
 
                     <StackPanel Height="440" Width="600" Margin="30,0,0,0">
                         <StackPanel x:Name="FilterStack1" Orientation="Horizontal" Height="120" Margin="20,20,0,0">
-                            <Border x:Name="filter1" ToolTip="102" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"  BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
+                            <Border x:Name="filter1" ToolTip="102" Tag="白皙" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"  BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
                                 <Border.BorderBrush>
                                     <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
                                         <LinearGradientBrush.GradientStops>
@@ -91,7 +91,7 @@
 
 
                             </Border>
-                            <Border x:Name="filter2" ToolTip="100" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"  BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
+                            <Border x:Name="filter2" ToolTip="100" Tag="暖暖" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"  BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
                                 <Border.BorderBrush>
                                     <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
                                         <LinearGradientBrush.GradientStops>
@@ -113,7 +113,7 @@
 
 
                             </Border>
-                            <Border x:Name="filter3" ToolTip="103" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"  BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
+                            <Border x:Name="filter3" ToolTip="103" Tag="冷艳" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"  BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
                                 <Border.BorderBrush>
                                     <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
                                         <LinearGradientBrush.GradientStops>
@@ -135,7 +135,7 @@
 
 
                             </Border>
-                            <Border  x:Name="filter4" ToolTip="105" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown" BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
+                            <Border  x:Name="filter4" ToolTip="105" Tag="复古" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown" BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
                                 <Border.BorderBrush>
                                     <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
                                         <LinearGradientBrush.GradientStops>
@@ -160,7 +160,7 @@
 
                         </StackPanel>
                         <StackPanel  x:Name="FilterStack2" Orientation="Horizontal" Height="120" Margin="20,20,0,0">
-                            <Border x:Name="filter5" ToolTip="111" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"   BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
+                            <Border x:Name="filter5" ToolTip="111" Tag="胶片" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"   BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
                                 <Border.BorderBrush>
                                     <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
                                         <LinearGradientBrush.GradientStops>
@@ -182,7 +182,7 @@
 
 
                             </Border>
-                            <Border x:Name="filter6" ToolTip="114" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"   BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
+                            <Border x:Name="filter6" ToolTip="114" Tag="迷情" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"   BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
                                 <Border.BorderBrush>
                                     <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
                                         <LinearGradientBrush.GradientStops>
@@ -204,7 +204,7 @@
 
 
                             </Border>
-                            <Border x:Name="filter7" ToolTip="116" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"   BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
+                            <Border x:Name="filter7" ToolTip="116" Tag="日系" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"   BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
                                 <Border.BorderBrush>
                                     <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
                                         <LinearGradientBrush.GradientStops>
@@ -226,7 +226,7 @@
 
 
                             </Border>
-                            <Border x:Name="filter8" ToolTip="130" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"   BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
+                            <Border x:Name="filter8" ToolTip="130" Tag="甜美" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"   BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
                                 <Border.BorderBrush>
                                     <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
                                         <LinearGradientBrush.GradientStops>
@@ -251,7 +251,7 @@
 
                         </StackPanel>
                         <StackPanel  x:Name="FilterStack3" Orientation="Horizontal" Height="120" Margin="20,20,0,0">
-                            <Border  x:Name="filter9" ToolTip="131" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"  BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
+                            <Border  x:Name="filter9" ToolTip="131" Tag="唯美" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"  BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
                                 <Border.BorderBrush>
                                     <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
                                         <LinearGradientBrush.GradientStops>
@@ -273,7 +273,7 @@
 
 
                             </Border>
-                            <Border  x:Name="filter10" ToolTip="134" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"   BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
+                            <Border  x:Name="filter10" ToolTip="134" Tag="花颜" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"   BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
                                 <Border.BorderBrush>
                                     <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
                                         <LinearGradientBrush.GradientStops>
@@ -295,7 +295,7 @@
 
 
                             </Border>
-                            <Border x:Name="filter11" ToolTip="201" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"   BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
+                            <Border x:Name="filter11" ToolTip="201" Tag="枫叶" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"   BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
                                 <Border.BorderBrush>
                                     <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
                                         <LinearGradientBrush.GradientStops>
@@ -317,7 +317,7 @@
 
 
                             </Border>
-                            <Border x:Name="filter12" ToolTip="203" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"  BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
+                            <Border x:Name="filter12" ToolTip="203" Tag="暖秋" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"  BorderThickness="1" Width="120" Height="120" Margin="20,0,0,0">
                                 <Border.BorderBrush>
                                     <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
                                         <LinearGradientBrush.GradientStops>

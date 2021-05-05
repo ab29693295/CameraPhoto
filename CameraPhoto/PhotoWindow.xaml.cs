@@ -229,6 +229,7 @@ namespace CameraPhoto
                 }
                 else
                 {
+                    Thread.Sleep(1500);
                     this.SurePanel.Visibility = Visibility.Collapsed;
                     this.Next_Btn.Visibility = Visibility.Visible;
 
@@ -445,7 +446,7 @@ namespace CameraPhoto
 
         public void Nextimer_Tick(object sender, EventArgs e)
         {
-            if (CurrentCount != 4)
+            if (CurrentCount != 5)
             {
                
                 this.TipLabel.Text = "确认后，开始下一张拍摄 或 " + _nextDownCount.ToString() + "秒后自动开始下一张拍摄";
@@ -505,10 +506,12 @@ namespace CameraPhoto
 
                 CameraHandler.ImageSaveDirectory = CurrentIamgePath;
 
-                if (CurrentCount == 4)
+                if (CurrentCount == 5)
                 {
 
                     this.TipLabel.Text = "点击确认进入照片边框选择";
+
+                    Thread.Sleep(1500);
                     this.SurePanel.Visibility = Visibility.Collapsed;
                     this.Next_Btn.Visibility = Visibility.Visible;
                     

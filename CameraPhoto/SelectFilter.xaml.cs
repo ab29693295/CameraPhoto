@@ -254,6 +254,13 @@ namespace CameraPhoto
 
         private void StackPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+
+            Border spanel = (object)sender as Border;
+
+            string TagName = spanel.Tag.ToString();
+
+            this.MainLabel.Content = TagName;
+
             for (int i = 0; i < FilterStack1.Children.Count; i++)
             {
                 Border b = FilterStack1.Children[i] as Border;//如果类型不一致返回null
