@@ -87,7 +87,7 @@ namespace CameraPhoto
                 zSoftSkin = new ZBeautyEngineDll();
 
                 CameraHandler = new SDKHandler();
-                // CameraHandler.CameraAdded += new SDKHandler.CameraAddedHandler(SDK_CameraAdded);
+                //CameraHandler.CameraAdded += new SDKHandler.CameraAddedHandler(SDK_CameraAdded);
                 CameraHandler.LiveViewUpdated += new SDKHandler.StreamUpdate(SDK_LiveViewUpdated);
                 CameraHandler.ProgressChanged += new SDKHandler.ProgressHandler(SDK_ProgressChanged);
                 CameraHandler.ImageHostDownloaded += new SDKHandler.ImageUpdate(SDK_ImageDownloaed);
@@ -98,18 +98,14 @@ namespace CameraPhoto
              
 
             }
-            catch (DllNotFoundException)
-            {
-                MessageTip message = new MessageTip("相机未连接请检查设备");
-                message.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-                message.Show();
-              
-            }
             catch (Exception ex) {
                 MessageTip message = new MessageTip("相机未连接请检查设备");
                 message.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 message.Show();
+
                 App.CameraLog.Debug(ex.ToString());
+
+                return;
 
             }
 
@@ -359,6 +355,8 @@ namespace CameraPhoto
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+
+                return;
             }
         }
 
@@ -483,7 +481,7 @@ namespace CameraPhoto
                         break;
                     case 4:
                         this.ImageBc4.Visibility = Visibility.Hidden;
-                        this.TipLabel.Text = "点击确认进入边框选择";
+                        this.TipLabel.Text = "点击确认进入下一步";
                         this.ImageForth.Source = new BitmapImage(new Uri(CurrentIamgePath, UriKind.Absolute));
                         break;
                 }
@@ -509,7 +507,7 @@ namespace CameraPhoto
                 if (CurrentCount == 5)
                 {
 
-                    this.TipLabel.Text = "点击确认进入照片边框选择";
+                    this.TipLabel.Text = "点击确认进入下一步";
 
                     Thread.Sleep(1500);
                     this.SurePanel.Visibility = Visibility.Collapsed;

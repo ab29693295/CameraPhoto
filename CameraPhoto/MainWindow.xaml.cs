@@ -103,10 +103,14 @@ namespace CameraPhoto
 
 
                 MessageBox.Show(ex.ToString());
+
+                return;
             }
             finally
             {
                 processing = false;
+
+               
             }
         }
 

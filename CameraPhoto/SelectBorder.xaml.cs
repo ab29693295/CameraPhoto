@@ -384,6 +384,8 @@ namespace CameraPhoto
             MainPanelSecond.Background = borderColor;
             LastPanelFirst.Background = MainPanelFirst.Background;
             LastPanelSecond.Background = MainPanelSecond.Background;
+
+            this.MainLabel.Content = "边框-浅粉红";
         }
         /// <summary>
         /// 边框二选择事件
@@ -407,6 +409,8 @@ namespace CameraPhoto
             MainPanelSecond.Background = borderColor;
             LastPanelFirst.Background = MainPanelFirst.Background;
             LastPanelSecond.Background = MainPanelSecond.Background;
+
+            this.MainLabel.Content = "边框-浅粉红";
         }
         /// <summary>
         /// 边框三选择事件
@@ -430,6 +434,9 @@ namespace CameraPhoto
 
             LastPanelFirst.Background = MainPanelFirst.Background;
             LastPanelSecond.Background = MainPanelSecond.Background;
+
+
+            this.MainLabel.Content = "边框-紫罗兰";
         }
         /// <summary>
         /// 边框四选择事件
@@ -453,6 +460,8 @@ namespace CameraPhoto
             MainPanelSecond.Background = borderColor;
             LastPanelFirst.Background = MainPanelFirst.Background;
             LastPanelSecond.Background = MainPanelSecond.Background;
+
+            this.MainLabel.Content = "边框-海洋绿";
         }
         /// <summary>
         /// 边框五选择事件
@@ -476,6 +485,8 @@ namespace CameraPhoto
             MainPanelSecond.Background = borderColor;
             LastPanelFirst.Background = MainPanelFirst.Background;
             LastPanelSecond.Background = MainPanelSecond.Background;
+
+            this.MainLabel.Content = "边框-卡其布";
         }
         /// <summary>
         /// 边框六选择事件
@@ -499,6 +510,8 @@ namespace CameraPhoto
             MainPanelSecond.Background = borderColor;
             LastPanelFirst.Background = MainPanelFirst.Background;
             LastPanelSecond.Background = MainPanelSecond.Background;
+
+            this.MainLabel.Content = "边框-深橙色";
         }
 
 
