@@ -22,6 +22,22 @@ namespace CameraPhoto
 
         static App()
         {
+
+            #region 检测
+
+            string MName = System.Diagnostics.Process.GetCurrentProcess().MainModule.ModuleName;
+            string PName = System.IO.Path.GetFileNameWithoutExtension(MName);
+            System.Diagnostics.Process[] myProcess = System.Diagnostics.Process.GetProcessesByName(PName);
+
+            if (myProcess.Length > 1)
+            {
+                MessageBox.Show("本程序一次只能运行一个实例！", "提示");
+                Application.Current.Shutdown();
+                return;
+            }
+ 
+            #endregion
+
             log4net.Config.XmlConfigurator.Configure();
             CameraLog = LogManager.GetLogger(typeof(App));
 

@@ -71,10 +71,11 @@ namespace CameraPhoto
             TimeCount--;
             if (TimeCount < 1)
             {
+                timer.Stop();
                 MainWindow pay = new MainWindow();
                 pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-                pay.Show();
-                timer.Stop();
+                pay.ShowDialog();
+              
                 this.Close();
             }
          
@@ -102,6 +103,9 @@ namespace CameraPhoto
             ElePrint pay = new ElePrint(ImagePath);
             pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             pay.Show();
+
+
+            timer.Stop();
 
             this.Close();
         }

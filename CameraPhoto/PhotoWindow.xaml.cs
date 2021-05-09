@@ -28,8 +28,9 @@ namespace CameraPhoto
     {
 
         #region Variables
-    
-      
+        // 进程互斥
+        private System.Threading.Mutex myMutex = null;
+
         SDKHandler CameraHandler;
         //List<int> AvList;
         //List<int> TvList;
@@ -138,6 +139,18 @@ namespace CameraPhoto
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            // 禁止同时打开2个
+            bool mutexIsNew = false;
+            try
+            {
+                myMutex = new System.Threading.Mutex(true, "photowindow", out mutexIsNew);
+            }
+            catch { }
+            if (!mutexIsNew)
+            {
+               
+                this.Close();
+            }
             this.WindowState = WindowState.Maximized;
 
             if (MealType == 2)
@@ -296,31 +309,32 @@ namespace CameraPhoto
         /// <param name="e"></param>
         private void StartCamera_Click(object sender, RoutedEventArgs e)
         {
-            openSession();
-
-            //样式控制
-            TipPanel.Visibility = Visibility.Collapsed;
-            TipPanelDownCount.Visibility = Visibility.Visible;
-            LookPanel.Visibility = Visibility.Visible;
-            string dicPth = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString();
-            if (Directory.Exists(dicPth) == false)//如果不存
+            try
             {
-                Directory.CreateDirectory(dicPth);
-            }
-            CurrentIamgePath = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\" + CurrentCount.ToString() + ".JPG";
-            if (MealTime == 2)
-            {
+                openSession();
 
-                dicPth = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "_2";
+                //样式控制
+                TipPanel.Visibility = Visibility.Collapsed;
+                TipPanelDownCount.Visibility = Visibility.Visible;
+                LookPanel.Visibility = Visibility.Visible;
+                string dicPth = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString();
                 if (Directory.Exists(dicPth) == false)//如果不存
                 {
                     Directory.CreateDirectory(dicPth);
                 }
-                CurrentIamgePath = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "_2" + "\\" + CurrentCount.ToString() + ".JPG";
-            }
+                CurrentIamgePath = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\" + CurrentCount.ToString() + ".JPG";
+                if (MealTime == 2)
+                {
 
-            try
-            {
+                    dicPth = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "_2";
+                    if (Directory.Exists(dicPth) == false)//如果不存
+                    {
+                        Directory.CreateDirectory(dicPth);
+                    }
+                    CurrentIamgePath = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "_2" + "\\" + CurrentCount.ToString() + ".JPG";
+                }
+
+
                 if (!CameraHandler.IsLiveViewOn)
                 {
                     CameraCanvas.Visibility = Visibility.Visible;
@@ -343,7 +357,7 @@ namespace CameraPhoto
                     timer.Tick += timer1_Tick;
                     timer.Start();
 
-                    
+
 
                 }
                 else
@@ -354,10 +368,11 @@ namespace CameraPhoto
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
-
-                return;
+                CameraPhoto.App.CameraLog.Info(ex.ToString());
+                ReportError(ex.Message, false);
             }
+           
+          
         }
 
 
@@ -532,92 +547,100 @@ namespace CameraPhoto
 
         public void MBphoto()
         {
-          
-            EquipMB _Equip = EquipHelper.GetEquipMB();
-   
 
-            BitmapSource msource = CreateElementScreenshot(CameraCanvas);
-            System.Drawing.Bitmap curBitmap = ImageHelper.ToBitmap(msource);
-            ImageBrush b = new ImageBrush();
-            System.Drawing.Bitmap btnew = curBitmap;
+            try {
+                EquipMB _Equip = EquipHelper.GetEquipMB();
 
 
-            landMark = new int[baseLMLen * 2];
-            using (YNFaceDetector detector = new YNFaceDetector())
-            {
-                String startup = System.Windows.Forms.Application.StartupPath;
-                YNFaceDetector.YNRESULT res = detector.loadModels(startup + "\\models\\yn_model_detect.tar");
-                if (res != YNFaceDetector.YNRESULT.YN_OK)
+                BitmapSource msource = CreateElementScreenshot(CameraCanvas);
+                System.Drawing.Bitmap curBitmap = ImageHelper.ToBitmap(msource);
+                ImageBrush b = new ImageBrush();
+                System.Drawing.Bitmap btnew = curBitmap;
+
+
+                landMark = new int[baseLMLen * 2];
+                using (YNFaceDetector detector = new YNFaceDetector())
                 {
-                    faceNum = 0;
-                 
-                    
-                }
-
-                YNFaceDetector.YNFaces[] result = detector.Detect(curBitmap);
-                if (result != null && result.Count() > 0)
-                {
-                    faceNum = 1;
-                    for (int i = 0; i < baseLMLen; i++)
+                    String startup = System.Windows.Forms.Application.StartupPath;
+                    YNFaceDetector.YNRESULT res = detector.loadModels(startup + "\\models\\yn_model_detect.tar");
+                    if (res != YNFaceDetector.YNRESULT.YN_OK)
                     {
-                        landMark[i * 2 + 0] = (int)result[0].shape.pts[i].x;
-                        landMark[i * 2 + 1] = (int)result[0].shape.pts[i].y;
+                        faceNum = 0;
+
+
+                    }
+
+                    YNFaceDetector.YNFaces[] result = detector.Detect(curBitmap);
+                    if (result != null && result.Count() > 0)
+                    {
+                        faceNum = 1;
+                        for (int i = 0; i < baseLMLen; i++)
+                        {
+                            landMark[i * 2 + 0] = (int)result[0].shape.pts[i].x;
+                            landMark[i * 2 + 1] = (int)result[0].shape.pts[i].y;
+                        }
+                    }
+                    else
+                    {
+                        faceNum = 0;
+                        //MessageBox.Show("获取人脸点位失败！！！！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
-                else
-                {
-                    faceNum = 0;
-                    //MessageBox.Show("获取人脸点位失败！！！！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
 
-            if (_Equip != null&& faceNum>0)
+                if (_Equip != null && faceNum > 0)
+                {
+                    //美白
+                    if (_Equip.BeaMB > 0)
+                    {
+                        btnew = zSoftSkin.DoSkinWhitening(curBitmap, Convert.ToInt32(_Equip.BeaMB));
+                    }
+                    //磨皮
+                    if (_Equip.BeaMP > 0)
+                    {
+                        btnew = zSoftSkin.DoSoftSkin(curBitmap, landMark, Convert.ToInt32(_Equip.BeaMP));
+                    }
+                    //大眼
+                    if (_Equip.BeaDY > 0)
+                    {
+                        btnew = zSoftSkin.DoEyeWarp(curBitmap, landMark, Convert.ToInt32(_Equip.BeaDY));
+                    }
+                    //瘦脸
+                    if (_Equip.BeaSL > 0)
+                    {
+                        btnew = zSoftSkin.DoFaceLift(curBitmap, landMark, Convert.ToInt32(_Equip.BeaSL) / 2);
+                    }
+                    //眼袋
+                    if (_Equip.BeaYD > 0)
+                    {
+                        btnew = zSoftSkin.DoEyeBagRemoval(curBitmap, landMark, Convert.ToInt32(_Equip.BeaYD));
+                    }
+                    //鼻梁
+                    if (_Equip.BeaBL > 0)
+                    {
+                        btnew = zSoftSkin.DoHighNose(curBitmap, landMark, Convert.ToInt32(_Equip.BeaBL));
+                    }
+
+                    //亮眼
+                    if (_Equip.BeaLY > 0)
+                    {
+                        btnew = zSoftSkin.DoLightEye(curBitmap, landMark, Convert.ToInt32(_Equip.BeaLY));
+                    }
+                    //自动雀斑
+                    if (_Equip.BeaMB == 1)
+                    {
+                        btnew = zSoftSkin.DoDefreckleAuto(curBitmap, landMark, true);
+                    }
+
+                    b.ImageSource = BitmapToBitmapImage(btnew);
+                }
+
+            }
+            catch (Exception ex)
             {
-                //美白
-                if (_Equip.BeaMB > 0)
-                {
-                    btnew = zSoftSkin.DoSkinWhitening(curBitmap, Convert.ToInt32( _Equip.BeaMB));
-                }
-                //磨皮
-                if (_Equip.BeaMP > 0)
-                {
-                    btnew = zSoftSkin.DoSoftSkin(curBitmap, landMark, Convert.ToInt32(_Equip.BeaMP));
-                }
-                //大眼
-                if (_Equip.BeaDY > 0)
-                {
-                    btnew = zSoftSkin.DoEyeWarp(curBitmap, landMark, Convert.ToInt32(_Equip.BeaDY));
-                }
-                //瘦脸
-                if (_Equip.BeaSL > 0)
-                {
-                    btnew = zSoftSkin.DoFaceLift(curBitmap, landMark, Convert.ToInt32(_Equip.BeaSL)/2);
-                }
-                //眼袋
-                if (_Equip.BeaYD > 0)
-                {
-                    btnew = zSoftSkin.DoEyeBagRemoval(curBitmap, landMark, Convert.ToInt32(_Equip.BeaYD));
-                }
-                //鼻梁
-                if (_Equip.BeaBL > 0)
-                {
-                    btnew = zSoftSkin.DoHighNose(curBitmap, landMark, Convert.ToInt32(_Equip.BeaBL));
-                }
-          
-                //亮眼
-                if (_Equip.BeaLY > 0)
-                {
-                    btnew = zSoftSkin.DoLightEye(curBitmap, landMark, Convert.ToInt32(_Equip.BeaLY));
-                }
-                //自动雀斑
-                if (_Equip.BeaMB==1)
-                {
-                    btnew = zSoftSkin.DoDefreckleAuto(curBitmap, landMark, true);
-                }
-
-                b.ImageSource = BitmapToBitmapImage(btnew);
+                CameraPhoto.App.CameraLog.Info(ex.ToString());
+                ReportError(ex.Message, false);
             }
-
+           
 
 
             //System.Drawing.Bitmap btnew = zPhoto.EffectFilterById(bt, 1);
@@ -678,18 +701,27 @@ namespace CameraPhoto
         /// </summary>
         public void openSession()
         {
-            CamList = CameraHandler.GetCameraList();
-            if (CamList.Count() > 0)
-            {
-                CameraHandler.OpenSession(CamList[0]);
+            try {
+                CamList = CameraHandler.GetCameraList();
+                if (CamList.Count() > 0)
+                {
+                    CameraHandler.OpenSession(CamList[0]);
 
-                string cameraname = CameraHandler.MainCamera.Info.szDeviceDescription;
+                    string cameraname = CameraHandler.MainCamera.Info.szDeviceDescription;
 
-                if (CameraHandler.GetSetting(EDSDK.PropID_AEMode) != EDSDK.AEMode_Manual) MessageBox.Show("Camera is not in manual mode. Some features might not work!");
+                    if (CameraHandler.GetSetting(EDSDK.PropID_AEMode) != EDSDK.AEMode_Manual) MessageBox.Show("Camera is not in manual mode. Some features might not work!");
 
-                CameraHandler.SetSetting(EDSDK.PropID_SaveTo, (uint)EDSDK.EdsSaveTo.Host);
-                CameraHandler.SetCapacity();
+                    CameraHandler.SetSetting(EDSDK.PropID_SaveTo, (uint)EDSDK.EdsSaveTo.Host);
+                    CameraHandler.SetCapacity();
+                }
             }
+            catch (Exception ex)
+            {
+                CameraPhoto.App.CameraLog.Info(ex.ToString());
+                ReportError(ex.Message, false);
+
+            }
+           
 
         }
 
@@ -714,7 +746,9 @@ namespace CameraPhoto
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                CameraPhoto.App.CameraLog.Info(ex.ToString());
+                ReportError(ex.Message, false);
+
             }
         }
         private void SDK_ImageDownloaed(string filePath)
@@ -737,7 +771,8 @@ namespace CameraPhoto
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                CameraPhoto.App.CameraLog.Info(ex.ToString());
+                ReportError(ex.Message, false);
             }
         }
         /// <summary>
@@ -748,7 +783,11 @@ namespace CameraPhoto
         private void SDK_CameraHasShutdown(object sender, EventArgs e)
         {
             try { CloseSession(); }
-            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
+            catch (Exception ex)
+            {
+                CameraPhoto.App.CameraLog.Info(ex.ToString());
+                ReportError(ex.Message, false);
+            }
         }
         /// <summary>
         /// 关闭相机
@@ -798,6 +837,23 @@ namespace CameraPhoto
 
         }
 
+
+
+        private void ReportError(string message, bool lockdown)
+        {
+            int errc;
+            lock (ErrLock) { errc = ++ErrCount; }
+
+         
+
+            if (errc < 4) System.Windows.Forms.MessageBox.Show(message, "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+            else if (errc == 4) System.Windows.Forms.MessageBox.Show("Many errors happened!", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+
+            lock (ErrLock) { ErrCount--; }
+        }
+
+
+      
 
         #endregion
 

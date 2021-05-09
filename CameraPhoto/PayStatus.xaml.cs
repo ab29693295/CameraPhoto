@@ -93,6 +93,7 @@ namespace CameraPhoto
             }
             else
             {
+                timer.Stop();
                 this.RePayStack.Visibility = Visibility.Visible;
                 this.MainStack.Visibility = Visibility.Collapsed;
             }
@@ -109,14 +110,18 @@ namespace CameraPhoto
             int PayStatus = OrderHelper.GetOrderPayStatus(_OrderID);
             if (PayStatus == 1)
             {
-               
+
+
+                timer.Stop();
+                paytimer.Stop();
+
                 PhotoWindow pay = new PhotoWindow(_OrderID, _MealType,1);//
                 pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 pay.Show();
-
-                paytimer.Stop();
-
+           
                 this.Close();
+
+              
             }
         }
         /// <summary>
@@ -126,11 +131,17 @@ namespace CameraPhoto
         /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            paytimer.Stop();
+            timer.Stop();
+
             MainWindow pay = new MainWindow();
             pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             pay.Show();
 
+          
+
             this.Close();
+
         }
         /// <summary>
         /// 重新支付
@@ -142,6 +153,17 @@ namespace CameraPhoto
             this.RePayStack.Visibility = Visibility.Collapsed;
             this.MainStack.Visibility = Visibility.Visible;
             this.TimeLabel.Content = "90";
+
+            //支付倒计时定时器
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += timer1_Tick;
+            timer.Start();
+
+            paytimer = new DispatcherTimer();
+            paytimer.Interval = TimeSpan.FromSeconds(1);
+            paytimer.Tick += PayTimer_Tick;
+            paytimer.Start();
         }
     }
 }
