@@ -176,9 +176,14 @@ namespace CameraPhoto
         {
             MainWindow pay = new MainWindow();
             pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            Window window = Window.GetWindow(this);//关闭父窗体
+          
             pay.Show();
 
-            this.Close();
+            window.Close();
+
+
         }
 
         private void NextBtn_Click(object sender, RoutedEventArgs e)

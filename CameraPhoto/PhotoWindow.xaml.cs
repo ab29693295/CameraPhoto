@@ -140,17 +140,7 @@ namespace CameraPhoto
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             // 禁止同时打开2个
-            bool mutexIsNew = false;
-            try
-            {
-                myMutex = new System.Threading.Mutex(true, "photowindow", out mutexIsNew);
-            }
-            catch { }
-            if (!mutexIsNew)
-            {
-               
-                this.Close();
-            }
+           
             this.WindowState = WindowState.Maximized;
 
             if (MealType == 2)
@@ -265,9 +255,12 @@ namespace CameraPhoto
 
             SelectBorder seBorder = new SelectBorder(OrderID,MealType, MealTime);//OrderID,MealTime
             seBorder.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            Window window = Window.GetWindow(this);//关闭父窗体
+            window.Close();
+
             seBorder.Show();
 
-            this.Close();
+          
         }
 
         private void ReButton_Click(object sender, RoutedEventArgs e)

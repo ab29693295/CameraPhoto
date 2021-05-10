@@ -74,15 +74,21 @@ namespace CameraPhoto
                 timer.Stop();
                 MainWindow pay = new MainWindow();
                 pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-                pay.ShowDialog();
+
+                Window window = Window.GetWindow(this);//关闭父窗体
+                window.Close();
+                pay.Show();
               
-                this.Close();
+               
             }
          
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
+            timer.Stop();
+
             string Url = ConfigHelper.GetConfigString("HttpUlr") + "/OrderFilter/Index?oID=" + OrderID.ToString();
 
             string dicPth = ConfigHelper.GetConfigString("ImageFile") + "\\" + OrderID.ToString() + "\\ElePrint";
@@ -102,12 +108,15 @@ namespace CameraPhoto
             imageBit.Save(ImagePath, System.Drawing.Imaging.ImageFormat.Png);
             ElePrint pay = new ElePrint(ImagePath);
             pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            Window window = Window.GetWindow(this);//关闭父窗体
+            window.Close();
             pay.Show();
 
+        
+         
 
-            timer.Stop();
-
-            this.Close();
+            
         }
 
         private void Button_Click_Agin(object sender, RoutedEventArgs e)
@@ -116,9 +125,12 @@ namespace CameraPhoto
 
             PhotoWindow pay = new PhotoWindow(OrderID, 2, 2);
             pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            Window window = Window.GetWindow(this);//关闭父窗体
+            window.Close();
             pay.Show();
 
-            this.Close();
+           
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -127,9 +139,13 @@ namespace CameraPhoto
 
             MainWindow pay = new MainWindow();
             pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            Window window = Window.GetWindow(this);//关闭父窗体
+          
             pay.Show();
 
-            this.Close();
+            window.Close();
+
+
         }
 
         private void StackPanel_MouseDown(object sender, MouseButtonEventArgs e)
@@ -165,9 +181,12 @@ namespace CameraPhoto
 
             PhotoWindow pay = new PhotoWindow(OrderID, 1, 2);
             pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            Window window = Window.GetWindow(this);//关闭父窗体
+            window.Close();
+
             pay.Show();
 
-            this.Close();
+           
         }
     }
 }

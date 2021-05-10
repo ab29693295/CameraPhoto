@@ -259,9 +259,11 @@ namespace CameraPhoto
         {
             MainWindow pay = new MainWindow();
             pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            Window window = Window.GetWindow(this);//关闭父窗体
+            window.Close();
             pay.Show();
 
-            this.Close();
         }
         /// <summary>
         /// bao
@@ -300,9 +302,15 @@ namespace CameraPhoto
 
             SelectFilter pay = new SelectFilter(OrderID,MealType,MealTime,BorderPath1,BorderPath2);
             pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            Window window = Window.GetWindow(this);//关闭父窗体
+
             pay.Show();
 
-            this.Close();
+            window.Close();
+           
+
+           
         }
 
        

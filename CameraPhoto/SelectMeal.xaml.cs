@@ -169,9 +169,12 @@ namespace CameraPhoto
                 //pp.Show();
                 PayStatus pay = new PayStatus(_orderResult.OrderID, ImagePath, 2);
                 pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+                Window window = Window.GetWindow(this);//关闭父窗体
+                window.Close();
                 pay.Show();
 
-                this.Close();
+           
             }
         }
 

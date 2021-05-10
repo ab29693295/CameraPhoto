@@ -117,9 +117,12 @@ namespace CameraPhoto
 
                 PhotoWindow pay = new PhotoWindow(_OrderID, _MealType,1);//
                 pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+                Window window = Window.GetWindow(this);//关闭父窗体
+                window.Close();
                 pay.Show();
            
-                this.Close();
+               
 
               
             }
@@ -136,12 +139,11 @@ namespace CameraPhoto
 
             MainWindow pay = new MainWindow();
             pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            Window window = Window.GetWindow(this);//关闭父窗体
+            window.Close();
             pay.Show();
-
           
-
-            this.Close();
-
         }
         /// <summary>
         /// 重新支付
