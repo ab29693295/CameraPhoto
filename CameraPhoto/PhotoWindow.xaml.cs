@@ -256,11 +256,13 @@ namespace CameraPhoto
             SelectBorder seBorder = new SelectBorder(OrderID,MealType, MealTime);//OrderID,MealTime
             seBorder.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             Window window = Window.GetWindow(this);//关闭父窗体
-            window.Close();
+           
 
             seBorder.Show();
 
-          
+            window.Close();
+
+
         }
 
         private void ReButton_Click(object sender, RoutedEventArgs e)

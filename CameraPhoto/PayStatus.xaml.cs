@@ -94,6 +94,7 @@ namespace CameraPhoto
             else
             {
                 timer.Stop();
+                paytimer.Stop();
                 this.RePayStack.Visibility = Visibility.Visible;
                 this.MainStack.Visibility = Visibility.Collapsed;
             }
@@ -117,10 +118,13 @@ namespace CameraPhoto
 
                 PhotoWindow pay = new PhotoWindow(_OrderID, _MealType,1);//
                 pay.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
                 Window window = Window.GetWindow(this);//关闭父窗体
-                window.Close();
+
                 pay.Show();
+
+              
+                window.Close();
+               
            
                
 
